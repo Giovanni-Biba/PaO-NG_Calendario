@@ -11,7 +11,7 @@ MainWindow::MainWindow(QWidget *parent)
     labelRisultato = new QLabel("", this);
     btnClose = new QPushButton("chiudi", this);
 
-//prova
+    //prova
     radioSi->setEnabled(false);
     radioNo->setEnabled(false);
     btnInvia->setEnabled(false);
@@ -22,8 +22,7 @@ MainWindow::MainWindow(QWidget *parent)
     btnInvia->setVisible(false);
     btnClose->setVisible(false);
 
-
-    QVBoxLayout* layout = new QVBoxLayout;
+    QVBoxLayout *layout = new QVBoxLayout;
     layout->addWidget(btnValuta);
     layout->addWidget(radioSi);
     layout->addWidget(radioNo);
@@ -31,28 +30,20 @@ MainWindow::MainWindow(QWidget *parent)
     layout->addWidget(labelRisultato);
     layout->addWidget(btnClose);
 
-
-    QWidget* central = new QWidget(this);
+    QWidget *central = new QWidget(this);
     central->setLayout(layout);
     setCentralWidget(central);
 
+    connect(btnValuta, &QPushButton::clicked, this, &MainWindow::abilitaValutazione);
 
-    connect(btnValuta, &QPushButton::clicked,
-            this, &MainWindow::abilitaValutazione);
+    connect(radioSi, &QRadioButton::clicked, this, &MainWindow::sbloccaBtnInvia);
 
-    connect(radioSi, &QRadioButton::clicked,
-            this, &MainWindow::sbloccaBtnInvia);
+    connect(radioNo, &QRadioButton::clicked, this, &MainWindow::sbloccaBtnInvia);
 
-    connect(radioNo, &QRadioButton::clicked,
-            this, &MainWindow::sbloccaBtnInvia);
+    connect(btnInvia, &QPushButton::clicked, this, &MainWindow::inviaValutazione);
 
-    connect(btnInvia, &QPushButton::clicked,
-            this, &MainWindow::inviaValutazione);
-
-    connect(btnClose, &QPushButton::clicked,
-            this, &MainWindow::chiudiValutazione);
+    connect(btnClose, &QPushButton::clicked, this, &MainWindow::chiudiValutazione);
 }
-
 
 void MainWindow::abilitaValutazione()
 {
@@ -63,20 +54,18 @@ void MainWindow::abilitaValutazione()
     btnInvia->setVisible(true);
 }
 
-
-void MainWindow::sbloccaBtnInvia(){
+void MainWindow::sbloccaBtnInvia()
+{
     if (radioSi->isChecked() || radioNo->isChecked()) {
         btnInvia->setEnabled(true);
-    }
-    else {
+    } else {
         labelRisultato->setText("Seleziona un'opzione.");
     }
 }
 
-
 void MainWindow::inviaValutazione()
 {
-    if(radioSi->isChecked()){
+    if (radioSi->isChecked()) {
         radioSi->setEnabled(false);
         radioNo->setEnabled(false);
         btnValuta->setEnabled(false);
@@ -85,19 +74,20 @@ void MainWindow::inviaValutazione()
         btnClose->setVisible(true);
         btnClose->setEnabled(true);
 
-    }
-    else{
+    } else {
         radioSi->setEnabled(false);
         radioNo->setEnabled(false);
         btnValuta->setEnabled(false);
         btnInvia->setEnabled(false);
-        labelRisultato->setText("ci dispiace che tu sia rimasto insoddisfatto, cercheremo di migliorare");
+        labelRisultato->setText(
+            "ci dispiace che tu sia rimasto insoddisfatto, cercheremo di migliorare");
         btnClose->setVisible(true);
         btnClose->setEnabled(true);
     }
 }
 
-void MainWindow::chiudiValutazione(){
+void MainWindow::chiudiValutazione()
+{
     btnValuta->setEnabled(true);
     radioSi->setVisible(false);
     radioNo->setVisible(false);
@@ -107,3 +97,6 @@ void MainWindow::chiudiValutazione(){
 }
 
 MainWindow::~MainWindow() = default;
+
+
+//prova test prova
