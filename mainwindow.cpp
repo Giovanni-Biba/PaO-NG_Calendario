@@ -11,7 +11,7 @@ MainWindow::MainWindow(QWidget *parent)
     labelRisultato = new QLabel("", this);
     btnClose = new QPushButton("chiudi", this);
 
-
+//prova
     radioSi->setEnabled(false);
     radioNo->setEnabled(false);
     btnInvia->setEnabled(false);
