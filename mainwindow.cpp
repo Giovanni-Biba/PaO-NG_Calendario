@@ -1,4 +1,5 @@
 #include "mainwindow.h"
+#include "secondwindow.h"
 #include <QVBoxLayout>
 
 MainWindow::MainWindow(QWidget *parent)
@@ -88,12 +89,9 @@ void MainWindow::inviaValutazione()
 
 void MainWindow::chiudiValutazione()
 {
-    btnValuta->setEnabled(true);
-    radioSi->setVisible(false);
-    radioNo->setVisible(false);
-    btnInvia->setVisible(false);
-    btnClose->setVisible(false);
-    labelRisultato->clear();
+    SecondWindow *pagHome = new SecondWindow();
+    pagHome->show();
+    this->close();
 }
 
 MainWindow::~MainWindow() = default;
