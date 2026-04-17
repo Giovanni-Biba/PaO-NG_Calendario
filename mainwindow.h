@@ -27,6 +27,6 @@ private slots:
     void sbloccaBtnInvia();
     void inviaValutazione();
     void chiudiValutazione();
-
+//prova prova
 };
 #endif // MAINWINDOW_H
