@@ -9,20 +9,24 @@
 Home::Home(QWidget *parent)
     : QMainWindow{parent}
 {
-    Titolo = new QPushButton("NG_CALENDARIO", this);
+    QWidget *container = new QWidget;
+    QVBoxLayout *mainLayout = new QVBoxLayout(container);
 
-    QVBoxLayout *topLayout = new QVBoxLayout;
+    // --- TOP BAR
+    QWidget *top = new QWidget;
+    QVBoxLayout *topLayout = new QVBoxLayout(top);
+
+    Titolo = new QPushButton("NG_CALENDARIO");
     Titolo->setStyleSheet(
         "QPushButton {"
         "background-color: transparent;"
         "border: none;"
-        "}");
+        "}"
+        );
+
     topLayout->addWidget(Titolo);
 
-    QWidget *top = new QWidget(this);
-    top->setLayout(topLayout);
-    setCentralWidget(top);
-
+    // --- CALENDAR
     QWidget *calendarWidget = new QWidget;
     QGridLayout *grid = new QGridLayout(calendarWidget);
 
@@ -35,7 +39,7 @@ Home::Home(QWidget *parent)
         grid->addWidget(header, 0, col + 1);
     }
 
-    // colonna orari + celle
+    // righe orari
     for (int row = 1; row <= 24; row++) {
         QLabel *ora = new QLabel(QString("%1:00").arg(row));
         grid->addWidget(ora, row, 0);
@@ -48,10 +52,14 @@ Home::Home(QWidget *parent)
         }
     }
 
+    // --- COMPOSIZIONE LAYOUT
+    mainLayout->addWidget(top);
+    mainLayout->addWidget(calendarWidget);
+
     // --- SCROLL AREA
     QScrollArea *scroll = new QScrollArea;
     scroll->setWidgetResizable(true);
-    scroll->setWidget(top);
-    scroll->setWidget(calendarWidget);
+    scroll->setWidget(container);
+
     setCentralWidget(scroll);
 }
