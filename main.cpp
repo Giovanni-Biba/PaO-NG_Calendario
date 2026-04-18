@@ -1,4 +1,4 @@
-#include "secondwindow.h"
+#include "home.h"
 
 #include <QApplication>
 
@@ -6,7 +6,7 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
 
-    SecondWindow home;
-    home.show();
+    Home Calendario;
+    Calendario.showMaximized();
     return QCoreApplication::exec();
 }

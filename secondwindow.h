@@ -1,4 +1,4 @@
-#ifndef SECONDWINDOW_H
+/*#ifndef SECONDWINDOW_H
 #define SECONDWINDOW_H
 
 #include <QMainWindow>
@@ -20,4 +20,4 @@ private slots:
     void valutazione();
 };
 
-#endif // SECONDWINDOW_H
+#endif // SECONDWINDOW_H*/

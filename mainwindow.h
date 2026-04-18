@@ -1,4 +1,4 @@
-#ifndef MAINWINDOW_H
+/*#ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
 #include <QMainWindow>
@@ -29,4 +29,4 @@ private slots:
     void chiudiValutazione();
 //prova prova
 };
-#endif // MAINWINDOW_H
+#endif // MAINWINDOW_H*/

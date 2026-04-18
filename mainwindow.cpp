@@ -1,4 +1,4 @@
-#include "mainwindow.h"
+/*#include "mainwindow.h"
 #include "secondwindow.h"
 #include <QVBoxLayout>
 
@@ -97,4 +97,4 @@ void MainWindow::chiudiValutazione()
 MainWindow::~MainWindow() = default;
 
 
-//prova test prova
+//prova test prova*/

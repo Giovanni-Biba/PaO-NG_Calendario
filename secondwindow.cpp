@@ -1,4 +1,4 @@
-#include "secondwindow.h"
+/*#include "secondwindow.h"
 #include "mainwindow.h"
 #include <QVBoxLayout>
 #include <QApplication>
@@ -28,4 +28,4 @@ void SecondWindow::valutazione(){
     this->close();
 }
 
-//SecondWindow::~SecondWindow() = default;
+//SecondWindow::~SecondWindow() = default;*/
