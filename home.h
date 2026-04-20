@@ -5,6 +5,7 @@
 #include <QPushButton>
 #include <QRadioButton>
 #include <QLabel>
+#include "search.h"
 
 class Home : public QMainWindow
 {
@@ -14,6 +15,7 @@ public:
 
 private:
     QPushButton* Titolo;
+    Search *BarraRicerca;
 
 private slots:
     //void ricaricaHome();

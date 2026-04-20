@@ -1,16 +1,25 @@
 #include "home.h"
-
+#include "search.h"
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QGridLayout>
 #include <QScrollArea>
-#include <QApplication>
+#include <QLabel>
+#include <QPushButton>
 
 Home::Home(QWidget *parent)
     : QMainWindow{parent}
 {
+    // Widget principale
     QWidget *container = new QWidget;
     QVBoxLayout *mainLayout = new QVBoxLayout(container);
+
+    // --- BARRA DI RICERCA
+    BarraRicerca = new Search();
+    BarraRicerca->setStyleSheet(
+        "Search { color: white; }"
+        );
+    mainLayout->addWidget(BarraRicerca);
 
     // --- TOP BAR
     QWidget *top = new QWidget;
@@ -25,6 +34,7 @@ Home::Home(QWidget *parent)
         );
 
     topLayout->addWidget(Titolo);
+    mainLayout->addWidget(top);
 
     // --- CALENDAR
     QWidget *calendarWidget = new QWidget;
@@ -53,7 +63,6 @@ Home::Home(QWidget *parent)
     }
 
     // --- COMPOSIZIONE LAYOUT
-    mainLayout->addWidget(top);
     mainLayout->addWidget(calendarWidget);
 
     // --- SCROLL AREA
