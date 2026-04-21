@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QDate>
 #include <QTime>
+#include <QPushButton>
 
 struct RicercaConfig {
     QString testo;
@@ -21,6 +22,10 @@ public:
 
 private:
     RicercaConfig rConfig;
+    QPushButton *closeResearch;
+
+private slots:
+    void RitornaHome();
 };
 
 #endif // RICERCA_H
