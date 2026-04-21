@@ -20,7 +20,7 @@ private:
 private slots:
     //void visualizzaSelezione();
     //void cambiaSettimanaGriglia();
-    //void ricerca();
+    void closeHome();
 };
 
 #endif // HOME_H

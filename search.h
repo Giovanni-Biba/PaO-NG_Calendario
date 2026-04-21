@@ -15,13 +15,14 @@ class Search : public QWidget
     Q_OBJECT
 public:
     explicit Search(QWidget *parent = nullptr);
+    QPushButton *CercaButton;
 
 private:
     QLineEdit *TitoloInput;
     QDateEdit *DataInput;
     QTimeEdit *OraInput;
     QComboBox *PrioritaInput;
-    QPushButton *CercaButton;
+
 
 private slots:
     void Research();

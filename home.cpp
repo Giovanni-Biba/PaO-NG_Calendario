@@ -71,4 +71,10 @@ Home::Home(QWidget *parent)
     scroll->setWidget(container);
 
     setCentralWidget(scroll);
+
+    connect(BarraRicerca->CercaButton, &QPushButton::clicked, this, &Home::closeHome);
+}
+
+void Home::closeHome(){
+    this->close();
 }
