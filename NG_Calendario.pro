@@ -9,15 +9,11 @@ CONFIG += c++17
 SOURCES += \
     home.cpp \
     main.cpp \
-    mainwindow.cpp \
     search.cpp \
-    secondwindow.cpp
 
 HEADERS += \
     home.h \
-    mainwindow.h \
     search.h \
-    secondwindow.h
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
