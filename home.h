@@ -18,7 +18,9 @@ private:
     Search *BarraRicerca;
 
 private slots:
-    //void ricaricaHome();
+    //void visualizzaSelezione();
+    //void cambiaSettimanaGriglia();
+    //void ricerca();
 };
 
 #endif // HOME_H

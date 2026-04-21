@@ -15,7 +15,7 @@ Search::Search(QWidget *parent)
     // --- TITOLO
     QHBoxLayout *layoutTitolo = new QHBoxLayout();
     QLabel *lblTitolo = new QLabel("Titolo:");
-    lblTitolo->setStyleSheet("color: white; font-weight: bold;");
+    lblTitolo->setStyleSheet(" font-weight: bold;");
     TitoloInput = new QLineEdit();
     TitoloInput->setPlaceholderText("Cosa cerchi?");
     TitoloInput->setStyleSheet("color: white;");
@@ -27,10 +27,9 @@ Search::Search(QWidget *parent)
     // --- DATA
     QHBoxLayout *layoutData = new QHBoxLayout();
     QLabel *lblData = new QLabel("Data:");
-    lblData->setStyleSheet("color: white; font-weight: bold;");
+    lblData->setStyleSheet(" font-weight: bold;");
     DataInput = new QDateEdit(QDate::currentDate());
     DataInput->setCalendarPopup(true);
-    DataInput->setStyleSheet("color: white;");
 
     layoutData->addWidget(lblData);
     layoutData->addWidget(DataInput);
@@ -39,9 +38,8 @@ Search::Search(QWidget *parent)
     // --- ORA
     QHBoxLayout *layoutOra = new QHBoxLayout();
     QLabel *lblOra = new QLabel("Ora:");
-    lblOra->setStyleSheet("color: white; font-weight: bold;");
+    lblOra->setStyleSheet("font-weight: bold;");
     OraInput = new QTimeEdit(QTime::currentTime());
-    OraInput->setStyleSheet("color: white;");
 
     layoutOra->addWidget(lblOra);
     layoutOra->addWidget(OraInput);
@@ -50,10 +48,9 @@ Search::Search(QWidget *parent)
     // --- PRIORITÀ
     QHBoxLayout *layoutPrio = new QHBoxLayout();
     QLabel *lblPrio = new QLabel("Priorità:");
-    lblPrio->setStyleSheet("color: white; font-weight: bold;");
+    lblPrio->setStyleSheet("font-weight: bold;");
     PrioritaInput = new QComboBox();
     PrioritaInput->addItems({"Tutte", "Bassa", "Media", "Alta"});
-    PrioritaInput->setStyleSheet("color: white;");
 
     layoutPrio->addWidget(lblPrio);
     layoutPrio->addWidget(PrioritaInput);
@@ -63,4 +60,27 @@ Search::Search(QWidget *parent)
     CercaButton = new QPushButton("CERCA");
     CercaButton->setStyleSheet("font-weight: bold; padding: 5px 15px;");
     mainLayout->addWidget(CercaButton);
+
+
+    connect(CercaButton, &QPushButton::clicked, this, &Search::Research);
+}
+
+void Search::Research(){
+    RicercaConfig config;
+    if(!TitoloInput->text().trimmed().isEmpty()){
+        config.testo = TitoloInput->text();
+    }
+    if(DataInput->date().isValid()){
+        config.data = DataInput->date();
+    }
+    if(OraInput->time().isValid()){
+        config.orario = OraInput->time();
+    }
+    QString temp = PrioritaInput->currentText();
+    if(!temp.isEmpty()){
+        config.priorita = temp;
+    }
+    ricerca *r = new ricerca(config);
+    r->showMaximized();
+    this->close();
 }

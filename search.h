@@ -1,6 +1,7 @@
 #ifndef SEARCH_H
 #define SEARCH_H
 
+#include "ricerca.h"
 #include <QWidget>
 #include <QLineEdit>
 #include <QDateEdit>
@@ -21,6 +22,9 @@ private:
     QTimeEdit *OraInput;
     QComboBox *PrioritaInput;
     QPushButton *CercaButton;
+
+private slots:
+    void Research();
 };
 
 #endif // SEARCH_H

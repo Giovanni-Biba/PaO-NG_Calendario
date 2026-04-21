@@ -9,10 +9,12 @@ CONFIG += c++17
 SOURCES += \
     home.cpp \
     main.cpp \
+    ricerca.cpp \
     search.cpp \
 
 HEADERS += \
     home.h \
+    ricerca.h \
     search.h \
 
 # Default rules for deployment.
