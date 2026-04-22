@@ -4,8 +4,10 @@
 #include <QMainWindow>
 #include <QPushButton>
 #include <QRadioButton>
+#include <QStackedWidget>
 #include <QLabel>
-#include "search.h"
+
+class calendar;
 
 class Home : public QMainWindow
 {
@@ -14,13 +16,9 @@ public:
     explicit Home(QWidget *parent = nullptr);
 
 private:
-    QPushButton* Titolo;
-    Search *BarraRicerca;
+    QStackedWidget *stackHome;
 
-private slots:
-    //void visualizzaSelezione();
-    //void cambiaSettimanaGriglia();
-    void closeHome();
+    QWidget *calendarPage;
 };
 
 #endif // HOME_H

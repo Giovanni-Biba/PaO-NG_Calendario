@@ -80,7 +80,9 @@ void Search::Research(){
     if(!temp.isEmpty()){
         config.priorita = temp;
     }
-    ricerca *r = new ricerca(config);
+    /*ricerca *r = new ricerca(config);
     r->showMaximized();
-    this->close();
+    this->close();*/
+
+
 }

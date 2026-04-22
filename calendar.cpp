@@ -1,27 +1,18 @@
-#include "home.h"
 #include "calendar.h"
+#include "home.h"
+#include "search.h"
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QGridLayout>
 #include <QScrollArea>
 #include <QLabel>
 #include <QPushButton>
-#include <QStackedWidget>
 
-Home::Home(QWidget *parent)
-    : QMainWindow{parent}
+calendar::calendar(QWidget *parent)
+    : QWidget{parent}
 {
-    stackHome = new QStackedWidget;
-
-    calendarPage = new calendar;
-
-    stackHome->addWidget(calendarPage);
-    setCentralWidget(stackHome);
-    stackHome->setCurrentIndex(1);
-
-    /*// Widget principale
-    QWidget *container = new QWidget;
-    QVBoxLayout *mainLayout = new QVBoxLayout(container);
+    // Widget principale
+    QVBoxLayout *mainLayout = new QVBoxLayout(this);
 
     // --- BARRA DI RICERCA
     BarraRicerca = new Search();
@@ -77,14 +68,14 @@ Home::Home(QWidget *parent)
     // --- SCROLL AREA
     QScrollArea *scroll = new QScrollArea;
     scroll->setWidgetResizable(true);
-    scroll->setWidget(container);
+    scroll->setWidget(this);
 
-    setCentralWidget(scroll);*/
+    //setCentralWidget(scroll);
 
-    //connect(BarraRicerca->CercaButton, &QPushButton::clicked, this, &Home::closeHome);
+    connect(BarraRicerca->CercaButton, &QPushButton::clicked, this, &calendar::closeCalendar);
+
 }
 
-
-/*void Home::closeHome(){
+void calendar::closeCalendar(){
     this->close();
-}*/
+}
