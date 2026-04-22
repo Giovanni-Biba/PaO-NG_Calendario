@@ -5,8 +5,7 @@
 Search::Search(QWidget *parent)
     : QWidget{parent}
 {
-    // Stile base
-    this->setStyleSheet("background-color: #f0f0f0; border: 1px solid #ccc;");
+    this->setStyleSheet("background-color: #f0f0f0; border: 1px solid lightgrey;");
 
     // Layout orizzontale principale per tutta la barra
     QHBoxLayout *mainLayout = new QHBoxLayout(this);
