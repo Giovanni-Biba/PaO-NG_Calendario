@@ -61,10 +61,11 @@ SearchBar::SearchBar(QWidget *parent)
     mainLayout->addWidget(CercaButton);
 
 
-    connect(CercaButton, &QPushButton::clicked, this, &SearchBar::Ricerca);
+    //connect(CercaButton, &QPushButton::clicked, this, &SearchBar::Ricerca);
+    connect(CercaButton, &QPushButton::clicked, this, &SearchBar::cercaClicked);
 }
 
-void SearchBar::Ricerca(){
+/*void SearchBar::Ricerca(){
     RicercaConfig config;
     if(!TitoloInput->text().trimmed().isEmpty()){
         config.testo = TitoloInput->text();
@@ -79,9 +80,6 @@ void SearchBar::Ricerca(){
     if(!temp.isEmpty()){
         config.priorita = temp;
     }
-    /*ricerca *r = new ricerca(config);
+    ricerca *r = new ricerca(config);
     r->showMaximized();
     this->close();*/
-
-
-}

@@ -1,5 +1,7 @@
 #include "home.h"
 #include "calendar.h"
+#include "research.h"
+#include "create.h"
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QGridLayout>
@@ -14,77 +16,20 @@ Home::Home(QWidget *parent)
     stackHome = new QStackedWidget;
 
     calendarPage = new calendar;
-
+    createPage = new Create;
+    researchPage = new Research;
     stackHome->addWidget(calendarPage);
+    stackHome->addWidget(createPage);
+    stackHome->addWidget(researchPage);
     setCentralWidget(stackHome);
-    stackHome->setCurrentIndex(1);
+    stackHome->setCurrentWidget(calendarPage);
 
-    /*// Widget principale
-    QWidget *container = new QWidget;
-    QVBoxLayout *mainLayout = new QVBoxLayout(container);
 
-    // --- BARRA DI RICERCA
-    BarraRicerca = new Search();
-    BarraRicerca->setStyleSheet(
-        "Search { color: white; }"
-        );
-    mainLayout->addWidget(BarraRicerca);
+    connect(calendarPage, &calendar::richiestaCrea, this, [this]() {
+        stackHome->setCurrentWidget(createPage);
+    });
 
-    // --- TOP BAR
-    QWidget *top = new QWidget;
-    QVBoxLayout *topLayout = new QVBoxLayout(top);
-
-    Titolo = new QPushButton("NG_CALENDARIO");
-    Titolo->setStyleSheet(
-        "QPushButton {"
-        "background-color: transparent;"
-        "border: none;"
-        "}"
-        );
-
-    topLayout->addWidget(Titolo);
-    mainLayout->addWidget(top);
-
-    // --- CALENDAR
-    QWidget *calendarWidget = new QWidget;
-    QGridLayout *grid = new QGridLayout(calendarWidget);
-
-    // intestazioni giorni
-    QStringList giorni = {"Lun", "Mar", "Mer", "Gio", "Ven", "Sab", "Dom"};
-
-    for (int col = 0; col < 7; col++) {
-        QLabel *header = new QLabel(giorni[col]);
-        header->setAlignment(Qt::AlignCenter);
-        grid->addWidget(header, 0, col + 1);
-    }
-
-    // righe orari
-    for (int row = 1; row <= 24; row++) {
-        QLabel *ora = new QLabel(QString("%1:00").arg(row));
-        grid->addWidget(ora, row, 0);
-
-        for (int col = 0; col < 7; col++) {
-            QLabel *cella = new QLabel;
-            cella->setMinimumSize(100, 60);
-            cella->setStyleSheet("border: 1px solid lightgray;");
-            grid->addWidget(cella, row, col + 1);
-        }
-    }
-
-    // --- COMPOSIZIONE LAYOUT
-    mainLayout->addWidget(calendarWidget);
-
-    // --- SCROLL AREA
-    QScrollArea *scroll = new QScrollArea;
-    scroll->setWidgetResizable(true);
-    scroll->setWidget(container);
-
-    setCentralWidget(scroll);*/
-
-    //connect(BarraRicerca->CercaButton, &QPushButton::clicked, this, &Home::closeHome);
+    connect(calendarPage, &calendar::richiestaCerca, this, [this]() {
+        stackHome->setCurrentWidget(researchPage);
+    });
 }
-
-
-/*void Home::closeHome(){
-    this->close();
-}*/

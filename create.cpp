@@ -1,5 +1,5 @@
 #include "create.h"
 
-create::create(QWidget *parent)
+Create::Create(QWidget *parent)
     : QWidget{parent}
 {}

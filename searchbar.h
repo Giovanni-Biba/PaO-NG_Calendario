@@ -23,9 +23,8 @@ private:
     QTimeEdit *OraInput;
     QComboBox *PrioritaInput;
 
-
-private slots:
-    void Ricerca();
+signals:
+    void cercaClicked();
 };
 
 #endif // SEARCHBAR_H

@@ -1,31 +1,15 @@
 #ifndef RESEARCH_H
 #define RESEARCH_H
 
-#include <QMainWindow>
-#include <QDate>
-#include <QTime>
-#include <QPushButton>
+#include <QWidget>
 
-struct RicercaConfig {
-    QString testo;
-    //QDateTime periodo;
-    QDate data;
-    QTime orario;
-    QString priorita;
-};
-
-class Research : public QMainWindow
+class Research : public QWidget
 {
     Q_OBJECT
 public:
-    explicit Research(const RicercaConfig &config = RicercaConfig(),QWidget *parent = nullptr);
+    explicit Research(QWidget *parent = nullptr);
 
-private:
-    RicercaConfig rConfig;
-    QPushButton *closeResearch;
-
-private slots:
-    void RitornaHome();
+signals:
 };
 
 #endif // RESEARCH_H

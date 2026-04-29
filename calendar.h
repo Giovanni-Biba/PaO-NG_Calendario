@@ -16,10 +16,16 @@ public:
 private:
     QPushButton* Titolo;
     SearchBar *BarraRicerca;
+    QPushButton* Crea;
 
 private slots:
     //void visualizzaSelezione();
     //void cambiaSettimanaGriglia();
-    void closeCalendar();};
+    void closeCalendar();
+
+signals:
+    void richiestaCrea();
+    void richiestaCerca();
+};
 
 #endif // CALENDAR_H

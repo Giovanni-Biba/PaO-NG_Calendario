@@ -18,7 +18,9 @@ public:
 private:
     QStackedWidget *stackHome;
 
-    QWidget *calendarPage;
+    calendar *calendarPage;
+    QWidget *createPage;
+    QWidget *researchPage;
 };
 
 #endif // HOME_H

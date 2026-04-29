@@ -73,7 +73,10 @@ calendar::calendar(QWidget *parent)
     // aggiungi scroll al layout principale
     mainLayout->addWidget(scroll);
 
-    // connect(BarraRicerca->CercaButton, &QPushButton::clicked, this, &calendar::closeCalendar);
+    Crea = new QPushButton("+ Crea");
+    mainLayout->addWidget(Crea);
+    connect(Crea, &QPushButton::clicked, this, &calendar::richiestaCrea);
+    connect(BarraRicerca, &SearchBar::cercaClicked, this, &calendar::richiestaCerca);
 }
 
 void calendar::closeCalendar(){

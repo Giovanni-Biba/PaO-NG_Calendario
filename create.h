@@ -3,11 +3,11 @@
 
 #include <QWidget>
 
-class create : public QWidget
+class Create : public QWidget
 {
     Q_OBJECT
 public:
-    explicit create(QWidget *parent = nullptr);
+    explicit Create(QWidget *parent = nullptr);
 
 signals:
 };
