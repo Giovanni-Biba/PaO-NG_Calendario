@@ -1,7 +1,7 @@
-#ifndef SEARCH_H
-#define SEARCH_H
+#ifndef SEARCHBAR_H
+#define SEARCHBAR_H
 
-#include "ricerca.h"
+#include "research.h"
 #include <QWidget>
 #include <QLineEdit>
 #include <QDateEdit>
@@ -10,11 +10,11 @@
 #include <QPushButton>
 #include <QLabel>
 
-class Search : public QWidget
+class SearchBar : public QWidget
 {
     Q_OBJECT
 public:
-    explicit Search(QWidget *parent = nullptr);
+    explicit SearchBar(QWidget *parent = nullptr);
     QPushButton *CercaButton;
 
 private:
@@ -25,7 +25,7 @@ private:
 
 
 private slots:
-    void Research();
+    void Ricerca();
 };
 
-#endif // SEARCH_H
+#endif // SEARCHBAR_H

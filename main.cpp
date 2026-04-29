@@ -1,5 +1,5 @@
 #include "home.h"
-#include "search.h"
+#include "searchbar.h"
 #include <QApplication>
 
 int main(int argc, char *argv[])

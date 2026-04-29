@@ -1,4 +1,4 @@
-#include "ricerca.h"
+#include "research.h"
 #include "home.h"
 
 #include <QVBoxLayout>
@@ -8,7 +8,7 @@
 #include <QLabel>
 #include <QPushButton>
 
-ricerca::ricerca(const RicercaConfig &config, QWidget *parent)
+Research::Research(const RicercaConfig &config, QWidget *parent)
     : QMainWindow(parent),
     rConfig(config)
 {
@@ -21,11 +21,11 @@ ricerca::ricerca(const RicercaConfig &config, QWidget *parent)
     central->setLayout(mainLayout);
     setCentralWidget(central);
 
-    connect(closeResearch, &QPushButton::clicked, this, &ricerca::RitornaHome);
+    connect(closeResearch, &QPushButton::clicked, this, &Research::RitornaHome);
 
 }
 
-void ricerca::RitornaHome(){
+void Research::RitornaHome(){
     Home *h = new Home();
     h->showMaximized();
     this->close();

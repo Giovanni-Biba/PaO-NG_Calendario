@@ -5,7 +5,7 @@
 #include <QPushButton>
 #include <QRadioButton>
 #include <QLabel>
-#include "search.h"
+#include "searchbar.h"
 
 class calendar : public QWidget
 {
@@ -15,7 +15,7 @@ public:
 
 private:
     QPushButton* Titolo;
-    Search *BarraRicerca;
+    SearchBar *BarraRicerca;
 
 private slots:
     //void visualizzaSelezione();

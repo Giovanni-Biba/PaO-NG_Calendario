@@ -10,14 +10,14 @@ SOURCES += \
     calendar.cpp \
     home.cpp \
     main.cpp \
-    ricerca.cpp \
-    search.cpp \
+    research.cpp \
+    searchbar.cpp
 
 HEADERS += \
     calendar.h \
     home.h \
-    ricerca.h \
-    search.h \
+    research.h \
+    searchbar.h
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

@@ -1,8 +1,8 @@
-#include "search.h"
+#include "searchbar.h"
 #include <QHBoxLayout>
 #include <QLabel>
 
-Search::Search(QWidget *parent)
+SearchBar::SearchBar(QWidget *parent)
     : QWidget{parent}
 {
     this->setStyleSheet("background-color: #f0f0f0; border: 1px solid lightgrey;");
@@ -61,10 +61,10 @@ Search::Search(QWidget *parent)
     mainLayout->addWidget(CercaButton);
 
 
-    connect(CercaButton, &QPushButton::clicked, this, &Search::Research);
+    connect(CercaButton, &QPushButton::clicked, this, &SearchBar::Ricerca);
 }
 
-void Search::Research(){
+void SearchBar::Ricerca(){
     RicercaConfig config;
     if(!TitoloInput->text().trimmed().isEmpty()){
         config.testo = TitoloInput->text();

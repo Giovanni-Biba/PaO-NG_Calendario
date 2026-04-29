@@ -1,5 +1,5 @@
-#ifndef RICERCA_H
-#define RICERCA_H
+#ifndef RESEARCH_H
+#define RESEARCH_H
 
 #include <QMainWindow>
 #include <QDate>
@@ -14,11 +14,11 @@ struct RicercaConfig {
     QString priorita;
 };
 
-class ricerca : public QMainWindow
+class Research : public QMainWindow
 {
     Q_OBJECT
 public:
-    explicit ricerca(const RicercaConfig &config = RicercaConfig(),QWidget *parent = nullptr);
+    explicit Research(const RicercaConfig &config = RicercaConfig(),QWidget *parent = nullptr);
 
 private:
     RicercaConfig rConfig;
@@ -28,4 +28,4 @@ private slots:
     void RitornaHome();
 };
 
-#endif // RICERCA_H
+#endif // RESEARCH_H

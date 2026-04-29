@@ -1,5 +1,5 @@
 #include "calendar.h"
-#include "search.h"
+#include "searchbar.h"
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QGridLayout>
@@ -30,7 +30,7 @@ calendar::calendar(QWidget *parent)
 
 
     // --- BARRA DI RICERCA
-    BarraRicerca = new Search();
+    BarraRicerca = new SearchBar();
     mainLayout->addWidget(BarraRicerca);
 
 
@@ -73,9 +73,6 @@ calendar::calendar(QWidget *parent)
     // aggiungi scroll al layout principale
     mainLayout->addWidget(scroll);
 
-    // --- SIGNAL (nota: questo probabilmente NON compila così com’è)
-    // CercaButton è private in Search → non accessibile
-    // quindi questo lo commento (ti spiego sotto)
     // connect(BarraRicerca->CercaButton, &QPushButton::clicked, this, &calendar::closeCalendar);
 }
 
