@@ -1,0 +1,79 @@
+{
+  "agenda": [
+    {
+      "tipo": "attivita",
+      "titolo": "Ripasso C++",
+      "descrizione": "Studiare i cicli for e le liste."
+    },
+    {
+      "tipo": "evento",
+      "titolo": "Partita di Calcetto",
+      "descrizione": "Campo sportivo ore 20:30."
+    },
+    {
+      "tipo": "appuntamento",
+      "titolo": "Dentista",
+      "descrizione": "Pulizia dei denti semestrale."
+    },
+    {
+      "tipo": "attivita",
+      "titolo": "Spesa",
+      "descrizione": "Pane, pasta e frutta di stagione."
+    },
+    {
+      "tipo": "evento",
+      "titolo": "Compleanno Luca",
+      "descrizione": "Cena in pizzeria in centro."
+    },
+    {
+      "tipo": "appuntamento",
+      "titolo": "Meccanico",
+      "descrizione": "Revisione auto e cambio filtri."
+    },
+    {
+      "tipo": "attivita",
+      "titolo": "Allenamento",
+      "descrizione": "40 minuti di corsa leggera."
+    },
+    {
+      "tipo": "evento",
+      "titolo": "Conferenza AI",
+      "descrizione": "Streaming online su YouTube."
+    },
+    {
+      "tipo": "appuntamento",
+      "titolo": "Banca",
+      "descrizione": "Firma documenti per nuovo conto."
+    },
+    {
+      "tipo": "attivita",
+      "titolo": "Pulizie",
+      "descrizione": "Sistemare la scrivania e i cavi."
+    },
+    {
+      "tipo": "evento",
+      "titolo": "Aperitivo",
+      "descrizione": "Incontro con i vecchi compagni."
+    },
+    {
+      "tipo": "appuntamento",
+      "titolo": "Esame Qt",
+      "descrizione": "Consegna progetto finale ore 14."
+    },
+    {
+      "tipo": "attivita",
+      "titolo": "Lettura",
+      "descrizione": "Leggere 20 pagine del manuale."
+    },
+    {
+      "tipo": "evento",
+      "titolo": "Mostra Cinema",
+      "descrizione": "Proiezione film d'autore."
+    },
+    {
+      "tipo": "appuntamento",
+      "titolo": "Barbiere",
+      "descrizione": "Taglio capelli e barba."
+    }
+  ]
+}
