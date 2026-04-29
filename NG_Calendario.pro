@@ -12,16 +12,22 @@ DISTFILES += \
 
 SOURCES += \
     calendar.cpp \
+    create.cpp \
     home.cpp \
     main.cpp \
+    modify.cpp \
     research.cpp \
-    searchbar.cpp
+    searchbar.cpp \
+    visualize.cpp
 
 HEADERS += \
     calendar.h \
+    create.h \
     home.h \
+    modify.h \
     research.h \
-    searchbar.h
+    searchbar.h \
+    visualize.h
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
