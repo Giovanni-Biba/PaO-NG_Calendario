@@ -46,8 +46,8 @@ private:
 
     // Funzioni helper
     bool validaCampi();
-    void salvaJSON();
-    void salvaXML();
+    bool salvaJSON();
+    bool salvaXML();
 
 signals:
     void tornaIndietro();

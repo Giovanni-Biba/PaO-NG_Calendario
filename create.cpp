@@ -52,10 +52,10 @@ Create::Create(QWidget *parent)
 
     QHBoxLayout *dateTimeLayout = new QHBoxLayout(this);
 
-    dataEdit = new QDateEdit(QDate::currentDate());
+    dataEdit = new QDateEdit(QDate(2026,1,1));
     dataEdit->setCalendarPopup(true);
 
-    oraEdit = new QTimeEdit(QTime::currentTime(), this);
+    oraEdit = new QTimeEdit(QTime(0,0), this);
 
     dateTimeLayout->addWidget(dataEdit);
     dateTimeLayout->addWidget(oraEdit);
@@ -64,6 +64,7 @@ Create::Create(QWidget *parent)
 
     prioritaLabel = new QLabel("Priorità", this);
     prioritaBox = new QComboBox(this);
+    prioritaBox->addItem("seleziona Priorità...");
     prioritaBox->addItems({"Alta", "Media", "Bassa"});
 
     mainLayout->addWidget(prioritaLabel);
@@ -77,6 +78,7 @@ Create::Create(QWidget *parent)
 
     statoLabel = new QLabel("Stato", this);
     statoBox = new QComboBox(this);
+    statoBox->addItem("Seleziona Stato...");
     statoBox->addItems({"Italia", "USA", "Cina", "Worldwide"});
 
     mainLayout->addWidget(statoLabel);
@@ -90,7 +92,6 @@ Create::Create(QWidget *parent)
     indietroButton = new QPushButton("Indietro", this);
     mainLayout->addWidget(indietroButton);
 
-    connect(creaButton, &QPushButton::clicked, this, &Create::tornaIndietro);
     connect(indietroButton, &QPushButton::clicked, this, &Create::tornaIndietro);
 
     aggiornaVisibilita();
@@ -119,10 +120,16 @@ void Create::salvaDati()
         return;
     }
 
+    bool successo = false;
+
     if (rbAttivita->isChecked())
-        salvaJSON();
+        successo = salvaJSON();
     else
-        salvaXML();
+        successo = salvaXML();
+
+    if (successo) {
+        emit tornaIndietro();
+    }
 }
 
 bool Create::validaCampi()
@@ -141,7 +148,7 @@ bool Create::validaCampi()
     return true;
 }
 
-void Create::salvaJSON()
+bool Create::salvaJSON()
 {
     qDebug() << "Percorso JSON:" << QDir::currentPath();
 
@@ -164,16 +171,17 @@ void Create::salvaJSON()
 
     if (!file.open(QIODevice::WriteOnly)) {
         QMessageBox::critical(this, "Errore", "Errore apertura file JSON");
-        return;
+        return false;
     }
 
     file.write(QJsonDocument(array).toJson());
     file.close();
 
     QMessageBox::information(this, "OK", "Salvato in JSON");
+    return true;
 }
 
-void Create::salvaXML()
+bool Create::salvaXML()
 {
     qDebug() << "Percorso XML:" << QDir::currentPath();
 
@@ -219,7 +227,7 @@ void Create::salvaXML()
 
     if (!file.open(QIODevice::WriteOnly)) {
         QMessageBox::critical(this, "Errore", "Errore apertura file XML");
-        return;
+        return false;
     }
 
     QXmlStreamWriter writer(&file);
@@ -244,4 +252,5 @@ void Create::salvaXML()
     file.close();
 
     QMessageBox::information(this, "OK", "Salvato in XML");
+    return true;
 }
