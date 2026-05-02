@@ -1,7 +1,6 @@
 #ifndef SEARCHBAR_H
 #define SEARCHBAR_H
 
-#include "research.h"
 #include <QWidget>
 #include <QLineEdit>
 #include <QDateEdit>

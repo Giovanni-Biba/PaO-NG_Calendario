@@ -1,5 +1,6 @@
 #include "create.h"
 
+#include <QCoreApplication>
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QLabel>
@@ -11,31 +12,31 @@
 #include <QPushButton>
 #include <QDate>
 #include <QTime>
+#include <QFile>
+#include <QJsonDocument>
+#include <QJsonObject>
+#include <QJsonArray>
+#include <QXmlStreamWriter>
+#include <QXmlStreamReader>
+#include <QMessageBox>
+#include <QDebug>
+#include <QDir>
 
 Create::Create(QWidget *parent)
     : QWidget(parent)
 {
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
-    mainLayout->setSpacing(12);
-    mainLayout->setContentsMargins(20,20,20,20);
 
-    // 🔸 TITOLO
-    QLabel *title = new QLabel("CREA");
+    QLabel *title = new QLabel("CREA", this);
     title->setAlignment(Qt::AlignCenter);
     title->setStyleSheet("font-size: 22px; font-weight: bold;");
     mainLayout->addWidget(title);
 
-    // 🔸 RADIO BUTTON
     QHBoxLayout *radioLayout = new QHBoxLayout;
 
-    rbAttivita = new QRadioButton("Attività");
-    rbEvento = new QRadioButton("Evento");
-    rbAppuntamento = new QRadioButton("Appuntamento");
-
-    // nessuno selezionato all'inizio
-    rbAttivita->setAutoExclusive(false);
-    rbEvento->setAutoExclusive(false);
-    rbAppuntamento->setAutoExclusive(false);
+    rbAttivita = new QRadioButton("Attività", this);
+    rbEvento = new QRadioButton("Evento", this);
+    rbAppuntamento = new QRadioButton("Appuntamento", this);
 
     radioLayout->addWidget(rbAttivita);
     radioLayout->addWidget(rbEvento);
@@ -43,130 +44,198 @@ Create::Create(QWidget *parent)
 
     mainLayout->addLayout(radioLayout);
 
-    // riattiva esclusività
-    rbAttivita->setAutoExclusive(true);
-    rbEvento->setAutoExclusive(true);
-    rbAppuntamento->setAutoExclusive(true);
-
-    // 🔸 TITOLO CAMPO
-    QLabel *titoloLabel = new QLabel("Titolo");
+    QLabel *titoloLabel = new QLabel("Titolo", this);
     titoloEdit = new QLineEdit;
 
     mainLayout->addWidget(titoloLabel);
     mainLayout->addWidget(titoloEdit);
 
-    // 🔸 DATA + ORA
-    QHBoxLayout *dateTimeLayout = new QHBoxLayout;
+    QHBoxLayout *dateTimeLayout = new QHBoxLayout(this);
 
     dataEdit = new QDateEdit(QDate::currentDate());
     dataEdit->setCalendarPopup(true);
 
-    oraEdit = new QTimeEdit(QTime::currentTime());
+    oraEdit = new QTimeEdit(QTime::currentTime(), this);
 
     dateTimeLayout->addWidget(dataEdit);
     dateTimeLayout->addWidget(oraEdit);
 
     mainLayout->addLayout(dateTimeLayout);
 
-    // 🔸 PRIORITÀ
-    prioritaLabel = new QLabel("Priorità");
-    prioritaBox = new QComboBox;
+    prioritaLabel = new QLabel("Priorità", this);
+    prioritaBox = new QComboBox(this);
     prioritaBox->addItems({"Alta", "Media", "Bassa"});
 
     mainLayout->addWidget(prioritaLabel);
     mainLayout->addWidget(prioritaBox);
 
-    // 🔸 LUOGO
-    luogoLabel = new QLabel("Luogo");
-    luogoEdit = new QLineEdit;
+    luogoLabel = new QLabel("Luogo", this);
+    luogoEdit = new QLineEdit(this);
 
     mainLayout->addWidget(luogoLabel);
     mainLayout->addWidget(luogoEdit);
 
-    // 🔸 STATO
-    statoLabel = new QLabel("Stato");
-    statoBox = new QComboBox;
+    statoLabel = new QLabel("Stato", this);
+    statoBox = new QComboBox(this);
     statoBox->addItems({"Italia", "USA", "Cina", "Worldwide"});
 
     mainLayout->addWidget(statoLabel);
     mainLayout->addWidget(statoBox);
 
-    // 🔸 BOTTONE CREA
-    creaButton = new QPushButton("Crea");
-    creaButton->setMinimumHeight(35);
-
-    mainLayout->addSpacing(10);
+    creaButton = new QPushButton("Crea", this);
     mainLayout->addWidget(creaButton);
 
-    // 🔹 CONNESSIONI
+    connect(creaButton, &QPushButton::clicked, this, &Create::salvaDati);
+
+    aggiornaVisibilita();
+
     connect(rbAttivita, &QRadioButton::toggled, this, &Create::aggiornaVisibilita);
     connect(rbEvento, &QRadioButton::toggled, this, &Create::aggiornaVisibilita);
     connect(rbAppuntamento, &QRadioButton::toggled, this, &Create::aggiornaVisibilita);
-
-    // stato iniziale
-    aggiornaVisibilita();
-
-    // 🔸 STILE
-    setStyleSheet(R"(
-        QLabel {
-            font-size: 14px;
-        }
-        QLineEdit, QComboBox, QDateEdit, QTimeEdit {
-            padding: 6px;
-            border: 1px solid #ccc;
-            border-radius: 6px;
-        }
-        QPushButton {
-            background-color: #4CAF50;
-            color: white;
-            border-radius: 8px;
-            font-weight: bold;
-        }
-        QPushButton:hover {
-            background-color: #45a049;
-        }
-    )");
 }
 
 void Create::aggiornaVisibilita()
 {
-    if (rbAttivita->isChecked()) {
-        // Attività → solo priorità
-        prioritaLabel->show();
-        prioritaBox->show();
+    prioritaLabel->setVisible(rbAttivita->isChecked());
+    prioritaBox->setVisible(rbAttivita->isChecked());
 
-        luogoLabel->hide();
-        luogoEdit->hide();
-        statoLabel->hide();
-        statoBox->hide();
-    }
-    else if (rbEvento->isChecked()) {
-        // Evento → solo luogo
-        luogoLabel->show();
-        luogoEdit->show();
+    luogoLabel->setVisible(rbEvento->isChecked());
+    luogoEdit->setVisible(rbEvento->isChecked());
 
-        prioritaLabel->hide();
-        prioritaBox->hide();
-        statoLabel->hide();
-        statoBox->hide();
-    }
-    else if (rbAppuntamento->isChecked()) {
-        // Appuntamento → solo stato
-        statoLabel->show();
-        statoBox->show();
+    statoLabel->setVisible(rbAppuntamento->isChecked());
+    statoBox->setVisible(rbAppuntamento->isChecked());
+}
 
-        prioritaLabel->hide();
-        prioritaBox->hide();
-        luogoLabel->hide();
-        luogoEdit->hide();
+void Create::salvaDati()
+{
+    if (!validaCampi()) {
+        QMessageBox::warning(this, "Errore", "Compila tutti i campi");
+        return;
     }
-    else {
-        // Nessuna selezione → nascondi tutto
-        prioritaLabel->hide();
-        prioritaBox->hide();
-        luogoLabel->hide();
-        luogoEdit->hide();
-        statoLabel->hide();
-        statoBox->hide();
+
+    if (rbAttivita->isChecked())
+        salvaJSON();
+    else
+        salvaXML();
+}
+
+bool Create::validaCampi()
+{
+    if (titoloEdit->text().isEmpty())
+        return false;
+
+    if (!rbAttivita->isChecked() &&
+        !rbEvento->isChecked() &&
+        !rbAppuntamento->isChecked())
+        return false;
+
+    if (rbEvento->isChecked() && luogoEdit->text().isEmpty())
+        return false;
+
+    return true;
+}
+
+void Create::salvaJSON()
+{
+    qDebug() << "Percorso JSON:" << QDir::currentPath();
+
+    QFile file(QCoreApplication::applicationDirPath() + "/datiAttivitaFestivita.json");
+    QJsonArray array;
+
+    if (file.exists() && file.open(QIODevice::ReadOnly)) {
+        array = QJsonDocument::fromJson(file.readAll()).array();
+        file.close();
     }
+
+    QJsonObject obj;
+    obj["tipo"] = "attivita";
+    obj["titolo"] = titoloEdit->text();
+    obj["data"] = dataEdit->date().toString(Qt::ISODate);
+    obj["ora"] = oraEdit->time().toString();
+    obj["priorita"] = prioritaBox->currentText();
+
+    array.append(obj);
+
+    if (!file.open(QIODevice::WriteOnly)) {
+        QMessageBox::critical(this, "Errore", "Errore apertura file JSON");
+        return;
+    }
+
+    file.write(QJsonDocument(array).toJson());
+    file.close();
+
+    QMessageBox::information(this, "OK", "Salvato in JSON");
+}
+
+void Create::salvaXML()
+{
+    qDebug() << "Percorso XML:" << QDir::currentPath();
+
+    QFile file("datiEventoAppuntamento.xml");
+    QList<QVariantMap> elementi;
+
+    if (file.exists() && file.open(QIODevice::ReadOnly)) {
+        QXmlStreamReader reader(&file);
+
+        while (!reader.atEnd()) {
+            reader.readNext();
+
+            if (reader.isStartElement() && reader.name() == "item") {
+                QVariantMap m;
+
+                while (!(reader.isEndElement() && reader.name() == "item")) {
+                    reader.readNext();
+
+                    if (reader.isStartElement()) {
+                        m[reader.name().toString()] = reader.readElementText();
+                    }
+                }
+                elementi.append(m);
+            }
+        }
+        file.close();
+    }
+
+    QVariantMap nuovo;
+    nuovo["titolo"] = titoloEdit->text();
+    nuovo["data"] = dataEdit->date().toString(Qt::ISODate);
+    nuovo["ora"] = oraEdit->time().toString();
+
+    if (rbEvento->isChecked()) {
+        nuovo["tipo"] = "evento";
+        nuovo["luogo"] = luogoEdit->text();
+    } else {
+        nuovo["tipo"] = "appuntamento";
+        nuovo["stato"] = statoBox->currentText();
+    }
+
+    elementi.append(nuovo);
+
+    if (!file.open(QIODevice::WriteOnly)) {
+        QMessageBox::critical(this, "Errore", "Errore apertura file XML");
+        return;
+    }
+
+    QXmlStreamWriter writer(&file);
+    writer.setAutoFormatting(true);
+
+    writer.writeStartDocument();
+    writer.writeStartElement("dati");
+
+    for (const auto &m : elementi) {
+        writer.writeStartElement("item");
+
+        for (auto it = m.begin(); it != m.end(); ++it) {
+            writer.writeTextElement(it.key(), it.value().toString());
+        }
+
+        writer.writeEndElement();
+    }
+
+    writer.writeEndElement();
+    writer.writeEndDocument();
+
+    file.close();
+
+    QMessageBox::information(this, "OK", "Salvato in XML");
 }

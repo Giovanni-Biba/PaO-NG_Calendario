@@ -20,6 +20,7 @@ public:
 
 private slots:
     void aggiornaVisibilita();
+    void salvaDati();
 
 private:
     // Radio
@@ -40,8 +41,12 @@ private:
     QLabel *luogoLabel;
     QLabel *statoLabel;
 
-    // Bottone finale
     QPushButton *creaButton;
+
+    // Funzioni helper
+    bool validaCampi();
+    void salvaJSON();
+    void salvaXML();
 };
 
 #endif

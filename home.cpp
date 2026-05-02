@@ -15,9 +15,9 @@ Home::Home(QWidget *parent)
 {
     stackHome = new QStackedWidget;
 
-    calendarPage = new calendar;
-    createPage = new Create;
-    researchPage = new Research;
+    calendarPage = new calendar(this);
+    createPage = new Create(this);
+    researchPage = new Research(this);
     stackHome->addWidget(calendarPage);
     stackHome->addWidget(createPage);
     stackHome->addWidget(researchPage);

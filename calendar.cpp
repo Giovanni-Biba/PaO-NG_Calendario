@@ -14,10 +14,10 @@ calendar::calendar(QWidget *parent)
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
 
     // --- TOP BAR
-    QWidget *top = new QWidget;
+    QWidget *top = new QWidget(this);
     QVBoxLayout *topLayout = new QVBoxLayout(top);
 
-    Titolo = new QPushButton("NG_CALENDARIO");
+    Titolo = new QPushButton("NG_CALENDARIO", this);
     /*Titolo->setStyleSheet(
         "QPushButton {"
         "background-color: transparent;"
@@ -40,7 +40,7 @@ calendar::calendar(QWidget *parent)
     QScrollArea *scroll = new QScrollArea;
     scroll->setWidgetResizable(true);
 
-    QWidget *scrollContent = new QWidget;
+    QWidget *scrollContent = new QWidget(this);
     QVBoxLayout *scrollLayout = new QVBoxLayout(scrollContent);
 
     // --- CALENDAR
@@ -50,7 +50,7 @@ calendar::calendar(QWidget *parent)
     QStringList giorni = {"Lun", "Mar", "Mer", "Gio", "Ven", "Sab", "Dom"};
 
     for (int col = 0; col < 7; col++) {
-        QLabel *header = new QLabel(giorni[col]);
+        QLabel *header = new QLabel(giorni[col], this);
         header->setAlignment(Qt::AlignCenter);
         grid->addWidget(header, 0, col + 1);
     }
@@ -60,7 +60,7 @@ calendar::calendar(QWidget *parent)
         grid->addWidget(ora, row, 0);
 
         for (int col = 0; col < 7; col++) {
-            QLabel *cella = new QLabel;
+            QLabel *cella = new QLabel(this);
             cella->setMinimumSize(100, 60);
             cella->setStyleSheet("border: 1px solid lightgray;");
             grid->addWidget(cella, row, col + 1);
@@ -73,7 +73,7 @@ calendar::calendar(QWidget *parent)
     // aggiungi scroll al layout principale
     mainLayout->addWidget(scroll);
 
-    Crea = new QPushButton("+ Crea");
+    Crea = new QPushButton("+ Crea", this);
     mainLayout->addWidget(Crea);
     connect(Crea, &QPushButton::clicked, this, &calendar::richiestaCrea);
     connect(BarraRicerca, &SearchBar::cercaClicked, this, &calendar::richiestaCerca);

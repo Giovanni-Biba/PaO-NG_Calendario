@@ -8,5 +8,5 @@ int main(int argc, char *argv[])
 
     Home Calendario;
     Calendario.showMaximized();
-    return QCoreApplication::exec();
+    return a.exec();
 }
