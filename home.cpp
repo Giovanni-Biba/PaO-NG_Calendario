@@ -32,4 +32,21 @@ Home::Home(QWidget *parent)
     connect(calendarPage, &calendar::richiestaCerca, this, [this]() {
         stackHome->setCurrentWidget(researchPage);
     });
+
+    connect(createPage, &Create::tornaIndietro, this, [this]() {
+        if (stackHome->currentWidget() != calendarPage) {
+            stackHome->setCurrentWidget(calendarPage);
+        }
+    });
+    connect(researchPage, &Research::ritornaHome, this, [this]() {
+        if (stackHome->currentWidget() != calendarPage) {
+            stackHome->setCurrentWidget(calendarPage);
+        }
+    });
+
+    connect(createPage, &Create::tornaIndietro, this, [this]() {
+        if (stackHome->currentWidget() != calendarPage) {
+            stackHome->setCurrentWidget(calendarPage);
+        }
+    });
 }

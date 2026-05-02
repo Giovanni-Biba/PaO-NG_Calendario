@@ -8,6 +8,8 @@
 #include <QLabel>
 
 class calendar;
+class Create;
+class Research;
 
 class Home : public QMainWindow
 {
@@ -19,8 +21,8 @@ private:
     QStackedWidget *stackHome;
 
     calendar *calendarPage;
-    QWidget *createPage;
-    QWidget *researchPage;
+    Create *createPage;
+    Research *researchPage;
 };
 
 #endif // HOME_H

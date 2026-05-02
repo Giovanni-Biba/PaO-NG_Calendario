@@ -13,6 +13,9 @@ Research::Research(QWidget *parent) : QWidget(parent)
     mainLayout->setSpacing(12);
     mainLayout->setContentsMargins(20, 20, 20, 20);
 
+    buttonIndietro = new QPushButton("indietro", this);
+    mainLayout->addWidget(buttonIndietro);
+
     QLabel *title = new QLabel("TUTTE LE ATTIVITÀ");
     title->setAlignment(Qt::AlignCenter);
     title->setStyleSheet("font-size: 22px; font-weight: bold; color: #2c3e50;");
@@ -28,6 +31,8 @@ Research::Research(QWidget *parent) : QWidget(parent)
     // Carica i dati dal file e li fa visualizzare
     caricaDatiJson();
     visualizzaTutto();
+
+    connect(buttonIndietro, &QPushButton::clicked, this, &Research::ritornaHome);
 }
 
 void Research::caricaDatiJson() {

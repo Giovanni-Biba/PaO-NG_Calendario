@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QJsonArray>
+#include <QPushButton>
 
 class QListWidget;
 class QVBoxLayout;
@@ -18,12 +19,16 @@ public:
     void visualizzaTutto();
 
 private:
+    QPushButton *buttonIndietro;
     QListWidget *listaRisultati;
     QJsonArray tutteLeAttivita;
     const QString pathFile = ":/datiAttivitaFestivita.json";
 
     void caricaDatiJson();
     QWidget* creaCardAttivita(const QString &tipo, const QString &titolo, const QString &descrizione);
+
+signals:
+    void ritornaHome();
 };
 
 #endif

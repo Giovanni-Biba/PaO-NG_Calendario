@@ -42,11 +42,15 @@ private:
     QLabel *statoLabel;
 
     QPushButton *creaButton;
+    QPushButton *indietroButton;
 
     // Funzioni helper
     bool validaCampi();
     void salvaJSON();
     void salvaXML();
+
+signals:
+    void tornaIndietro();
 };
 
 #endif

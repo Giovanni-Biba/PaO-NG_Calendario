@@ -18,12 +18,6 @@ calendar::calendar(QWidget *parent)
     QVBoxLayout *topLayout = new QVBoxLayout(top);
 
     Titolo = new QPushButton("NG_CALENDARIO", this);
-    /*Titolo->setStyleSheet(
-        "QPushButton {"
-        "background-color: transparent;"
-        "border: none;"
-        "}"
-        );*/
 
     topLayout->addWidget(Titolo);
     mainLayout->addWidget(top);

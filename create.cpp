@@ -87,6 +87,12 @@ Create::Create(QWidget *parent)
 
     connect(creaButton, &QPushButton::clicked, this, &Create::salvaDati);
 
+    indietroButton = new QPushButton("Indietro", this);
+    mainLayout->addWidget(indietroButton);
+
+    connect(creaButton, &QPushButton::clicked, this, &Create::tornaIndietro);
+    connect(indietroButton, &QPushButton::clicked, this, &Create::tornaIndietro);
+
     aggiornaVisibilita();
 
     connect(rbAttivita, &QRadioButton::toggled, this, &Create::aggiornaVisibilita);
