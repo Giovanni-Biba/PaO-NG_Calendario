@@ -152,7 +152,7 @@ bool Create::salvaJSON()
 {
     qDebug() << "Percorso JSON:" << QDir::currentPath();
 
-    QFile file(QCoreApplication::applicationDirPath() + "/datiAttivitaFestivita.json");
+    QFile file(":/NG_Calendario/datiAttivitaFestivita.json");
     QJsonArray array;
 
     if (file.exists() && file.open(QIODevice::ReadOnly)) {
@@ -185,7 +185,7 @@ bool Create::salvaXML()
 {
     qDebug() << "Percorso XML:" << QDir::currentPath();
 
-    QFile file("datiEventoAppuntamento.xml");
+    QFile file(":/datiEventoAppuntamento.xml");
     QList<QVariantMap> elementi;
 
     if (file.exists() && file.open(QIODevice::ReadOnly)) {
