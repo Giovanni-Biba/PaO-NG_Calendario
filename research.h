@@ -14,6 +14,7 @@ class Research : public QWidget
 
 public:
     explicit Research(QWidget *parent = nullptr);
+    void eseguiRicercaFiltrata(const QString &titolo, const QDate &data, const QTime &ora, const QString &priorita);
 
     // Mostra tutto il contenuto del JSON
     void visualizzaTutto();
@@ -25,7 +26,8 @@ private:
     const QString pathFile = ":/datiAttivitaFestivita.json";
 
     void caricaDatiJson();
-    QWidget* creaCardAttivita(const QString &tipo, const QString &titolo, const QString &descrizione);
+private:
+    QWidget* creaCardAttivita(const QString &tipo, const QString &titolo, const QString &descrizione, const QString &priorita, const QString &ora);
 
 signals:
     void ritornaHome();

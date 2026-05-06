@@ -15,12 +15,17 @@ class SearchBar : public QWidget
 public:
     explicit SearchBar(QWidget *parent = nullptr);
     QPushButton *CercaButton;
+    QString getTestoTitolo() const { return TitoloInput->text(); }
+    QDate getValoreData() const { return DataInput->date(); }
+    QTime getValoreOra() const { return OraInput->time(); }
+    QString getTestoPriorita() const { return PrioritaInput->currentText(); }
 
 private:
     QLineEdit *TitoloInput;
     QDateEdit *DataInput;
     QTimeEdit *OraInput;
     QComboBox *PrioritaInput;
+
 
 signals:
     void cercaClicked();
