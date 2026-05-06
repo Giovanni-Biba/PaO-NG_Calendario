@@ -1,79 +1,164 @@
 {
   "agenda": [
     {
-      "tipo": "attivita",
-      "titolo": "Ripasso C++",
-      "descrizione": "Studiare i cicli for e le liste."
+      "tipo": "Attività",
+      "titolo": "Palestra",
+      "priorita": "Alta",
+      "data": "2024-05-20",
+      "ora": "18:30",
+      "descrizione": "Allenamento gambe e cardio."
     },
     {
-      "tipo": "evento",
-      "titolo": "Partita di Calcetto",
-      "descrizione": "Campo sportivo ore 20:30."
-    },
-    {
-      "tipo": "appuntamento",
+      "tipo": "Appuntamento",
       "titolo": "Dentista",
-      "descrizione": "Pulizia dei denti semestrale."
+      "priorita": "Media",
+      "data": "2024-05-21",
+      "ora": "10:00",
+      "descrizione": "Pulizia dei denti annuale."
     },
     {
-      "tipo": "attivita",
-      "titolo": "Spesa",
-      "descrizione": "Pane, pasta e frutta di stagione."
+      "tipo": "Evento",
+      "titolo": "Concerto Rock",
+      "priorita": "Bassa",
+      "data": "2024-06-15",
+      "ora": "21:00",
+      "descrizione": "Concerto allo stadio, apertura cancelli ore 18."
     },
     {
-      "tipo": "evento",
-      "titolo": "Compleanno Luca",
-      "descrizione": "Cena in pizzeria in centro."
+      "tipo": "Attività",
+      "titolo": "Spesa Settimanale",
+      "priorita": "Alta",
+      "data": "2024-05-20",
+      "ora": "09:00",
+      "descrizione": "Comprare frutta, verdura e detersivi."
     },
     {
-      "tipo": "appuntamento",
+      "tipo": "Appuntamento",
+      "titolo": "Riunione Lavoro",
+      "priorita": "Alta",
+      "data": "2024-05-22",
+      "ora": "15:00",
+      "descrizione": "Presentazione nuovo progetto software."
+    },
+    {
+      "tipo": "Attività",
+      "titolo": "Corsa al parco",
+      "priorita": "Bassa",
+      "data": "2024-05-23",
+      "ora": "07:30",
+      "descrizione": "Giro di 5km al parco cittadino."
+    },
+    {
+      "tipo": "Evento",
+      "titolo": "Compleanno Marco",
+      "priorita": "Media",
+      "data": "2024-07-10",
+      "ora": "20:30",
+      "descrizione": "Cena fuori per i 30 anni di Marco."
+    },
+    {
+      "tipo": "Appuntamento",
       "titolo": "Meccanico",
-      "descrizione": "Revisione auto e cambio filtri."
+      "priorita": "Alta",
+      "data": "2024-05-25",
+      "ora": "08:30",
+      "descrizione": "Cambio olio e controllo freni auto."
     },
     {
-      "tipo": "attivita",
-      "titolo": "Allenamento",
-      "descrizione": "40 minuti di corsa leggera."
+      "tipo": "Attività",
+      "titolo": "Studiare C++",
+      "priorita": "Alta",
+      "data": "2024-05-20",
+      "ora": "14:00",
+      "descrizione": "Ripasso sulle classi e QStackedWidget."
     },
     {
-      "tipo": "evento",
-      "titolo": "Conferenza AI",
-      "descrizione": "Streaming online su YouTube."
+      "tipo": "Evento",
+      "titolo": "Mostra d'Arte",
+      "priorita": "Bassa",
+      "data": "2024-08-12",
+      "ora": "11:00",
+      "descrizione": "Esposizione opere impressioniste al museo."
     },
     {
-      "tipo": "appuntamento",
-      "titolo": "Banca",
-      "descrizione": "Firma documenti per nuovo conto."
+      "tipo": "Attività",
+      "titolo": "Pulizia Casa",
+      "priorita": "Media",
+      "data": "2024-05-25",
+      "ora": "10:00",
+      "descrizione": "Pulizia profonda del soggiorno e cucina."
     },
     {
-      "tipo": "attivita",
-      "titolo": "Pulizie",
-      "descrizione": "Sistemare la scrivania e i cavi."
+      "tipo": "Appuntamento",
+      "titolo": "Colloquio Tecnico",
+      "priorita": "Alta",
+      "data": "2024-06-01",
+      "ora": "10:30",
+      "descrizione": "Intervista via Skype con azienda Tech."
     },
     {
-      "tipo": "evento",
-      "titolo": "Aperitivo",
-      "descrizione": "Incontro con i vecchi compagni."
+      "tipo": "Evento",
+      "titolo": "Partita Calcetto",
+      "priorita": "Bassa",
+      "data": "2024-05-24",
+      "ora": "20:00",
+      "descrizione": "Solita partita del venerdì con gli amici."
     },
     {
-      "tipo": "appuntamento",
-      "titolo": "Esame Qt",
-      "descrizione": "Consegna progetto finale ore 14."
+      "tipo": "Attività",
+      "titolo": "Innaffiare Piante",
+      "priorita": "Bassa",
+      "data": "2024-05-20",
+      "ora": "19:00",
+      "descrizione": "Dare acqua ai fiori sul balcone."
     },
     {
-      "tipo": "attivita",
-      "titolo": "Lettura",
-      "descrizione": "Leggere 20 pagine del manuale."
+      "tipo": "Appuntamento",
+      "titolo": "Commercialista",
+      "priorita": "Media",
+      "data": "2024-06-05",
+      "ora": "16:00",
+      "descrizione": "Consegna documenti per dichiarazione redditi."
     },
     {
-      "tipo": "evento",
-      "titolo": "Mostra Cinema",
-      "descrizione": "Proiezione film d'autore."
+      "tipo": "Attività",
+      "titolo": "Yoga mattutino",
+      "priorita": "Media",
+      "data": "2024-05-26",
+      "ora": "08:00",
+      "descrizione": "30 minuti di stretching e meditazione."
     },
     {
-      "tipo": "appuntamento",
-      "titolo": "Barbiere",
-      "descrizione": "Taglio capelli e barba."
+      "tipo": "Evento",
+      "titolo": "Cinema",
+      "priorita": "Bassa",
+      "data": "2024-05-27",
+      "ora": "21:30",
+      "descrizione": "Visione dell'ultimo film Marvel."
+    },
+    {
+      "tipo": "Attività",
+      "titolo": "Leggere Libro",
+      "priorita": "Bassa",
+      "data": "2024-05-20",
+      "ora": "22:00",
+      "descrizione": "Finire il capitolo 5 del romanzo."
+    },
+    {
+      "tipo": "Appuntamento",
+      "titolo": "Veterinario",
+      "priorita": "Alta",
+      "data": "2024-06-10",
+      "ora": "09:15",
+      "descrizione": "Vaccino annuale per il gatto."
+    },
+    {
+      "tipo": "Evento",
+      "titolo": "Cena di Gala",
+      "priorita": "Alta",
+      "data": "2024-12-20",
+      "ora": "20:00",
+      "descrizione": "Evento formale di fine anno aziendale."
     }
   ]
 }

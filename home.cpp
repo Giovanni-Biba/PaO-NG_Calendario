@@ -9,6 +9,9 @@
 #include <QLabel>
 #include <QPushButton>
 #include <QStackedWidget>
+#include <Qtime>
+#include <QDate>
+#include <QString>
 
 Home::Home(QWidget *parent)
     : QMainWindow{parent}
@@ -30,6 +33,16 @@ Home::Home(QWidget *parent)
     });
 
     connect(calendarPage, &calendar::richiestaCerca, this, [this]() {
+        // 1. Prendiamo il puntatore alla barra (serve il getter getSearchBar in calendar.h)
+        SearchBar* bar = calendarPage->getSearchBar();
+        // 2. Leggiamo i valori dai campi della barra
+        QString tit = bar->getTestoTitolo();
+        QDate dat = bar->getValoreData();
+        QTime ora = bar->getValoreOra();
+        QString pri = bar->getTestoPriorita();
+        // 3. Chiamiamo la funzione di ricerca filtrata dentro Research
+        researchPage->eseguiRicercaFiltrata(tit, dat, ora, pri);
+        // 4. Cambiamo pagina per mostrare i risultati
         stackHome->setCurrentWidget(researchPage);
     });
 

@@ -5,7 +5,7 @@
 SearchBar::SearchBar(QWidget *parent)
     : QWidget{parent}
 {
-    this->setStyleSheet("background-color: #f0f0f0; border: 1px solid lightgrey;");
+    //this->setStyleSheet("background-color: #f0f0f0; border: 1px solid lightgrey;");
 
     // Layout orizzontale principale per tutta la barra
     QHBoxLayout *mainLayout = new QHBoxLayout(this);

@@ -12,11 +12,13 @@ class calendar : public QWidget
     Q_OBJECT
 public:
     explicit calendar(QWidget *parent = nullptr);
+    SearchBar* getSearchBar() const { return BarraRicerca; }
 
 private:
     QPushButton* Titolo;
     SearchBar *BarraRicerca;
     QPushButton* Crea;
+
 
 private slots:
     //void visualizzaSelezione();
