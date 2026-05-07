@@ -1,164 +1,409 @@
 {
   "agenda": [
     {
-      "tipo": "Attività",
+      "tipo": "Attivita",
       "titolo": "Palestra",
       "priorita": "Alta",
-      "data": "2024-05-20",
+      "data": "2026-05-04",
       "ora": "18:30",
+      "durata_ore": 2,
       "descrizione": "Allenamento gambe e cardio."
+    },
+    {
+      "tipo": "Attivita",
+      "titolo": "Palestra",
+      "priorita": "Alta",
+      "data": "2026-05-06",
+      "ora": "18:00",
+      "durata_ore": 2,
+      "descrizione": "Allenamento petto e bicipiti."
+    },
+    {
+      "tipo": "Attivita",
+      "titolo": "Palestra",
+      "priorita": "Alta",
+      "data": "2026-05-08",
+      "ora": "17:30",
+      "durata_ore": 2,
+      "descrizione": "Allenamento dorso e tricipiti."
     },
     {
       "tipo": "Appuntamento",
       "titolo": "Dentista",
       "priorita": "Media",
-      "data": "2024-05-21",
+      "data": "2026-05-21",
       "ora": "10:00",
+      "durata_ore": 1,
       "descrizione": "Pulizia dei denti annuale."
     },
     {
-      "tipo": "Evento",
-      "titolo": "Concerto Rock",
-      "priorita": "Bassa",
-      "data": "2024-06-15",
-      "ora": "21:00",
-      "descrizione": "Concerto allo stadio, apertura cancelli ore 18."
-    },
-    {
-      "tipo": "Attività",
+      "tipo": "Attivita",
       "titolo": "Spesa Settimanale",
       "priorita": "Alta",
-      "data": "2024-05-20",
+      "data": "2026-05-04",
       "ora": "09:00",
-      "descrizione": "Comprare frutta, verdura e detersivi."
+      "durata_ore": 1,
+      "descrizione": "Rifornimento dispensa e mercato."
+    },
+    {
+      "tipo": "Attivita",
+      "titolo": "Spesa Settimanale",
+      "priorita": "Media",
+      "data": "2026-05-18",
+      "ora": "09:00",
+      "durata_ore": 1,
+      "descrizione": "Spesa per cena con amici."
     },
     {
       "tipo": "Appuntamento",
       "titolo": "Riunione Lavoro",
       "priorita": "Alta",
-      "data": "2024-05-22",
+      "data": "2026-05-05",
       "ora": "15:00",
-      "descrizione": "Presentazione nuovo progetto software."
+      "durata_ore": 3,
+      "descrizione": "Pianificazione trimestrale progetto."
     },
     {
-      "tipo": "Attività",
+      "tipo": "Appuntamento",
+      "titolo": "Riunione Lavoro",
+      "priorita": "Alta",
+      "data": "2026-05-12",
+      "ora": "15:00",
+      "durata_ore": 1,
+      "descrizione": "Allineamento tecnico settimanale."
+    },
+    {
+      "tipo": "Attivita",
       "titolo": "Corsa al parco",
       "priorita": "Bassa",
-      "data": "2024-05-23",
+      "data": "2026-05-07",
       "ora": "07:30",
-      "descrizione": "Giro di 5km al parco cittadino."
+      "durata_ore": 1,
+      "descrizione": "Giro di 8km al mattino."
     },
     {
-      "tipo": "Evento",
-      "titolo": "Compleanno Marco",
-      "priorita": "Media",
-      "data": "2024-07-10",
-      "ora": "20:30",
-      "descrizione": "Cena fuori per i 30 anni di Marco."
+      "tipo": "Attivita",
+      "titolo": "Corsa al parco",
+      "priorita": "Bassa",
+      "data": "2026-05-14",
+      "ora": "07:30",
+      "durata_ore": 1,
+      "descrizione": "Allenamento aerobico leggero."
     },
     {
-      "tipo": "Appuntamento",
-      "titolo": "Meccanico",
-      "priorita": "Alta",
-      "data": "2024-05-25",
-      "ora": "08:30",
-      "descrizione": "Cambio olio e controllo freni auto."
-    },
-    {
-      "tipo": "Attività",
+      "tipo": "Attivita",
       "titolo": "Studiare C++",
       "priorita": "Alta",
-      "data": "2024-05-20",
+      "data": "2026-05-04",
       "ora": "14:00",
-      "descrizione": "Ripasso sulle classi e QStackedWidget."
+      "durata_ore": 2,
+      "descrizione": "Ripasso gestione della memoria."
     },
     {
-      "tipo": "Evento",
-      "titolo": "Mostra d'Arte",
-      "priorita": "Bassa",
-      "data": "2024-08-12",
-      "ora": "11:00",
-      "descrizione": "Esposizione opere impressioniste al museo."
+      "tipo": "Attivita",
+      "titolo": "Studiare C++",
+      "priorita": "Alta",
+      "data": "2026-05-05",
+      "ora": "10:00",
+      "durata_ore": 3,
+      "descrizione": "Esercizi su Qt Layouts."
     },
     {
-      "tipo": "Attività",
+      "tipo": "Attivita",
+      "titolo": "Studiare C++",
+      "priorita": "Alta",
+      "data": "2026-05-06",
+      "ora": "14:00",
+      "durata_ore": 2,
+      "descrizione": "Refactoring della classe Research."
+    },
+    {
+      "tipo": "Attivita",
       "titolo": "Pulizia Casa",
       "priorita": "Media",
-      "data": "2024-05-25",
+      "data": "2026-05-09",
       "ora": "10:00",
-      "descrizione": "Pulizia profonda del soggiorno e cucina."
+      "durata_ore": 4,
+      "descrizione": "Pulizie profonde di primavera."
     },
     {
-      "tipo": "Appuntamento",
-      "titolo": "Colloquio Tecnico",
-      "priorita": "Alta",
-      "data": "2024-06-01",
-      "ora": "10:30",
-      "descrizione": "Intervista via Skype con azienda Tech."
+      "tipo": "Attivita",
+      "titolo": "Pulizia Casa",
+      "priorita": "Media",
+      "data": "2026-05-16",
+      "ora": "09:30",
+      "durata_ore": 2,
+      "descrizione": "Riordino libreria e scrivania."
     },
     {
       "tipo": "Evento",
       "titolo": "Partita Calcetto",
       "priorita": "Bassa",
-      "data": "2024-05-24",
+      "data": "2026-05-08",
       "ora": "20:00",
-      "descrizione": "Solita partita del venerdì con gli amici."
+      "durata_ore": 1,
+      "descrizione": "Sfida settimanale con colleghi."
     },
     {
-      "tipo": "Attività",
+      "tipo": "Evento",
+      "titolo": "Partita Calcetto",
+      "priorita": "Bassa",
+      "data": "2026-05-15",
+      "ora": "20:00",
+      "durata_ore": 1,
+      "descrizione": "Rinvincita partita precedente."
+    },
+    {
+      "tipo": "Attivita",
       "titolo": "Innaffiare Piante",
       "priorita": "Bassa",
-      "data": "2024-05-20",
+      "data": "2026-05-04",
       "ora": "19:00",
-      "descrizione": "Dare acqua ai fiori sul balcone."
+      "durata_ore": 1,
+      "descrizione": "Controllo balcone e vasi."
+    },
+    {
+      "tipo": "Attivita",
+      "titolo": "Innaffiare Piante",
+      "priorita": "Bassa",
+      "data": "2026-05-11",
+      "ora": "19:00",
+      "durata_ore": 1,
+      "descrizione": "Concimazione mensile orchidee."
     },
     {
       "tipo": "Appuntamento",
-      "titolo": "Commercialista",
-      "priorita": "Media",
-      "data": "2024-06-05",
-      "ora": "16:00",
-      "descrizione": "Consegna documenti per dichiarazione redditi."
-    },
-    {
-      "tipo": "Attività",
-      "titolo": "Yoga mattutino",
-      "priorita": "Media",
-      "data": "2024-05-26",
-      "ora": "08:00",
-      "descrizione": "30 minuti di stretching e meditazione."
+      "titolo": "Meccanico",
+      "priorita": "Alta",
+      "data": "2026-05-25",
+      "ora": "08:30",
+      "durata_ore": 3,
+      "descrizione": "Cambio pastiglie freni."
     },
     {
       "tipo": "Evento",
       "titolo": "Cinema",
       "priorita": "Bassa",
-      "data": "2024-05-27",
-      "ora": "21:30",
-      "descrizione": "Visione dell'ultimo film Marvel."
+      "data": "2026-05-09",
+      "ora": "21:00",
+      "durata_ore": 3,
+      "descrizione": "Maratona film fantascienza."
     },
     {
-      "tipo": "Attività",
+      "tipo": "Attivita",
       "titolo": "Leggere Libro",
       "priorita": "Bassa",
-      "data": "2024-05-20",
+      "data": "2026-05-04",
       "ora": "22:00",
-      "descrizione": "Finire il capitolo 5 del romanzo."
+      "durata_ore": 1,
+      "descrizione": "Lettura saggio su AI."
+    },
+    {
+      "tipo": "Attivita",
+      "titolo": "Leggere Libro",
+      "priorita": "Bassa",
+      "data": "2026-05-05",
+      "ora": "22:00",
+      "durata_ore": 1,
+      "descrizione": "Proseguimento capitolo 3."
     },
     {
       "tipo": "Appuntamento",
       "titolo": "Veterinario",
       "priorita": "Alta",
-      "data": "2024-06-10",
-      "ora": "09:15",
-      "descrizione": "Vaccino annuale per il gatto."
+      "data": "2026-05-22",
+      "ora": "09:30",
+      "durata_ore": 1,
+      "descrizione": "Controllo peso cane."
     },
     {
       "tipo": "Evento",
-      "titolo": "Cena di Gala",
+      "titolo": "Aperitivo Amici",
+      "priorita": "Media",
+      "data": "2026-05-08",
+      "ora": "19:00",
+      "durata_ore": 2,
+      "descrizione": "Uscita post-lavoro."
+    },
+    {
+      "tipo": "Attivita",
+      "titolo": "Meal Prep",
+      "priorita": "Media",
+      "data": "2026-05-10",
+      "ora": "16:00",
+      "durata_ore": 3,
+      "descrizione": "Preparazione pasti per la settimana."
+    },
+    {
+      "tipo": "Appuntamento",
+      "titolo": "Lezione Tennis",
+      "priorita": "Media",
+      "data": "2026-05-13",
+      "ora": "17:00",
+      "durata_ore": 1,
+      "descrizione": "Perfezionamento dritto."
+    },
+    {
+      "tipo": "Attivita",
+      "titolo": "Meditazione",
+      "priorita": "Bassa",
+      "data": "2026-05-06",
+      "ora": "07:00",
+      "durata_ore": 1,
+      "descrizione": "Sessione focus mattutino."
+    },
+    {
+      "tipo": "Attivita",
+      "titolo": "Back-up Dati",
+      "priorita": "Media",
+      "data": "2026-05-15",
+      "ora": "22:00",
+      "durata_ore": 1,
+      "descrizione": "Sincronizzazione server esterno."
+    },
+    {
+      "tipo": "Evento",
+      "titolo": "Grigliata",
+      "priorita": "Media",
+      "data": "2026-05-24",
+      "ora": "12:30",
+      "durata_ore": 5,
+      "descrizione": "Pranzo domenicale in campagna."
+    },
+    {
+      "tipo": "Attivita",
+      "titolo": "Palestra - Cardio",
+      "priorita": "Media",
+      "data": "2026-05-10",
+      "ora": "09:00",
+      "durata_ore": 1,
+      "descrizione": "30 minuti di tapis roulant."
+    },
+    {
+      "tipo": "Attivita",
+      "titolo": "Studiare C++ Avanzato",
       "priorita": "Alta",
-      "data": "2024-12-20",
+      "data": "2026-05-11",
+      "ora": "10:00",
+      "durata_ore": 4,
+      "descrizione": "Smart pointers e multithreading."
+    },
+    {
+      "tipo": "Appuntamento",
+      "titolo": "Riunione Lavoro - Marketing",
+      "priorita": "Media",
+      "data": "2026-05-12",
+      "ora": "11:00",
+      "durata_ore": 1,
+      "descrizione": "Discussione nuovi loghi."
+    },
+    {
+      "tipo": "Attivita",
+      "titolo": "Spesa Settimanale - Bio",
+      "priorita": "Bassa",
+      "data": "2026-05-12",
+      "ora": "18:00",
+      "durata_ore": 1,
+      "descrizione": "Acquisto frutta e verdura km zero."
+    },
+    {
+      "tipo": "Appuntamento",
+      "titolo": "Dentista - Controllo",
+      "priorita": "Bassa",
+      "data": "2026-05-28",
+      "ora": "15:00",
+      "durata_ore": 1,
+      "descrizione": "Visita di controllo rapida."
+    },
+    {
+      "tipo": "Attivita",
+      "titolo": "Palestra - Yoga",
+      "priorita": "Bassa",
+      "data": "2026-05-13",
+      "ora": "19:30",
+      "durata_ore": 1,
+      "descrizione": "Sessione di stretching profondo."
+    },
+    {
+      "tipo": "Evento",
+      "titolo": "Compleanno Marco",
+      "priorita": "Alta",
+      "data": "2026-05-19",
+      "ora": "20:30",
+      "durata_ore": 4,
+      "descrizione": "Cena fuori per compleanno."
+    },
+    {
+      "tipo": "Attivita",
+      "titolo": "Lavaggio Auto",
+      "priorita": "Bassa",
+      "data": "2026-05-23",
+      "ora": "11:00",
+      "durata_ore": 1,
+      "descrizione": "Pulizia interni ed esterni."
+    },
+    {
+      "tipo": "Appuntamento",
+      "titolo": "Banca",
+      "priorita": "Media",
+      "data": "2026-05-20",
+      "ora": "09:00",
+      "durata_ore": 1,
+      "descrizione": "Rinnovo carta di credito."
+    },
+    {
+      "tipo": "Attivita",
+      "titolo": "Studiare C++ - Quiz",
+      "priorita": "Alta",
+      "data": "2026-05-20",
+      "ora": "15:00",
+      "durata_ore": 2,
+      "descrizione": "Simulazione esame tecnico."
+    },
+    {
+      "tipo": "Evento",
+      "titolo": "Concerto Rock",
+      "priorita": "Bassa",
+      "data": "2026-05-22",
+      "ora": "21:30",
+      "durata_ore": 3,
+      "descrizione": "Band locale in centro."
+    },
+    {
+      "tipo": "Attivita",
+      "titolo": "Palestra - Nuoto",
+      "priorita": "Media",
+      "data": "2026-05-26",
+      "ora": "07:00",
+      "durata_ore": 1,
+      "descrizione": "40 vasche stile libero."
+    },
+    {
+      "tipo": "Appuntamento",
+      "titolo": "Riunione Lavoro - Feedback",
+      "priorita": "Alta",
+      "data": "2026-05-27",
+      "ora": "14:00",
+      "durata_ore": 1,
+      "descrizione": "Revisione performance mensile."
+    },
+    {
+      "tipo": "Attivita",
+      "titolo": "Shopping",
+      "priorita": "Bassa",
+      "data": "2026-05-30",
+      "ora": "16:00",
+      "durata_ore": 3,
+      "descrizione": "Acquisto vestiti estivi."
+    },
+    {
+      "tipo": "Evento",
+      "titolo": "Cena di Famiglia",
+      "priorita": "Media",
+      "data": "2026-05-31",
       "ora": "20:00",
-      "descrizione": "Evento formale di fine anno aziendale."
+      "durata_ore": 3,
+      "descrizione": "Saluti prima delle vacanze."
     }
   ]
 }

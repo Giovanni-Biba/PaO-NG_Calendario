@@ -2,35 +2,31 @@
 #define RESEARCH_H
 
 #include <QWidget>
-#include <QJsonArray>
 #include <QPushButton>
-
-class QListWidget;
-class QVBoxLayout;
+#include <QListWidget>
+#include <QJsonArray>
+#include <QDate>
 
 class Research : public QWidget
 {
     Q_OBJECT
-
 public:
     explicit Research(QWidget *parent = nullptr);
-    void eseguiRicercaFiltrata(const QString &titolo, const QDate &data, const QTime &ora, const QString &priorita);
-
-    // Mostra tutto il contenuto del JSON
-    void visualizzaTutto();
-
-private:
-    QPushButton *buttonIndietro;
-    QListWidget *listaRisultati;
-    QJsonArray tutteLeAttivita;
-    const QString pathFile = ":/datiAttivitaFestivita.json";
-
-    void caricaDatiJson();
-private:
-    QWidget* creaCardAttivita(const QString &tipo, const QString &titolo, const QString &descrizione, const QString &priorita, const QString &ora);
+    void eseguiRicercaFiltrata(const QString &titolo, const QDate &data, const QString &tipo, const QString &priorita);
 
 signals:
     void ritornaHome();
+
+private:
+    void caricaDatiJson();
+
+    // Questa deve avere esattamente 5 parametri QString
+    QWidget* creaCardAttivita(const QString &tipo, const QString &titolo, const QString &descrizione,const QString &priorita, const QString &ora, const QString &data, int durata);
+
+    QListWidget *listaRisultati;
+    QPushButton *buttonIndietro;
+    QJsonArray tutteLeAttivita;
+    QString pathFile = ":/datiAttivitaFestivita.json";
 };
 
 #endif
