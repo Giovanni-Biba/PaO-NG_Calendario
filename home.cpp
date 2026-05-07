@@ -9,7 +9,7 @@
 #include <QLabel>
 #include <QPushButton>
 #include <QStackedWidget>
-#include <Qtime>
+#include <QTime>
 #include <QDate>
 #include <QString>
 
