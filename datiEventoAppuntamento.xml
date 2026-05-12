@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dati>
+    <item>
+        <data>2026-05-08</data>
+        <descrizione>Descrizione di prova per visita medica</descrizione>
+        <durata_ore>4</durata_ore>
+        <stato>Cina</stato>
+        <ora>18:45</ora>
+        <priorita>Bassa</priorita>
+        <tipo>Appuntamento</tipo>
+        <titolo>Visita Medica</titolo>
+    </item>
+    <item>
+        <data>2026-05-18</data>
+        <descrizione>Descrizione di prova per taglio capelli</descrizione>
+        <durata_ore>1</durata_ore>
+        <stato>USA</stato>
+        <ora>18:00</ora>
+        <priorita>Media</priorita>
+        <tipo>Appuntamento</tipo>
+        <titolo>Taglio Capelli</titolo>
+    </item>
+    <item>
+        <data>2026-05-06</data>
+        <descrizione>Descrizione di prova per cena aziendale</descrizione>
+        <durata_ore>4</durata_ore>
+        <luogo>Bologna</luogo>
+        <ora>16:00</ora>
+        <priorita>Media</priorita>
+        <tipo>Evento</tipo>
+        <titolo>Cena Aziendale</titolo>
+    </item>
+    <item>
+        <data>2026-05-07</data>
+        <descrizione>Descrizione di prova per commercialista</descrizione>
+        <durata_ore>2</durata_ore>
+        <stato>Italia</stato>
+        <ora>09:30</ora>
+        <priorita>Media</priorita>
+        <tipo>Appuntamento</tipo>
+        <titolo>Commercialista</titolo>
+    </item>
+    <item>
+        <data>2026-05-26</data>
+        <descrizione>Descrizione di prova per lezione yoga</descrizione>
+        <durata_ore>1</durata_ore>
+        <luogo>Torino</luogo>
+        <ora>14:00</ora>
+        <priorita>Bassa</priorita>
+        <tipo>Evento</tipo>
+        <titolo>Lezione Yoga</titolo>
+    </item>
+    <item>
+        <data>2026-05-31</data>
+        <descrizione>Descrizione di prova per concerto rock</descrizione>
+        <durata_ore>1</durata_ore>
+        <luogo>Padova</luogo>
+        <ora>16:45</ora>
+        <priorita>Alta</priorita>
+        <tipo>Evento</tipo>
+        <titolo>Concerto Rock</titolo>
+    </item>
+    <item>
+        <data>2026-05-15</data>
+        <descrizione>Descrizione di prova per workshop qt</descrizione>
+        <durata_ore>2</durata_ore>
+        <luogo>Milano</luogo>
+        <ora>19:00</ora>
+        <priorita>Alta</priorita>
+        <tipo>Evento</tipo>
+        <titolo>Workshop Qt</titolo>
+    </item>
+    <item>
+        <data>2026-05-22</data>
+        <descrizione>Descrizione di prova per palestra</descrizione>
+        <durata_ore>2</durata_ore>
+        <luogo>Centro Medico</luogo>
+        <ora>15:00</ora>
+        <priorita>Alta</priorita>
+        <tipo>Evento</tipo>
+        <titolo>Palestra</titolo>
+    </item>
+    <item>
+        <data>2026-05-18</data>
+        <descrizione>Descrizione di prova per chiamata clienti</descrizione>
+        <durata_ore>4</durata_ore>
+        <stato>USA</stato>
+        <ora>19:45</ora>
+        <priorita>Media</priorita>
+        <tipo>Appuntamento</tipo>
+        <titolo>Chiamata Clienti</titolo>
+    </item>
+    <item>
+        <data>2026-05-13</data>
+        <descrizione>Descrizione di prova per incontro fornitore</descrizione>
+        <durata_ore>2</durata_ore>
+        <stato>USA</stato>
+        <ora>11:45</ora>
+        <priorita>Bassa</priorita>
+        <tipo>Appuntamento</tipo>
+        <titolo>Incontro Fornitore</titolo>
+    </item>
+    <item>
+        <data>2026-05-23</data>
+        <descrizione>Descrizione di prova per chiamata clienti</descrizione>
+        <durata_ore>1</durata_ore>
+        <stato>USA</stato>
+        <ora>19:00</ora>
+        <priorita>Media</priorita>
+        <tipo>Appuntamento</tipo>
+        <titolo>Chiamata Clienti</titolo>
+    </item>
+    <item>
+        <data>2026-05-25</data>
+        <descrizione>Descrizione di prova per partita calcio</descrizione>
+        <durata_ore>2</durata_ore>
+        <luogo>Torino</luogo>
+        <ora>10:30</ora>
+        <priorita>Bassa</priorita>
+        <tipo>Evento</tipo>
+        <titolo>Partita Calcio</titolo>
+    </item>
+    <item>
+        <data>2026-05-25</data>
+        <descrizione>Descrizione di prova per revisione auto</descrizione>
+        <durata_ore>1</durata_ore>
+        <stato>USA</stato>
+        <ora>19:45</ora>
+        <priorita>Bassa</priorita>
+        <tipo>Appuntamento</tipo>
+        <titolo>Revisione Auto</titolo>
+    </item>
+    <item>
+        <data>2026-05-28</data>
+        <descrizione>Descrizione di prova per incontro fornitore</descrizione>
+        <durata_ore>2</durata_ore>
+        <stato>Cina</stato>
+        <ora>18:30</ora>
+        <priorita>Bassa</priorita>
+        <tipo>Appuntamento</tipo>
+        <titolo>Incontro Fornitore</titolo>
+    </item>
+    <item>
+        <data>2026-05-18</data>
+        <descrizione>Descrizione di prova per intervista</descrizione>
+        <durata_ore>2</durata_ore>
+        <stato>Cina</stato>
+        <ora>16:45</ora>
+        <priorita>Alta</priorita>
+        <tipo>Appuntamento</tipo>
+        <titolo>Intervista</titolo>
+    </item>
+    <item>
+        <data>2026-05-15</data>
+        <descrizione>Descrizione di prova per chiamata clienti</descrizione>
+        <durata_ore>1</durata_ore>
+        <stato>Worldwide</stato>
+        <ora>16:45</ora>
+        <priorita>Media</priorita>
+        <tipo>Appuntamento</tipo>
+        <titolo>Chiamata Clienti</titolo>
+    </item>
+    <item>
+        <data>2026-05-13</data>
+        <descrizione>Descrizione di prova per dentista</descrizione>
+        <durata_ore>4</durata_ore>
+        <stato>USA</stato>
+        <ora>19:30</ora>
+        <priorita>Media</priorita>
+        <tipo>Appuntamento</tipo>
+        <titolo>Dentista</titolo>
+    </item>
+    <item>
+        <data>2026-05-01</data>
+        <descrizione>Descrizione di prova per aperitivo</descrizione>
+        <durata_ore>4</durata_ore>
+        <luogo>Venezia</luogo>
+        <ora>09:45</ora>
+        <priorita>Bassa</priorita>
+        <tipo>Evento</tipo>
+        <titolo>Aperitivo</titolo>
+    </item>
+    <item>
+        <data>2026-05-20</data>
+        <descrizione>Descrizione di prova per visita medica</descrizione>
+        <durata_ore>1</durata_ore>
+        <stato>USA</stato>
+        <ora>15:45</ora>
+        <priorita>Alta</priorita>
+        <tipo>Appuntamento</tipo>
+        <titolo>Visita Medica</titolo>
+    </item>
+    <item>
+        <data>2026-05-24</data>
+        <descrizione>Descrizione di prova per presentazione libro</descrizione>
+        <durata_ore>1</durata_ore>
+        <luogo>Ufficio</luogo>
+        <ora>15:45</ora>
+        <priorita>Alta</priorita>
+        <tipo>Evento</tipo>
+        <titolo>Presentazione Libro</titolo>
+    </item>
+</dati>

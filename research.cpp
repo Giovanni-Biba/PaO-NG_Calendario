@@ -6,6 +6,8 @@
 #include <QFile>
 #include <QJsonDocument>
 #include <QJsonObject>
+#include <QJsonArray>
+#include <QXmlStreamReader>
 #include <QFrame>
 #include <QDebug>
 #include <QPushButton>
@@ -39,11 +41,11 @@ Research::Research(QWidget *parent) : QWidget(parent)
     mainLayout->addWidget(listaRisultati);
 
     connect(buttonIndietro, &QPushButton::clicked, this, &Research::ritornaHome);
-    caricaDatiJson();
 }
 
 void Research::caricaDatiJson() {
-    QFile file(pathFile);
+    tutteLeAttivita = QJsonArray(); // Reset array
+    QFile file(pathFilejson);
     if (!file.open(QIODevice::ReadOnly)) return;
     QJsonDocument doc = QJsonDocument::fromJson(file.readAll());
     file.close();
@@ -52,13 +54,60 @@ void Research::caricaDatiJson() {
     }
 }
 
+void Research::caricaDatiXml() {
+    tutteLeAttivita = QJsonArray(); // Reset array
+    QFile file(pathFilexml);
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) return;
+
+    QXmlStreamReader xml(&file);
+    while (!xml.atEnd() && !xml.hasError()) {
+        QXmlStreamReader::TokenType token = xml.readNext();
+        if (token == QXmlStreamReader::StartElement && xml.name() == "item") {
+            QJsonObject obj;
+            while (!(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == "item")) {
+                if (xml.readNext() == QXmlStreamReader::StartElement) {
+                    QString key = xml.name().toString();
+                    QString value = xml.readElementText();
+                    obj.insert(key, value);
+                }
+            }
+            tutteLeAttivita.append(obj);
+        }
+    }
+    file.close();
+}
+
 void Research::eseguiRicercaFiltrata(const QString &titolo, const QDate &data, const QString &tipo, const QString &priorita) {
     listaRisultati->clear();
-    caricaDatiJson();
+
+    QJsonArray datiDaAnalizzare;
+
+    // --- SELEZIONE SORGENTE DATI ---
+    if (tipo == "Attivita") {
+        caricaDatiJson();
+        datiDaAnalizzare = tutteLeAttivita;
+    }
+    else if (tipo == "Evento" || tipo == "Appuntamento") {
+        caricaDatiXml();
+        datiDaAnalizzare = tutteLeAttivita;
+    }
+    else {
+        caricaDatiJson();
+        QJsonArray tempJson = tutteLeAttivita;
+        caricaDatiXml();
+        QJsonArray tempXml = tutteLeAttivita;
+
+        for(const auto &v : tempJson) {
+            datiDaAnalizzare.append(v);
+        }
+        for(const auto &v : tempXml) {
+            datiDaAnalizzare.append(v);
+        }
+    }
 
     QString queryTitolo = titolo.trimmed().toLower();
 
-    for (const QJsonValue &val : std::as_const(tutteLeAttivita)) {
+    for (const QJsonValue &val : std::as_const(datiDaAnalizzare)) {
         QJsonObject obj = val.toObject();
 
         QString jTitolo = obj.value("titolo").toString().toLower();
@@ -66,7 +115,11 @@ void Research::eseguiRicercaFiltrata(const QString &titolo, const QDate &data, c
         QString jTipo = obj.value("tipo").toString();
         QString dataStr = obj.value("data").toString();
         QDate jData = QDate::fromString(dataStr, "yyyy-MM-dd");
-        int jDurata = obj.value("durata_ore").toInt(0);
+
+        // Gestione durata (nell'XML stringa, JSON int)
+        int jDurata = obj.value("durata_ore").isString() ?
+                          obj.value("durata_ore").toString().toInt() :
+                          obj.value("durata_ore").toInt(0);
 
         // --- LOGICA FILTRO ---
         bool matchTestoOData = !queryTitolo.isEmpty() ? jTitolo.contains(queryTitolo) : (jData == data);
@@ -110,9 +163,7 @@ QWidget* Research::creaCardAttivita(const QString &tipo, const QString &titolo, 
     QFrame *card = new QFrame();
     card->setStyleSheet("QFrame { border: 2px solid #3498db; border-radius: 15px; background-color: white; padding: 12px; }");
 
-    // Layout Orizzontale principale della card
     QHBoxLayout *cardHLayout = new QHBoxLayout(card);
-
     QVBoxLayout *leftLayout = new QVBoxLayout();
 
     QLabel *lblTipo = new QLabel(tipo.toUpper());
@@ -128,12 +179,11 @@ QWidget* Research::creaCardAttivita(const QString &tipo, const QString &titolo, 
     lblDesc->setWordWrap(true);
     leftLayout->addWidget(lblDesc);
 
-    cardHLayout->addLayout(leftLayout, 3); // Prende più spazio
+    cardHLayout->addLayout(leftLayout, 3);
 
     QVBoxLayout *rightLayout = new QVBoxLayout();
     rightLayout->setAlignment(Qt::AlignRight | Qt::AlignTop);
 
-    // Priorità
     QString pUpper = priorita.toUpper().isEmpty() ? "N/D" : priorita.toUpper();
     QLabel *lblPrio = new QLabel("PRIORITÀ: " + pUpper);
     QString stilePrio = "font-weight: bold; font-size: 11px; border: none; color: ";
@@ -144,15 +194,13 @@ QWidget* Research::creaCardAttivita(const QString &tipo, const QString &titolo, 
     lblPrio->setAlignment(Qt::AlignRight);
     rightLayout->addWidget(lblPrio);
 
-    // Calendario
     QLabel *lblTempo = new QLabel(QString("📅 %1\n🕒 %2 (⏳ %3h)").arg(data, ora, QString::number(durata)));
     lblTempo->setStyleSheet("font-size: 11px; color: #7f8c8d; border: none;");
     lblTempo->setAlignment(Qt::AlignRight);
     rightLayout->addWidget(lblTempo);
 
-    rightLayout->addStretch(); // Spazio vuoto
+    rightLayout->addStretch();
 
-    //Pulsante per pagina visualizza al momento solo creato
     QPushButton *btnVisualizza = new QPushButton("VISUALIZZA");
     btnVisualizza->setFixedWidth(100);
     btnVisualizza->setStyleSheet(
@@ -162,7 +210,6 @@ QWidget* Research::creaCardAttivita(const QString &tipo, const QString &titolo, 
     rightLayout->addWidget(btnVisualizza);
 
     cardHLayout->addLayout(rightLayout, 1);
-
     mainVLayout->addWidget(card);
     return container;
 }

@@ -19,14 +19,15 @@ signals:
 
 private:
     void caricaDatiJson();
+    void caricaDatiXml();
 
-    // Questa deve avere esattamente 5 parametri QString
     QWidget* creaCardAttivita(const QString &tipo, const QString &titolo, const QString &descrizione,const QString &priorita, const QString &ora, const QString &data, int durata);
 
     QListWidget *listaRisultati;
     QPushButton *buttonIndietro;
     QJsonArray tutteLeAttivita;
-    QString pathFile = ":/datiAttivitaFestivita.json";
+    QString pathFilejson = ":/datiAttivitaFestivita.json";
+    QString pathFilexml = ":/datiEventoAppuntamento.xml";
 };
 
 #endif

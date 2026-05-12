@@ -28,7 +28,7 @@
       "descrizione": "Allenamento dorso e tricipiti."
     },
     {
-      "tipo": "Appuntamento",
+      "tipo": "Attivita",
       "titolo": "Dentista",
       "priorita": "Media",
       "data": "2026-05-21",
@@ -55,7 +55,7 @@
       "descrizione": "Spesa per cena con amici."
     },
     {
-      "tipo": "Appuntamento",
+      "tipo": "Attivita",
       "titolo": "Riunione Lavoro",
       "priorita": "Alta",
       "data": "2026-05-05",
@@ -64,7 +64,7 @@
       "descrizione": "Pianificazione trimestrale progetto."
     },
     {
-      "tipo": "Appuntamento",
+      "tipo": "Attivita",
       "titolo": "Riunione Lavoro",
       "priorita": "Alta",
       "data": "2026-05-12",
@@ -136,7 +136,7 @@
       "descrizione": "Riordino libreria e scrivania."
     },
     {
-      "tipo": "Evento",
+      "tipo": "Attivita",
       "titolo": "Partita Calcetto",
       "priorita": "Bassa",
       "data": "2026-05-08",
@@ -145,7 +145,7 @@
       "descrizione": "Sfida settimanale con colleghi."
     },
     {
-      "tipo": "Evento",
+      "tipo": "Attivita",
       "titolo": "Partita Calcetto",
       "priorita": "Bassa",
       "data": "2026-05-15",
@@ -172,7 +172,7 @@
       "descrizione": "Concimazione mensile orchidee."
     },
     {
-      "tipo": "Appuntamento",
+      "tipo": "Attivita",
       "titolo": "Meccanico",
       "priorita": "Alta",
       "data": "2026-05-25",
@@ -181,7 +181,7 @@
       "descrizione": "Cambio pastiglie freni."
     },
     {
-      "tipo": "Evento",
+      "tipo": "Attivita",
       "titolo": "Cinema",
       "priorita": "Bassa",
       "data": "2026-05-09",
@@ -208,7 +208,7 @@
       "descrizione": "Proseguimento capitolo 3."
     },
     {
-      "tipo": "Appuntamento",
+      "tipo": "Attivita",
       "titolo": "Veterinario",
       "priorita": "Alta",
       "data": "2026-05-22",
@@ -217,7 +217,7 @@
       "descrizione": "Controllo peso cane."
     },
     {
-      "tipo": "Evento",
+      "tipo": "Attivita",
       "titolo": "Aperitivo Amici",
       "priorita": "Media",
       "data": "2026-05-08",
@@ -235,7 +235,7 @@
       "descrizione": "Preparazione pasti per la settimana."
     },
     {
-      "tipo": "Appuntamento",
+      "tipo": "Attivita",
       "titolo": "Lezione Tennis",
       "priorita": "Media",
       "data": "2026-05-13",
@@ -262,7 +262,7 @@
       "descrizione": "Sincronizzazione server esterno."
     },
     {
-      "tipo": "Evento",
+      "tipo": "Attivita",
       "titolo": "Grigliata",
       "priorita": "Media",
       "data": "2026-05-24",
@@ -289,7 +289,7 @@
       "descrizione": "Smart pointers e multithreading."
     },
     {
-      "tipo": "Appuntamento",
+      "tipo": "Attivita",
       "titolo": "Riunione Lavoro - Marketing",
       "priorita": "Media",
       "data": "2026-05-12",
@@ -307,7 +307,7 @@
       "descrizione": "Acquisto frutta e verdura km zero."
     },
     {
-      "tipo": "Appuntamento",
+      "tipo": "Attivita",
       "titolo": "Dentista - Controllo",
       "priorita": "Bassa",
       "data": "2026-05-28",
@@ -325,7 +325,7 @@
       "descrizione": "Sessione di stretching profondo."
     },
     {
-      "tipo": "Evento",
+      "tipo": "Attivita",
       "titolo": "Compleanno Marco",
       "priorita": "Alta",
       "data": "2026-05-19",
@@ -343,7 +343,7 @@
       "descrizione": "Pulizia interni ed esterni."
     },
     {
-      "tipo": "Appuntamento",
+      "tipo": "Attivita",
       "titolo": "Banca",
       "priorita": "Media",
       "data": "2026-05-20",
@@ -361,7 +361,7 @@
       "descrizione": "Simulazione esame tecnico."
     },
     {
-      "tipo": "Evento",
+      "tipo": "Attivita",
       "titolo": "Concerto Rock",
       "priorita": "Bassa",
       "data": "2026-05-22",
@@ -379,7 +379,7 @@
       "descrizione": "40 vasche stile libero."
     },
     {
-      "tipo": "Appuntamento",
+      "tipo": "Attivita",
       "titolo": "Riunione Lavoro - Feedback",
       "priorita": "Alta",
       "data": "2026-05-27",
@@ -397,7 +397,7 @@
       "descrizione": "Acquisto vestiti estivi."
     },
     {
-      "tipo": "Evento",
+      "tipo": "Attivita",
       "titolo": "Cena di Famiglia",
       "priorita": "Media",
       "data": "2026-05-31",
