@@ -5,12 +5,15 @@
 #include <QScrollArea>
 #include <QFrame>
 #include <QDate>
+#include <QTime>
 #include <QFile>
 #include <QJsonDocument>
 #include <QJsonArray>
 #include <QJsonObject>
 #include <QXmlStreamReader>
 #include <QHBoxLayout>
+#include <QLayoutItem>
+#include <QStringList>
 
 calendar::calendar(QWidget *parent)
     : QWidget{parent}
@@ -116,7 +119,26 @@ calendar::calendar(QWidget *parent)
     caricaXml();
 }
 
-void calendar::aggiungiFestivita(const QString& titolo, const QDate& data)
+void calendar::aggiornaCalendario()
+{
+    for (int row = 1; row < 26; ++row) {
+        for (int col = 0; col < 7; ++col) {
+            if (!celle[row][col]) continue;
+
+            while (QLayoutItem *item = celle[row][col]->takeAt(0)) {
+                if (item->widget()) item->widget()->deleteLater();
+                delete item;
+            }
+
+            conteggioCelle[row][col] = 0;
+        }
+    }
+
+    caricaJson();
+    caricaXml();
+}
+
+void calendar::aggiungiFestivita(const QString& titolo, const QDate& data, const QString& ora)
 {
     int col = lunediSettimana.daysTo(data);
     if (col < 0 || col > 6) return;
@@ -136,17 +158,22 @@ void calendar::aggiungiFestivita(const QString& titolo, const QDate& data)
     celle[1][col]->addWidget(btn);
     conteggioCelle[1][col]++;
 
-    connect(btn, &QPushButton::clicked, this, [this, titolo]() {
-        emit richiestaVisualize(titolo);
+    connect(btn, &QPushButton::clicked, this, [this, titolo, data, ora]() {
+        emit richiestaVisualize(titolo, data.toString(Qt::ISODate), ora);
     });
 }
 
-void calendar::aggiungiEvento(const QString& titolo, const QDate& data, int oraInizio, int durataOre)
+void calendar::aggiungiEvento(const QString& titolo, const QDate& data, const QString& ora, int durataOre)
 {
+    Q_UNUSED(durataOre);
+
     int col = lunediSettimana.daysTo(data);
     if (col < 0 || col > 6) return;
 
-    int row = oraInizio + 2;
+    QTime oraParsed = QTime::fromString(ora, "HH:mm");
+    if (!oraParsed.isValid()) oraParsed = QTime::fromString(ora, "HH:mm:ss");
+    int row = oraParsed.hour() + 2;
+    if (row < 2 || row > 25) return;
 
     if (conteggioCelle[row][col] >= 5) return;
 
@@ -163,8 +190,8 @@ void calendar::aggiungiEvento(const QString& titolo, const QDate& data, int oraI
     celle[row][col]->addWidget(btn);
     conteggioCelle[row][col]++;
 
-    connect(btn, &QPushButton::clicked, this, [this, titolo]() {
-        emit richiestaVisualize(titolo);
+    connect(btn, &QPushButton::clicked, this, [this, titolo, data, ora]() {
+        emit richiestaVisualize(titolo, data.toString(Qt::ISODate), ora);
     });
 }
 
@@ -173,24 +200,29 @@ void calendar::caricaJson()
     QFile file("datiAttivitaFestivita.json");
     if (!file.open(QIODevice::ReadOnly)) return;
 
-    QJsonArray array = QJsonDocument::fromJson(file.readAll()).array();
+    QJsonDocument doc = QJsonDocument::fromJson(file.readAll());
+    QJsonArray array = doc.isArray() ? doc.array() : doc.object().value("agenda").toArray();
     file.close();
 
     for (auto v : array) {
         QJsonObject o = v.toObject();
         QString titolo = o["titolo"].toString();
-        QString tipo = o["tipo"].toString();
+        QString tipo = o["tipo"].toString().toLower();
         QDate data = QDate::fromString(o["data"].toString(), Qt::ISODate);
-        QTime ora = QTime::fromString(o["ora"].toString(), "HH:mm:ss");
+        QString ora = o["ora"].toString();
 
         if (tipo == "festivita")
-            aggiungiFestivita(titolo, data);
+            aggiungiFestivita(titolo, data, ora);
 
         else if (tipo == "attivita") {
-            QTime fine = QTime::fromString(o["oraFine"].toString(), "HH:mm:ss");
-            int durata = ora.secsTo(fine)/3600;
+            int durata = o["durata_ore"].toInt(0);
+            if (durata <= 0) {
+                QTime inizio = QTime::fromString(ora, "HH:mm");
+                QTime fine = QTime::fromString(o["oraFine"].toString(), "HH:mm:ss");
+                durata = inizio.secsTo(fine) / 3600;
+            }
             if (durata <= 0) durata = 1;
-            aggiungiEvento(titolo, data, ora.hour(), durata);
+            aggiungiEvento(titolo, data, ora, durata);
         }
     }
 }
@@ -208,7 +240,7 @@ void calendar::caricaXml()
 
             QString titolo;
             QDate data;
-            QTime ora;
+            QString ora;
             int durata = 1;
 
             while (!(r.isEndElement() && r.name()=="item")) {
@@ -220,12 +252,12 @@ void calendar::caricaXml()
 
                     if (n=="titolo") titolo=v;
                     else if (n=="data") data=QDate::fromString(v,Qt::ISODate);
-                    else if (n=="ora") ora=QTime::fromString(v,"HH:mm:ss");
-                    else if (n=="durata") durata=v.toInt();
+                    else if (n=="ora") ora=v;
+                    else if (n=="durata" || n=="durata_ore") durata=v.toInt();
                 }
             }
 
-            aggiungiEvento(titolo,data,ora.hour(),durata);
+            aggiungiEvento(titolo,data,ora,durata);
         }
     }
 

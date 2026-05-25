@@ -5,6 +5,7 @@
 #include <QPushButton>
 #include <QListWidget>
 #include <QJsonArray>
+#include <QJsonObject>
 #include <QDate>
 
 class Research : public QWidget
@@ -16,18 +17,19 @@ public:
 
 signals:
     void ritornaHome();
+    void richiestaVisualize(const QJsonObject &elemento);
 
 private:
     void caricaDatiJson();
     void caricaDatiXml();
 
-    QWidget* creaCardAttivita(const QString &tipo, const QString &titolo, const QString &descrizione,const QString &priorita, const QString &ora, const QString &data, int durata);
+    QWidget* creaCardAttivita(const QJsonObject &elemento, const QString &tipo, const QString &titolo, const QString &descrizione,const QString &priorita, const QString &ora, const QString &data, int durata);
 
     QListWidget *listaRisultati;
     QPushButton *buttonIndietro;
     QJsonArray tutteLeAttivita;
-    QString pathFilejson = ":/datiAttivitaFestivita.json";
-    QString pathFilexml = ":/datiEventoAppuntamento.xml";
+    QString pathFilejson = "datiAttivitaFestivita.json";
+    QString pathFilexml = "datiEventoAppuntamento.xml";
 };
 
 #endif

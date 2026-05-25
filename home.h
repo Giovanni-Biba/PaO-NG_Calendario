@@ -10,6 +10,8 @@
 class calendar;
 class Create;
 class Research;
+class visualize;
+class modify;
 
 class Home : public QMainWindow
 {
@@ -23,6 +25,9 @@ private:
     calendar *calendarPage;
     Create *createPage;
     Research *researchPage;
+    visualize *visualizePage;
+    modify *modifyPage;
+    QWidget *paginaPrimaDiVisualize;
 };
 
 #endif // HOME_H

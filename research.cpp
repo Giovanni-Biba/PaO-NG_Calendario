@@ -12,6 +12,8 @@
 #include <QDebug>
 #include <QPushButton>
 
+#include <utility>
+
 Research::Research(QWidget *parent) : QWidget(parent)
 {
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
@@ -49,7 +51,10 @@ void Research::caricaDatiJson() {
     if (!file.open(QIODevice::ReadOnly)) return;
     QJsonDocument doc = QJsonDocument::fromJson(file.readAll());
     file.close();
-    if (!doc.isNull() && doc.isObject()) {
+    if (doc.isArray()) {
+        tutteLeAttivita = doc.array();
+    }
+    else if (!doc.isNull() && doc.isObject()) {
         tutteLeAttivita = doc.object().value("agenda").toArray();
     }
 }
@@ -117,9 +122,10 @@ void Research::eseguiRicercaFiltrata(const QString &titolo, const QDate &data, c
         QDate jData = QDate::fromString(dataStr, "yyyy-MM-dd");
 
         // Gestione durata (nell'XML stringa, JSON int)
-        int jDurata = obj.value("durata_ore").isString() ?
-                          obj.value("durata_ore").toString().toInt() :
-                          obj.value("durata_ore").toInt(0);
+        QJsonValue durataValue = obj.contains("durata_ore") ? obj.value("durata_ore") : obj.value("durata");
+        int jDurata = durataValue.isString() ?
+                          durataValue.toString().toInt() :
+                          durataValue.toInt(0);
 
         // --- LOGICA FILTRO ---
         bool matchTestoOData = !queryTitolo.isEmpty() ? jTitolo.contains(queryTitolo) : (jData == data);
@@ -128,6 +134,7 @@ void Research::eseguiRicercaFiltrata(const QString &titolo, const QDate &data, c
 
         if (matchTestoOData && matchPriorita && matchTipo) {
             QWidget *cardWidget = creaCardAttivita(
+                obj,
                 jTipo,
                 obj.value("titolo").toString("Senza Titolo"),
                 obj.value("descrizione").toString("..."),
@@ -155,7 +162,7 @@ void Research::eseguiRicercaFiltrata(const QString &titolo, const QDate &data, c
     }
 }
 
-QWidget* Research::creaCardAttivita(const QString &tipo, const QString &titolo, const QString &descrizione, const QString &priorita, const QString &ora, const QString &data, int durata) {
+QWidget* Research::creaCardAttivita(const QJsonObject &elemento, const QString &tipo, const QString &titolo, const QString &descrizione, const QString &priorita, const QString &ora, const QString &data, int durata) {
     QWidget *container = new QWidget();
     QVBoxLayout *mainVLayout = new QVBoxLayout(container);
     mainVLayout->setContentsMargins(5, 2, 5, 2);
@@ -208,6 +215,9 @@ QWidget* Research::creaCardAttivita(const QString &tipo, const QString &titolo, 
         "QPushButton:hover { background-color: #2980b9; }"
         );
     rightLayout->addWidget(btnVisualizza);
+    connect(btnVisualizza, &QPushButton::clicked, this, [this, elemento]() {
+        emit richiestaVisualize(elemento);
+    });
 
     cardHLayout->addLayout(rightLayout, 1);
     mainVLayout->addWidget(card);

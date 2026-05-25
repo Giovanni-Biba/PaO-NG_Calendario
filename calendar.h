@@ -18,6 +18,7 @@ public:
     explicit calendar(QWidget *parent = nullptr);
 
     SearchBar* getSearchBar() const { return BarraRicerca; }
+    void aggiornaCalendario();
 
 private:
     QPushButton *Titolo;
@@ -32,8 +33,8 @@ private:
     QDate oggi;
     QDate lunediSettimana;
 
-    void aggiungiEvento(const QString& titolo, const QDate& data, int oraInizio, int durataOre);
-    void aggiungiFestivita(const QString& titolo, const QDate& data);
+    void aggiungiEvento(const QString& titolo, const QDate& data, const QString& ora, int durataOre);
+    void aggiungiFestivita(const QString& titolo, const QDate& data, const QString& ora);
     void caricaJson();
     void caricaXml();
 
@@ -43,7 +44,7 @@ private slots:
 signals:
     void richiestaCrea();
     void richiestaCerca();
-    void richiestaVisualize(QString titolo);
+    void richiestaVisualize(QString titolo, QString data, QString ora);
 };
 
 #endif
