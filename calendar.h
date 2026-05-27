@@ -47,6 +47,7 @@ private:
 
 private slots:
     void closeCalendar();
+    void refreshGenerale();
     void vaiSettimanaPrecedente();
     void vaiSettimanaSuccessiva();
 

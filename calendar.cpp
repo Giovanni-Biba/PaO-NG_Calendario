@@ -119,6 +119,7 @@ calendar::calendar(QWidget *parent)
     Crea = new QPushButton("+ Crea", this);
     mainLayout->addWidget(Crea);
 
+    connect(Titolo, &QPushButton::clicked, this, &calendar::refreshGenerale);
     connect(Crea, &QPushButton::clicked, this, &calendar::richiestaCrea);
     connect(BarraRicerca, &SearchBar::cercaClicked, this, &calendar::richiestaCerca);
     connect(settimanaPrecedente, &QPushButton::clicked, this, &calendar::vaiSettimanaPrecedente);
@@ -167,6 +168,15 @@ void calendar::vaiSettimanaPrecedente()
 void calendar::vaiSettimanaSuccessiva()
 {
     lunediSettimana = lunediSettimana.addDays(7);
+    aggiornaIntestazioneSettimana();
+    aggiornaCalendario();
+}
+
+void calendar::refreshGenerale()
+{
+    oggi = QDate::currentDate();
+    lunediSettimana = oggi.addDays(-(oggi.dayOfWeek() - 1));
+
     aggiornaIntestazioneSettimana();
     aggiornaCalendario();
 }
