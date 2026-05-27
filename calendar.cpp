@@ -229,24 +229,28 @@ void calendar::aggiungiFestivita(const QString& titolo, const QDate& data, const
 
 void calendar::aggiungiEvento(const QString& titolo, const QDate& data, const QString& ora, int durataOre)
 {
-    int col = lunediSettimana.daysTo(data);
-    if (col < 0 || col > 6) return;
-
     QTime oraParsed = QTime::fromString(ora, "HH:mm");
     if (!oraParsed.isValid()) oraParsed = QTime::fromString(ora, "HH:mm:ss");
+    if (!oraParsed.isValid()) return;
 
-    int rowIniziale = oraParsed.hour() + 2;
-    if (rowIniziale < 2 || rowIniziale > 25) return;
-
+    int oraIniziale = oraParsed.hour();
     if (durataOre <= 0) durataOre = 1;
 
-    QString colore = prossimoColoreElemento();
+    QString colore;
 
     for (int i = 0; i < durataOre; i++) {
-        int row = rowIniziale + i;
-        if (row > 25) break;
+        int oreTotali = oraIniziale + i;
+        QDate giornoCorrente = data.addDays(oreTotali / 24);
+        int col = lunediSettimana.daysTo(giornoCorrente);
+
+        if (col < 0 || col > 6) continue;
+
+        int row = (oreTotali % 24) + 2;
 
         if (conteggioCelle[row][col] >= 5) continue;
+
+        if (colore.isEmpty())
+            colore = prossimoColoreElemento();
 
         QPushButton *btn = new QPushButton(titolo);
 
