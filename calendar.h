@@ -24,15 +24,20 @@ private:
     QPushButton *Titolo;
     SearchBar *BarraRicerca;
     QPushButton *Crea;
+    QPushButton *settimanaPrecedente;
+    QPushButton *settimanaSuccessiva;
+    QLabel *labelSettimana;
 
     QGridLayout *grid;
 
+    QLabel *headerGiorni[7];
     QHBoxLayout *celle[26][7];
     int conteggioCelle[26][7];
 
     QDate oggi;
     QDate lunediSettimana;
 
+    void aggiornaIntestazioneSettimana();
     void aggiungiEvento(const QString& titolo, const QDate& data, const QString& ora, int durataOre);
     void aggiungiFestivita(const QString& titolo, const QDate& data, const QString& ora);
     void caricaJson();
@@ -40,6 +45,8 @@ private:
 
 private slots:
     void closeCalendar();
+    void vaiSettimanaPrecedente();
+    void vaiSettimanaSuccessiva();
 
 signals:
     void richiestaCrea();

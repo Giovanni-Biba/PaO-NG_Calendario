@@ -404,6 +404,487 @@
       "ora": "20:00",
       "durata_ore": 3,
       "descrizione": "Saluti prima delle vacanze."
+    },
+    {
+      "tipo": "Festività",
+      "titolo": "Natale",
+      "data": "2025-12-25",
+      "descrizione": "Giornio di natale"
+    },
+    {
+      "tipo": "Attivita",
+      "titolo": "Pianificazione settimanale - Settimana 01",
+      "priorita": "Alta",
+      "data": "2026-05-25",
+      "ora": "09:00",
+      "durata_ore": 1,
+      "descrizione": "Organizzazione agenda, priorita e scadenze della settimana."
+    },
+    {
+      "tipo": "Attivita",
+      "titolo": "Sessione studio progetto - Settimana 01",
+      "priorita": "Media",
+      "data": "2026-05-26",
+      "ora": "17:30",
+      "durata_ore": 2,
+      "descrizione": "Avanzamento esercizi e revisione materiali del progetto."
+    },
+    {
+      "tipo": "festivita",
+      "titolo": "Giornata Benessere - Settimana 01",
+      "data": "2026-05-27",
+      "ora": "00:00",
+      "descrizione": "Promemoria simbolico dedicato al recupero e alle pause."
+    },
+    {
+      "tipo": "Attivita",
+      "titolo": "Sessione studio progetto - Settimana 02",
+      "priorita": "Media",
+      "data": "2026-06-01",
+      "ora": "17:30",
+      "durata_ore": 2,
+      "descrizione": "Avanzamento esercizi e revisione materiali del progetto."
+    },
+    {
+      "tipo": "Attivita",
+      "titolo": "Allenamento funzionale - Settimana 02",
+      "priorita": "Bassa",
+      "data": "2026-06-02",
+      "ora": "18:30",
+      "durata_ore": 1,
+      "descrizione": "Circuito leggero per mantenere continuita fisica."
+    },
+    {
+      "tipo": "festivita",
+      "titolo": "Festa della Creativita - Settimana 02",
+      "data": "2026-06-03",
+      "ora": "00:00",
+      "descrizione": "Giornata tematica per idee, letture e ispirazione."
+    },
+    {
+      "tipo": "Attivita",
+      "titolo": "Allenamento funzionale - Settimana 03",
+      "priorita": "Bassa",
+      "data": "2026-06-08",
+      "ora": "18:30",
+      "durata_ore": 1,
+      "descrizione": "Circuito leggero per mantenere continuita fisica."
+    },
+    {
+      "tipo": "Attivita",
+      "titolo": "Revisione documenti - Settimana 03",
+      "priorita": "Media",
+      "data": "2026-06-09",
+      "ora": "11:00",
+      "durata_ore": 1,
+      "descrizione": "Controllo note, ricevute e file da archiviare."
+    },
+    {
+      "tipo": "festivita",
+      "titolo": "Giornata della Lettura - Settimana 03",
+      "data": "2026-06-10",
+      "ora": "00:00",
+      "descrizione": "Occasione dedicata a libri, appunti e approfondimenti."
+    },
+    {
+      "tipo": "Attivita",
+      "titolo": "Revisione documenti - Settimana 04",
+      "priorita": "Media",
+      "data": "2026-06-15",
+      "ora": "11:00",
+      "durata_ore": 1,
+      "descrizione": "Controllo note, ricevute e file da archiviare."
+    },
+    {
+      "tipo": "Attivita",
+      "titolo": "Pulizia e riordino - Settimana 04",
+      "priorita": "Bassa",
+      "data": "2026-06-16",
+      "ora": "10:00",
+      "durata_ore": 2,
+      "descrizione": "Riordino spazi di lavoro e controllo materiali."
+    },
+    {
+      "tipo": "festivita",
+      "titolo": "Festa di Quartiere - Settimana 04",
+      "data": "2026-06-17",
+      "ora": "00:00",
+      "descrizione": "Ricorrenza locale per socialita e vita di zona."
+    },
+    {
+      "tipo": "Attivita",
+      "titolo": "Pulizia e riordino - Settimana 05",
+      "priorita": "Bassa",
+      "data": "2026-06-22",
+      "ora": "10:00",
+      "durata_ore": 2,
+      "descrizione": "Riordino spazi di lavoro e controllo materiali."
+    },
+    {
+      "tipo": "Attivita",
+      "titolo": "Pianificazione settimanale - Settimana 05",
+      "priorita": "Alta",
+      "data": "2026-06-23",
+      "ora": "09:00",
+      "durata_ore": 1,
+      "descrizione": "Organizzazione agenda, priorita e scadenze della settimana."
+    },
+    {
+      "tipo": "festivita",
+      "titolo": "Giornata della Natura - Settimana 05",
+      "data": "2026-06-24",
+      "ora": "00:00",
+      "descrizione": "Promemoria per tempo all aperto e cura degli spazi verdi."
+    },
+    {
+      "tipo": "Attivita",
+      "titolo": "Pianificazione settimanale - Settimana 06",
+      "priorita": "Alta",
+      "data": "2026-06-29",
+      "ora": "09:00",
+      "durata_ore": 1,
+      "descrizione": "Organizzazione agenda, priorita e scadenze della settimana."
+    },
+    {
+      "tipo": "Attivita",
+      "titolo": "Sessione studio progetto - Settimana 06",
+      "priorita": "Media",
+      "data": "2026-06-30",
+      "ora": "17:30",
+      "durata_ore": 2,
+      "descrizione": "Avanzamento esercizi e revisione materiali del progetto."
+    },
+    {
+      "tipo": "festivita",
+      "titolo": "Giornata Benessere - Settimana 06",
+      "data": "2026-07-01",
+      "ora": "00:00",
+      "descrizione": "Promemoria simbolico dedicato al recupero e alle pause."
+    },
+    {
+      "tipo": "Attivita",
+      "titolo": "Sessione studio progetto - Settimana 07",
+      "priorita": "Media",
+      "data": "2026-07-06",
+      "ora": "17:30",
+      "durata_ore": 2,
+      "descrizione": "Avanzamento esercizi e revisione materiali del progetto."
+    },
+    {
+      "tipo": "Attivita",
+      "titolo": "Allenamento funzionale - Settimana 07",
+      "priorita": "Bassa",
+      "data": "2026-07-07",
+      "ora": "18:30",
+      "durata_ore": 1,
+      "descrizione": "Circuito leggero per mantenere continuita fisica."
+    },
+    {
+      "tipo": "festivita",
+      "titolo": "Festa della Creativita - Settimana 07",
+      "data": "2026-07-08",
+      "ora": "00:00",
+      "descrizione": "Giornata tematica per idee, letture e ispirazione."
+    },
+    {
+      "tipo": "Attivita",
+      "titolo": "Allenamento funzionale - Settimana 08",
+      "priorita": "Bassa",
+      "data": "2026-07-13",
+      "ora": "18:30",
+      "durata_ore": 1,
+      "descrizione": "Circuito leggero per mantenere continuita fisica."
+    },
+    {
+      "tipo": "Attivita",
+      "titolo": "Revisione documenti - Settimana 08",
+      "priorita": "Media",
+      "data": "2026-07-14",
+      "ora": "11:00",
+      "durata_ore": 1,
+      "descrizione": "Controllo note, ricevute e file da archiviare."
+    },
+    {
+      "tipo": "festivita",
+      "titolo": "Giornata della Lettura - Settimana 08",
+      "data": "2026-07-15",
+      "ora": "00:00",
+      "descrizione": "Occasione dedicata a libri, appunti e approfondimenti."
+    },
+    {
+      "tipo": "Attivita",
+      "titolo": "Revisione documenti - Settimana 09",
+      "priorita": "Media",
+      "data": "2026-07-20",
+      "ora": "11:00",
+      "durata_ore": 1,
+      "descrizione": "Controllo note, ricevute e file da archiviare."
+    },
+    {
+      "tipo": "Attivita",
+      "titolo": "Pulizia e riordino - Settimana 09",
+      "priorita": "Bassa",
+      "data": "2026-07-21",
+      "ora": "10:00",
+      "durata_ore": 2,
+      "descrizione": "Riordino spazi di lavoro e controllo materiali."
+    },
+    {
+      "tipo": "festivita",
+      "titolo": "Festa di Quartiere - Settimana 09",
+      "data": "2026-07-22",
+      "ora": "00:00",
+      "descrizione": "Ricorrenza locale per socialita e vita di zona."
+    },
+    {
+      "tipo": "Attivita",
+      "titolo": "Pulizia e riordino - Settimana 10",
+      "priorita": "Bassa",
+      "data": "2026-07-27",
+      "ora": "10:00",
+      "durata_ore": 2,
+      "descrizione": "Riordino spazi di lavoro e controllo materiali."
+    },
+    {
+      "tipo": "Attivita",
+      "titolo": "Pianificazione settimanale - Settimana 10",
+      "priorita": "Alta",
+      "data": "2026-07-28",
+      "ora": "09:00",
+      "durata_ore": 1,
+      "descrizione": "Organizzazione agenda, priorita e scadenze della settimana."
+    },
+    {
+      "tipo": "festivita",
+      "titolo": "Giornata della Natura - Settimana 10",
+      "data": "2026-07-29",
+      "ora": "00:00",
+      "descrizione": "Promemoria per tempo all aperto e cura degli spazi verdi."
+    },
+    {
+      "tipo": "Attivita",
+      "titolo": "Pianificazione settimanale - Settimana 11",
+      "priorita": "Alta",
+      "data": "2026-08-03",
+      "ora": "09:00",
+      "durata_ore": 1,
+      "descrizione": "Organizzazione agenda, priorita e scadenze della settimana."
+    },
+    {
+      "tipo": "Attivita",
+      "titolo": "Sessione studio progetto - Settimana 11",
+      "priorita": "Media",
+      "data": "2026-08-04",
+      "ora": "17:30",
+      "durata_ore": 2,
+      "descrizione": "Avanzamento esercizi e revisione materiali del progetto."
+    },
+    {
+      "tipo": "festivita",
+      "titolo": "Giornata Benessere - Settimana 11",
+      "data": "2026-08-05",
+      "ora": "00:00",
+      "descrizione": "Promemoria simbolico dedicato al recupero e alle pause."
+    },
+    {
+      "tipo": "Attivita",
+      "titolo": "Sessione studio progetto - Settimana 12",
+      "priorita": "Media",
+      "data": "2026-08-10",
+      "ora": "17:30",
+      "durata_ore": 2,
+      "descrizione": "Avanzamento esercizi e revisione materiali del progetto."
+    },
+    {
+      "tipo": "Attivita",
+      "titolo": "Allenamento funzionale - Settimana 12",
+      "priorita": "Bassa",
+      "data": "2026-08-11",
+      "ora": "18:30",
+      "durata_ore": 1,
+      "descrizione": "Circuito leggero per mantenere continuita fisica."
+    },
+    {
+      "tipo": "festivita",
+      "titolo": "Festa della Creativita - Settimana 12",
+      "data": "2026-08-12",
+      "ora": "00:00",
+      "descrizione": "Giornata tematica per idee, letture e ispirazione."
+    },
+    {
+      "tipo": "Attivita",
+      "titolo": "Allenamento funzionale - Settimana 13",
+      "priorita": "Bassa",
+      "data": "2026-08-17",
+      "ora": "18:30",
+      "durata_ore": 1,
+      "descrizione": "Circuito leggero per mantenere continuita fisica."
+    },
+    {
+      "tipo": "Attivita",
+      "titolo": "Revisione documenti - Settimana 13",
+      "priorita": "Media",
+      "data": "2026-08-18",
+      "ora": "11:00",
+      "durata_ore": 1,
+      "descrizione": "Controllo note, ricevute e file da archiviare."
+    },
+    {
+      "tipo": "festivita",
+      "titolo": "Giornata della Lettura - Settimana 13",
+      "data": "2026-08-19",
+      "ora": "00:00",
+      "descrizione": "Occasione dedicata a libri, appunti e approfondimenti."
+    },
+    {
+      "tipo": "Attivita",
+      "titolo": "Revisione documenti - Settimana 14",
+      "priorita": "Media",
+      "data": "2026-08-24",
+      "ora": "11:00",
+      "durata_ore": 1,
+      "descrizione": "Controllo note, ricevute e file da archiviare."
+    },
+    {
+      "tipo": "Attivita",
+      "titolo": "Pulizia e riordino - Settimana 14",
+      "priorita": "Bassa",
+      "data": "2026-08-25",
+      "ora": "10:00",
+      "durata_ore": 2,
+      "descrizione": "Riordino spazi di lavoro e controllo materiali."
+    },
+    {
+      "tipo": "festivita",
+      "titolo": "Festa di Quartiere - Settimana 14",
+      "data": "2026-08-26",
+      "ora": "00:00",
+      "descrizione": "Ricorrenza locale per socialita e vita di zona."
+    },
+    {
+      "tipo": "Attivita",
+      "titolo": "Pulizia e riordino - Settimana 15",
+      "priorita": "Bassa",
+      "data": "2026-08-31",
+      "ora": "10:00",
+      "durata_ore": 2,
+      "descrizione": "Riordino spazi di lavoro e controllo materiali."
+    },
+    {
+      "tipo": "Attivita",
+      "titolo": "Pianificazione settimanale - Settimana 15",
+      "priorita": "Alta",
+      "data": "2026-09-01",
+      "ora": "09:00",
+      "durata_ore": 1,
+      "descrizione": "Organizzazione agenda, priorita e scadenze della settimana."
+    },
+    {
+      "tipo": "festivita",
+      "titolo": "Giornata della Natura - Settimana 15",
+      "data": "2026-09-02",
+      "ora": "00:00",
+      "descrizione": "Promemoria per tempo all aperto e cura degli spazi verdi."
+    },
+    {
+      "tipo": "Attivita",
+      "titolo": "Pianificazione settimanale - Settimana 16",
+      "priorita": "Alta",
+      "data": "2026-09-07",
+      "ora": "09:00",
+      "durata_ore": 1,
+      "descrizione": "Organizzazione agenda, priorita e scadenze della settimana."
+    },
+    {
+      "tipo": "Attivita",
+      "titolo": "Sessione studio progetto - Settimana 16",
+      "priorita": "Media",
+      "data": "2026-09-08",
+      "ora": "17:30",
+      "durata_ore": 2,
+      "descrizione": "Avanzamento esercizi e revisione materiali del progetto."
+    },
+    {
+      "tipo": "festivita",
+      "titolo": "Giornata Benessere - Settimana 16",
+      "data": "2026-09-09",
+      "ora": "00:00",
+      "descrizione": "Promemoria simbolico dedicato al recupero e alle pause."
+    },
+    {
+      "tipo": "Attivita",
+      "titolo": "Sessione studio progetto - Settimana 17",
+      "priorita": "Media",
+      "data": "2026-09-14",
+      "ora": "17:30",
+      "durata_ore": 2,
+      "descrizione": "Avanzamento esercizi e revisione materiali del progetto."
+    },
+    {
+      "tipo": "Attivita",
+      "titolo": "Allenamento funzionale - Settimana 17",
+      "priorita": "Bassa",
+      "data": "2026-09-15",
+      "ora": "18:30",
+      "durata_ore": 1,
+      "descrizione": "Circuito leggero per mantenere continuita fisica."
+    },
+    {
+      "tipo": "festivita",
+      "titolo": "Festa della Creativita - Settimana 17",
+      "data": "2026-09-16",
+      "ora": "00:00",
+      "descrizione": "Giornata tematica per idee, letture e ispirazione."
+    },
+    {
+      "tipo": "Attivita",
+      "titolo": "Allenamento funzionale - Settimana 18",
+      "priorita": "Bassa",
+      "data": "2026-09-21",
+      "ora": "18:30",
+      "durata_ore": 1,
+      "descrizione": "Circuito leggero per mantenere continuita fisica."
+    },
+    {
+      "tipo": "Attivita",
+      "titolo": "Revisione documenti - Settimana 18",
+      "priorita": "Media",
+      "data": "2026-09-22",
+      "ora": "11:00",
+      "durata_ore": 1,
+      "descrizione": "Controllo note, ricevute e file da archiviare."
+    },
+    {
+      "tipo": "festivita",
+      "titolo": "Giornata della Lettura - Settimana 18",
+      "data": "2026-09-23",
+      "ora": "00:00",
+      "descrizione": "Occasione dedicata a libri, appunti e approfondimenti."
+    },
+    {
+      "tipo": "Attivita",
+      "titolo": "Revisione documenti - Settimana 19",
+      "priorita": "Media",
+      "data": "2026-09-28",
+      "ora": "11:00",
+      "durata_ore": 1,
+      "descrizione": "Controllo note, ricevute e file da archiviare."
+    },
+    {
+      "tipo": "Attivita",
+      "titolo": "Pulizia e riordino - Settimana 19",
+      "priorita": "Bassa",
+      "data": "2026-09-28",
+      "ora": "10:00",
+      "durata_ore": 2,
+      "descrizione": "Riordino spazi di lavoro e controllo materiali."
+    },
+    {
+      "tipo": "festivita",
+      "titolo": "Festa di Quartiere - Settimana 19",
+      "data": "2026-09-29",
+      "ora": "00:00",
+      "descrizione": "Ricorrenza locale per socialita e vita di zona."
     }
   ]
 }

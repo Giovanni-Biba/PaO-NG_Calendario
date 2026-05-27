@@ -200,4 +200,574 @@
         <tipo>Evento</tipo>
         <titolo>Presentazione Libro</titolo>
     </item>
+    <item>
+        <data>2026-05-28</data>
+        <descrizione>Incontro pratico con esercizi e confronto finale.</descrizione>
+        <durata_ore>2</durata_ore>
+        <luogo>Milano</luogo>
+        <ora>15:00</ora>
+        <priorita>Alta</priorita>
+        <tipo>Evento</tipo>
+        <titolo>Workshop tecnico - Settimana 01</titolo>
+    </item>
+    <item>
+        <data>2026-05-29</data>
+        <descrizione>Ritrovo informale per aggiornamenti e nuovi contatti.</descrizione>
+        <durata_ore>2</durata_ore>
+        <luogo>Bologna</luogo>
+        <ora>19:00</ora>
+        <priorita>Media</priorita>
+        <tipo>Evento</tipo>
+        <titolo>Aperitivo networking - Settimana 01</titolo>
+    </item>
+    <item>
+        <data>2026-05-30</data>
+        <descrizione>Verifica documenti e prossime scadenze.</descrizione>
+        <durata_ore>1</durata_ore>
+        <stato>Italia</stato>
+        <ora>12:00</ora>
+        <priorita>Media</priorita>
+        <tipo>Appuntamento</tipo>
+        <titolo>Controllo amministrativo - Settimana 01</titolo>
+    </item>
+    <item>
+        <data>2026-06-04</data>
+        <descrizione>Ritrovo informale per aggiornamenti e nuovi contatti.</descrizione>
+        <durata_ore>2</durata_ore>
+        <luogo>Bologna</luogo>
+        <ora>19:00</ora>
+        <priorita>Media</priorita>
+        <tipo>Evento</tipo>
+        <titolo>Aperitivo networking - Settimana 02</titolo>
+    </item>
+    <item>
+        <data>2026-06-05</data>
+        <descrizione>Evento con interventi brevi e domande dal pubblico.</descrizione>
+        <durata_ore>2</durata_ore>
+        <luogo>Torino</luogo>
+        <ora>18:00</ora>
+        <priorita>Media</priorita>
+        <tipo>Evento</tipo>
+        <titolo>Presentazione pubblica - Settimana 02</titolo>
+    </item>
+    <item>
+        <data>2026-06-06</data>
+        <descrizione>Aggiornamento sullo stato delle attivita aperte.</descrizione>
+        <durata_ore>1</durata_ore>
+        <stato>USA</stato>
+        <ora>16:30</ora>
+        <priorita>Alta</priorita>
+        <tipo>Appuntamento</tipo>
+        <titolo>Chiamata cliente - Settimana 02</titolo>
+    </item>
+    <item>
+        <data>2026-06-11</data>
+        <descrizione>Evento con interventi brevi e domande dal pubblico.</descrizione>
+        <durata_ore>2</durata_ore>
+        <luogo>Torino</luogo>
+        <ora>18:00</ora>
+        <priorita>Media</priorita>
+        <tipo>Evento</tipo>
+        <titolo>Presentazione pubblica - Settimana 03</titolo>
+    </item>
+    <item>
+        <data>2026-06-12</data>
+        <descrizione>Proiezione serale con discussione dopo il film.</descrizione>
+        <durata_ore>3</durata_ore>
+        <luogo>Padova</luogo>
+        <ora>21:00</ora>
+        <priorita>Bassa</priorita>
+        <tipo>Evento</tipo>
+        <titolo>Serata cinema - Settimana 03</titolo>
+    </item>
+    <item>
+        <data>2026-06-13</data>
+        <descrizione>Sessione remota per chiarimenti e pianificazione.</descrizione>
+        <durata_ore>1</durata_ore>
+        <stato>Worldwide</stato>
+        <ora>11:30</ora>
+        <priorita>Media</priorita>
+        <tipo>Appuntamento</tipo>
+        <titolo>Consulenza online - Settimana 03</titolo>
+    </item>
+    <item>
+        <data>2026-06-18</data>
+        <descrizione>Proiezione serale con discussione dopo il film.</descrizione>
+        <durata_ore>3</durata_ore>
+        <luogo>Padova</luogo>
+        <ora>21:00</ora>
+        <priorita>Bassa</priorita>
+        <tipo>Evento</tipo>
+        <titolo>Serata cinema - Settimana 04</titolo>
+    </item>
+    <item>
+        <data>2026-06-19</data>
+        <descrizione>Sessione guidata con attivita collaborative.</descrizione>
+        <durata_ore>3</durata_ore>
+        <luogo>Firenze</luogo>
+        <ora>16:00</ora>
+        <priorita>Alta</priorita>
+        <tipo>Evento</tipo>
+        <titolo>Laboratorio pratico - Settimana 04</titolo>
+    </item>
+    <item>
+        <data>2026-06-20</data>
+        <descrizione>Controllo periodico prenotato in agenda.</descrizione>
+        <durata_ore>1</durata_ore>
+        <stato>Italia</stato>
+        <ora>08:30</ora>
+        <priorita>Alta</priorita>
+        <tipo>Appuntamento</tipo>
+        <titolo>Appuntamento medico - Settimana 04</titolo>
+    </item>
+    <item>
+        <data>2026-06-25</data>
+        <descrizione>Sessione guidata con attivita collaborative.</descrizione>
+        <durata_ore>3</durata_ore>
+        <luogo>Firenze</luogo>
+        <ora>16:00</ora>
+        <priorita>Alta</priorita>
+        <tipo>Evento</tipo>
+        <titolo>Laboratorio pratico - Settimana 05</titolo>
+    </item>
+    <item>
+        <data>2026-06-26</data>
+        <descrizione>Riunione aperta con aggiornamenti e proposte.</descrizione>
+        <durata_ore>2</durata_ore>
+        <luogo>Roma</luogo>
+        <ora>17:00</ora>
+        <priorita>Media</priorita>
+        <tipo>Evento</tipo>
+        <titolo>Incontro community - Settimana 05</titolo>
+    </item>
+    <item>
+        <data>2026-06-27</data>
+        <descrizione>Confronto su tempi, consegne e disponibilita.</descrizione>
+        <durata_ore>1</durata_ore>
+        <stato>Germania</stato>
+        <ora>14:30</ora>
+        <priorita>Media</priorita>
+        <tipo>Appuntamento</tipo>
+        <titolo>Colloquio fornitore - Settimana 05</titolo>
+    </item>
+    <item>
+        <data>2026-07-02</data>
+        <descrizione>Riunione aperta con aggiornamenti e proposte.</descrizione>
+        <durata_ore>2</durata_ore>
+        <luogo>Roma</luogo>
+        <ora>17:00</ora>
+        <priorita>Media</priorita>
+        <tipo>Evento</tipo>
+        <titolo>Incontro community - Settimana 06</titolo>
+    </item>
+    <item>
+        <data>2026-07-03</data>
+        <descrizione>Incontro pratico con esercizi e confronto finale.</descrizione>
+        <durata_ore>2</durata_ore>
+        <luogo>Milano</luogo>
+        <ora>15:00</ora>
+        <priorita>Alta</priorita>
+        <tipo>Evento</tipo>
+        <titolo>Workshop tecnico - Settimana 06</titolo>
+    </item>
+    <item>
+        <data>2026-07-04</data>
+        <descrizione>Verifica documenti e prossime scadenze.</descrizione>
+        <durata_ore>1</durata_ore>
+        <stato>Italia</stato>
+        <ora>12:00</ora>
+        <priorita>Media</priorita>
+        <tipo>Appuntamento</tipo>
+        <titolo>Controllo amministrativo - Settimana 06</titolo>
+    </item>
+    <item>
+        <data>2026-07-09</data>
+        <descrizione>Incontro pratico con esercizi e confronto finale.</descrizione>
+        <durata_ore>2</durata_ore>
+        <luogo>Milano</luogo>
+        <ora>15:00</ora>
+        <priorita>Alta</priorita>
+        <tipo>Evento</tipo>
+        <titolo>Workshop tecnico - Settimana 07</titolo>
+    </item>
+    <item>
+        <data>2026-07-10</data>
+        <descrizione>Ritrovo informale per aggiornamenti e nuovi contatti.</descrizione>
+        <durata_ore>2</durata_ore>
+        <luogo>Bologna</luogo>
+        <ora>19:00</ora>
+        <priorita>Media</priorita>
+        <tipo>Evento</tipo>
+        <titolo>Aperitivo networking - Settimana 07</titolo>
+    </item>
+    <item>
+        <data>2026-07-11</data>
+        <descrizione>Aggiornamento sullo stato delle attivita aperte.</descrizione>
+        <durata_ore>1</durata_ore>
+        <stato>USA</stato>
+        <ora>16:30</ora>
+        <priorita>Alta</priorita>
+        <tipo>Appuntamento</tipo>
+        <titolo>Chiamata cliente - Settimana 07</titolo>
+    </item>
+    <item>
+        <data>2026-07-16</data>
+        <descrizione>Ritrovo informale per aggiornamenti e nuovi contatti.</descrizione>
+        <durata_ore>2</durata_ore>
+        <luogo>Bologna</luogo>
+        <ora>19:00</ora>
+        <priorita>Media</priorita>
+        <tipo>Evento</tipo>
+        <titolo>Aperitivo networking - Settimana 08</titolo>
+    </item>
+    <item>
+        <data>2026-07-17</data>
+        <descrizione>Evento con interventi brevi e domande dal pubblico.</descrizione>
+        <durata_ore>2</durata_ore>
+        <luogo>Torino</luogo>
+        <ora>18:00</ora>
+        <priorita>Media</priorita>
+        <tipo>Evento</tipo>
+        <titolo>Presentazione pubblica - Settimana 08</titolo>
+    </item>
+    <item>
+        <data>2026-07-18</data>
+        <descrizione>Sessione remota per chiarimenti e pianificazione.</descrizione>
+        <durata_ore>1</durata_ore>
+        <stato>Worldwide</stato>
+        <ora>11:30</ora>
+        <priorita>Media</priorita>
+        <tipo>Appuntamento</tipo>
+        <titolo>Consulenza online - Settimana 08</titolo>
+    </item>
+    <item>
+        <data>2026-07-23</data>
+        <descrizione>Evento con interventi brevi e domande dal pubblico.</descrizione>
+        <durata_ore>2</durata_ore>
+        <luogo>Torino</luogo>
+        <ora>18:00</ora>
+        <priorita>Media</priorita>
+        <tipo>Evento</tipo>
+        <titolo>Presentazione pubblica - Settimana 09</titolo>
+    </item>
+    <item>
+        <data>2026-07-24</data>
+        <descrizione>Proiezione serale con discussione dopo il film.</descrizione>
+        <durata_ore>3</durata_ore>
+        <luogo>Padova</luogo>
+        <ora>21:00</ora>
+        <priorita>Bassa</priorita>
+        <tipo>Evento</tipo>
+        <titolo>Serata cinema - Settimana 09</titolo>
+    </item>
+    <item>
+        <data>2026-07-25</data>
+        <descrizione>Controllo periodico prenotato in agenda.</descrizione>
+        <durata_ore>1</durata_ore>
+        <stato>Italia</stato>
+        <ora>08:30</ora>
+        <priorita>Alta</priorita>
+        <tipo>Appuntamento</tipo>
+        <titolo>Appuntamento medico - Settimana 09</titolo>
+    </item>
+    <item>
+        <data>2026-07-30</data>
+        <descrizione>Proiezione serale con discussione dopo il film.</descrizione>
+        <durata_ore>3</durata_ore>
+        <luogo>Padova</luogo>
+        <ora>21:00</ora>
+        <priorita>Bassa</priorita>
+        <tipo>Evento</tipo>
+        <titolo>Serata cinema - Settimana 10</titolo>
+    </item>
+    <item>
+        <data>2026-07-31</data>
+        <descrizione>Sessione guidata con attivita collaborative.</descrizione>
+        <durata_ore>3</durata_ore>
+        <luogo>Firenze</luogo>
+        <ora>16:00</ora>
+        <priorita>Alta</priorita>
+        <tipo>Evento</tipo>
+        <titolo>Laboratorio pratico - Settimana 10</titolo>
+    </item>
+    <item>
+        <data>2026-08-01</data>
+        <descrizione>Confronto su tempi, consegne e disponibilita.</descrizione>
+        <durata_ore>1</durata_ore>
+        <stato>Germania</stato>
+        <ora>14:30</ora>
+        <priorita>Media</priorita>
+        <tipo>Appuntamento</tipo>
+        <titolo>Colloquio fornitore - Settimana 10</titolo>
+    </item>
+    <item>
+        <data>2026-08-06</data>
+        <descrizione>Sessione guidata con attivita collaborative.</descrizione>
+        <durata_ore>3</durata_ore>
+        <luogo>Firenze</luogo>
+        <ora>16:00</ora>
+        <priorita>Alta</priorita>
+        <tipo>Evento</tipo>
+        <titolo>Laboratorio pratico - Settimana 11</titolo>
+    </item>
+    <item>
+        <data>2026-08-07</data>
+        <descrizione>Riunione aperta con aggiornamenti e proposte.</descrizione>
+        <durata_ore>2</durata_ore>
+        <luogo>Roma</luogo>
+        <ora>17:00</ora>
+        <priorita>Media</priorita>
+        <tipo>Evento</tipo>
+        <titolo>Incontro community - Settimana 11</titolo>
+    </item>
+    <item>
+        <data>2026-08-08</data>
+        <descrizione>Verifica documenti e prossime scadenze.</descrizione>
+        <durata_ore>1</durata_ore>
+        <stato>Italia</stato>
+        <ora>12:00</ora>
+        <priorita>Media</priorita>
+        <tipo>Appuntamento</tipo>
+        <titolo>Controllo amministrativo - Settimana 11</titolo>
+    </item>
+    <item>
+        <data>2026-08-13</data>
+        <descrizione>Riunione aperta con aggiornamenti e proposte.</descrizione>
+        <durata_ore>2</durata_ore>
+        <luogo>Roma</luogo>
+        <ora>17:00</ora>
+        <priorita>Media</priorita>
+        <tipo>Evento</tipo>
+        <titolo>Incontro community - Settimana 12</titolo>
+    </item>
+    <item>
+        <data>2026-08-14</data>
+        <descrizione>Incontro pratico con esercizi e confronto finale.</descrizione>
+        <durata_ore>2</durata_ore>
+        <luogo>Milano</luogo>
+        <ora>15:00</ora>
+        <priorita>Alta</priorita>
+        <tipo>Evento</tipo>
+        <titolo>Workshop tecnico - Settimana 12</titolo>
+    </item>
+    <item>
+        <data>2026-08-15</data>
+        <descrizione>Aggiornamento sullo stato delle attivita aperte.</descrizione>
+        <durata_ore>1</durata_ore>
+        <stato>USA</stato>
+        <ora>16:30</ora>
+        <priorita>Alta</priorita>
+        <tipo>Appuntamento</tipo>
+        <titolo>Chiamata cliente - Settimana 12</titolo>
+    </item>
+    <item>
+        <data>2026-08-20</data>
+        <descrizione>Incontro pratico con esercizi e confronto finale.</descrizione>
+        <durata_ore>2</durata_ore>
+        <luogo>Milano</luogo>
+        <ora>15:00</ora>
+        <priorita>Alta</priorita>
+        <tipo>Evento</tipo>
+        <titolo>Workshop tecnico - Settimana 13</titolo>
+    </item>
+    <item>
+        <data>2026-08-21</data>
+        <descrizione>Ritrovo informale per aggiornamenti e nuovi contatti.</descrizione>
+        <durata_ore>2</durata_ore>
+        <luogo>Bologna</luogo>
+        <ora>19:00</ora>
+        <priorita>Media</priorita>
+        <tipo>Evento</tipo>
+        <titolo>Aperitivo networking - Settimana 13</titolo>
+    </item>
+    <item>
+        <data>2026-08-22</data>
+        <descrizione>Sessione remota per chiarimenti e pianificazione.</descrizione>
+        <durata_ore>1</durata_ore>
+        <stato>Worldwide</stato>
+        <ora>11:30</ora>
+        <priorita>Media</priorita>
+        <tipo>Appuntamento</tipo>
+        <titolo>Consulenza online - Settimana 13</titolo>
+    </item>
+    <item>
+        <data>2026-08-27</data>
+        <descrizione>Ritrovo informale per aggiornamenti e nuovi contatti.</descrizione>
+        <durata_ore>2</durata_ore>
+        <luogo>Bologna</luogo>
+        <ora>19:00</ora>
+        <priorita>Media</priorita>
+        <tipo>Evento</tipo>
+        <titolo>Aperitivo networking - Settimana 14</titolo>
+    </item>
+    <item>
+        <data>2026-08-28</data>
+        <descrizione>Evento con interventi brevi e domande dal pubblico.</descrizione>
+        <durata_ore>2</durata_ore>
+        <luogo>Torino</luogo>
+        <ora>18:00</ora>
+        <priorita>Media</priorita>
+        <tipo>Evento</tipo>
+        <titolo>Presentazione pubblica - Settimana 14</titolo>
+    </item>
+    <item>
+        <data>2026-08-29</data>
+        <descrizione>Controllo periodico prenotato in agenda.</descrizione>
+        <durata_ore>1</durata_ore>
+        <stato>Italia</stato>
+        <ora>08:30</ora>
+        <priorita>Alta</priorita>
+        <tipo>Appuntamento</tipo>
+        <titolo>Appuntamento medico - Settimana 14</titolo>
+    </item>
+    <item>
+        <data>2026-09-03</data>
+        <descrizione>Evento con interventi brevi e domande dal pubblico.</descrizione>
+        <durata_ore>2</durata_ore>
+        <luogo>Torino</luogo>
+        <ora>18:00</ora>
+        <priorita>Media</priorita>
+        <tipo>Evento</tipo>
+        <titolo>Presentazione pubblica - Settimana 15</titolo>
+    </item>
+    <item>
+        <data>2026-09-04</data>
+        <descrizione>Proiezione serale con discussione dopo il film.</descrizione>
+        <durata_ore>3</durata_ore>
+        <luogo>Padova</luogo>
+        <ora>21:00</ora>
+        <priorita>Bassa</priorita>
+        <tipo>Evento</tipo>
+        <titolo>Serata cinema - Settimana 15</titolo>
+    </item>
+    <item>
+        <data>2026-09-05</data>
+        <descrizione>Confronto su tempi, consegne e disponibilita.</descrizione>
+        <durata_ore>1</durata_ore>
+        <stato>Germania</stato>
+        <ora>14:30</ora>
+        <priorita>Media</priorita>
+        <tipo>Appuntamento</tipo>
+        <titolo>Colloquio fornitore - Settimana 15</titolo>
+    </item>
+    <item>
+        <data>2026-09-10</data>
+        <descrizione>Proiezione serale con discussione dopo il film.</descrizione>
+        <durata_ore>3</durata_ore>
+        <luogo>Padova</luogo>
+        <ora>21:00</ora>
+        <priorita>Bassa</priorita>
+        <tipo>Evento</tipo>
+        <titolo>Serata cinema - Settimana 16</titolo>
+    </item>
+    <item>
+        <data>2026-09-11</data>
+        <descrizione>Sessione guidata con attivita collaborative.</descrizione>
+        <durata_ore>3</durata_ore>
+        <luogo>Firenze</luogo>
+        <ora>16:00</ora>
+        <priorita>Alta</priorita>
+        <tipo>Evento</tipo>
+        <titolo>Laboratorio pratico - Settimana 16</titolo>
+    </item>
+    <item>
+        <data>2026-09-12</data>
+        <descrizione>Verifica documenti e prossime scadenze.</descrizione>
+        <durata_ore>1</durata_ore>
+        <stato>Italia</stato>
+        <ora>12:00</ora>
+        <priorita>Media</priorita>
+        <tipo>Appuntamento</tipo>
+        <titolo>Controllo amministrativo - Settimana 16</titolo>
+    </item>
+    <item>
+        <data>2026-09-17</data>
+        <descrizione>Sessione guidata con attivita collaborative.</descrizione>
+        <durata_ore>3</durata_ore>
+        <luogo>Firenze</luogo>
+        <ora>16:00</ora>
+        <priorita>Alta</priorita>
+        <tipo>Evento</tipo>
+        <titolo>Laboratorio pratico - Settimana 17</titolo>
+    </item>
+    <item>
+        <data>2026-09-18</data>
+        <descrizione>Riunione aperta con aggiornamenti e proposte.</descrizione>
+        <durata_ore>2</durata_ore>
+        <luogo>Roma</luogo>
+        <ora>17:00</ora>
+        <priorita>Media</priorita>
+        <tipo>Evento</tipo>
+        <titolo>Incontro community - Settimana 17</titolo>
+    </item>
+    <item>
+        <data>2026-09-19</data>
+        <descrizione>Aggiornamento sullo stato delle attivita aperte.</descrizione>
+        <durata_ore>1</durata_ore>
+        <stato>USA</stato>
+        <ora>16:30</ora>
+        <priorita>Alta</priorita>
+        <tipo>Appuntamento</tipo>
+        <titolo>Chiamata cliente - Settimana 17</titolo>
+    </item>
+    <item>
+        <data>2026-09-24</data>
+        <descrizione>Riunione aperta con aggiornamenti e proposte.</descrizione>
+        <durata_ore>2</durata_ore>
+        <luogo>Roma</luogo>
+        <ora>17:00</ora>
+        <priorita>Media</priorita>
+        <tipo>Evento</tipo>
+        <titolo>Incontro community - Settimana 18</titolo>
+    </item>
+    <item>
+        <data>2026-09-25</data>
+        <descrizione>Incontro pratico con esercizi e confronto finale.</descrizione>
+        <durata_ore>2</durata_ore>
+        <luogo>Milano</luogo>
+        <ora>15:00</ora>
+        <priorita>Alta</priorita>
+        <tipo>Evento</tipo>
+        <titolo>Workshop tecnico - Settimana 18</titolo>
+    </item>
+    <item>
+        <data>2026-09-26</data>
+        <descrizione>Sessione remota per chiarimenti e pianificazione.</descrizione>
+        <durata_ore>1</durata_ore>
+        <stato>Worldwide</stato>
+        <ora>11:30</ora>
+        <priorita>Media</priorita>
+        <tipo>Appuntamento</tipo>
+        <titolo>Consulenza online - Settimana 18</titolo>
+    </item>
+    <item>
+        <data>2026-09-29</data>
+        <descrizione>Incontro pratico con esercizi e confronto finale.</descrizione>
+        <durata_ore>2</durata_ore>
+        <luogo>Milano</luogo>
+        <ora>15:00</ora>
+        <priorita>Alta</priorita>
+        <tipo>Evento</tipo>
+        <titolo>Workshop tecnico - Settimana 19</titolo>
+    </item>
+    <item>
+        <data>2026-09-30</data>
+        <descrizione>Ritrovo informale per aggiornamenti e nuovi contatti.</descrizione>
+        <durata_ore>2</durata_ore>
+        <luogo>Bologna</luogo>
+        <ora>19:00</ora>
+        <priorita>Media</priorita>
+        <tipo>Evento</tipo>
+        <titolo>Aperitivo networking - Settimana 19</titolo>
+    </item>
+    <item>
+        <data>2026-09-30</data>
+        <descrizione>Controllo periodico prenotato in agenda.</descrizione>
+        <durata_ore>1</durata_ore>
+        <stato>Italia</stato>
+        <ora>08:30</ora>
+        <priorita>Alta</priorita>
+        <tipo>Appuntamento</tipo>
+        <titolo>Appuntamento medico - Settimana 19</titolo>
+    </item>
 </dati>

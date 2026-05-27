@@ -33,6 +33,21 @@ calendar::calendar(QWidget *parent)
     BarraRicerca = new SearchBar();
     mainLayout->addWidget(BarraRicerca);
 
+    QWidget *navigazioneSettimana = new QWidget(this);
+    QHBoxLayout *navLayout = new QHBoxLayout(navigazioneSettimana);
+
+    settimanaPrecedente = new QPushButton("<", this);
+    settimanaSuccessiva = new QPushButton(">", this);
+    labelSettimana = new QLabel(this);
+
+    labelSettimana->setAlignment(Qt::AlignCenter);
+    labelSettimana->setMinimumHeight(32);
+
+    navLayout->addWidget(settimanaPrecedente);
+    navLayout->addWidget(labelSettimana, 1);
+    navLayout->addWidget(settimanaSuccessiva);
+    mainLayout->addWidget(navigazioneSettimana);
+
     QScrollArea *scroll = new QScrollArea;
     scroll->setWidgetResizable(true);
 
@@ -42,22 +57,13 @@ calendar::calendar(QWidget *parent)
     QWidget *calendarWidget = new QWidget;
     grid = new QGridLayout(calendarWidget);
 
-    QStringList nomiGiorni = {"Lun", "Mar", "Mer", "Gio", "Ven", "Sab", "Dom"};
-
     for (int col = 0; col < 7; col++) {
-        QDate giorno = lunediSettimana.addDays(col);
-
-        QLabel *header = new QLabel(
-            QString("%1 %2").arg(nomiGiorni[col]).arg(giorno.day())
-            );
-
+        QLabel *header = new QLabel(this);
         header->setAlignment(Qt::AlignCenter);
         header->setMinimumHeight(40);
 
-        if (giorno == oggi)
-            header->setStyleSheet("color: blue; font-weight: bold;");
-
         grid->addWidget(header, 0, col + 1);
+        headerGiorni[col] = header;
     }
 
     QLabel *festivitaLabel = new QLabel("Festività");
@@ -114,9 +120,54 @@ calendar::calendar(QWidget *parent)
 
     connect(Crea, &QPushButton::clicked, this, &calendar::richiestaCrea);
     connect(BarraRicerca, &SearchBar::cercaClicked, this, &calendar::richiestaCerca);
+    connect(settimanaPrecedente, &QPushButton::clicked, this, &calendar::vaiSettimanaPrecedente);
+    connect(settimanaSuccessiva, &QPushButton::clicked, this, &calendar::vaiSettimanaSuccessiva);
 
+    aggiornaIntestazioneSettimana();
     caricaJson();
     caricaXml();
+}
+
+void calendar::aggiornaIntestazioneSettimana()
+{
+    QStringList nomiGiorni = {"Lun", "Mar", "Mer", "Gio", "Ven", "Sab", "Dom"};
+    QDate domenicaSettimana = lunediSettimana.addDays(6);
+
+    labelSettimana->setText(
+        QString("Settimana %1 - %2")
+            .arg(lunediSettimana.toString("dd/MM/yyyy"))
+            .arg(domenicaSettimana.toString("dd/MM/yyyy"))
+        );
+
+    for (int col = 0; col < 7; col++) {
+        QDate giorno = lunediSettimana.addDays(col);
+
+        headerGiorni[col]->setText(
+            QString("%1 %2/%3")
+                .arg(nomiGiorni[col])
+                .arg(giorno.day(), 2, 10, QChar('0'))
+                .arg(giorno.month(), 2, 10, QChar('0'))
+            );
+
+        if (giorno == oggi)
+            headerGiorni[col]->setStyleSheet("color: blue; font-weight: bold;");
+        else
+            headerGiorni[col]->setStyleSheet("");
+    }
+}
+
+void calendar::vaiSettimanaPrecedente()
+{
+    lunediSettimana = lunediSettimana.addDays(-7);
+    aggiornaIntestazioneSettimana();
+    aggiornaCalendario();
+}
+
+void calendar::vaiSettimanaSuccessiva()
+{
+    lunediSettimana = lunediSettimana.addDays(7);
+    aggiornaIntestazioneSettimana();
+    aggiornaCalendario();
 }
 
 void calendar::aggiornaCalendario()
