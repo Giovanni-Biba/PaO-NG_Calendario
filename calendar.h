@@ -33,10 +33,12 @@ private:
     QLabel *headerGiorni[7];
     QHBoxLayout *celle[26][7];
     int conteggioCelle[26][7];
+    int indiceColoreElemento;
 
     QDate oggi;
     QDate lunediSettimana;
 
+    QString prossimoColoreElemento();
     void aggiornaIntestazioneSettimana();
     void aggiungiEvento(const QString& titolo, const QDate& data, const QString& ora, int durataOre);
     void aggiungiFestivita(const QString& titolo, const QDate& data, const QString& ora);

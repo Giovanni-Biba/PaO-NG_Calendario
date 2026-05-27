@@ -20,6 +20,7 @@ calendar::calendar(QWidget *parent)
 {
     oggi = QDate::currentDate();
     lunediSettimana = oggi.addDays(-(oggi.dayOfWeek() - 1));
+    indiceColoreElemento = 0;
 
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
 
@@ -185,8 +186,19 @@ void calendar::aggiornaCalendario()
         }
     }
 
+    indiceColoreElemento = 0;
     caricaJson();
     caricaXml();
+}
+
+QString calendar::prossimoColoreElemento()
+{
+    QStringList colori = {"#D0F0C0", "#FFDB58", "#FFD1DC", "#C8A2C8", "#5E86C1"};
+    QString colore = colori[indiceColoreElemento % colori.size()];
+
+    indiceColoreElemento++;
+
+    return colore;
 }
 
 void calendar::aggiungiFestivita(const QString& titolo, const QDate& data, const QString& ora)
@@ -196,12 +208,13 @@ void calendar::aggiungiFestivita(const QString& titolo, const QDate& data, const
 
     if (conteggioCelle[1][col] >= 5) return;
 
+    QString colore = prossimoColoreElemento();
     QPushButton *btn = new QPushButton(titolo);
 
     btn->setStyleSheet(
         "text-align: left;"
         "padding-left: 6px;"
-        "background: pink;"
+        "background:" + colore + ";"
         );
 
     btn->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
@@ -216,34 +229,42 @@ void calendar::aggiungiFestivita(const QString& titolo, const QDate& data, const
 
 void calendar::aggiungiEvento(const QString& titolo, const QDate& data, const QString& ora, int durataOre)
 {
-    Q_UNUSED(durataOre);
-
     int col = lunediSettimana.daysTo(data);
     if (col < 0 || col > 6) return;
 
     QTime oraParsed = QTime::fromString(ora, "HH:mm");
     if (!oraParsed.isValid()) oraParsed = QTime::fromString(ora, "HH:mm:ss");
-    int row = oraParsed.hour() + 2;
-    if (row < 2 || row > 25) return;
 
-    if (conteggioCelle[row][col] >= 5) return;
+    int rowIniziale = oraParsed.hour() + 2;
+    if (rowIniziale < 2 || rowIniziale > 25) return;
 
-    QPushButton *btn = new QPushButton(titolo);
+    if (durataOre <= 0) durataOre = 1;
 
-    btn->setStyleSheet(
-        "text-align: left;"
-        "padding-left: 6px;"
-        "background: lightblue;"
-        );
+    QString colore = prossimoColoreElemento();
 
-    btn->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
+    for (int i = 0; i < durataOre; i++) {
+        int row = rowIniziale + i;
+        if (row > 25) break;
 
-    celle[row][col]->addWidget(btn);
-    conteggioCelle[row][col]++;
+        if (conteggioCelle[row][col] >= 5) continue;
 
-    connect(btn, &QPushButton::clicked, this, [this, titolo, data, ora]() {
-        emit richiestaVisualize(titolo, data.toString(Qt::ISODate), ora);
-    });
+        QPushButton *btn = new QPushButton(titolo);
+
+        btn->setStyleSheet(
+            "text-align: left;"
+            "padding-left: 6px;"
+            "background:" + colore + ";"
+            );
+
+        btn->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
+
+        celle[row][col]->addWidget(btn);
+        conteggioCelle[row][col]++;
+
+        connect(btn, &QPushButton::clicked, this, [this, titolo, data, ora]() {
+            emit richiestaVisualize(titolo, data.toString(Qt::ISODate), ora);
+        });
+    }
 }
 
 void calendar::caricaJson()
