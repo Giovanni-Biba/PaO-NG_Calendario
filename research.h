@@ -28,8 +28,6 @@ private:
     QListWidget *listaRisultati;
     QPushButton *buttonIndietro;
     QJsonArray tutteLeAttivita;
-    QString pathFilejson = "datiAttivitaFestivita.json";
-    QString pathFilexml = "datiEventoAppuntamento.xml";
 };
 
 #endif

@@ -1,4 +1,5 @@
 #include "calendar.h"
+#include "datafiles.h"
 
 #include <QVBoxLayout>
 #include <QGridLayout>
@@ -283,7 +284,7 @@ void calendar::aggiungiEvento(const QString& titolo, const QDate& data, const QS
 
 void calendar::caricaJson()
 {
-    QFile file("datiAttivitaFestivita.json");
+    QFile file(DataFiles::path("datiAttivitaFestivita.json"));
     if (!file.open(QIODevice::ReadOnly)) return;
 
     QJsonDocument doc = QJsonDocument::fromJson(file.readAll());
@@ -315,7 +316,7 @@ void calendar::caricaJson()
 
 void calendar::caricaXml()
 {
-    QFile file("datiEventoAppuntamento.xml");
+    QFile file(DataFiles::path("datiEventoAppuntamento.xml"));
     if (!file.open(QIODevice::ReadOnly)) return;
 
     QXmlStreamReader r(&file);

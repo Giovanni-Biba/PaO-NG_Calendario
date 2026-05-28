@@ -1,4 +1,5 @@
 #include "visualize.h"
+#include "datafiles.h"
 
 #include <QFile>
 #include <QFrame>
@@ -83,7 +84,7 @@ void visualize::caricaDaChiave(const QString &titolo, const QString &data, const
 
 bool visualize::cercaElemento(const QString &titolo, const QString &data, const QString &ora)
 {
-    QFile fileJson("datiAttivitaFestivita.json");
+    QFile fileJson(DataFiles::path("datiAttivitaFestivita.json"));
     if (fileJson.open(QIODevice::ReadOnly)) {
         QJsonDocument doc = QJsonDocument::fromJson(fileJson.readAll());
         QJsonArray array = doc.isArray() ? doc.array() : doc.object().value("agenda").toArray();
@@ -100,7 +101,7 @@ bool visualize::cercaElemento(const QString &titolo, const QString &data, const 
         }
     }
 
-    QFile fileXml("datiEventoAppuntamento.xml");
+    QFile fileXml(DataFiles::path("datiEventoAppuntamento.xml"));
     if (!fileXml.open(QIODevice::ReadOnly | QIODevice::Text)) return false;
 
     QXmlStreamReader xml(&fileXml);
@@ -216,7 +217,7 @@ void visualize::eliminaElemento()
 
 bool visualize::eliminaDaJson()
 {
-    QFile file("datiAttivitaFestivita.json");
+    QFile file(DataFiles::path("datiAttivitaFestivita.json"));
     if (!file.open(QIODevice::ReadOnly)) return false;
 
     QJsonDocument doc = QJsonDocument::fromJson(file.readAll());
@@ -252,7 +253,7 @@ bool visualize::eliminaDaJson()
 
 bool visualize::eliminaDaXml()
 {
-    QFile file("datiEventoAppuntamento.xml");
+    QFile file(DataFiles::path("datiEventoAppuntamento.xml"));
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) return false;
 
     QJsonArray elementi;
