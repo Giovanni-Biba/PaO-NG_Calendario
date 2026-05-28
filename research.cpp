@@ -1,4 +1,5 @@
 #include "research.h"
+#include "datafiles.h"
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QLabel>
@@ -47,7 +48,7 @@ Research::Research(QWidget *parent) : QWidget(parent)
 
 void Research::caricaDatiJson() {
     tutteLeAttivita = QJsonArray(); // Reset array
-    QFile file(pathFilejson);
+    QFile file(DataFiles::path("datiAttivitaFestivita.json"));
     if (!file.open(QIODevice::ReadOnly)) return;
     QJsonDocument doc = QJsonDocument::fromJson(file.readAll());
     file.close();
@@ -61,7 +62,7 @@ void Research::caricaDatiJson() {
 
 void Research::caricaDatiXml() {
     tutteLeAttivita = QJsonArray(); // Reset array
-    QFile file(pathFilexml);
+    QFile file(DataFiles::path("datiEventoAppuntamento.xml"));
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) return;
 
     QXmlStreamReader xml(&file);

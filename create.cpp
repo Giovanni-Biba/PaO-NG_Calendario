@@ -1,4 +1,5 @@
 #include "create.h"
+#include "datafiles.h"
 
 #include <QCoreApplication>
 #include <QVBoxLayout>
@@ -237,7 +238,7 @@ bool Create::validaCampi()
 
 bool Create::salvaJSON()
 {
-    QFile file("datiAttivitaFestivita.json");
+    QFile file(DataFiles::path("datiAttivitaFestivita.json"));
 
     QJsonArray array;
 
@@ -284,7 +285,7 @@ bool Create::salvaJSON()
 
 bool Create::salvaXML()
 {
-    QFile file("datiEventoAppuntamento.xml");
+    QFile file(DataFiles::path("datiEventoAppuntamento.xml"));
 
     QList<QVariantMap> elementi;
 

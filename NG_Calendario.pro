@@ -13,6 +13,7 @@ RESOURCES += \
 SOURCES += \
     calendar.cpp \
     create.cpp \
+    datafiles.cpp \
     home.cpp \
     main.cpp \
     modify.cpp \
@@ -23,6 +24,7 @@ SOURCES += \
 HEADERS += \
     calendar.h \
     create.h \
+    datafiles.h \
     home.h \
     modify.h \
     research.h \
