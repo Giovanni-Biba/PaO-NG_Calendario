@@ -80,7 +80,7 @@ calendar::calendar(QWidget *parent)
         lay->setSpacing(2);
         lay->setAlignment(Qt::AlignLeft);
 
-        cell->setStyleSheet("border:1px solid lightgray; background:white;border-radius: 6px;");
+        cell->setStyleSheet("border:1px solid lightgray; background:transparent;border-radius: 6px;");
         cell->setMinimumSize(140, 60);
 
         grid->addWidget(cell, 1, col + 1);
@@ -103,7 +103,7 @@ calendar::calendar(QWidget *parent)
             lay->setSpacing(2);
             lay->setAlignment(Qt::AlignLeft);
 
-            cell->setStyleSheet("border:1px solid lightgray; background:white;border-radius: 6px;");
+            cell->setStyleSheet("border:1px solid lightgray; background:transparent;border-radius: 6px;");
             cell->setMinimumSize(140, 60);
 
             grid->addWidget(cell, row, col + 1);
