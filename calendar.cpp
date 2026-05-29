@@ -80,7 +80,7 @@ calendar::calendar(QWidget *parent)
         lay->setSpacing(2);
         lay->setAlignment(Qt::AlignLeft);
 
-        cell->setStyleSheet("border:1px solid lightgray; background:white;");
+        cell->setStyleSheet("border:1px solid lightgray; background:white;border-radius: 6px;");
         cell->setMinimumSize(140, 60);
 
         grid->addWidget(cell, 1, col + 1);
@@ -103,7 +103,7 @@ calendar::calendar(QWidget *parent)
             lay->setSpacing(2);
             lay->setAlignment(Qt::AlignLeft);
 
-            cell->setStyleSheet("border:1px solid lightgray; background:white;");
+            cell->setStyleSheet("border:1px solid lightgray; background:white;border-radius: 6px;");
             cell->setMinimumSize(140, 60);
 
             grid->addWidget(cell, row, col + 1);
@@ -117,7 +117,8 @@ calendar::calendar(QWidget *parent)
     scroll->setWidget(scrollContent);
     mainLayout->addWidget(scroll);
 
-    Crea = new QPushButton("+ Crea", this);
+    Crea = new QPushButton("+ CREA", this);
+    Crea->setStyleSheet("font-weight: bold; padding: 5px 15px; background-color: #3498db; color: white; border-radius: 4px;");
     mainLayout->addWidget(Crea);
 
     connect(Titolo, &QPushButton::clicked, this, &calendar::refreshGenerale);

@@ -65,6 +65,7 @@ Home::Home(QWidget *parent)
 
     connect(createPage, &Create::tornaIndietro, this, [this]() {
         if (stackHome->currentWidget() != calendarPage) {
+            calendarPage->aggiornaCalendario();
             stackHome->setCurrentWidget(calendarPage);
         }
     });
