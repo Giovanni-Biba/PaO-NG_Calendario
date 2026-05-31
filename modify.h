@@ -7,9 +7,10 @@
 #include <QDateEdit>
 #include <QTimeEdit>
 #include <QComboBox>
-#include <QTextEdit>
 #include <QLabel>
 #include <QSpinBox>
+#include <QTextEdit>
+
 
 class modify : public QWidget
 {
@@ -30,18 +31,19 @@ private:
     QSpinBox  *spinDurata;
     QComboBox *comboPriorita;
     QTextEdit *editDescrizione;
-    // Campi extra
-    QLineEdit *editLuogo;
-    QLineEdit *editStato;
+    // Campi extra variabili
     QLabel *labelLuogo;
     QLabel *labelStato;
+    QLineEdit *editLuogo;
+    QLineEdit *editStato;
+
 
     QLabel *titoloPagina;
     QJsonObject elementoCorrente; // Memorizza i dati originali per la ricerca nel database
 
     // Funzioni per il salvataggio fisico su file
-    bool salvaSuJson(const QJsonObject &nuovo);
     bool salvaSuXml(const QJsonObject &nuovo);
+    bool salvaSuJson(const QJsonObject &nuovo);
     bool elementiUguali(const QJsonObject &a, const QJsonObject &b) const;
 };
 

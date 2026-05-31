@@ -20,7 +20,7 @@ modify::modify(QWidget *parent)
 
     // BARRA SUPERIORE
     QHBoxLayout *topBar = new QHBoxLayout();
-    QPushButton *indietro = new QPushButton("← Torna al dettaglio", this);
+    QPushButton *indietro = new QPushButton("← Torna indietro", this);
     indietro->setStyleSheet("QPushButton { background-color: #7f8c8d; color: white; border-radius: 5px; padding: 8px; font-weight: bold; }");
     topBar->addWidget(indietro);
     topBar->addStretch();
@@ -128,9 +128,7 @@ void modify::caricaElemento(const QJsonObject &elemento) {
 }
 
 bool modify::elementiUguali(const QJsonObject &a, const QJsonObject &b) const {
-    return a.value("titolo").toString() == b.value("titolo").toString() &&
-           a.value("data").toString() == b.value("data").toString() &&
-           a.value("ora").toString() == b.value("ora").toString();
+    return a.value("titolo").toString() == b.value("titolo").toString() && a.value("data").toString() == b.value("data").toString() && a.value("ora").toString() == b.value("ora").toString();
 }
 
 bool modify::salvaSuJson(const QJsonObject &nuovo) {
