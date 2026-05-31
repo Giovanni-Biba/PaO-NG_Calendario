@@ -45,4 +45,5 @@ private:
     bool elementiUguali(const QJsonObject &a, const QJsonObject &b) const;
 };
 
+
 #endif // MODIFY_H

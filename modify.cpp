@@ -185,5 +185,6 @@ bool modify::salvaSuXml(const QJsonObject &nuovo) {
     }
     writer.writeEndElement(); writer.writeEndDocument();
     file.close();
+
     return true;
 }

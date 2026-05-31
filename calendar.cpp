@@ -351,6 +351,7 @@ void calendar::caricaXml()
     file.close();
 }
 
+
 void calendar::closeCalendar()
 {
     close();
