@@ -28,7 +28,7 @@ calendar::calendar(QWidget *parent)
     QWidget *top = new QWidget(this);
     QVBoxLayout *topLayout = new QVBoxLayout(top);
 
-    Titolo = new QPushButton("NG_CALENDARIO", this);
+    Titolo = new QPushButton("AGGIORNA PAGINA", this);
     topLayout->addWidget(Titolo);
     mainLayout->addWidget(top);
 
@@ -80,7 +80,7 @@ calendar::calendar(QWidget *parent)
         lay->setSpacing(2);
         lay->setAlignment(Qt::AlignLeft);
 
-        cell->setStyleSheet("border:1px solid lightgray; background:white;border-radius: 6px;");
+        cell->setStyleSheet("border:1px solid lightgray; background:transparent;border-radius: 6px;");
         cell->setMinimumSize(140, 60);
 
         grid->addWidget(cell, 1, col + 1);
@@ -103,7 +103,7 @@ calendar::calendar(QWidget *parent)
             lay->setSpacing(2);
             lay->setAlignment(Qt::AlignLeft);
 
-            cell->setStyleSheet("border:1px solid lightgray; background:white;border-radius: 6px;");
+            cell->setStyleSheet("border:1px solid lightgray; background:transparent;border-radius: 6px;");
             cell->setMinimumSize(140, 60);
 
             grid->addWidget(cell, row, col + 1);
@@ -227,6 +227,7 @@ void calendar::aggiungiFestivita(const QString& titolo, const QDate& data, const
         "text-align: left;"
         "padding-left: 6px;"
         "background:" + colore + ";"
+        "color: black;"
         );
 
     btn->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
@@ -248,7 +249,7 @@ void calendar::aggiungiEvento(const QString& titolo, const QDate& data, const QS
     int oraIniziale = oraParsed.hour();
     if (durataOre <= 0) durataOre = 1;
 
-    QString colore;
+    QString colore = prossimoColoreElemento();
 
     for (int i = 0; i < durataOre; i++) {
         int oreTotali = oraIniziale + i;
@@ -261,15 +262,13 @@ void calendar::aggiungiEvento(const QString& titolo, const QDate& data, const QS
 
         if (conteggioCelle[row][col] >= 5) continue;
 
-        if (colore.isEmpty())
-            colore = prossimoColoreElemento();
-
         QPushButton *btn = new QPushButton(titolo);
 
         btn->setStyleSheet(
             "text-align: left;"
             "padding-left: 6px;"
             "background:" + colore + ";"
+            "color: black;"
             );
 
         btn->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
@@ -303,12 +302,25 @@ void calendar::caricaJson()
             aggiungiFestivita(titolo, data, ora);
 
         else if (tipo == "attivita") {
-            int durata = o["durata_ore"].toInt(0);
-            if (durata <= 0) {
-                QTime inizio = QTime::fromString(ora, "HH:mm");
-                QTime fine = QTime::fromString(o["oraFine"].toString(), "HH:mm:ss");
-                durata = inizio.secsTo(fine) / 3600;
+            //Uso toVariant().toInt() per leggere bene sia numeri che stringhe dal JSON
+            int durata = 0;
+            if (o.contains("durata_ore")) {
+                durata = o["durata_ore"].toVariant().toInt();
             }
+
+            // Fallback su calcolo oraFine se durata_ore è 0
+            if (durata <= 0 && o.contains("oraFine")) {
+                QTime inizio = QTime::fromString(ora, "HH:mm");
+                if (!inizio.isValid()) inizio = QTime::fromString(ora, "HH:mm:ss");
+
+                QTime fine = QTime::fromString(o["oraFine"].toString(), "HH:mm");
+                if (!fine.isValid()) fine = QTime::fromString(o["oraFine"].toString(), "HH:mm:ss");
+
+                if (inizio.isValid() && fine.isValid()) {
+                    durata = inizio.secsTo(fine) / 3600;
+                }
+            }
+
             if (durata <= 0) durata = 1;
             aggiungiEvento(titolo, data, ora, durata);
         }
