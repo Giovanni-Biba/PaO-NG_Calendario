@@ -1,13 +1,10 @@
 #include "research.h"
-
 #include "archivioimpegni.h"
 #include "attivita.h"
 
 #include <QFrame>
 #include <QHBoxLayout>
 #include <QLabel>
-#include <QListWidget>
-#include <QPushButton>
 #include <QVBoxLayout>
 
 Research::Research(QWidget *parent) : QWidget(parent)
@@ -21,7 +18,7 @@ Research::Research(QWidget *parent) : QWidget(parent)
     buttonIndietro->setStyleSheet(
         "QPushButton { background-color: #7f8c8d; color: white; border-radius: 5px; padding: 8px; font-weight: bold; } "
         "QPushButton:hover { background-color: #95a5a6; }"
-    );
+        );
     mainLayout->addWidget(buttonIndietro);
 
     QLabel *titleLabel = new QLabel("RISULTATI DELLA RICERCA", this);
@@ -35,7 +32,7 @@ Research::Research(QWidget *parent) : QWidget(parent)
     listaRisultati->setSelectionMode(QAbstractItemView::NoSelection);
     mainLayout->addWidget(listaRisultati);
 
-    connect(buttonIndietro, &QPushButton::clicked, this, &Research::ritornaHome);
+    connect(buttonIndietro, &QPushButton::clicked, this, &Research::ritornaHomeSlot);
 }
 
 void Research::eseguiRicercaFiltrata(const QString &titolo, const QDate &data, const QString &tipo, const QString &priorita)
@@ -43,6 +40,7 @@ void Research::eseguiRicercaFiltrata(const QString &titolo, const QDate &data, c
     listaRisultati->clear();
 
     const QVector<std::shared_ptr<Agenda>> risultati = ArchivioImpegni::instance().cerca(titolo, data, tipo, priorita);
+
     for (const auto &elemento : risultati) {
         QWidget *cardWidget = creaCardAttivita(elemento);
         QListWidgetItem *item = new QListWidgetItem(listaRisultati);
@@ -92,11 +90,11 @@ QWidget *Research::creaCardAttivita(const std::shared_ptr<Agenda> &elemento)
     QVBoxLayout *rightLayout = new QVBoxLayout();
     rightLayout->setAlignment(Qt::AlignRight | Qt::AlignTop);
 
-    QString priorita = "N/D";
+    QString prioritaStr = "N/D";
     if (const auto attivita = std::dynamic_pointer_cast<Attivita>(elemento))
-        priorita = attivita->prioritaToString();
+        prioritaStr = attivita->prioritaToString();
 
-    QLabel *lblPrio = new QLabel("PRIORITA: " + priorita.toUpper());
+    QLabel *lblPrio = new QLabel("PRIORITA: " + prioritaStr.toUpper());
     lblPrio->setStyleSheet("font-weight: bold; font-size: 11px; border: none; color: #2c3e50;");
     lblPrio->setAlignment(Qt::AlignRight);
     rightLayout->addWidget(lblPrio);
@@ -116,8 +114,9 @@ QWidget *Research::creaCardAttivita(const std::shared_ptr<Agenda> &elemento)
     btnVisualizza->setStyleSheet(
         "QPushButton { background-color: #3498db; color: white; border-radius: 8px; padding: 5px; font-weight: bold; font-size: 10px; border: none; } "
         "QPushButton:hover { background-color: #2980b9; }"
-    );
+        );
     rightLayout->addWidget(btnVisualizza);
+
     connect(btnVisualizza, &QPushButton::clicked, this, [this, elemento]() {
         emit richiestaVisualize(elemento);
     });

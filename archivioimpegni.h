@@ -2,8 +2,11 @@
 #define ARCHIVIOIMPEGNI_H
 
 #include "agenda.h"
-
 #include <QVector>
+#include <QString>
+#include <QDate>
+#include <QJsonObject>
+#include <memory>
 
 class ArchivioImpegni
 {
@@ -24,7 +27,9 @@ public:
     static ArchivioImpegni &instance();
 
     QVector<std::shared_ptr<Agenda>> tutti() const;
-    QVector<std::shared_ptr<Agenda>> cerca(const QString &titolo, const QDate &data, const QString &tipo, const QString &priorita) const;
+
+    // Funzione cerca aggiornata (senza const finale per compatibilità)
+    QVector<std::shared_ptr<Agenda>> cerca(const QString &titolo, const QDate &data, const QString &tipo, const QString &priorita);
 
     bool caricaDefault();
     bool caricaDaFileJson(const QString &path);
@@ -41,4 +46,4 @@ public:
     QString getPercorsoXml() const;
 };
 
-#endif
+#endif // ARCHIVIOIMPEGNI_H

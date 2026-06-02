@@ -1,5 +1,4 @@
 #include "archivioimpegni.h"
-
 #include "appuntamento.h"
 #include "attivita.h"
 #include "consegna.h"
@@ -12,10 +11,11 @@
 #include <QJsonDocument>
 #include <QXmlStreamReader>
 #include <QXmlStreamWriter>
+#include <QDebug>
 
 ArchivioImpegni::ArchivioImpegni()
     : percorsoJson(DataFiles::path("datiAttivitaFestivita.json")),
-      percorsoXml(DataFiles::path("datiEventoAppuntamento.xml"))
+    percorsoXml(DataFiles::path("datiEventoAppuntamento.xml"))
 {
 }
 
@@ -30,11 +30,50 @@ QVector<std::shared_ptr<Agenda>> ArchivioImpegni::tutti() const
     return impegni;
 }
 
-QVector<std::shared_ptr<Agenda>> ArchivioImpegni::cerca(const QString &titolo, const QDate &data, const QString &tipo, const QString &priorita) const
+// --- LOGICA DI RICERCA CORRETTA ---
+QVector<std::shared_ptr<Agenda>> ArchivioImpegni::cerca(const QString &titolo, const QDate &data, const QString &tipo, const QString &priorita)
 {
     QVector<std::shared_ptr<Agenda>> risultati;
     for (const auto &impegno : impegni) {
-        if (impegno && impegno->matchesFiltro(titolo, data, tipo, priorita))
+        if (!impegno) continue;
+
+        bool corrisponde = true;
+
+        // 1. Filtro Titolo: se l'utente ha scritto qualcosa, cerchiamo corrispondenza parziale
+        if (!titolo.isEmpty()) {
+            if (!impegno->getTitolo().contains(titolo, Qt::CaseInsensitive)) {
+                corrisponde = false;
+            }
+        }
+
+        // 2. Filtro Data: se la data è valida (pulsante check attivo), deve corrispondere esattamente
+        if (corrisponde && data.isValid()) {
+            if (impegno->getData() != data) {
+                corrisponde = false;
+            }
+        }
+
+        // 3. Filtro Tipo
+        if (corrisponde && tipo != "Tutte") {
+            if (impegno->getTipo().toLower() != tipo.toLower()) {
+                corrisponde = false;
+            }
+        }
+
+        // 4. Filtro Priorità (solo se l'impegno ha il metodo per la priorità)
+        if (corrisponde && priorita != "Tutte") {
+            auto att = std::dynamic_pointer_cast<Attivita>(impegno);
+            if (att) {
+                if (att->prioritaToString().toLower() != priorita.toLower()) {
+                    corrisponde = false;
+                }
+            } else {
+                // Se cerchiamo una priorità ma l'oggetto non è un'attività, lo escludiamo
+                corrisponde = false;
+            }
+        }
+
+        if (corrisponde)
             risultati.append(impegno);
     }
     return risultati;

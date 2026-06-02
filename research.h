@@ -5,6 +5,7 @@
 #include <QPushButton>
 #include <QListWidget>
 #include <QDate>
+#include <memory>
 
 #include "agenda.h"
 
@@ -21,9 +22,11 @@ signals:
 
 private:
     QWidget* creaCardAttivita(const std::shared_ptr<Agenda> &elemento);
-
     QListWidget *listaRisultati;
     QPushButton *buttonIndietro;
+
+private slots:
+    void ritornaHomeSlot() { emit ritornaHome(); }
 };
 
 #endif

@@ -4,9 +4,9 @@
 #include <QWidget>
 #include <QLineEdit>
 #include <QDateEdit>
-#include <QTimeEdit>
 #include <QComboBox>
 #include <QPushButton>
+#include <QCheckBox>
 #include <QLabel>
 
 class SearchBar : public QWidget
@@ -15,19 +15,23 @@ class SearchBar : public QWidget
 public:
     explicit SearchBar(QWidget *parent = nullptr);
     QPushButton *CercaButton;
+
     QString getTestoTitolo() const { return TitoloInput->text(); }
-    QDate getValoreData() const { return DataInput->date(); }
-    QTime getValoreOra() const { return OraInput->time(); }
+
+    // Ritorna la data selezionata SOLO se il check è attivo, altrimenti ritorna QDate() nulla
+    QDate getValoreData() const {
+        return (DataCheck && DataCheck->isChecked()) ? DataInput->date() : QDate();
+    }
+
     QString getTestoTipo() const { return TipoInput->currentText(); }
     QString getTestoPriorita() const { return PrioritaInput->currentText(); }
 
 private:
     QLineEdit *TitoloInput;
+    QCheckBox *DataCheck;
     QDateEdit *DataInput;
-    QTimeEdit *OraInput;
     QComboBox *TipoInput;
     QComboBox *PrioritaInput;
-
 
 signals:
     void cercaClicked();
