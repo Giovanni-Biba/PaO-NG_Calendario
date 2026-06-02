@@ -89,6 +89,7 @@ calendar::calendar(QWidget *parent)
         conteggioCelle[1][col] = 0;
     }
 
+
     for (int ora = 0; ora < 24; ora++) {
         int row = ora + 2;
 
