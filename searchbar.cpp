@@ -38,7 +38,7 @@ SearchBar::SearchBar(QWidget *parent)
     QLabel *lblTipo = new QLabel("Tipo:", this);
     lblTipo->setStyleSheet("font-weight: bold;");
     TipoInput = new QComboBox(this);
-    TipoInput->addItems({"Tutte", "Attivita", "Evento", "Appuntamento"});
+    TipoInput->addItems({"Tutte", "Attivita", "Evento", "Appuntamento", "Festivita", "Consegna"});
 
     layoutTipo->addWidget(lblTipo);
     layoutTipo->addWidget(TipoInput);

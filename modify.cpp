@@ -1,15 +1,26 @@
 #include "modify.h"
-#include <QPushButton>
-#include <QVBoxLayout>
-#include <QHBoxLayout>
+
+#include "appuntamento.h"
+#include "archivioimpegni.h"
+#include "attivita.h"
+#include "consegna.h"
+#include "evento.h"
+#include "festivita.h"
+
+#include <QCheckBox>
+#include <QComboBox>
+#include <QDateEdit>
 #include <QFormLayout>
-#include <QScrollArea>
+#include <QHBoxLayout>
+#include <QLabel>
+#include <QLineEdit>
 #include <QMessageBox>
-#include <QFile>
-#include <QJsonDocument>
-#include <QJsonArray>
-#include <QXmlStreamReader>
-#include <QXmlStreamWriter>
+#include <QPushButton>
+#include <QScrollArea>
+#include <QSpinBox>
+#include <QTextEdit>
+#include <QTimeEdit>
+#include <QVBoxLayout>
 
 modify::modify(QWidget *parent)
     : QWidget{parent}
@@ -18,9 +29,8 @@ modify::modify(QWidget *parent)
     mainLayout->setContentsMargins(25, 25, 25, 25);
     mainLayout->setSpacing(15);
 
-    // BARRA SUPERIORE
     QHBoxLayout *topBar = new QHBoxLayout();
-    QPushButton *indietro = new QPushButton("← Torna indietro", this);
+    QPushButton *indietro = new QPushButton("← Torna al dettaglio", this);
     indietro->setStyleSheet("QPushButton { background-color: #7f8c8d; color: white; border-radius: 5px; padding: 8px; font-weight: bold; }");
     topBar->addWidget(indietro);
     topBar->addStretch();
@@ -31,7 +41,6 @@ modify::modify(QWidget *parent)
     titoloPagina->setStyleSheet("font-size: 22px; font-weight: bold; color: #2c3e50;");
     mainLayout->addWidget(titoloPagina);
 
-    // AREA SCORREVOLE
     QScrollArea *scrollArea = new QScrollArea(this);
     scrollArea->setWidgetResizable(true);
     scrollArea->setStyleSheet("border: none; background: transparent;");
@@ -39,7 +48,6 @@ modify::modify(QWidget *parent)
     QWidget *formContainer = new QWidget();
     QFormLayout *formLayout = new QFormLayout(formContainer);
 
-    // Inizializzazione Widget
     editTitolo = new QLineEdit(this);
     editData = new QDateEdit(this);
     editData->setCalendarPopup(true);
@@ -47,31 +55,53 @@ modify::modify(QWidget *parent)
     spinDurata = new QSpinBox(this);
     spinDurata->setRange(1, 24);
     spinDurata->setSuffix(" ore");
-    comboPriorita = new QComboBox(this);
-    comboPriorita->addItems({"Bassa", "Media", "Alta"});
     editDescrizione = new QTextEdit(this);
     editDescrizione->setMaximumHeight(100);
 
-    editLuogo = new QLineEdit(this);
-    labelLuogo = new QLabel("Luogo:", this);
-    editStato = new QLineEdit(this);
-    labelStato = new QLabel("Stato:", this);
+    comboPriorita = new QComboBox(this);
+    comboPriorita->addItems({"Bassa", "Media", "Alta"});
+    labelPriorita = new QLabel("Priorità:", this);
+    labelCategoria = new QLabel("Categoria:", this);
+    editCategoria = new QLineEdit(this);
+    checkCompletata = new QCheckBox("Completata", this);
 
-    // Stile
-    QString style = "padding: 8px; border: 1px solid #ccc; border-radius: 4px;";
-    editTitolo->setStyleSheet(style); editData->setStyleSheet(style);
-    editOra->setStyleSheet(style); spinDurata->setStyleSheet(style);
-    comboPriorita->setStyleSheet(style); editDescrizione->setStyleSheet(style);
-    editLuogo->setStyleSheet(style); editStato->setStyleSheet(style);
+    labelLuogo = new QLabel("Luogo:", this);
+    editLuogo = new QLineEdit(this);
+    labelOrganizzatore = new QLabel("Organizzatore:", this);
+    editOrganizzatore = new QLineEdit(this);
+    labelStato = new QLabel("Stato:", this);
+    comboStato = new QComboBox(this);
+    comboStato->addItems({"Italia", "USA", "Cina", "Worldwide"});
+    checkConfermato = new QCheckBox("Confermato", this);
+
+    labelMateria = new QLabel("Materia/progetto:", this);
+    editMateria = new QLineEdit(this);
+    labelDestinatario = new QLabel("Destinatario:", this);
+    editDestinatario = new QLineEdit(this);
+    labelFormato = new QLabel("Formato:", this);
+    comboFormato = new QComboBox(this);
+    comboFormato->addItems({"PDF", "ZIP", "Codice", "Relazione", "Altro"});
+    labelPiattaforma = new QLabel("Piattaforma:", this);
+    editPiattaforma = new QLineEdit(this);
+    checkConsegnata = new QCheckBox("Consegnata", this);
 
     formLayout->addRow("Titolo:", editTitolo);
     formLayout->addRow("Data:", editData);
     formLayout->addRow("Ora:", editOra);
     formLayout->addRow("Durata:", spinDurata);
-    formLayout->addRow("Priorità:", comboPriorita);
-    formLayout->addRow(labelLuogo, editLuogo);
-    formLayout->addRow(labelStato, editStato);
     formLayout->addRow("Descrizione:", editDescrizione);
+    formLayout->addRow(labelPriorita, comboPriorita);
+    formLayout->addRow(labelCategoria, editCategoria);
+    formLayout->addRow("", checkCompletata);
+    formLayout->addRow(labelLuogo, editLuogo);
+    formLayout->addRow(labelOrganizzatore, editOrganizzatore);
+    formLayout->addRow(labelStato, comboStato);
+    formLayout->addRow("", checkConfermato);
+    formLayout->addRow(labelMateria, editMateria);
+    formLayout->addRow(labelDestinatario, editDestinatario);
+    formLayout->addRow(labelFormato, comboFormato);
+    formLayout->addRow(labelPiattaforma, editPiattaforma);
+    formLayout->addRow("", checkConsegnata);
 
     scrollArea->setWidget(formContainer);
     mainLayout->addWidget(scrollArea);
@@ -80,27 +110,18 @@ modify::modify(QWidget *parent)
     btnSalva->setStyleSheet("background-color: #27ae60; color: white; border-radius: 5px; padding: 12px; font-weight: bold;");
     mainLayout->addWidget(btnSalva);
 
-    // CONNESSIONI
     connect(indietro, &QPushButton::clicked, this, &modify::tornaIndietro);
-
     connect(btnSalva, &QPushButton::clicked, this, [this]() {
-        QMessageBox::StandardButton reply = QMessageBox::question(this, "Conferma", "Vuoi salvare le modifiche?", QMessageBox::Yes|QMessageBox::No);
-        if (reply == QMessageBox::No) return;
+        if (!elementoCorrente)
+            return;
 
-        QJsonObject nuovo = elementoCorrente;
-        nuovo["titolo"] = editTitolo->text();
-        nuovo["data"] = editData->date().toString("yyyy-MM-dd");
-        nuovo["ora"] = editOra->time().toString("HH:mm");
-        nuovo["durata_ore"] = QString::number(spinDurata->value());
-        nuovo["priorita"] = comboPriorita->currentText();
-        nuovo["descrizione"] = editDescrizione->toPlainText();
-        if(editLuogo->isVisible()) nuovo["luogo"] = editLuogo->text();
-        if(editStato->isVisible()) nuovo["stato"] = editStato->text();
+        QMessageBox::StandardButton reply = QMessageBox::question(this, "Conferma", "Vuoi salvare le modifiche?", QMessageBox::Yes | QMessageBox::No);
+        if (reply == QMessageBox::No)
+            return;
 
-        QString tipo = elementoCorrente.value("tipo").toString().toLower();
-        bool ok = (tipo == "attivita" || tipo == "festivita") ? salvaSuJson(nuovo) : salvaSuXml(nuovo);
-
-        if (ok) {
+        const auto nuovo = creaModificato();
+        if (ArchivioImpegni::instance().aggiorna(elementoCorrente, nuovo)) {
+            elementoCorrente = nuovo;
             QMessageBox::information(this, "Ok", "Modifica completata!");
             emit salvataggioCompletato(nuovo);
         } else {
@@ -109,80 +130,124 @@ modify::modify(QWidget *parent)
     });
 }
 
-void modify::caricaElemento(const QJsonObject &elemento) {
+void modify::caricaElemento(std::shared_ptr<Agenda> elemento)
+{
     elementoCorrente = elemento;
-    labelLuogo->hide(); editLuogo->hide();
-    labelStato->hide(); editStato->hide();
+    if (!elementoCorrente)
+        return;
 
-    editTitolo->setText(elemento.value("titolo").toString());
-    editData->setDate(QDate::fromString(elemento.value("data").toString(), "yyyy-MM-dd"));
-    editOra->setTime(QTime::fromString(elemento.value("ora").toString(), "HH:mm"));
-    spinDurata->setValue(elemento.value("durata_ore").toVariant().toInt());
+    titoloPagina->setText("MODIFICA " + elementoCorrente->getTipo().toUpper());
+    editTitolo->setText(elementoCorrente->getTitolo());
+    editData->setDate(elementoCorrente->getData());
+    editOra->setTime(elementoCorrente->getOra());
+    spinDurata->setValue(elementoCorrente->getDurataOre());
+    editDescrizione->setPlainText(elementoCorrente->getDescrizione());
 
-    int pIdx = comboPriorita->findText(elemento.value("priorita").toString());
-    if(pIdx != -1) comboPriorita->setCurrentIndex(pIdx);
-    editDescrizione->setPlainText(elemento.value("descrizione").toString());
-
-    if(elemento.contains("luogo")) { labelLuogo->show(); editLuogo->show(); editLuogo->setText(elemento.value("luogo").toString()); }
-    if(elemento.contains("stato")) { labelStato->show(); editStato->show(); editStato->setText(elemento.value("stato").toString()); }
-}
-
-bool modify::elementiUguali(const QJsonObject &a, const QJsonObject &b) const {
-    return a.value("titolo").toString() == b.value("titolo").toString() && a.value("data").toString() == b.value("data").toString() && a.value("ora").toString() == b.value("ora").toString();
-}
-
-bool modify::salvaSuJson(const QJsonObject &nuovo) {
-    QFile file("datiAttivitaFestivita.json");
-    if (!file.open(QIODevice::ReadOnly)) return false;
-    QJsonDocument doc = QJsonDocument::fromJson(file.readAll());
-    file.close();
-
-    QJsonArray array = doc.isObject() ? doc.object().value("agenda").toArray() : doc.array();
-    QJsonArray nuovoArray;
-    for (const QJsonValue &v : array) {
-        QJsonObject obj = v.toObject();
-        nuovoArray.append(elementiUguali(obj, elementoCorrente) ? nuovo : obj);
+    if (const auto attivita = std::dynamic_pointer_cast<Attivita>(elementoCorrente)) {
+        comboPriorita->setCurrentText(attivita->prioritaToString());
+        editCategoria->setText(attivita->getCategoria());
+        checkCompletata->setChecked(attivita->isCompletata());
     }
 
-    if (!file.open(QIODevice::WriteOnly | QIODevice::Truncate)) return false;
-    if (doc.isObject()) {
-        QJsonObject root = doc.object(); root["agenda"] = nuovoArray;
-        file.write(QJsonDocument(root).toJson());
-    } else file.write(QJsonDocument(nuovoArray).toJson());
-    file.close();
-    return true;
+    if (const auto evento = std::dynamic_pointer_cast<Evento>(elementoCorrente)) {
+        editLuogo->setText(evento->getLuogo());
+        editOrganizzatore->setText(evento->getOrganizzatore());
+    }
+
+    if (const auto appuntamento = std::dynamic_pointer_cast<Appuntamento>(elementoCorrente))
+        checkConfermato->setChecked(appuntamento->isConfermato());
+
+    if (const auto festivita = std::dynamic_pointer_cast<Festivita>(elementoCorrente))
+        comboStato->setCurrentText(festivita->statoToString());
+
+    if (const auto consegna = std::dynamic_pointer_cast<Consegna>(elementoCorrente)) {
+        editMateria->setText(consegna->getMateriaOProgetto());
+        editDestinatario->setText(consegna->getDestinatario());
+        comboFormato->setCurrentText(consegna->formatoToString());
+        editPiattaforma->setText(consegna->getPiattaforma());
+        checkConsegnata->setChecked(consegna->isConsegnata());
+    }
+
+    aggiornaVisibilita();
 }
 
-bool modify::salvaSuXml(const QJsonObject &nuovo) {
-    QFile file("datiEventoAppuntamento.xml");
-    if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) return false;
-    QJsonArray elementi;
-    QXmlStreamReader reader(&file);
-    while (!reader.atEnd()) {
-        if (reader.readNext() == QXmlStreamReader::StartElement && reader.name() == "item") {
-            QJsonObject obj;
-            while (!(reader.tokenType() == QXmlStreamReader::EndElement && reader.name() == "item")) {
-                if (reader.readNext() == QXmlStreamReader::StartElement) obj.insert(reader.name().toString(), reader.readElementText());
-            }
-            elementi.append(obj);
-        }
-    }
-    file.close();
+void modify::aggiornaVisibilita()
+{
+    const bool attivita = std::dynamic_pointer_cast<Attivita>(elementoCorrente) != nullptr;
+    const bool evento = std::dynamic_pointer_cast<Evento>(elementoCorrente) != nullptr;
+    const bool appuntamento = std::dynamic_pointer_cast<Appuntamento>(elementoCorrente) != nullptr;
+    const bool festivita = std::dynamic_pointer_cast<Festivita>(elementoCorrente) != nullptr;
+    const bool consegna = std::dynamic_pointer_cast<Consegna>(elementoCorrente) != nullptr;
 
-    if (!file.open(QIODevice::WriteOnly | QIODevice::Truncate | QIODevice::Text)) return false;
-    QXmlStreamWriter writer(&file);
-    writer.setAutoFormatting(true); writer.writeStartDocument();
-    writer.writeStartElement("dati");
-    for (const QJsonValue &v : elementi) {
-        QJsonObject obj = v.toObject();
-        writer.writeStartElement("item");
-        QJsonObject daScrivere = elementiUguali(obj, elementoCorrente) ? nuovo : obj;
-        for (auto it = daScrivere.begin(); it != daScrivere.end(); ++it)
-            writer.writeTextElement(it.key(), it.value().toVariant().toString());
-        writer.writeEndElement();
-    }
-    writer.writeEndElement(); writer.writeEndDocument();
-    file.close();
+    labelPriorita->setVisible(attivita);
+    comboPriorita->setVisible(attivita);
+    labelCategoria->setVisible(attivita);
+    editCategoria->setVisible(attivita);
+    checkCompletata->setVisible(attivita);
 
-    return true;
+    labelLuogo->setVisible(evento);
+    editLuogo->setVisible(evento);
+    labelOrganizzatore->setVisible(evento);
+    editOrganizzatore->setVisible(evento);
+    checkConfermato->setVisible(appuntamento);
+
+    labelStato->setVisible(festivita);
+    comboStato->setVisible(festivita);
+
+    labelMateria->setVisible(consegna);
+    editMateria->setVisible(consegna);
+    labelDestinatario->setVisible(consegna);
+    editDestinatario->setVisible(consegna);
+    labelFormato->setVisible(consegna);
+    comboFormato->setVisible(consegna);
+    labelPiattaforma->setVisible(consegna);
+    editPiattaforma->setVisible(consegna);
+    checkConsegnata->setVisible(consegna);
+}
+
+std::shared_ptr<Agenda> modify::creaModificato() const
+{
+    const QString titolo = editTitolo->text();
+    const QString descrizione = editDescrizione->toPlainText();
+    const QDate data = editData->date();
+    const QTime ora = editOra->time();
+    const int durata = spinDurata->value();
+
+    if (std::dynamic_pointer_cast<Attivita>(elementoCorrente)) {
+        return std::make_shared<Attivita>(
+            titolo, descrizione, data, ora, durata,
+            Attivita::prioritaFromString(comboPriorita->currentText()),
+            checkCompletata->isChecked(), data, editCategoria->text()
+        );
+    }
+
+    if (std::dynamic_pointer_cast<Appuntamento>(elementoCorrente)) {
+        return std::make_shared<Appuntamento>(
+            titolo, descrizione, data, ora, durata,
+            editLuogo->text(), editOrganizzatore->text(), QStringList(),
+            Appuntamento::Presenza, QString(), checkConfermato->isChecked()
+        );
+    }
+
+    if (std::dynamic_pointer_cast<Evento>(elementoCorrente)) {
+        return std::make_shared<Evento>(
+            titolo, descrizione, data, ora, durata,
+            editLuogo->text(), editOrganizzatore->text(), 0, 0.0, false
+        );
+    }
+
+    if (std::dynamic_pointer_cast<Festivita>(elementoCorrente)) {
+        return std::make_shared<Festivita>(
+            titolo, descrizione, data,
+            Festivita::statoFromString(comboStato->currentText()),
+            true, false, titolo
+        );
+    }
+
+    return std::make_shared<Consegna>(
+        titolo, descrizione, data, ora, durata,
+        editMateria->text(), editDestinatario->text(),
+        Consegna::formatoFromString(comboFormato->currentText()),
+        editPiattaforma->text(), checkConsegnata->isChecked()
+    );
 }

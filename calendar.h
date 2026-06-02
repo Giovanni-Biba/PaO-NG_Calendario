@@ -8,6 +8,7 @@
 #include <QDate>
 #include <QHBoxLayout>
 
+#include "agenda.h"
 #include "searchbar.h"
 
 class calendar : public QWidget
@@ -40,10 +41,8 @@ private:
 
     QString prossimoColoreElemento();
     void aggiornaIntestazioneSettimana();
-    void aggiungiEvento(const QString& titolo, const QDate& data, const QString& ora, int durataOre);
-    void aggiungiFestivita(const QString& titolo, const QDate& data, const QString& ora);
-    void caricaJson();
-    void caricaXml();
+    void aggiungiImpegno(const std::shared_ptr<Agenda> &impegno);
+    void caricaImpegni();
 
 private slots:
     void closeCalendar();
@@ -54,7 +53,7 @@ private slots:
 signals:
     void richiestaCrea();
     void richiestaCerca();
-    void richiestaVisualize(QString titolo, QString data, QString ora);
+    void richiestaVisualize(std::shared_ptr<Agenda> impegno);
 };
 
 #endif

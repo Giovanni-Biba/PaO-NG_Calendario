@@ -1,22 +1,15 @@
 #include "visualize.h"
-#include "datafiles.h"
 
-#include <QFile>
+#include "archivioimpegni.h"
+
 #include <QFrame>
 #include <QHBoxLayout>
-#include <QJsonArray>
-#include <QJsonDocument>
-#include <QJsonValue>
 #include <QLabel>
 #include <QLayoutItem>
 #include <QMessageBox>
 #include <QPushButton>
 #include <QScrollArea>
-#include <QStringList>
-#include <QVariant>
 #include <QVBoxLayout>
-#include <QXmlStreamReader>
-#include <QXmlStreamWriter>
 
 visualize::visualize(QWidget *parent)
     : QWidget{parent}
@@ -66,101 +59,38 @@ visualize::visualize(QWidget *parent)
     connect(buttonElimina, &QPushButton::clicked, this, &visualize::eliminaElemento);
 }
 
-void visualize::caricaElemento(const QJsonObject &elemento)
+void visualize::caricaElemento(std::shared_ptr<Agenda> elemento)
 {
     elementoCorrente = elemento;
     aggiornaVista();
 }
 
-void visualize::caricaDaChiave(const QString &titolo, const QString &data, const QString &ora)
-{
-    if (!cercaElemento(titolo, data, ora)) {
-        elementoCorrente = QJsonObject();
-        QMessageBox::warning(this, "Elemento non trovato", "Non riesco a trovare questo impegno nei file dati.");
-    }
-
-    aggiornaVista();
-}
-
-bool visualize::cercaElemento(const QString &titolo, const QString &data, const QString &ora)
-{
-    QFile fileJson(DataFiles::path("datiAttivitaFestivita.json"));
-    if (fileJson.open(QIODevice::ReadOnly)) {
-        QJsonDocument doc = QJsonDocument::fromJson(fileJson.readAll());
-        QJsonArray array = doc.isArray() ? doc.array() : doc.object().value("agenda").toArray();
-        fileJson.close();
-
-        for (const QJsonValue &value : array) {
-            QJsonObject obj = value.toObject();
-            if (obj.value("titolo").toString() == titolo &&
-                obj.value("data").toString() == data &&
-                obj.value("ora").toString() == ora) {
-                elementoCorrente = obj;
-                return true;
-            }
-        }
-    }
-
-    QFile fileXml(DataFiles::path("datiEventoAppuntamento.xml"));
-    if (!fileXml.open(QIODevice::ReadOnly | QIODevice::Text)) return false;
-
-    QXmlStreamReader xml(&fileXml);
-    while (!xml.atEnd() && !xml.hasError()) {
-        if (xml.readNext() == QXmlStreamReader::StartElement && xml.name() == "item") {
-            QJsonObject obj;
-            while (!(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == "item")) {
-                if (xml.readNext() == QXmlStreamReader::StartElement) {
-                    obj.insert(xml.name().toString(), xml.readElementText());
-                }
-            }
-
-            if (obj.value("titolo").toString() == titolo &&
-                obj.value("data").toString() == data &&
-                obj.value("ora").toString() == ora) {
-                elementoCorrente = obj;
-                fileXml.close();
-                return true;
-            }
-        }
-    }
-
-    fileXml.close();
-    return false;
-}
-
 void visualize::aggiornaVista()
 {
     while (QLayoutItem *item = dettagliLayout->takeAt(0)) {
-        if (item->widget()) item->widget()->deleteLater();
+        if (item->widget())
+            item->widget()->deleteLater();
         delete item;
     }
 
-    if (elementoCorrente.isEmpty()) {
+    if (!elementoCorrente) {
         aggiungiRiga("Stato", "Nessun elemento selezionato");
         dettagliLayout->addStretch();
         return;
     }
 
-    titoloPagina->setText(elementoCorrente.value("titolo").toString("DETTAGLIO IMPEGNO").toUpper());
+    titoloPagina->setText(elementoCorrente->getTitolo().toUpper());
+    aggiungiRiga("Tipo", elementoCorrente->getTipo());
+    aggiungiRiga("Titolo", elementoCorrente->getTitolo());
+    aggiungiRiga("Descrizione", elementoCorrente->getDescrizione());
+    aggiungiRiga("Data", elementoCorrente->getData().toString("dd/MM/yyyy"));
+    aggiungiRiga("Ora", elementoCorrente->getOra().toString("HH:mm"));
+    aggiungiRiga("Durata", QString::number(elementoCorrente->getDurataOre()) + " ore");
+    aggiungiRiga("Riepilogo", elementoCorrente->riepilogo());
 
-    const QStringList ordineCampi = {
-        "tipo", "titolo", "descrizione", "data", "ora", "durata_ore", "durata",
-        "priorita", "dataFine", "oraFine", "luogo", "stato"
-    };
-
-    for (const QString &campo : ordineCampi) {
-        if (elementoCorrente.contains(campo)) {
-            QString nome = campo;
-            if (campo == "durata") nome = "durata_ore";
-            aggiungiRiga(nome, elementoCorrente.value(campo).toVariant().toString());
-        }
-    }
-
-    for (auto it = elementoCorrente.begin(); it != elementoCorrente.end(); ++it) {
-        if (!ordineCampi.contains(it.key())) {
-            aggiungiRiga(it.key(), it.value().toVariant().toString());
-        }
-    }
+    const QMap<QString, QString> specifici = elementoCorrente->campiSpecifici();
+    for (auto it = specifici.begin(); it != specifici.end(); ++it)
+        aggiungiRiga(it.key(), it.value());
 
     dettagliLayout->addStretch();
 }
@@ -185,14 +115,10 @@ void visualize::aggiungiRiga(const QString &nome, const QString &valore)
     dettagliLayout->addWidget(card);
 }
 
-QString visualize::tipoNormalizzato() const
-{
-    return elementoCorrente.value("tipo").toString().toLower();
-}
-
 void visualize::eliminaElemento()
 {
-    if (elementoCorrente.isEmpty()) return;
+    if (!elementoCorrente)
+        return;
 
     const int risposta = QMessageBox::question(
         this,
@@ -200,134 +126,15 @@ void visualize::eliminaElemento()
         "Vuoi eliminare definitivamente questo impegno?"
     );
 
-    if (risposta != QMessageBox::Yes) return;
+    if (risposta != QMessageBox::Yes)
+        return;
 
-    bool eliminato = tipoNormalizzato() == "attivita" || tipoNormalizzato() == "festivita"
-                         ? eliminaDaJson()
-                         : eliminaDaXml();
-
-    if (!eliminato) {
+    if (!ArchivioImpegni::instance().elimina(elementoCorrente)) {
         QMessageBox::warning(this, "Errore", "Non sono riuscito a eliminare l'impegno selezionato.");
         return;
     }
 
-    QMessageBox::information(this, "Eliminato", "Impegno eliminato correttamente.");
+    QMessageBox::information(this, "Eliminato", "Agenda eliminato correttamente.");
+    elementoCorrente.reset();
     emit elementoEliminato();
-}
-
-bool visualize::eliminaDaJson()
-{
-    QFile file(DataFiles::path("datiAttivitaFestivita.json"));
-    if (!file.open(QIODevice::ReadOnly)) return false;
-
-    QJsonDocument doc = QJsonDocument::fromJson(file.readAll());
-    bool rootConAgenda = doc.isObject();
-    QJsonArray array = doc.isArray() ? doc.array() : doc.object().value("agenda").toArray();
-    file.close();
-
-    QJsonArray aggiornato;
-    bool trovato = false;
-
-    for (const QJsonValue &value : array) {
-        QJsonObject obj = value.toObject();
-        if (!trovato && elementiUguali(obj, elementoCorrente)) {
-            trovato = true;
-            continue;
-        }
-        aggiornato.append(obj);
-    }
-
-    if (!trovato || !file.open(QIODevice::WriteOnly | QIODevice::Truncate)) return false;
-
-    if (rootConAgenda) {
-        QJsonObject root = doc.object();
-        root["agenda"] = aggiornato;
-        file.write(QJsonDocument(root).toJson(QJsonDocument::Indented));
-    } else {
-        file.write(QJsonDocument(aggiornato).toJson(QJsonDocument::Indented));
-    }
-
-    file.close();
-    return true;
-}
-
-bool visualize::eliminaDaXml()
-{
-    QFile file(DataFiles::path("datiEventoAppuntamento.xml"));
-    if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) return false;
-
-    QJsonArray elementi;
-    QXmlStreamReader xml(&file);
-
-    while (!xml.atEnd() && !xml.hasError()) {
-        if (xml.readNext() == QXmlStreamReader::StartElement && xml.name() == "item") {
-            QJsonObject obj;
-            while (!(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == "item")) {
-                if (xml.readNext() == QXmlStreamReader::StartElement) {
-                    obj.insert(xml.name().toString(), xml.readElementText());
-                }
-            }
-            elementi.append(obj);
-        }
-    }
-
-    file.close();
-
-    QJsonArray aggiornato;
-    bool trovato = false;
-    for (const QJsonValue &value : elementi) {
-        QJsonObject obj = value.toObject();
-        if (!trovato && elementiUguali(obj, elementoCorrente)) {
-            trovato = true;
-            continue;
-        }
-        aggiornato.append(obj);
-    }
-
-    if (!trovato || !file.open(QIODevice::WriteOnly | QIODevice::Text | QIODevice::Truncate)) return false;
-
-    QXmlStreamWriter writer(&file);
-    writer.setAutoFormatting(true);
-    writer.writeStartDocument();
-    writer.writeStartElement("dati");
-
-    const QStringList ordineCampi = {
-        "data", "descrizione", "durata_ore", "durata", "stato", "luogo", "ora", "priorita", "tipo", "titolo"
-    };
-
-    for (const QJsonValue &value : aggiornato) {
-        QJsonObject obj = value.toObject();
-        writer.writeStartElement("item");
-
-        for (const QString &campo : ordineCampi) {
-            if (obj.contains(campo)) writer.writeTextElement(campo, obj.value(campo).toVariant().toString());
-        }
-
-        for (auto it = obj.begin(); it != obj.end(); ++it) {
-            if (!ordineCampi.contains(it.key())) writer.writeTextElement(it.key(), it.value().toVariant().toString());
-        }
-
-        writer.writeEndElement();
-    }
-
-    writer.writeEndElement();
-    writer.writeEndDocument();
-    file.close();
-    return true;
-}
-
-bool visualize::elementiUguali(const QJsonObject &a, const QJsonObject &b) const
-{
-    bool stessaChiave = a.value("tipo").toString().compare(b.value("tipo").toString(), Qt::CaseInsensitive) == 0 &&
-                        a.value("titolo").toString() == b.value("titolo").toString() &&
-                        a.value("data").toString() == b.value("data").toString() &&
-                        a.value("ora").toString() == b.value("ora").toString();
-
-    if (!stessaChiave) return false;
-
-    if (a.contains("descrizione") && b.contains("descrizione")) {
-        return a.value("descrizione").toString() == b.value("descrizione").toString();
-    }
-
-    return true;
 }

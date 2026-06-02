@@ -1,51 +1,66 @@
 #ifndef MODIFY_H
 #define MODIFY_H
 
-#include <QWidget>
-#include <QJsonObject>
-#include <QLineEdit>
-#include <QDateEdit>
-#include <QTimeEdit>
-#include <QComboBox>
-#include <QLabel>
-#include <QSpinBox>
-#include <QTextEdit>
+#include "agenda.h"
 
+#include <QWidget>
+
+class QCheckBox;
+class QComboBox;
+class QDateEdit;
+class QLabel;
+class QLineEdit;
+class QSpinBox;
+class QTextEdit;
+class QTimeEdit;
 
 class modify : public QWidget
 {
     Q_OBJECT
 public:
     explicit modify(QWidget *parent = nullptr);
-    void caricaElemento(const QJsonObject &elemento);
+    void caricaElemento(std::shared_ptr<Agenda> elemento);
 
 signals:
     void tornaIndietro();
-    void salvataggioCompletato(QJsonObject nuovoElemento);
+    void salvataggioCompletato(std::shared_ptr<Agenda> nuovoElemento);
 
 private:
-    //input
     QLineEdit *editTitolo;
     QDateEdit *editData;
     QTimeEdit *editOra;
-    QSpinBox  *spinDurata;
-    QComboBox *comboPriorita;
+    QSpinBox *spinDurata;
     QTextEdit *editDescrizione;
-    // Campi extra variabili
-    QLabel *labelLuogo;
-    QLabel *labelStato;
-    QLineEdit *editLuogo;
-    QLineEdit *editStato;
 
+    QLabel *labelPriorita;
+    QComboBox *comboPriorita;
+    QLabel *labelCategoria;
+    QLineEdit *editCategoria;
+    QCheckBox *checkCompletata;
+
+    QLabel *labelLuogo;
+    QLineEdit *editLuogo;
+    QLabel *labelOrganizzatore;
+    QLineEdit *editOrganizzatore;
+    QLabel *labelStato;
+    QComboBox *comboStato;
+    QCheckBox *checkConfermato;
+
+    QLabel *labelMateria;
+    QLineEdit *editMateria;
+    QLabel *labelDestinatario;
+    QLineEdit *editDestinatario;
+    QLabel *labelFormato;
+    QComboBox *comboFormato;
+    QLabel *labelPiattaforma;
+    QLineEdit *editPiattaforma;
+    QCheckBox *checkConsegnata;
 
     QLabel *titoloPagina;
-    QJsonObject elementoCorrente; // Memorizza i dati originali per la ricerca nel database
+    std::shared_ptr<Agenda> elementoCorrente;
 
-    // Funzioni per il salvataggio fisico su file
-    bool salvaSuXml(const QJsonObject &nuovo);
-    bool salvaSuJson(const QJsonObject &nuovo);
-    bool elementiUguali(const QJsonObject &a, const QJsonObject &b) const;
+    void aggiornaVisibilita();
+    std::shared_ptr<Agenda> creaModificato() const;
 };
 
-
-#endif // MODIFY_H
+#endif

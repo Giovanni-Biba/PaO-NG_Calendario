@@ -1,20 +1,16 @@
 #include "calendar.h"
-#include "datafiles.h"
 
-#include <QVBoxLayout>
-#include <QGridLayout>
-#include <QScrollArea>
-#include <QFrame>
+#include "archivioimpegni.h"
+
 #include <QDate>
-#include <QTime>
-#include <QFile>
-#include <QJsonDocument>
-#include <QJsonArray>
-#include <QJsonObject>
-#include <QXmlStreamReader>
+#include <QFrame>
+#include <QGridLayout>
 #include <QHBoxLayout>
+#include <QLabel>
 #include <QLayoutItem>
+#include <QScrollArea>
 #include <QStringList>
+#include <QVBoxLayout>
 
 calendar::calendar(QWidget *parent)
     : QWidget{parent}
@@ -63,7 +59,6 @@ calendar::calendar(QWidget *parent)
         QLabel *header = new QLabel(this);
         header->setAlignment(Qt::AlignCenter);
         header->setMinimumHeight(40);
-
         grid->addWidget(header, 0, col + 1);
         headerGiorni[col] = header;
     }
@@ -75,40 +70,30 @@ calendar::calendar(QWidget *parent)
     for (int col = 0; col < 7; col++) {
         QWidget *cell = new QWidget;
         QHBoxLayout *lay = new QHBoxLayout(cell);
-
-        lay->setContentsMargins(2,2,2,2);
+        lay->setContentsMargins(2, 2, 2, 2);
         lay->setSpacing(2);
         lay->setAlignment(Qt::AlignLeft);
-
         cell->setStyleSheet("border:1px solid lightgray; background:transparent;border-radius: 6px;");
         cell->setMinimumSize(140, 60);
-
         grid->addWidget(cell, 1, col + 1);
-
         celle[1][col] = lay;
         conteggioCelle[1][col] = 0;
     }
 
-
     for (int ora = 0; ora < 24; ora++) {
         int row = ora + 2;
-
         QLabel *oraLabel = new QLabel(QString("%1:00").arg(ora, 2, 10, QChar('0')));
         grid->addWidget(oraLabel, row, 0);
 
         for (int col = 0; col < 7; col++) {
             QWidget *cell = new QWidget;
             QHBoxLayout *lay = new QHBoxLayout(cell);
-
-            lay->setContentsMargins(2,2,2,2);
+            lay->setContentsMargins(2, 2, 2, 2);
             lay->setSpacing(2);
             lay->setAlignment(Qt::AlignLeft);
-
-            cell->setStyleSheet("border:1px solid lightgray; background:transparent;border-radius: 6px;") ;
+            cell->setStyleSheet("border:1px solid lightgray; background:transparent;border-radius: 6px;");
             cell->setMinimumSize(140, 60);
-
             grid->addWidget(cell, row, col + 1);
-
             celle[row][col] = lay;
             conteggioCelle[row][col] = 0;
         }
@@ -129,8 +114,7 @@ calendar::calendar(QWidget *parent)
     connect(settimanaSuccessiva, &QPushButton::clicked, this, &calendar::vaiSettimanaSuccessiva);
 
     aggiornaIntestazioneSettimana();
-    caricaJson();
-    caricaXml();
+    caricaImpegni();
 }
 
 void calendar::aggiornaIntestazioneSettimana()
@@ -142,17 +126,16 @@ void calendar::aggiornaIntestazioneSettimana()
         QString("Settimana %1 - %2")
             .arg(lunediSettimana.toString("dd/MM/yyyy"))
             .arg(domenicaSettimana.toString("dd/MM/yyyy"))
-        );
+    );
 
     for (int col = 0; col < 7; col++) {
         QDate giorno = lunediSettimana.addDays(col);
-
         headerGiorni[col]->setText(
             QString("%1 %2/%3")
                 .arg(nomiGiorni[col])
                 .arg(giorno.day(), 2, 10, QChar('0'))
                 .arg(giorno.month(), 2, 10, QChar('0'))
-            );
+        );
 
         if (giorno == oggi)
             headerGiorni[col]->setStyleSheet("color: blue; font-weight: bold;");
@@ -179,7 +162,6 @@ void calendar::refreshGenerale()
 {
     oggi = QDate::currentDate();
     lunediSettimana = oggi.addDays(-(oggi.dayOfWeek() - 1));
-
     aggiornaIntestazioneSettimana();
     aggiornaCalendario();
 }
@@ -188,169 +170,121 @@ void calendar::aggiornaCalendario()
 {
     for (int row = 1; row < 26; ++row) {
         for (int col = 0; col < 7; ++col) {
-            if (!celle[row][col]) continue;
+            if (!celle[row][col])
+                continue;
 
             while (QLayoutItem *item = celle[row][col]->takeAt(0)) {
-                if (item->widget()) item->widget()->deleteLater();
+                if (item->widget())
+                    item->widget()->deleteLater();
                 delete item;
             }
-
             conteggioCelle[row][col] = 0;
         }
     }
 
     indiceColoreElemento = 0;
-    caricaJson();
-    caricaXml();
+    caricaImpegni();
 }
 
 QString calendar::prossimoColoreElemento()
 {
     QStringList colori = {"#D0F0C0", "#FFDB58", "#FFD1DC", "#C8A2C8", "#5E86C1"};
     QString colore = colori[indiceColoreElemento % colori.size()];
-
     indiceColoreElemento++;
-
     return colore;
 }
 
-void calendar::aggiungiFestivita(const QString& titolo, const QDate& data, const QString& ora)
+void calendar::aggiungiImpegno(const std::shared_ptr<Agenda> &impegno)
 {
-    int col = lunediSettimana.daysTo(data);
-    if (col < 0 || col > 6) return;
+    if (!impegno)
+        return;
 
-    if (conteggioCelle[1][col] >= 5) return;
+    // Gestione festività
+    if (impegno->usaRigaFestivita()) {
+        int col = lunediSettimana.daysTo(impegno->getData());
 
-    QString colore = prossimoColoreElemento();
-    QPushButton *btn = new QPushButton(titolo);
+        if (col < 0 || col > 6)
+            return;
 
-    btn->setStyleSheet(
-        "text-align: left;"
-        "padding-left: 6px;"
-        "background:" + colore + ";"
-        );
+        int row = 1;
 
-    btn->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
+        if (conteggioCelle[row][col] >= 5)
+            return;
 
-    celle[1][col]->addWidget(btn);
-    conteggioCelle[1][col]++;
-
-    connect(btn, &QPushButton::clicked, this, [this, titolo, data, ora]() {
-        emit richiestaVisualize(titolo, data.toString(Qt::ISODate), ora);
-    });
-}
-
-void calendar::aggiungiEvento(const QString& titolo, const QDate& data, const QString& ora, int durataOre)
-{
-    QTime oraParsed = QTime::fromString(ora, "HH:mm");
-    if (!oraParsed.isValid()) oraParsed = QTime::fromString(ora, "HH:mm:ss");
-    if (!oraParsed.isValid()) return;
-
-    int oraIniziale = oraParsed.hour();
-    if (durataOre <= 0) durataOre = 1;
-
-    QString colore;
-
-    for (int i = 0; i < durataOre; i++) {
-        int oreTotali = oraIniziale + i;
-        QDate giornoCorrente = data.addDays(oreTotali / 24);
-        int col = lunediSettimana.daysTo(giornoCorrente);
-
-        if (col < 0 || col > 6) continue;
-
-        int row = (oreTotali % 24) + 2;
-
-        if (conteggioCelle[row][col] >= 5) continue;
-
-        if (colore.isEmpty())
-            colore = prossimoColoreElemento();
-
-        QPushButton *btn = new QPushButton(titolo);
+        QPushButton *btn = new QPushButton(impegno->getTitolo());
 
         btn->setStyleSheet(
             "text-align: left;"
             "padding-left: 6px;"
-            "background:" + colore + ";"
+            "background:" + impegno->coloreCalendario().name() + ";"
             );
 
-        btn->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
+        btn->setSizePolicy(
+            QSizePolicy::Expanding,
+            QSizePolicy::Preferred
+            );
 
         celle[row][col]->addWidget(btn);
         conteggioCelle[row][col]++;
 
-        connect(btn, &QPushButton::clicked, this, [this, titolo, data, ora]() {
-            emit richiestaVisualize(titolo, data.toString(Qt::ISODate), ora);
-        });
+        connect(btn, &QPushButton::clicked, this,
+                [this, impegno]() {
+                    emit richiestaVisualize(impegno);
+                });
+
+        return;
+    }
+
+    // Gestione impegni normali
+    QDateTime inizio(impegno->getData(), impegno->getOra());
+
+    int durata = impegno->getDurataOre(); // durata in ore
+
+    for (int i = 0; i < durata; ++i) {
+
+        QDateTime corrente = inizio.addSecs(i * 3600);
+
+        int col = lunediSettimana.daysTo(corrente.date());
+
+        // Ignora le ore fuori dalla settimana visualizzata
+        if (col < 0 || col > 6)
+            continue;
+
+        int row = corrente.time().hour() + 2;
+
+        if (row < 2 || row >= 26)
+            continue;
+
+        if (conteggioCelle[row][col] >= 5)
+            continue;
+
+        QPushButton *btn = new QPushButton(impegno->getTitolo());
+
+        btn->setStyleSheet(
+            "text-align: left;"
+            "padding-left: 6px;"
+            "background:" + impegno->coloreCalendario().name() + ";"
+            );
+
+        btn->setSizePolicy(
+            QSizePolicy::Expanding,
+            QSizePolicy::Preferred
+            );
+
+        celle[row][col]->addWidget(btn);
+        conteggioCelle[row][col]++;
+
+        connect(btn, &QPushButton::clicked, this,
+                [this, impegno]() {
+                    emit richiestaVisualize(impegno);
+                });
     }
 }
 
-void calendar::caricaJson()
+void calendar::caricaImpegni()
 {
-    QFile file(DataFiles::path("datiAttivitaFestivita.json"));
-    if (!file.open(QIODevice::ReadOnly)) return;
-
-    QJsonDocument doc = QJsonDocument::fromJson(file.readAll());
-    QJsonArray array = doc.isArray() ? doc.array() : doc.object().value("agenda").toArray();
-    file.close();
-
-    for (auto v : array) {
-        QJsonObject o = v.toObject();
-        QString titolo = o["titolo"].toString();
-        QString tipo = o["tipo"].toString().toLower();
-        QDate data = QDate::fromString(o["data"].toString(), Qt::ISODate);
-        QString ora = o["ora"].toString();
-
-        if (tipo == "festivita")
-            aggiungiFestivita(titolo, data, ora);
-
-        else if (tipo == "attivita") {
-            int durata = o["durata_ore"].toInt(0);
-            if (durata <= 0) {
-                QTime inizio = QTime::fromString(ora, "HH:mm");
-                QTime fine = QTime::fromString(o["oraFine"].toString(), "HH:mm:ss");
-                durata = inizio.secsTo(fine) / 3600;
-            }
-            if (durata <= 0) durata = 1;
-            aggiungiEvento(titolo, data, ora, durata);
-        }
-    }
-}
-
-void calendar::caricaXml()
-{
-    QFile file(DataFiles::path("datiEventoAppuntamento.xml"));
-    if (!file.open(QIODevice::ReadOnly)) return;
-
-    QXmlStreamReader r(&file);
-
-    while (!r.atEnd()) {
-        r.readNext();
-        if (r.isStartElement() && r.name()=="item") {
-
-            QString titolo;
-            QDate data;
-            QString ora;
-            int durata = 1;
-
-            while (!(r.isEndElement() && r.name()=="item")) {
-                r.readNext();
-
-                if (r.isStartElement()) {
-                    QString n = r.name().toString();
-                    QString v = r.readElementText();
-
-                    if (n=="titolo") titolo=v;
-                    else if (n=="data") data=QDate::fromString(v,Qt::ISODate);
-                    else if (n=="ora") ora=v;
-                    else if (n=="durata" || n=="durata_ore") durata=v.toInt();
-                }
-            }
-
-            aggiungiEvento(titolo,data,ora,durata);
-        }
-    }
-
-    file.close();
+    for (const auto &impegno : ArchivioImpegni::instance().tutti())
+        aggiungiImpegno(impegno);
 }
 
 void calendar::closeCalendar()

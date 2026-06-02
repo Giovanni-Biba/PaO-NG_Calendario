@@ -2,7 +2,8 @@
 #define VISUALIZE_H
 
 #include <QWidget>
-#include <QJsonObject>
+
+#include "agenda.h"
 
 class QLabel;
 class QVBoxLayout;
@@ -13,32 +14,26 @@ class visualize : public QWidget
     Q_OBJECT
 public:
     explicit visualize(QWidget *parent = nullptr);
-    void caricaElemento(const QJsonObject &elemento);
-    void caricaDaChiave(const QString &titolo, const QString &data, const QString &ora);
+    void caricaElemento(std::shared_ptr<Agenda> elemento);
 
 signals:
     void tornaIndietro();
-    void richiestaModifica(const QJsonObject &elemento);
+    void richiestaModifica(std::shared_ptr<Agenda> elemento);
     void elementoEliminato();
 
 private slots:
     void eliminaElemento();
 
 private:
-    bool cercaElemento(const QString &titolo, const QString &data, const QString &ora);
-    bool eliminaDaJson();
-    bool eliminaDaXml();
     void aggiornaVista();
     void aggiungiRiga(const QString &nome, const QString &valore);
-    bool elementiUguali(const QJsonObject &a, const QJsonObject &b) const;
-    QString tipoNormalizzato() const;
 
     QLabel *titoloPagina;
     QVBoxLayout *dettagliLayout;
     QPushButton *buttonIndietro;
     QPushButton *buttonModifica;
     QPushButton *buttonElimina;
-    QJsonObject elementoCorrente;
+    std::shared_ptr<Agenda> elementoCorrente;
 };
 
 #endif // VISUALIZE_H

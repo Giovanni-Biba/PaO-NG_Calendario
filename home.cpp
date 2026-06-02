@@ -4,6 +4,7 @@
 #include "create.h"
 #include "visualize.h"
 #include "modify.h"
+#include "archivioimpegni.h"
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QGridLayout>
@@ -13,8 +14,11 @@
 #include <QStackedWidget>
 #include <QTime>
 #include <QDate>
-#include <QJsonObject>
 #include <QString>
+#include <QAction>
+#include <QFileDialog>
+#include <QMenuBar>
+#include <QMessageBox>
 
 Home::Home(QWidget *parent)
     : QMainWindow{parent}
@@ -35,6 +39,44 @@ Home::Home(QWidget *parent)
     setCentralWidget(stackHome);
     stackHome->setCurrentWidget(calendarPage);
 
+    QMenu *fileMenu = menuBar()->addMenu("File");
+    QAction *caricaJson = fileMenu->addAction("Carica JSON...");
+    QAction *caricaXml = fileMenu->addAction("Carica XML...");
+    fileMenu->addSeparator();
+    QAction *salvaJson = fileMenu->addAction("Salva JSON...");
+    QAction *salvaXml = fileMenu->addAction("Salva XML...");
+
+    connect(caricaJson, &QAction::triggered, this, [this]() {
+        const QString path = QFileDialog::getOpenFileName(this, "Carica file JSON", QString(), "JSON (*.json)");
+        if (path.isEmpty())
+            return;
+        if (!ArchivioImpegni::instance().caricaDaFileJson(path))
+            QMessageBox::warning(this, "Errore", "Non sono riuscito a caricare il file JSON.");
+        calendarPage->aggiornaCalendario();
+        stackHome->setCurrentWidget(calendarPage);
+    });
+
+    connect(caricaXml, &QAction::triggered, this, [this]() {
+        const QString path = QFileDialog::getOpenFileName(this, "Carica file XML", QString(), "XML (*.xml)");
+        if (path.isEmpty())
+            return;
+        if (!ArchivioImpegni::instance().caricaDaFileXml(path))
+            QMessageBox::warning(this, "Errore", "Non sono riuscito a caricare il file XML.");
+        calendarPage->aggiornaCalendario();
+        stackHome->setCurrentWidget(calendarPage);
+    });
+
+    connect(salvaJson, &QAction::triggered, this, [this]() {
+        const QString path = QFileDialog::getSaveFileName(this, "Salva file JSON", QString(), "JSON (*.json)");
+        if (!path.isEmpty() && !ArchivioImpegni::instance().salvaSuFileJson(path))
+            QMessageBox::warning(this, "Errore", "Non sono riuscito a salvare il file JSON.");
+    });
+
+    connect(salvaXml, &QAction::triggered, this, [this]() {
+        const QString path = QFileDialog::getSaveFileName(this, "Salva file XML", QString(), "XML (*.xml)");
+        if (!path.isEmpty() && !ArchivioImpegni::instance().salvaSuFileXml(path))
+            QMessageBox::warning(this, "Errore", "Non sono riuscito a salvare il file XML.");
+    });
 
     connect(calendarPage, &calendar::richiestaCrea, this, [this]() {
         stackHome->setCurrentWidget(createPage);
@@ -51,13 +93,13 @@ Home::Home(QWidget *parent)
         stackHome->setCurrentWidget(researchPage);
     });
 
-    connect(calendarPage, &calendar::richiestaVisualize, this, [this](const QString &titolo, const QString &data, const QString &ora) {
+    connect(calendarPage, &calendar::richiestaVisualize, this, [this](std::shared_ptr<Agenda> elemento) {
         paginaPrimaDiVisualize = calendarPage;
-        visualizePage->caricaDaChiave(titolo, data, ora);
+        visualizePage->caricaElemento(elemento);
         stackHome->setCurrentWidget(visualizePage);
     });
 
-    connect(researchPage, &Research::richiestaVisualize, this, [this](const QJsonObject &elemento) {
+    connect(researchPage, &Research::richiestaVisualize, this, [this](std::shared_ptr<Agenda> elemento) {
         paginaPrimaDiVisualize = researchPage;
         visualizePage->caricaElemento(elemento);
         stackHome->setCurrentWidget(visualizePage);
@@ -79,7 +121,7 @@ Home::Home(QWidget *parent)
         stackHome->setCurrentWidget(paginaPrimaDiVisualize);
     });
 
-    connect(visualizePage, &visualize::richiestaModifica, this, [this](const QJsonObject &elemento) {
+    connect(visualizePage, &visualize::richiestaModifica, this, [this](std::shared_ptr<Agenda> elemento) {
         modifyPage->caricaElemento(elemento);
         stackHome->setCurrentWidget(modifyPage);
     });
@@ -94,6 +136,12 @@ Home::Home(QWidget *parent)
     });
 
     connect(modifyPage, &modify::tornaIndietro, this, [this]() {
+        stackHome->setCurrentWidget(visualizePage);
+    });
+
+    connect(modifyPage, &modify::salvataggioCompletato, this, [this](std::shared_ptr<Agenda> elemento) {
+        visualizePage->caricaElemento(elemento);
+        calendarPage->aggiornaCalendario();
         stackHome->setCurrentWidget(visualizePage);
     });
 }

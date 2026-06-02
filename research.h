@@ -4,9 +4,9 @@
 #include <QWidget>
 #include <QPushButton>
 #include <QListWidget>
-#include <QJsonArray>
-#include <QJsonObject>
 #include <QDate>
+
+#include "agenda.h"
 
 class Research : public QWidget
 {
@@ -17,17 +17,13 @@ public:
 
 signals:
     void ritornaHome();
-    void richiestaVisualize(const QJsonObject &elemento);
+    void richiestaVisualize(std::shared_ptr<Agenda> elemento);
 
 private:
-    void caricaDatiJson();
-    void caricaDatiXml();
-
-    QWidget* creaCardAttivita(const QJsonObject &elemento, const QString &tipo, const QString &titolo, const QString &descrizione,const QString &priorita, const QString &ora, const QString &data, int durata);
+    QWidget* creaCardAttivita(const std::shared_ptr<Agenda> &elemento);
 
     QListWidget *listaRisultati;
     QPushButton *buttonIndietro;
-    QJsonArray tutteLeAttivita;
 };
 
 #endif
