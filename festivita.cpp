@@ -34,7 +34,7 @@ QMap<QString, QString> Festivita::campiSpecifici() const
 
 QColor Festivita::coloreCalendario() const
 {
-    return giornoNonLavorativo ? QColor("#FADBD8") : QColor("#FCF3CF");
+    return giornoNonLavorativo ? QColor::fromRgb(250, 219, 216) : QColor::fromRgb(252, 243, 207);
 }
 
 bool Festivita::usaRigaFestivita() const

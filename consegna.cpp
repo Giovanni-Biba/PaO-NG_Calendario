@@ -39,12 +39,11 @@ QMap<QString, QString> Consegna::campiSpecifici() const
 QColor Consegna::coloreCalendario() const
 {
     if (consegnata)
-        return QColor("#D5DBDB");
+        return QColor::fromRgb(213, 219, 219);
     if (isInRitardo())
-        return QColor("#EC7063");
-    return QColor("#F8C471");
+        return QColor::fromRgb(236, 112, 99);
+    return QColor::fromRgb(248, 196, 113);
 }
-
 QString Consegna::getMateriaOProgetto() const { return materiaOProgetto; }
 QString Consegna::getDestinatario() const { return destinatario; }
 Consegna::Formato Consegna::getFormato() const { return formato; }

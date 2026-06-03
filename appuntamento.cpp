@@ -35,7 +35,7 @@ QMap<QString, QString> Appuntamento::campiSpecifici() const
 
 QColor Appuntamento::coloreCalendario() const
 {
-    return confermato ? QColor("#D7BDE2") : QColor("#E8DAEF");
+    return confermato ? QColor::fromRgb(215, 189, 226) : QColor::fromRgb(232, 218, 239);
 }
 
 QStringList Appuntamento::getPartecipanti() const { return partecipanti; }

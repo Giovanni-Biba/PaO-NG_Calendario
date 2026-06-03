@@ -40,7 +40,7 @@ modify::modify(QWidget *parent)
 
     titoloPagina = new QLabel("MODIFICA IMPEGNO", this);
     titoloPagina->setAlignment(Qt::AlignCenter);
-    titoloPagina->setStyleSheet("background-color: transparent; color: #274C69; font-size: 26px; font-weight: bold; margin: 10px; border: none;");
+    titoloPagina->setStyleSheet("QLabel { background-color: transparent; color: #274C69; font-size: 26px; font-weight: bold; margin: 10px; border: none; }");
     mainLayout->addWidget(titoloPagina);
 
     QScrollArea *scrollArea = new QScrollArea(this);

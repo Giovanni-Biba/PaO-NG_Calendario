@@ -33,12 +33,15 @@ QMap<QString, QString> Attivita::campiSpecifici() const
 QColor Attivita::coloreCalendario() const
 {
     if (completata)
-        return QColor("#D5DBDB");
+        return QColor::fromRgb(213, 219, 219);
+
     if (getPriorita() == Alta)
-        return QColor("#F5B7B1");
+        return QColor::fromRgb(245, 183, 177);
+
     if (getPriorita() == Media)
-        return QColor("#F9E79F");
-    return QColor("#ABEBC6");
+        return QColor::fromRgb(249, 231, 159);
+
+    return QColor::fromRgb(171, 235, 198);
 }
 
 bool Attivita::matchesFiltro(const QString &testo, const QDate &dataFiltro, const QString &tipo, const QString &prioritaFiltro) const

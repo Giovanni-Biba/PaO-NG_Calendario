@@ -51,7 +51,7 @@ SearchBar::SearchBar(QWidget *parent)
 
     // --- BOTTONE
     CercaButton = new QPushButton("CERCA", this);
-    CercaButton->setStyleSheet("font-weight: bold; padding: 5px 15px; background-color: #3498db; color: white; border-radius: 4px;");
+    CercaButton->setStyleSheet("QPushButton { font-weight: bold; padding: 5px 15px; background-color: #3498db; color: white; border-radius: 4px;} QPushButton:hover { background-color: #4DADEB; }");
     mainLayout->addWidget(CercaButton);
 
     connect(CercaButton, &QPushButton::clicked, this, &SearchBar::cercaClicked);

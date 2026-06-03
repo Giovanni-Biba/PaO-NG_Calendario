@@ -5,6 +5,8 @@
 #include <QHBoxLayout>
 #include <QLabel>
 #include <QVBoxLayout>
+#include <QGridLayout>
+#include <QScrollArea>
 
 Research::Research(QWidget *parent) : QWidget(parent)
 {
@@ -22,40 +24,57 @@ Research::Research(QWidget *parent) : QWidget(parent)
 
     QLabel *titleLabel = new QLabel("RISULTATI DELLA RICERCA", this);
     titleLabel->setAlignment(Qt::AlignCenter);
-    titleLabel->setStyleSheet("font-size: 24px; font-weight: bold; color: #2c3e50; margin: 10px 0;");
+    titleLabel->setStyleSheet("font-size: 24px; font-weight: bold; color: #274C69; margin: 10px 0;");
     mainLayout->addWidget(titleLabel);
 
-    listaRisultati = new QListWidget(this);
-    listaRisultati->setStyleSheet("border: none; background: transparent;");
-    listaRisultati->setSpacing(12);
-    listaRisultati->setSelectionMode(QAbstractItemView::NoSelection);
-    mainLayout->addWidget(listaRisultati);
+    QScrollArea *scrollArea = new QScrollArea(this);
+    scrollArea->setWidgetResizable(true);
+    scrollArea->setStyleSheet("border: none; background: transparent;");
+
+    containerRisultati = new QWidget();
+    containerRisultati->setStyleSheet("background: transparent;");
+    gridRisultati = new QGridLayout(containerRisultati);
+    gridRisultati->setSpacing(15);
+    gridRisultati->setContentsMargins(0, 0, 0, 0);
+    gridRisultati->setAlignment(Qt::AlignTop);
+
+    scrollArea->setWidget(containerRisultati);
+    mainLayout->addWidget(scrollArea);
 
     connect(buttonIndietro, &QPushButton::clicked, this, &Research::ritornaHomeSlot);
 }
 
 void Research::eseguiRicercaFiltrata(const QString &titolo, const QDate &data, const QString &tipo, const QString &priorita)
 {
-    listaRisultati->clear();
+    QLayoutItem *item;
+    while ((item = gridRisultati->takeAt(0)) != nullptr) {
+        if (item->widget()) {
+            item->widget()->deleteLater();
+        }
+        delete item;
+    }
 
     const QVector<std::shared_ptr<Agenda>> risultati = ArchivioImpegni::instance().cerca(titolo, data, tipo, priorita);
 
+    int row = 0;
+    int col = 0;
+
     for (const auto &elemento : risultati) {
         QWidget *cardWidget = creaCardAttivita(elemento);
-        QListWidgetItem *item = new QListWidgetItem(listaRisultati);
-        item->setSizeHint(cardWidget->sizeHint());
-        listaRisultati->addItem(item);
-        listaRisultati->setItemWidget(item, cardWidget);
+        gridRisultati->addWidget(cardWidget, row, col);
+
+        col++;
+        if (col > 1) {
+            col = 0;
+            row++;
+        }
     }
 
-    if (listaRisultati->count() == 0) {
+    if (risultati.isEmpty()) {
         QLabel *noResult = new QLabel("Nessun impegno trovato.");
         noResult->setAlignment(Qt::AlignCenter);
-        noResult->setStyleSheet("color: #c0392b; font-size: 16px; padding: 50px;");
-        QListWidgetItem *item = new QListWidgetItem(listaRisultati);
-        item->setSizeHint(noResult->sizeHint());
-        listaRisultati->addItem(item);
-        listaRisultati->setItemWidget(item, noResult);
+        noResult->setStyleSheet("color: #e74c3c; font-size: 16px; padding: 50px;");
+        gridRisultati->addWidget(noResult, 0, 0, 1, 2);
     }
 }
 
@@ -63,36 +82,46 @@ QWidget *Research::creaCardAttivita(const std::shared_ptr<Agenda> &elemento)
 {
     QWidget *container = new QWidget();
     QVBoxLayout *mainVLayout = new QVBoxLayout(container);
-    mainVLayout->setContentsMargins(5, 2, 5, 2);
+    mainVLayout->setContentsMargins(0, 0, 0, 0);
 
     QFrame *card = new QFrame();
-    card->setStyleSheet("QFrame { border: 2px solid #3498db; border-radius: 15px; background-color: white; padding: 12px; }");
+    card->setStyleSheet("QFrame { border: 2px solid #7D7D7D; border-radius: 15px; background-color: #F2F2F2; padding: 12px; }");
 
     QHBoxLayout *cardHLayout = new QHBoxLayout(card);
     QVBoxLayout *leftLayout = new QVBoxLayout();
 
     QLabel *lblTipo = new QLabel(elemento->getTipo().toUpper());
-    lblTipo->setStyleSheet("color: #e67e22; font-weight: bold; font-size: 11px; border: none;");
+    lblTipo->setStyleSheet("color: #245C24; font-weight: bold; font-size: 11px; border: none;");
     leftLayout->addWidget(lblTipo);
 
     QLabel *lblTitolo = new QLabel("<b>" + elemento->getTitolo() + "</b>");
-    lblTitolo->setStyleSheet("font-size: 18px; color: #2c3e50; border: none;");
+    lblTitolo->setStyleSheet("font-size: 18px; color: #000000; border: none;");
     leftLayout->addWidget(lblTitolo);
-
-    QLabel *lblDesc = new QLabel(elemento->riepilogo());
-    lblDesc->setStyleSheet("color: #34495e; font-style: italic; border: none;");
-    lblDesc->setWordWrap(true);
-    leftLayout->addWidget(lblDesc);
 
     cardHLayout->addLayout(leftLayout, 3);
 
     QVBoxLayout *rightLayout = new QVBoxLayout();
     rightLayout->setAlignment(Qt::AlignRight | Qt::AlignTop);
 
-    const QString prioritaStr = elemento->usaRigaFestivita() ? "N/D" : elemento->prioritaToString();
+    // DETERMINAZIONE COLORE PRIORITÀ
+    QString colorePriorita = "#000000"; // Default Nero
+    QString testoPriorita = "N/D";
 
-    QLabel *lblPrio = new QLabel("PRIORITA: " + prioritaStr.toUpper());
-    lblPrio->setStyleSheet("font-weight: bold; font-size: 11px; border: none; color: #2c3e50;");
+    if (!elemento->usaRigaFestivita()) {
+        Agenda::Priorita p = elemento->getPriorita();
+        testoPriorita = elemento->prioritaToString().toUpper();
+
+        if (p == Agenda::Alta) {
+            colorePriorita = "#e74c3c"; // Rosso
+        } else if (p == Agenda::Media) {
+            colorePriorita = "#f1c40f"; // Giallo (scuro per leggibilità)
+        } else if (p == Agenda::Bassa) {
+            colorePriorita = "#27ae60"; // Verde
+        }
+    }
+
+    QLabel *lblPrio = new QLabel("PRIORITÀ: " + testoPriorita);
+    lblPrio->setStyleSheet(QString("font-weight: bold; font-size: 11px; border: none; color: %1;").arg(colorePriorita));
     lblPrio->setAlignment(Qt::AlignRight);
     rightLayout->addWidget(lblPrio);
 
@@ -100,7 +129,7 @@ QWidget *Research::creaCardAttivita(const std::shared_ptr<Agenda> &elemento)
                                       .arg(elemento->getData().toString("yyyy-MM-dd"),
                                            elemento->getOra().toString("HH:mm"),
                                            QString::number(elemento->getDurataOre())));
-    lblTempo->setStyleSheet("font-size: 11px; color: #7f8c8d; border: none;");
+    lblTempo->setStyleSheet("font-size: 11px; color: #000000; border: none;");
     lblTempo->setAlignment(Qt::AlignRight);
     rightLayout->addWidget(lblTempo);
 

@@ -3,8 +3,8 @@
 
 #include <QWidget>
 #include <QPushButton>
-#include <QListWidget>
 #include <QDate>
+#include <QGridLayout>
 #include <memory>
 
 #include "agenda.h"
@@ -14,6 +14,8 @@ class Research : public QWidget
     Q_OBJECT
 public:
     explicit Research(QWidget *parent = nullptr);
+
+    // Esegue la ricerca e popola la griglia a 2 colonne
     void eseguiRicercaFiltrata(const QString &titolo, const QDate &data, const QString &tipo, const QString &priorita);
 
 signals:
@@ -21,12 +23,17 @@ signals:
     void richiestaVisualize(std::shared_ptr<Agenda> elemento);
 
 private:
+    // Crea il widget della singola card
     QWidget* creaCardAttivita(const std::shared_ptr<Agenda> &elemento);
-    QListWidget *listaRisultati;
+
+    // Membri per la gestione del layout a griglia (2 colonne)
+    QWidget *containerRisultati;
+    QGridLayout *gridRisultati;
+
     QPushButton *buttonIndietro;
 
 private slots:
     void ritornaHomeSlot() { emit ritornaHome(); }
 };
 
-#endif
+#endif // RESEARCH_H

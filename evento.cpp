@@ -36,7 +36,7 @@ QMap<QString, QString> Evento::campiSpecifici() const
 
 QColor Evento::coloreCalendario() const
 {
-    return pubblico ? QColor("#AED6F1") : QColor("#D6EAF8");
+    return pubblico ? QColor::fromRgb(174, 214, 241) : QColor::fromRgb(214, 234, 248);
 }
 
 QString Evento::getLuogo() const { return luogo; }
