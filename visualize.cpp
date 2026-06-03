@@ -86,6 +86,8 @@ void visualize::aggiornaVista()
     aggiungiRiga("Data", elementoCorrente->getData().toString("dd/MM/yyyy"));
     aggiungiRiga("Ora", elementoCorrente->getOra().toString("HH:mm"));
     aggiungiRiga("Durata", QString::number(elementoCorrente->getDurataOre()) + " ore");
+    if (!elementoCorrente->usaRigaFestivita())
+        aggiungiRiga("Priorita", elementoCorrente->prioritaToString());
     aggiungiRiga("Riepilogo", elementoCorrente->riepilogo());
 
     const QMap<QString, QString> specifici = elementoCorrente->campiSpecifici();

@@ -21,8 +21,10 @@ protected:
     int durataOre;
 
 public:
+    enum Priorita { Bassa, Media, Alta };
+
     Agenda();
-    Agenda(const QString &titolo, const QString &descrizione, const QDate &data, const QTime &ora, int durataOre);
+    Agenda(const QString &titolo, const QString &descrizione, const QDate &data, const QTime &ora, int durataOre, Priorita priorita = Media);
     virtual ~Agenda();
 
     QString getTitolo() const;
@@ -30,12 +32,14 @@ public:
     QDate getData() const;
     QTime getOra() const;
     int getDurataOre() const;
+    Priorita getPriorita() const;
 
     void setTitolo(const QString &nuovoTitolo);
     void setDescrizione(const QString &nuovaDescrizione);
     void setData(const QDate &nuovaData);
     void setOra(const QTime &nuovaOra);
     void setDurataOre(int nuovaDurata);
+    void setPriorita(Priorita nuovaPriorita);
 
     virtual QString getTipo() const = 0;
     virtual QString riepilogo() const = 0;
@@ -48,6 +52,11 @@ public:
     virtual void fromJson(const QJsonObject &json);
 
     bool stessaChiave(const Agenda &altro) const;
+    QString prioritaToString() const;
+    static Priorita prioritaFromString(const QString &testo);
+
+private:
+    Priorita priorita;
 };
 
 Q_DECLARE_METATYPE(std::shared_ptr<Agenda>)

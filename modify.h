@@ -38,7 +38,7 @@ private:
 
     QTextEdit *editDescrizione;
 
-    // Widget per Attivita
+    // Widget priorita / Attivita
     QLabel *labelPriorita;
     QComboBox *comboPriorita;
     QLabel *labelCategoria;

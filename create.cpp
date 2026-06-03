@@ -10,6 +10,7 @@
 #include <QCheckBox>
 #include <QComboBox>
 #include <QDateEdit>
+#include <QDateTime>
 #include <QHBoxLayout>
 #include <QLabel>
 #include <QLineEdit>
@@ -19,7 +20,17 @@
 #include <QSpinBox>
 #include <QTextEdit>
 #include <QTimeEdit>
+#include <QtGlobal>
 #include <QVBoxLayout>
+
+namespace
+{
+int durataOreDaIntervallo(const QDate &dataInizio, const QTime &oraInizio, const QDate &dataFine, const QTime &oraFine)
+{
+    const qint64 secondi = QDateTime(dataInizio, oraInizio).secsTo(QDateTime(dataFine, oraFine));
+    return qMax(1, static_cast<int>(secondi / 3600));
+}
+}
 
 Create::Create(QWidget *parent)
     : QWidget(parent)
@@ -189,15 +200,15 @@ void Create::aggiornaVisibilita()
     const bool festivita = rbFestivita->isChecked();
     const bool consegna = rbConsegna->isChecked();
 
-    const bool haDurata = !festivita;
+    const bool haDurata = !festivita && !attivita;
     durataLabel->setVisible(haDurata);
     durataSpin->setVisible(haDurata);
     oraEdit->setVisible(!festivita);
-    oraFineLabel->setVisible(false);
-    oraFineEdit->setVisible(false);
+    oraFineLabel->setVisible(attivita);
+    oraFineEdit->setVisible(attivita);
 
-    prioritaLabel->setVisible(attivita);
-    prioritaBox->setVisible(attivita);
+    prioritaLabel->setVisible(!festivita);
+    prioritaBox->setVisible(!festivita);
     dataFineLabel->setVisible(attivita);
     dataFineEdit->setVisible(attivita);
     categoriaLabel->setVisible(attivita);
@@ -265,6 +276,12 @@ bool Create::validaCampi()
         return false;
     if (!rbAttivita->isChecked() && !rbEvento->isChecked() && !rbAppuntamento->isChecked() && !rbFestivita->isChecked() && !rbConsegna->isChecked())
         return false;
+    if (rbAttivita->isChecked()) {
+        const QDateTime inizio(dataEdit->date(), oraEdit->time());
+        const QDateTime fine(dataFineEdit->date(), oraFineEdit->time());
+        if (fine <= inizio)
+            return false;
+    }
     if ((rbEvento->isChecked() || rbAppuntamento->isChecked()) && luogoEdit->text().trimmed().isEmpty())
         return false;
     if (rbConsegna->isChecked() && materiaEdit->text().trimmed().isEmpty())
@@ -278,12 +295,15 @@ std::shared_ptr<Agenda> Create::creaImpegnoDaForm() const
     const QString descrizione = descrizioneEdit->toPlainText();
     const QDate data = dataEdit->date();
     const QTime ora = oraEdit->time();
-    const int durata = durataSpin->value();
+    const int durata = rbAttivita->isChecked()
+                           ? durataOreDaIntervallo(data, ora, dataFineEdit->date(), oraFineEdit->time())
+                           : durataSpin->value();
+    const Agenda::Priorita priorita = Agenda::prioritaFromString(prioritaBox->currentText());
 
     if (rbAttivita->isChecked()) {
         return std::make_shared<Attivita>(
             titolo, descrizione, data, ora, durata,
-            Attivita::prioritaFromString(prioritaBox->currentText()),
+            priorita,
             completataCheck->isChecked(),
             dataFineEdit->date(),
             categoriaEdit->text()
@@ -291,21 +311,25 @@ std::shared_ptr<Agenda> Create::creaImpegnoDaForm() const
     }
 
     if (rbEvento->isChecked()) {
-        return std::make_shared<Evento>(
+        auto evento = std::make_shared<Evento>(
             titolo, descrizione, data, ora, durata,
             luogoEdit->text(), organizzatoreEdit->text(), capienzaSpin->value(),
             costoSpin->value(), pubblicoCheck->isChecked()
         );
+        evento->setPriorita(priorita);
+        return evento;
     }
 
     if (rbAppuntamento->isChecked()) {
-        return std::make_shared<Appuntamento>(
+        auto appuntamento = std::make_shared<Appuntamento>(
             titolo, descrizione, data, ora, durata,
             luogoEdit->text(), organizzatoreEdit->text(),
             partecipantiEdit->text().split(",", Qt::SkipEmptyParts),
             Appuntamento::modalitaFromString(modalitaBox->currentText()),
             linkOnlineEdit->text(), confermatoCheck->isChecked()
         );
+        appuntamento->setPriorita(priorita);
+        return appuntamento;
     }
 
     if (rbFestivita->isChecked()) {
@@ -318,10 +342,12 @@ std::shared_ptr<Agenda> Create::creaImpegnoDaForm() const
         );
     }
 
-    return std::make_shared<Consegna>(
+    auto consegna = std::make_shared<Consegna>(
         titolo, descrizione, data, ora, durata,
         materiaEdit->text(), destinatarioEdit->text(),
         Consegna::formatoFromString(formatoBox->currentText()),
         piattaformaEdit->text(), consegnataCheck->isChecked()
     );
+    consegna->setPriorita(priorita);
+    return consegna;
 }

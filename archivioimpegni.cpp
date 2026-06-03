@@ -62,7 +62,7 @@ QVector<std::shared_ptr<Agenda>> ArchivioImpegni::cerca(const QString &titolo, c
 
         // 4. Filtro Priorità (solo se l'impegno ha il metodo per la priorità)
         if (corrisponde && priorita != "Tutte") {
-            auto att = std::dynamic_pointer_cast<Attivita>(impegno);
+            auto att = impegno->usaRigaFestivita() ? std::shared_ptr<Agenda>() : impegno;
             if (att) {
                 if (att->prioritaToString().toLower() != priorita.toLower()) {
                     corrisponde = false;

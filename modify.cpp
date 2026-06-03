@@ -208,8 +208,10 @@ void modify::caricaElemento(std::shared_ptr<Agenda> elemento)
     spinDurata->setValue(elementoCorrente->getDurataOre());
     editDescrizione->setPlainText(elementoCorrente->getDescrizione());
 
+    if (!elementoCorrente->usaRigaFestivita())
+        comboPriorita->setCurrentText(elementoCorrente->prioritaToString());
+
     if (const auto att = std::dynamic_pointer_cast<Attivita>(elementoCorrente)) {
-        comboPriorita->setCurrentText(att->prioritaToString());
         editCategoria->setText(att->getCategoria());
         checkCompletata->setChecked(att->isCompletata());
     }
@@ -255,7 +257,7 @@ void modify::aggiornaVisibilita()
     labelDurata->setVisible(!fest);
     spinDurata->setVisible(!fest);
 
-    labelPriorita->setVisible(att); comboPriorita->setVisible(att);
+    labelPriorita->setVisible(!fest); comboPriorita->setVisible(!fest);
     labelCategoria->setVisible(att); editCategoria->setVisible(att);
     checkCompletata->setVisible(att);
 
@@ -288,18 +290,25 @@ std::shared_ptr<Agenda> modify::creaModificato() const
     QDate d = editData->date();
     QTime o = editOra->time();
     int dur = spinDurata->value();
+    Agenda::Priorita priorita = Agenda::prioritaFromString(comboPriorita->currentText());
 
     if (std::dynamic_pointer_cast<Attivita>(elementoCorrente)) {
-        return std::make_shared<Attivita>(tit, desc, d, o, dur, Attivita::prioritaFromString(comboPriorita->currentText()), checkCompletata->isChecked(), d, editCategoria->text());
+        return std::make_shared<Attivita>(tit, desc, d, o, dur, priorita, checkCompletata->isChecked(), d, editCategoria->text());
     }
     if (std::dynamic_pointer_cast<Appuntamento>(elementoCorrente)) {
-        return std::make_shared<Appuntamento>(tit, desc, d, o, dur, editLuogo->text(), editOrganizzatore->text(), editPartecipanti->text().split(",", Qt::SkipEmptyParts), Appuntamento::modalitaFromString(comboModalita->currentText()), editLinkOnline->text(), checkConfermato->isChecked());
+        auto appuntamento = std::make_shared<Appuntamento>(tit, desc, d, o, dur, editLuogo->text(), editOrganizzatore->text(), editPartecipanti->text().split(",", Qt::SkipEmptyParts), Appuntamento::modalitaFromString(comboModalita->currentText()), editLinkOnline->text(), checkConfermato->isChecked());
+        appuntamento->setPriorita(priorita);
+        return appuntamento;
     }
     if (std::dynamic_pointer_cast<Evento>(elementoCorrente)) {
-        return std::make_shared<Evento>(tit, desc, d, o, dur, editLuogo->text(), editOrganizzatore->text(), spinCapienza->value(), spinCosto->value(), checkPubblico->isChecked());
+        auto evento = std::make_shared<Evento>(tit, desc, d, o, dur, editLuogo->text(), editOrganizzatore->text(), spinCapienza->value(), spinCosto->value(), checkPubblico->isChecked());
+        evento->setPriorita(priorita);
+        return evento;
     }
     if (std::dynamic_pointer_cast<Festivita>(elementoCorrente)) {
         return std::make_shared<Festivita>(tit, desc, d, Festivita::statoFromString(comboStato->currentText()), checkRicorrenza->isChecked(), checkLavorativo->isChecked(), editNomeUfficiale->text());
     }
-    return std::make_shared<Consegna>(tit, desc, d, o, dur, editMateria->text(), editDestinatario->text(), Consegna::formatoFromString(comboFormato->currentText()), editPiattaforma->text(), checkConsegnata->isChecked());
+    auto consegna = std::make_shared<Consegna>(tit, desc, d, o, dur, editMateria->text(), editDestinatario->text(), Consegna::formatoFromString(comboFormato->currentText()), editPiattaforma->text(), checkConsegnata->isChecked());
+    consegna->setPriorita(priorita);
+    return consegna;
 }

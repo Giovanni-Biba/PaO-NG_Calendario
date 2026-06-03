@@ -1,6 +1,5 @@
 #include "research.h"
 #include "archivioimpegni.h"
-#include "attivita.h"
 
 #include <QFrame>
 #include <QHBoxLayout>
@@ -90,9 +89,7 @@ QWidget *Research::creaCardAttivita(const std::shared_ptr<Agenda> &elemento)
     QVBoxLayout *rightLayout = new QVBoxLayout();
     rightLayout->setAlignment(Qt::AlignRight | Qt::AlignTop);
 
-    QString prioritaStr = "N/D";
-    if (const auto attivita = std::dynamic_pointer_cast<Attivita>(elemento))
-        prioritaStr = attivita->prioritaToString();
+    const QString prioritaStr = elemento->usaRigaFestivita() ? "N/D" : elemento->prioritaToString();
 
     QLabel *lblPrio = new QLabel("PRIORITA: " + prioritaStr.toUpper());
     lblPrio->setStyleSheet("font-weight: bold; font-size: 11px; border: none; color: #2c3e50;");
