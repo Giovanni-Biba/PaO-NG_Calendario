@@ -2,8 +2,8 @@
 #define MODIFY_H
 
 #include "agenda.h"
-
 #include <QWidget>
+#include <memory>
 
 class QCheckBox;
 class QComboBox;
@@ -11,6 +11,7 @@ class QDateEdit;
 class QLabel;
 class QLineEdit;
 class QSpinBox;
+class QDoubleSpinBox;
 class QTextEdit;
 class QTimeEdit;
 
@@ -26,26 +27,55 @@ signals:
     void salvataggioCompletato(std::shared_ptr<Agenda> nuovoElemento);
 
 private:
+    // Widget Comuni
+    QLabel *titoloPagina;
     QLineEdit *editTitolo;
     QDateEdit *editData;
+    QLabel *labelOra;
     QTimeEdit *editOra;
+    QLabel *labelDurata;
     QSpinBox *spinDurata;
+
     QTextEdit *editDescrizione;
 
+    // Widget per Attivita
     QLabel *labelPriorita;
     QComboBox *comboPriorita;
     QLabel *labelCategoria;
     QLineEdit *editCategoria;
     QCheckBox *checkCompletata;
 
+    // Widget per Evento / Appuntamento
     QLabel *labelLuogo;
     QLineEdit *editLuogo;
     QLabel *labelOrganizzatore;
     QLineEdit *editOrganizzatore;
-    QLabel *labelStato;
-    QComboBox *comboStato;
+
+    // Specifici Evento
+    QLabel *labelCapienza;
+    QSpinBox *spinCapienza;
+    QLabel *labelCosto;
+    QDoubleSpinBox *spinCosto;
+    QCheckBox *checkPubblico;
+
+    // Specifici Appuntamento
+    QLabel *labelModalita;
+    QComboBox *comboModalita;
+    QLabel *labelPartecipanti;
+    QLineEdit *editPartecipanti;
+    QLabel *labelLinkOnline;
+    QLineEdit *editLinkOnline;
     QCheckBox *checkConfermato;
 
+    // Widget per Festivita
+    QLabel *labelStato;
+    QComboBox *comboStato;
+    QLabel *labelNomeUfficiale;
+    QLineEdit *editNomeUfficiale;
+    QCheckBox *checkRicorrenza;
+    QCheckBox *checkLavorativo;
+
+    // Widget per Consegna
     QLabel *labelMateria;
     QLineEdit *editMateria;
     QLabel *labelDestinatario;
@@ -56,11 +86,10 @@ private:
     QLineEdit *editPiattaforma;
     QCheckBox *checkConsegnata;
 
-    QLabel *titoloPagina;
     std::shared_ptr<Agenda> elementoCorrente;
 
     void aggiornaVisibilita();
     std::shared_ptr<Agenda> creaModificato() const;
 };
 
-#endif
+#endif // MODIFY_H
