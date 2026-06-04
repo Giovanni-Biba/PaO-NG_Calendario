@@ -113,7 +113,7 @@ calendar::calendar(QWidget *parent)
     mainLayout->addWidget(scroll);
 
     Crea = new QPushButton("+ CREA", this);
-    Crea->setStyleSheet("background-color: #27ae60; color: white; font-weight: bold; border-radius: 5px; padding: 12px;} QPushButton:hover { background-color: #2ecc71; }");
+    Crea->setStyleSheet(" QPushButton { background-color: #27ae60; color: white; font-weight: bold; border-radius: 5px; padding: 12px;} QPushButton:hover { background-color: #2ecc71; }");
     mainLayout->addWidget(Crea);
 
     connect(Titolo, &QPushButton::clicked, this, &calendar::refreshGenerale);
@@ -130,14 +130,13 @@ void calendar::aggiornaIntestazioneSettimana()
 {
     QStringList nomiGiorni = {"Lunedì", "Martedì", "Mercoledì", "Giovedì", "Venerdì", "Sabato", "Domenica"};
     QDate domenicaSettimana = lunediSettimana.addDays(6);
-
     labelSettimana->setText(QString("<b>%1</b> - <b>%2</b>")
-                                .arg(lunediSettimana.toString("dd MMM yyyy"))
-                                .arg(domenicaSettimana.toString("dd MMM yyyy")));
+                                .arg(lunediSettimana.toString("dd MMM yyyy"),
+                                     domenicaSettimana.toString("dd MMM yyyy")));
 
     for (int col = 0; col < 7; col++) {
         QDate giorno = lunediSettimana.addDays(col);
-        headerGiorni[col]->setText(QString("%1\n%2").arg(nomiGiorni[col]).arg(giorno.toString("dd/MM")));
+        headerGiorni[col]->setText(QString("%1\n%2").arg(nomiGiorni[col], giorno.toString("dd/MM")));
 
         if (giorno == oggi)
             headerGiorni[col]->setStyleSheet("color: #e74c3c; font-weight: bold; border-bottom: 2px solid #e74c3c;");
@@ -204,7 +203,6 @@ void calendar::aggiungiImpegno(const std::shared_ptr<Agenda> &impegno)
                                "}"
                                ).arg(impegno->coloreCalendario().name()));
 
-        // I bottoni si espandono per riempire la larghezza in parti uguali
         btn->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
         btn->setMinimumWidth(30);
 
