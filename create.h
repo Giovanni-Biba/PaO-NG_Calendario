@@ -99,6 +99,7 @@ private:
     QPushButton *indietroButton;
 
     bool validaCampi();
+    void resetCampi();
     std::shared_ptr<class Agenda> creaImpegnoDaForm() const;
 
 signals:

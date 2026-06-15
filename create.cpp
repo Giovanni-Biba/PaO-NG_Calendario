@@ -286,6 +286,7 @@ void Create::salvaDati()
     }
 
     QMessageBox::information(this, "OK", "Impegno creato con successo!");
+    resetCampi();
     emit tornaIndietro();
 }
 
@@ -307,6 +308,51 @@ bool Create::validaCampi()
         return false;
 
     return true;
+}
+
+void Create::resetCampi()
+{
+    rbAttivita->setChecked(true);
+
+    titoloEdit->clear();
+    descrizioneEdit->clear();
+
+    const QDate oggi = QDate::currentDate();
+    const QTime oraCorrente = QTime::currentTime();
+    dataEdit->setDate(oggi);
+    oraEdit->setTime(oraCorrente);
+    dataFineEdit->setDate(oggi);
+    oraFineEdit->setTime(oraCorrente.addSecs(3600));
+
+    prioritaBox->setCurrentText("Media");
+    durataSpin->setValue(1);
+
+    categoriaEdit->clear();
+    completataCheck->setChecked(false);
+
+    luogoEdit->clear();
+    organizzatoreEdit->clear();
+    capienzaSpin->setValue(0);
+    costoSpin->setValue(0);
+    pubblicoCheck->setChecked(false);
+
+    partecipantiEdit->clear();
+    modalitaBox->setCurrentIndex(0);
+    linkOnlineEdit->clear();
+    confermatoCheck->setChecked(false);
+
+    statoBox->setCurrentIndex(0);
+    ricorrenzaCheck->setChecked(false);
+    nonLavorativoCheck->setChecked(false);
+    nomeUfficialeEdit->clear();
+
+    materiaEdit->clear();
+    destinatarioEdit->clear();
+    formatoBox->setCurrentIndex(0);
+    piattaformaEdit->clear();
+    consegnataCheck->setChecked(false);
+
+    aggiornaVisibilita();
 }
 
 std::shared_ptr<Agenda> Create::creaImpegnoDaForm() const
