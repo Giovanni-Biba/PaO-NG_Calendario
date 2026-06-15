@@ -10,6 +10,9 @@ DISTFILES += \
     datiAttivitaFestivita.json \
     datiEventoAppuntamento.xml
 
+RESOURCES += \
+    risorse.qrc
+
 SOURCES += \
     appuntamento.cpp \
     archivioimpegni.cpp \

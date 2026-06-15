@@ -87,43 +87,36 @@ Home::Home(QWidget *parent)
     });
 
     // --- LOGICA DI NAVIGAZIONE E SEGNALI ---
-
-    // Da Calendario a pagina Crea
     connect(calendarPage, &calendar::richiestaCrea, this, [this]() {
         stackHome->setCurrentWidget(createPage);
     });
 
-    // LOGICA DI RICERCA: Gestisce Titolo, Data (se spuntata), Tipo e Priorità simultaneamente
+    // LOGICA DI RICERCA
     connect(calendarPage, &calendar::richiestaCerca, this, [this]() {
         SearchBar* bar = calendarPage->getSearchBar();
         if (bar) {
             QString tit = bar->getTestoTitolo();
             QString tip = bar->getTestoTipo();
-            // getValoreData() restituirà una QDate nulla se il CheckBox non è spuntato sulla barra
             QDate dat = bar->getValoreData();
             QString pri = bar->getTestoPriorita();
 
-            // Avvia la ricerca filtrata con i parametri combinati (AND logico)
             researchPage->eseguiRicercaFiltrata(tit, dat, tip, pri);
             stackHome->setCurrentWidget(researchPage);
         }
     });
 
-    // Da Calendario a Visualizzazione dettaglio
     connect(calendarPage, &calendar::richiestaVisualize, this, [this](std::shared_ptr<Agenda> elemento) {
         paginaPrimaDiVisualize = calendarPage;
         visualizePage->caricaElemento(elemento);
         stackHome->setCurrentWidget(visualizePage);
     });
 
-    // Da Risultati Ricerca a Visualizzazione dettaglio
     connect(researchPage, &Research::richiestaVisualize, this, [this](std::shared_ptr<Agenda> elemento) {
         paginaPrimaDiVisualize = researchPage;
         visualizePage->caricaElemento(elemento);
         stackHome->setCurrentWidget(visualizePage);
     });
 
-    // Ritorno alla Home dalle varie pagine
     connect(createPage, &Create::tornaIndietro, this, [this]() {
         calendarPage->aggiornaCalendario();
         stackHome->setCurrentWidget(calendarPage);
@@ -137,13 +130,11 @@ Home::Home(QWidget *parent)
         stackHome->setCurrentWidget(paginaPrimaDiVisualize);
     });
 
-    // Gestione Modifica
     connect(visualizePage, &visualize::richiestaModifica, this, [this](std::shared_ptr<Agenda> elemento) {
         modifyPage->caricaElemento(elemento);
         stackHome->setCurrentWidget(modifyPage);
     });
 
-    // Gestione eliminazione (torna alla Home e rinfresca)
     connect(visualizePage, &visualize::elementoEliminato, this, [this]() {
         calendarPage->aggiornaCalendario();
         stackHome->setCurrentWidget(calendarPage);
@@ -153,7 +144,6 @@ Home::Home(QWidget *parent)
         stackHome->setCurrentWidget(visualizePage);
     });
 
-    // Dopo il salvataggio di una modifica, ricarica e mostra il dettaglio aggiornato
     connect(modifyPage, &modify::salvataggioCompletato, this, [this](std::shared_ptr<Agenda> elemento) {
         visualizePage->caricaElemento(elemento);
         calendarPage->aggiornaCalendario();

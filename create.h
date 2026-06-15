@@ -77,16 +77,11 @@ private:
 
     // Label
     QLabel *descrizioneLabel;
-
     QLabel *prioritaLabel;
-
     QLabel *dataFineLabel;
     QLabel *oraFineLabel;
-
     QLabel *durataLabel;
-
     QLabel *luogoLabel;
-
     QLabel *statoLabel;
     QLabel *categoriaLabel;
     QLabel *organizzatoreLabel;
@@ -100,11 +95,9 @@ private:
     QLabel *destinatarioLabel;
     QLabel *formatoLabel;
     QLabel *piattaformaLabel;
-
     QPushButton *creaButton;
     QPushButton *indietroButton;
 
-    // Funzioni helper
     bool validaCampi();
     std::shared_ptr<class Agenda> creaImpegnoDaForm() const;
 

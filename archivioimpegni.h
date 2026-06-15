@@ -27,8 +27,6 @@ public:
     static ArchivioImpegni &instance();
 
     QVector<std::shared_ptr<Agenda>> tutti() const;
-
-    // Funzione cerca aggiornata (senza const finale per compatibilità)
     QVector<std::shared_ptr<Agenda>> cerca(const QString &titolo, const QDate &data, const QString &tipo, const QString &priorita);
 
     bool caricaDefault();
@@ -46,4 +44,4 @@ public:
     QString getPercorsoXml() const;
 };
 
-#endif // ARCHIVIOIMPEGNI_H
+#endif

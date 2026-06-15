@@ -87,16 +87,14 @@ void visualize::aggiornaVista()
         return;
     }
 
-    // Aggiornamento Titolo Principale
     titoloPagina->setText(elementoCorrente->getTitolo().toUpper());
 
-    // Elenco dettagli (simile allo stile del "Crea")
+    // Elenco dettagli
     aggiungiRiga("Tipo:", elementoCorrente->getTipo());
     aggiungiRiga("Titolo:", elementoCorrente->getTitolo());
     aggiungiRiga("Descrizione:", elementoCorrente->getDescrizione());
     aggiungiRiga("Data:", elementoCorrente->getData().toString("dd MMMM yyyy"));
 
-    // Mostra Ora e Durata solo se non è una Festività (coerente con Create/Modify)
     if (elementoCorrente->getTipo().toLower() != "festività") {
         aggiungiRiga("Ora:", elementoCorrente->getOra().toString("HH:mm"));
         aggiungiRiga("Durata:", QString::number(elementoCorrente->getDurataOre()) + " ore");
@@ -108,7 +106,6 @@ void visualize::aggiornaVista()
     // Campi specifici delle sottoclassi
     const QMap<QString, QString> specifici = elementoCorrente->campiSpecifici();
     for (auto it = specifici.begin(); it != specifici.end(); ++it) {
-        // Formatta la chiave (es: "linkOnline" -> "Link Online")
         QString label = it.key();
         aggiungiRiga(label + ":", it.value());
     }

@@ -1,890 +1,622 @@
 {
-  "agenda": [
-    {
-      "tipo": "Attivita",
-      "titolo": "Palestra",
-      "priorita": "Alta",
-      "data": "2026-05-04",
-      "ora": "18:30",
-      "durata_ore": 2,
-      "descrizione": "Allenamento gambe e cardio."
-    },
-    {
-      "tipo": "Attivita",
-      "titolo": "Palestra",
-      "priorita": "Alta",
-      "data": "2026-05-06",
-      "ora": "18:00",
-      "durata_ore": 2,
-      "descrizione": "Allenamento petto e bicipiti."
-    },
-    {
-      "tipo": "Attivita",
-      "titolo": "Palestra",
-      "priorita": "Alta",
-      "data": "2026-05-08",
-      "ora": "17:30",
-      "durata_ore": 2,
-      "descrizione": "Allenamento dorso e tricipiti."
-    },
-    {
-      "tipo": "Attivita",
-      "titolo": "Dentista",
-      "priorita": "Media",
-      "data": "2026-05-21",
-      "ora": "10:00",
-      "durata_ore": 1,
-      "descrizione": "Pulizia dei denti annuale."
-    },
-    {
-      "tipo": "Attivita",
-      "titolo": "Spesa Settimanale",
-      "priorita": "Alta",
-      "data": "2026-05-04",
-      "ora": "09:00",
-      "durata_ore": 1,
-      "descrizione": "Rifornimento dispensa e mercato."
-    },
-    {
-      "tipo": "Attivita",
-      "titolo": "Spesa Settimanale",
-      "priorita": "Media",
-      "data": "2026-05-18",
-      "ora": "09:00",
-      "durata_ore": 1,
-      "descrizione": "Spesa per cena con amici."
-    },
-    {
-      "tipo": "Attivita",
-      "titolo": "Riunione Lavoro",
-      "priorita": "Alta",
-      "data": "2026-05-05",
-      "ora": "15:00",
-      "durata_ore": 3,
-      "descrizione": "Pianificazione trimestrale progetto."
-    },
-    {
-      "tipo": "Attivita",
-      "titolo": "Riunione Lavoro",
-      "priorita": "Alta",
-      "data": "2026-05-12",
-      "ora": "15:00",
-      "durata_ore": 1,
-      "descrizione": "Allineamento tecnico settimanale."
-    },
-    {
-      "tipo": "Attivita",
-      "titolo": "Corsa al parco",
-      "priorita": "Bassa",
-      "data": "2026-05-07",
-      "ora": "07:30",
-      "durata_ore": 1,
-      "descrizione": "Giro di 8km al mattino."
-    },
-    {
-      "tipo": "Attivita",
-      "titolo": "Corsa al parco",
-      "priorita": "Bassa",
-      "data": "2026-05-14",
-      "ora": "07:30",
-      "durata_ore": 1,
-      "descrizione": "Allenamento aerobico leggero."
-    },
-    {
-      "tipo": "Attivita",
-      "titolo": "Studiare C++",
-      "priorita": "Alta",
-      "data": "2026-05-04",
-      "ora": "14:00",
-      "durata_ore": 2,
-      "descrizione": "Ripasso gestione della memoria."
-    },
-    {
-      "tipo": "Attivita",
-      "titolo": "Studiare C++",
-      "priorita": "Alta",
-      "data": "2026-05-05",
-      "ora": "10:00",
-      "durata_ore": 3,
-      "descrizione": "Esercizi su Qt Layouts."
-    },
-    {
-      "tipo": "Attivita",
-      "titolo": "Studiare C++",
-      "priorita": "Alta",
-      "data": "2026-05-06",
-      "ora": "14:00",
-      "durata_ore": 2,
-      "descrizione": "Refactoring della classe Research."
-    },
-    {
-      "tipo": "Attivita",
-      "titolo": "Pulizia Casa",
-      "priorita": "Media",
-      "data": "2026-05-09",
-      "ora": "10:00",
-      "durata_ore": 4,
-      "descrizione": "Pulizie profonde di primavera."
-    },
-    {
-      "tipo": "Attivita",
-      "titolo": "Pulizia Casa",
-      "priorita": "Media",
-      "data": "2026-05-16",
-      "ora": "09:30",
-      "durata_ore": 2,
-      "descrizione": "Riordino libreria e scrivania."
-    },
-    {
-      "tipo": "Attivita",
-      "titolo": "Partita Calcetto",
-      "priorita": "Bassa",
-      "data": "2026-05-08",
-      "ora": "20:00",
-      "durata_ore": 1,
-      "descrizione": "Sfida settimanale con colleghi."
-    },
-    {
-      "tipo": "Attivita",
-      "titolo": "Partita Calcetto",
-      "priorita": "Bassa",
-      "data": "2026-05-15",
-      "ora": "20:00",
-      "durata_ore": 1,
-      "descrizione": "Rinvincita partita precedente."
-    },
-    {
-      "tipo": "Attivita",
-      "titolo": "Innaffiare Piante",
-      "priorita": "Bassa",
-      "data": "2026-05-04",
-      "ora": "19:00",
-      "durata_ore": 1,
-      "descrizione": "Controllo balcone e vasi."
-    },
-    {
-      "tipo": "Attivita",
-      "titolo": "Innaffiare Piante",
-      "priorita": "Bassa",
-      "data": "2026-05-11",
-      "ora": "19:00",
-      "durata_ore": 1,
-      "descrizione": "Concimazione mensile orchidee."
-    },
-    {
-      "tipo": "Attivita",
-      "titolo": "Meccanico",
-      "priorita": "Alta",
-      "data": "2026-05-25",
-      "ora": "08:30",
-      "durata_ore": 3,
-      "descrizione": "Cambio pastiglie freni."
-    },
-    {
-      "tipo": "Attivita",
-      "titolo": "Cinema",
-      "priorita": "Bassa",
-      "data": "2026-05-09",
-      "ora": "21:00",
-      "durata_ore": 3,
-      "descrizione": "Maratona film fantascienza."
-    },
-    {
-      "tipo": "Attivita",
-      "titolo": "Leggere Libro",
-      "priorita": "Bassa",
-      "data": "2026-05-04",
-      "ora": "22:00",
-      "durata_ore": 1,
-      "descrizione": "Lettura saggio su AI."
-    },
-    {
-      "tipo": "Attivita",
-      "titolo": "Leggere Libro",
-      "priorita": "Bassa",
-      "data": "2026-05-05",
-      "ora": "22:00",
-      "durata_ore": 1,
-      "descrizione": "Proseguimento capitolo 3."
-    },
-    {
-      "tipo": "Attivita",
-      "titolo": "Veterinario",
-      "priorita": "Alta",
-      "data": "2026-05-22",
-      "ora": "09:30",
-      "durata_ore": 1,
-      "descrizione": "Controllo peso cane."
-    },
-    {
-      "tipo": "Attivita",
-      "titolo": "Aperitivo Amici",
-      "priorita": "Media",
-      "data": "2026-05-08",
-      "ora": "19:00",
-      "durata_ore": 2,
-      "descrizione": "Uscita post-lavoro."
-    },
-    {
-      "tipo": "Attivita",
-      "titolo": "Meal Prep",
-      "priorita": "Media",
-      "data": "2026-05-10",
-      "ora": "16:00",
-      "durata_ore": 3,
-      "descrizione": "Preparazione pasti per la settimana."
-    },
-    {
-      "tipo": "Attivita",
-      "titolo": "Lezione Tennis",
-      "priorita": "Media",
-      "data": "2026-05-13",
-      "ora": "17:00",
-      "durata_ore": 1,
-      "descrizione": "Perfezionamento dritto."
-    },
-    {
-      "tipo": "Attivita",
-      "titolo": "Meditazione",
-      "priorita": "Bassa",
-      "data": "2026-05-06",
-      "ora": "07:00",
-      "durata_ore": 1,
-      "descrizione": "Sessione focus mattutino."
-    },
-    {
-      "tipo": "Attivita",
-      "titolo": "Back-up Dati",
-      "priorita": "Media",
-      "data": "2026-05-15",
-      "ora": "22:00",
-      "durata_ore": 1,
-      "descrizione": "Sincronizzazione server esterno."
-    },
-    {
-      "tipo": "Attivita",
-      "titolo": "Grigliata",
-      "priorita": "Media",
-      "data": "2026-05-24",
-      "ora": "12:30",
-      "durata_ore": 5,
-      "descrizione": "Pranzo domenicale in campagna."
-    },
-    {
-      "tipo": "Attivita",
-      "titolo": "Palestra - Cardio",
-      "priorita": "Media",
-      "data": "2026-05-10",
-      "ora": "09:00",
-      "durata_ore": 1,
-      "descrizione": "30 minuti di tapis roulant."
-    },
-    {
-      "tipo": "Attivita",
-      "titolo": "Studiare C++ Avanzato",
-      "priorita": "Alta",
-      "data": "2026-05-11",
-      "ora": "10:00",
-      "durata_ore": 4,
-      "descrizione": "Smart pointers e multithreading."
-    },
-    {
-      "tipo": "Attivita",
-      "titolo": "Riunione Lavoro - Marketing",
-      "priorita": "Media",
-      "data": "2026-05-12",
-      "ora": "11:00",
-      "durata_ore": 1,
-      "descrizione": "Discussione nuovi loghi."
-    },
-    {
-      "tipo": "Attivita",
-      "titolo": "Spesa Settimanale - Bio",
-      "priorita": "Bassa",
-      "data": "2026-05-12",
-      "ora": "18:00",
-      "durata_ore": 1,
-      "descrizione": "Acquisto frutta e verdura km zero."
-    },
-    {
-      "tipo": "Attivita",
-      "titolo": "Dentista - Controllo",
-      "priorita": "Bassa",
-      "data": "2026-05-28",
-      "ora": "15:00",
-      "durata_ore": 1,
-      "descrizione": "Visita di controllo rapida."
-    },
-    {
-      "tipo": "Attivita",
-      "titolo": "Palestra - Yoga",
-      "priorita": "Bassa",
-      "data": "2026-05-13",
-      "ora": "19:30",
-      "durata_ore": 1,
-      "descrizione": "Sessione di stretching profondo."
-    },
-    {
-      "tipo": "Attivita",
-      "titolo": "Compleanno Marco",
-      "priorita": "Alta",
-      "data": "2026-05-19",
-      "ora": "20:30",
-      "durata_ore": 4,
-      "descrizione": "Cena fuori per compleanno."
-    },
-    {
-      "tipo": "Attivita",
-      "titolo": "Lavaggio Auto",
-      "priorita": "Bassa",
-      "data": "2026-05-23",
-      "ora": "11:00",
-      "durata_ore": 1,
-      "descrizione": "Pulizia interni ed esterni."
-    },
-    {
-      "tipo": "Attivita",
-      "titolo": "Banca",
-      "priorita": "Media",
-      "data": "2026-05-20",
-      "ora": "09:00",
-      "durata_ore": 1,
-      "descrizione": "Rinnovo carta di credito."
-    },
-    {
-      "tipo": "Attivita",
-      "titolo": "Studiare C++ - Quiz",
-      "priorita": "Alta",
-      "data": "2026-05-20",
-      "ora": "15:00",
-      "durata_ore": 2,
-      "descrizione": "Simulazione esame tecnico."
-    },
-    {
-      "tipo": "Attivita",
-      "titolo": "Concerto Rock",
-      "priorita": "Bassa",
-      "data": "2026-05-22",
-      "ora": "21:30",
-      "durata_ore": 3,
-      "descrizione": "Band locale in centro."
-    },
-    {
-      "tipo": "Attivita",
-      "titolo": "Palestra - Nuoto",
-      "priorita": "Media",
-      "data": "2026-05-26",
-      "ora": "07:00",
-      "durata_ore": 1,
-      "descrizione": "40 vasche stile libero."
-    },
-    {
-      "tipo": "Attivita",
-      "titolo": "Riunione Lavoro - Feedback",
-      "priorita": "Alta",
-      "data": "2026-05-27",
-      "ora": "14:00",
-      "durata_ore": 1,
-      "descrizione": "Revisione performance mensile."
-    },
-    {
-      "tipo": "Attivita",
-      "titolo": "Shopping",
-      "priorita": "Bassa",
-      "data": "2026-05-30",
-      "ora": "16:00",
-      "durata_ore": 3,
-      "descrizione": "Acquisto vestiti estivi."
-    },
-    {
-      "tipo": "Attivita",
-      "titolo": "Cena di Famiglia",
-      "priorita": "Media",
-      "data": "2026-05-31",
-      "ora": "20:00",
-      "durata_ore": 6,
-      "descrizione": "Saluti prima delle vacanze."
-    },
-    {
-      "tipo": "Festività",
-      "titolo": "Natale",
-      "data": "2025-12-25",
-      "descrizione": "Giornio di natale"
-    },
-    {
-      "tipo": "Attivita",
-      "titolo": "Pianificazione settimanale - Settimana 01",
-      "priorita": "Alta",
-      "data": "2026-05-25",
-      "ora": "09:00",
-      "durata_ore": 1,
-      "descrizione": "Organizzazione agenda, priorita e scadenze della settimana."
-    },
-    {
-      "tipo": "Attivita",
-      "titolo": "Sessione studio progetto - Settimana 01",
-      "priorita": "Media",
-      "data": "2026-05-26",
-      "ora": "17:30",
-      "durata_ore": 2,
-      "descrizione": "Avanzamento esercizi e revisione materiali del progetto."
-    },
-    {
-      "tipo": "festivita",
-      "titolo": "Giornata Benessere - Settimana 01",
-      "data": "2026-05-27",
-      "ora": "00:00",
-      "descrizione": "Promemoria simbolico dedicato al recupero e alle pause."
-    },
-    {
-      "tipo": "Attivita",
-      "titolo": "Sessione studio progetto - Settimana 02",
-      "priorita": "Media",
-      "data": "2026-06-01",
-      "ora": "17:30",
-      "durata_ore": 2,
-      "descrizione": "Avanzamento esercizi e revisione materiali del progetto."
-    },
-    {
-      "tipo": "Attivita",
-      "titolo": "Allenamento funzionale - Settimana 02",
-      "priorita": "Bassa",
-      "data": "2026-06-02",
-      "ora": "18:30",
-      "durata_ore": 1,
-      "descrizione": "Circuito leggero per mantenere continuita fisica."
-    },
-    {
-      "tipo": "festivita",
-      "titolo": "Festa della Creativita - Settimana 02",
-      "data": "2026-06-03",
-      "ora": "00:00",
-      "descrizione": "Giornata tematica per idee, letture e ispirazione."
-    },
-    {
-      "tipo": "Attivita",
-      "titolo": "Allenamento funzionale - Settimana 03",
-      "priorita": "Bassa",
-      "data": "2026-06-08",
-      "ora": "18:30",
-      "durata_ore": 1,
-      "descrizione": "Circuito leggero per mantenere continuita fisica."
-    },
-    {
-      "tipo": "Attivita",
-      "titolo": "Revisione documenti - Settimana 03",
-      "priorita": "Media",
-      "data": "2026-06-09",
-      "ora": "11:00",
-      "durata_ore": 1,
-      "descrizione": "Controllo note, ricevute e file da archiviare."
-    },
-    {
-      "tipo": "festivita",
-      "titolo": "Giornata della Lettura - Settimana 03",
-      "data": "2026-06-10",
-      "ora": "00:00",
-      "descrizione": "Occasione dedicata a libri, appunti e approfondimenti."
-    },
-    {
-      "tipo": "Attivita",
-      "titolo": "Revisione documenti - Settimana 04",
-      "priorita": "Media",
-      "data": "2026-06-15",
-      "ora": "11:00",
-      "durata_ore": 1,
-      "descrizione": "Controllo note, ricevute e file da archiviare."
-    },
-    {
-      "tipo": "Attivita",
-      "titolo": "Pulizia e riordino - Settimana 04",
-      "priorita": "Bassa",
-      "data": "2026-06-16",
-      "ora": "10:00",
-      "durata_ore": 2,
-      "descrizione": "Riordino spazi di lavoro e controllo materiali."
-    },
-    {
-      "tipo": "festivita",
-      "titolo": "Festa di Quartiere - Settimana 04",
-      "data": "2026-06-17",
-      "ora": "00:00",
-      "descrizione": "Ricorrenza locale per socialita e vita di zona."
-    },
-    {
-      "tipo": "Attivita",
-      "titolo": "Pulizia e riordino - Settimana 05",
-      "priorita": "Bassa",
-      "data": "2026-06-22",
-      "ora": "10:00",
-      "durata_ore": 2,
-      "descrizione": "Riordino spazi di lavoro e controllo materiali."
-    },
-    {
-      "tipo": "Attivita",
-      "titolo": "Pianificazione settimanale - Settimana 05",
-      "priorita": "Alta",
-      "data": "2026-06-23",
-      "ora": "09:00",
-      "durata_ore": 1,
-      "descrizione": "Organizzazione agenda, priorita e scadenze della settimana."
-    },
-    {
-      "tipo": "festivita",
-      "titolo": "Giornata della Natura - Settimana 05",
-      "data": "2026-06-24",
-      "ora": "00:00",
-      "descrizione": "Promemoria per tempo all aperto e cura degli spazi verdi."
-    },
-    {
-      "tipo": "Attivita",
-      "titolo": "Pianificazione settimanale - Settimana 06",
-      "priorita": "Alta",
-      "data": "2026-06-29",
-      "ora": "09:00",
-      "durata_ore": 1,
-      "descrizione": "Organizzazione agenda, priorita e scadenze della settimana."
-    },
-    {
-      "tipo": "Attivita",
-      "titolo": "Sessione studio progetto - Settimana 06",
-      "priorita": "Media",
-      "data": "2026-06-30",
-      "ora": "17:30",
-      "durata_ore": 2,
-      "descrizione": "Avanzamento esercizi e revisione materiali del progetto."
-    },
-    {
-      "tipo": "festivita",
-      "titolo": "Giornata Benessere - Settimana 06",
-      "data": "2026-07-01",
-      "ora": "00:00",
-      "descrizione": "Promemoria simbolico dedicato al recupero e alle pause."
-    },
-    {
-      "tipo": "Attivita",
-      "titolo": "Sessione studio progetto - Settimana 07",
-      "priorita": "Media",
-      "data": "2026-07-06",
-      "ora": "17:30",
-      "durata_ore": 2,
-      "descrizione": "Avanzamento esercizi e revisione materiali del progetto."
-    },
-    {
-      "tipo": "Attivita",
-      "titolo": "Allenamento funzionale - Settimana 07",
-      "priorita": "Bassa",
-      "data": "2026-07-07",
-      "ora": "18:30",
-      "durata_ore": 1,
-      "descrizione": "Circuito leggero per mantenere continuita fisica."
-    },
-    {
-      "tipo": "festivita",
-      "titolo": "Festa della Creativita - Settimana 07",
-      "data": "2026-07-08",
-      "ora": "00:00",
-      "descrizione": "Giornata tematica per idee, letture e ispirazione."
-    },
-    {
-      "tipo": "Attivita",
-      "titolo": "Allenamento funzionale - Settimana 08",
-      "priorita": "Bassa",
-      "data": "2026-07-13",
-      "ora": "18:30",
-      "durata_ore": 1,
-      "descrizione": "Circuito leggero per mantenere continuita fisica."
-    },
-    {
-      "tipo": "Attivita",
-      "titolo": "Revisione documenti - Settimana 08",
-      "priorita": "Media",
-      "data": "2026-07-14",
-      "ora": "11:00",
-      "durata_ore": 1,
-      "descrizione": "Controllo note, ricevute e file da archiviare."
-    },
-    {
-      "tipo": "festivita",
-      "titolo": "Giornata della Lettura - Settimana 08",
-      "data": "2026-07-15",
-      "ora": "00:00",
-      "descrizione": "Occasione dedicata a libri, appunti e approfondimenti."
-    },
-    {
-      "tipo": "Attivita",
-      "titolo": "Revisione documenti - Settimana 09",
-      "priorita": "Media",
-      "data": "2026-07-20",
-      "ora": "11:00",
-      "durata_ore": 1,
-      "descrizione": "Controllo note, ricevute e file da archiviare."
-    },
-    {
-      "tipo": "Attivita",
-      "titolo": "Pulizia e riordino - Settimana 09",
-      "priorita": "Bassa",
-      "data": "2026-07-21",
-      "ora": "10:00",
-      "durata_ore": 2,
-      "descrizione": "Riordino spazi di lavoro e controllo materiali."
-    },
-    {
-      "tipo": "festivita",
-      "titolo": "Festa di Quartiere - Settimana 09",
-      "data": "2026-07-22",
-      "ora": "00:00",
-      "descrizione": "Ricorrenza locale per socialita e vita di zona."
-    },
-    {
-      "tipo": "Attivita",
-      "titolo": "Pulizia e riordino - Settimana 10",
-      "priorita": "Bassa",
-      "data": "2026-07-27",
-      "ora": "10:00",
-      "durata_ore": 2,
-      "descrizione": "Riordino spazi di lavoro e controllo materiali."
-    },
-    {
-      "tipo": "Attivita",
-      "titolo": "Pianificazione settimanale - Settimana 10",
-      "priorita": "Alta",
-      "data": "2026-07-28",
-      "ora": "09:00",
-      "durata_ore": 1,
-      "descrizione": "Organizzazione agenda, priorita e scadenze della settimana."
-    },
-    {
-      "tipo": "festivita",
-      "titolo": "Giornata della Natura - Settimana 10",
-      "data": "2026-07-29",
-      "ora": "00:00",
-      "descrizione": "Promemoria per tempo all aperto e cura degli spazi verdi."
-    },
-    {
-      "tipo": "Attivita",
-      "titolo": "Pianificazione settimanale - Settimana 11",
-      "priorita": "Alta",
-      "data": "2026-08-03",
-      "ora": "09:00",
-      "durata_ore": 1,
-      "descrizione": "Organizzazione agenda, priorita e scadenze della settimana."
-    },
-    {
-      "tipo": "Attivita",
-      "titolo": "Sessione studio progetto - Settimana 11",
-      "priorita": "Media",
-      "data": "2026-08-04",
-      "ora": "17:30",
-      "durata_ore": 2,
-      "descrizione": "Avanzamento esercizi e revisione materiali del progetto."
-    },
-    {
-      "tipo": "festivita",
-      "titolo": "Giornata Benessere - Settimana 11",
-      "data": "2026-08-05",
-      "ora": "00:00",
-      "descrizione": "Promemoria simbolico dedicato al recupero e alle pause."
-    },
-    {
-      "tipo": "Attivita",
-      "titolo": "Sessione studio progetto - Settimana 12",
-      "priorita": "Media",
-      "data": "2026-08-10",
-      "ora": "17:30",
-      "durata_ore": 2,
-      "descrizione": "Avanzamento esercizi e revisione materiali del progetto."
-    },
-    {
-      "tipo": "Attivita",
-      "titolo": "Allenamento funzionale - Settimana 12",
-      "priorita": "Bassa",
-      "data": "2026-08-11",
-      "ora": "18:30",
-      "durata_ore": 1,
-      "descrizione": "Circuito leggero per mantenere continuita fisica."
-    },
-    {
-      "tipo": "festivita",
-      "titolo": "Festa della Creativita - Settimana 12",
-      "data": "2026-08-12",
-      "ora": "00:00",
-      "descrizione": "Giornata tematica per idee, letture e ispirazione."
-    },
-    {
-      "tipo": "Attivita",
-      "titolo": "Allenamento funzionale - Settimana 13",
-      "priorita": "Bassa",
-      "data": "2026-08-17",
-      "ora": "18:30",
-      "durata_ore": 1,
-      "descrizione": "Circuito leggero per mantenere continuita fisica."
-    },
-    {
-      "tipo": "Attivita",
-      "titolo": "Revisione documenti - Settimana 13",
-      "priorita": "Media",
-      "data": "2026-08-18",
-      "ora": "11:00",
-      "durata_ore": 1,
-      "descrizione": "Controllo note, ricevute e file da archiviare."
-    },
-    {
-      "tipo": "festivita",
-      "titolo": "Giornata della Lettura - Settimana 13",
-      "data": "2026-08-19",
-      "ora": "00:00",
-      "descrizione": "Occasione dedicata a libri, appunti e approfondimenti."
-    },
-    {
-      "tipo": "Attivita",
-      "titolo": "Revisione documenti - Settimana 14",
-      "priorita": "Media",
-      "data": "2026-08-24",
-      "ora": "11:00",
-      "durata_ore": 1,
-      "descrizione": "Controllo note, ricevute e file da archiviare."
-    },
-    {
-      "tipo": "Attivita",
-      "titolo": "Pulizia e riordino - Settimana 14",
-      "priorita": "Bassa",
-      "data": "2026-08-25",
-      "ora": "10:00",
-      "durata_ore": 2,
-      "descrizione": "Riordino spazi di lavoro e controllo materiali."
-    },
-    {
-      "tipo": "festivita",
-      "titolo": "Festa di Quartiere - Settimana 14",
-      "data": "2026-08-26",
-      "ora": "00:00",
-      "descrizione": "Ricorrenza locale per socialita e vita di zona."
-    },
-    {
-      "tipo": "Attivita",
-      "titolo": "Pulizia e riordino - Settimana 15",
-      "priorita": "Bassa",
-      "data": "2026-08-31",
-      "ora": "10:00",
-      "durata_ore": 2,
-      "descrizione": "Riordino spazi di lavoro e controllo materiali."
-    },
-    {
-      "tipo": "Attivita",
-      "titolo": "Pianificazione settimanale - Settimana 15",
-      "priorita": "Alta",
-      "data": "2026-09-01",
-      "ora": "09:00",
-      "durata_ore": 1,
-      "descrizione": "Organizzazione agenda, priorita e scadenze della settimana."
-    },
-    {
-      "tipo": "festivita",
-      "titolo": "Giornata della Natura - Settimana 15",
-      "data": "2026-09-02",
-      "ora": "00:00",
-      "descrizione": "Promemoria per tempo all aperto e cura degli spazi verdi."
-    },
-    {
-      "tipo": "Attivita",
-      "titolo": "Pianificazione settimanale - Settimana 16",
-      "priorita": "Alta",
-      "data": "2026-09-07",
-      "ora": "09:00",
-      "durata_ore": 1,
-      "descrizione": "Organizzazione agenda, priorita e scadenze della settimana."
-    },
-    {
-      "tipo": "Attivita",
-      "titolo": "Sessione studio progetto - Settimana 16",
-      "priorita": "Media",
-      "data": "2026-09-08",
-      "ora": "17:30",
-      "durata_ore": 2,
-      "descrizione": "Avanzamento esercizi e revisione materiali del progetto."
-    },
-    {
-      "tipo": "festivita",
-      "titolo": "Giornata Benessere - Settimana 16",
-      "data": "2026-09-09",
-      "ora": "00:00",
-      "descrizione": "Promemoria simbolico dedicato al recupero e alle pause."
-    },
-    {
-      "tipo": "Attivita",
-      "titolo": "Sessione studio progetto - Settimana 17",
-      "priorita": "Media",
-      "data": "2026-09-14",
-      "ora": "17:30",
-      "durata_ore": 2,
-      "descrizione": "Avanzamento esercizi e revisione materiali del progetto."
-    },
-    {
-      "tipo": "Attivita",
-      "titolo": "Allenamento funzionale - Settimana 17",
-      "priorita": "Bassa",
-      "data": "2026-09-15",
-      "ora": "18:30",
-      "durata_ore": 1,
-      "descrizione": "Circuito leggero per mantenere continuita fisica."
-    },
-    {
-      "tipo": "festivita",
-      "titolo": "Festa della Creativita - Settimana 17",
-      "data": "2026-09-16",
-      "ora": "00:00",
-      "descrizione": "Giornata tematica per idee, letture e ispirazione."
-    },
-    {
-      "tipo": "Attivita",
-      "titolo": "Allenamento funzionale - Settimana 18",
-      "priorita": "Bassa",
-      "data": "2026-09-21",
-      "ora": "18:30",
-      "durata_ore": 1,
-      "descrizione": "Circuito leggero per mantenere continuita fisica."
-    },
-    {
-      "tipo": "Attivita",
-      "titolo": "Revisione documenti - Settimana 18",
-      "priorita": "Media",
-      "data": "2026-09-22",
-      "ora": "11:00",
-      "durata_ore": 1,
-      "descrizione": "Controllo note, ricevute e file da archiviare."
-    },
-    {
-      "tipo": "festivita",
-      "titolo": "Giornata della Lettura - Settimana 18",
-      "data": "2026-09-23",
-      "ora": "00:00",
-      "descrizione": "Occasione dedicata a libri, appunti e approfondimenti."
-    },
-    {
-      "tipo": "Attivita",
-      "titolo": "Revisione documenti - Settimana 19",
-      "priorita": "Media",
-      "data": "2026-09-28",
-      "ora": "11:00",
-      "durata_ore": 1,
-      "descrizione": "Controllo note, ricevute e file da archiviare."
-    },
-    {
-      "tipo": "Attivita",
-      "titolo": "Pulizia e riordino - Settimana 19",
-      "priorita": "Bassa",
-      "data": "2026-09-28",
-      "ora": "10:00",
-      "durata_ore": 2,
-      "descrizione": "Riordino spazi di lavoro e controllo materiali."
-    },
-    {
-      "tipo": "festivita",
-      "titolo": "Festa di Quartiere - Settimana 19",
-      "data": "2026-09-29",
-      "ora": "00:00",
-      "descrizione": "Ricorrenza locale per socialita e vita di zona."
-    }
-  ]
+    "agenda": [
+        {
+            "categoria": "Sopravvivenza",
+            "completata": false,
+            "data": "2026-06-14",
+            "dataScadenza": "2026-06-14",
+            "descrizione": "Spesa settimanale",
+            "durata_ore": 2,
+            "ora": "10:00",
+            "priorita": "Alta",
+            "tipo": "Attivita",
+            "titolo": "Spesa "
+        },
+        {
+            "data": "2026-06-02",
+            "descrizione": "festeggiamento della creazione della repubblica italiana",
+            "durata_ore": 1,
+            "giornoNonLavorativo": true,
+            "nomeUfficiale": "Festa della repubblica",
+            "ora": "00:00",
+            "ricorrenzaAnnuale": true,
+            "stato": "Italia",
+            "tipo": "Festivita",
+            "titolo": "Festa della repubblica Italiana"
+        },
+        {
+            "categoria": "Studio",
+            "completata": true,
+            "data": "2026-06-01",
+            "dataScadenza": "2026-06-03",
+            "descrizione": "Ripasso capitoli da 1 a 4 del manuale di C++",
+            "durata_ore": 4,
+            "ora": "09:00",
+            "priorita": "Alta",
+            "tipo": "Attivita",
+            "titolo": "Ripasso C++ Teorico"
+        },
+        {
+            "categoria": "Salute",
+            "completata": true,
+            "data": "2026-06-04",
+            "dataScadenza": "2026-06-04",
+            "descrizione": "Visita dentistica di controllo semestrale",
+            "durata_ore": 1,
+            "ora": "15:30",
+            "priorita": "Media",
+            "tipo": "Attivita",
+            "titolo": "Dentista"
+        },
+        {
+            "categoria": "Lavoro",
+            "completata": false,
+            "data": "2026-06-05",
+            "dataScadenza": "2026-06-05",
+            "descrizione": "Inviare report mensile delle ore al manager",
+            "durata_ore": 1,
+            "ora": "18:00",
+            "priorita": "Bassa",
+            "tipo": "Attivita",
+            "titolo": "Invio Timesheet"
+        },
+        {
+            "data": "2026-06-24",
+            "descrizione": "Festa patronale della citta di Firenze, Genova e Torino",
+            "durata_ore": 24,
+            "giornoNonLavorativo": true,
+            "nomeUfficiale": "San Giovanni Battista",
+            "ora": "00:00",
+            "ricorrenzaAnnuale": true,
+            "stato": "Italia",
+            "tipo": "Festivita",
+            "titolo": "San Giovanni"
+        },
+        {
+            "data": "2026-06-29",
+            "descrizione": "Festa patronale di Roma",
+            "durata_ore": 24,
+            "giornoNonLavorativo": true,
+            "nomeUfficiale": "Santi Pietro e Paolo",
+            "ora": "00:00",
+            "ricorrenzaAnnuale": true,
+            "stato": "Italia",
+            "tipo": "Festivita",
+            "titolo": "Santi Pietro e Paolo"
+        },
+        {
+            "consegnata": true,
+            "data": "2026-06-08",
+            "descrizione": "Relazione intermedia sull'analisi dei requisiti software",
+            "destinatario": "Tutor Aziendale",
+            "durata_ore": 2,
+            "formato": "PDF",
+            "materiaOProgetto": "Ingegneria del Software",
+            "ora": "12:00",
+            "piattaforma": "Email",
+            "priorita": "Media",
+            "tipo": "Consegna",
+            "titolo": "Relazione Requisiti"
+        },
+        {
+            "consegnata": false,
+            "data": "2026-06-22",
+            "descrizione": "Esercizi sui puntatori e gestione della memoria heap",
+            "destinatario": "Docente Esercitazioni",
+            "durata_ore": 5,
+            "formato": "Altro",
+            "materiaOProgetto": "Programmazione 2",
+            "ora": "23:59",
+            "piattaforma": "GitHub Classroom",
+            "priorita": "Alta",
+            "tipo": "Consegna",
+            "titolo": "Esercizi Puntatori"
+        },
+        {
+            "categoria": "Casa",
+            "completata": false,
+            "data": "2026-06-11",
+            "dataScadenza": "2026-06-13",
+            "descrizione": "Rinnovare l'abbonamento della scatola di backup Cloud",
+            "durata_ore": 1,
+            "ora": "09:00",
+            "priorita": "Bassa",
+            "tipo": "Attivita",
+            "titolo": "Rinnovo Cloud Storage"
+        },
+        {
+            "categoria": "Studio",
+            "completata": false,
+            "data": "2026-06-16",
+            "dataScadenza": "2026-06-17",
+            "descrizione": "Studiare i grafi e le visite BFS/DFS per l'esame di algoritmi",
+            "durata_ore": 6,
+            "ora": "08:30",
+            "priorita": "Alta",
+            "tipo": "Attivita",
+            "titolo": "Studio Algoritmi"
+        },
+        {
+            "categoria": "Burocrazia",
+            "completata": true,
+            "data": "2026-06-12",
+            "dataScadenza": "2026-06-12",
+            "descrizione": "Presentazione ISEE universitario sul portale della regione",
+            "durata_ore": 2,
+            "ora": "14:00",
+            "priorita": "Alta",
+            "tipo": "Attivita",
+            "titolo": "Invio ISEE"
+        },
+        {
+            "categoria": "Sport",
+            "completata": false,
+            "data": "2026-06-19",
+            "dataScadenza": "2026-06-19",
+            "descrizione": "Allenamento running nel parco per preparazione mezza maratona",
+            "durata_ore": 2,
+            "ora": "19:00",
+            "priorita": "Media",
+            "tipo": "Attivita",
+            "titolo": "Corsa Defaticante"
+        },
+        {
+            "consegnata": true,
+            "data": "2026-06-05",
+            "descrizione": "Consegna codice SQL del database della finta piattaforma e-commerce",
+            "destinatario": "Docente Basi di Dati",
+            "durata_ore": 3,
+            "formato": "Altro",
+            "materiaOProgetto": "Basi di Dati",
+            "ora": "23:59",
+            "piattaforma": "Moodle",
+            "priorita": "Alta",
+            "tipo": "Consegna",
+            "titolo": "Progetto SQL E-Commerce"
+        },
+        {
+            "consegnata": false,
+            "data": "2026-06-26",
+            "descrizione": "Saggio finale scritto di analisi matematica sulle equazioni differenziali",
+            "destinatario": "Titolare Cattedra",
+            "durata_ore": 8,
+            "formato": "PDF",
+            "materiaOProgetto": "Analisi Matematica 1",
+            "ora": "14:00",
+            "piattaforma": "PoliTo Portal",
+            "priorita": "Alta",
+            "tipo": "Consegna",
+            "titolo": "Home Exam Analisi"
+        },
+        {
+            "consegnata": true,
+            "data": "2026-06-10",
+            "descrizione": "Mappa concettuale del modulo di reti logiche e porte logiche",
+            "destinatario": "Assistente di laboratorio",
+            "durata_ore": 1,
+            "formato": "Altro",
+            "materiaOProgetto": "Architettura degli Elaboratori",
+            "ora": "10:00",
+            "piattaforma": "Teams Channel",
+            "priorita": "Bassa",
+            "tipo": "Consegna",
+            "titolo": "Schema Porte Logiche"
+        },
+        {
+            "categoria": "Studio",
+            "completata": false,
+            "data": "2026-07-01",
+            "dataScadenza": "2026-07-02",
+            "descrizione": "Simulazione d'esame scritto a tempo di calcolo delle probabilita",
+            "durata_ore": 3,
+            "ora": "14:30",
+            "priorita": "Alta",
+            "tipo": "Attivita",
+            "titolo": "Simulazione Statistica"
+        },
+        {
+            "categoria": "Salute",
+            "completata": false,
+            "data": "2026-07-03",
+            "dataScadenza": "2026-07-03",
+            "descrizione": "Ritiro analisi del sangue e controlli generali presso il centro medico",
+            "durata_ore": 1,
+            "ora": "08:00",
+            "priorita": "Media",
+            "tipo": "Attivita",
+            "titolo": "Ritiro Esami Sangue"
+        },
+        {
+            "categoria": "Auto",
+            "completata": true,
+            "data": "2026-07-04",
+            "dataScadenza": "2026-07-06",
+            "descrizione": "Portare la macchina dal meccanico per cambio olio e check-up estivo",
+            "durata_ore": 4,
+            "ora": "08:15",
+            "priorita": "Media",
+            "tipo": "Attivita",
+            "titolo": "Tagliando Auto"
+        },
+        {
+            "categoria": "Casa",
+            "completata": false,
+            "data": "2026-07-11",
+            "dataScadenza": "2026-07-15",
+            "descrizione": "Pulizia profonda filtri condizionatori prima dell'ondata di calore",
+            "durata_ore": 2,
+            "ora": "10:00",
+            "priorita": "Bassa",
+            "tipo": "Attivita",
+            "titolo": "Manutenzione Condizionatore"
+        },
+        {
+            "data": "2026-07-15",
+            "descrizione": "Festa patronale della citta di Palermo",
+            "durata_ore": 24,
+            "giornoNonLavorativo": false,
+            "nomeUfficiale": "Festa di Santa Rosalia",
+            "ora": "00:00",
+            "ricorrenzaAnnuale": true,
+            "stato": "Worldwide",
+            "tipo": "Festivita",
+            "titolo": "Santa Rosalia"
+        },
+        {
+            "consegnata": false,
+            "data": "2026-07-06",
+            "descrizione": "Tesina di approfondimento sull'evoluzione dei sistemi operativi Unix-like",
+            "destinatario": "Professore Sistemi Operativi",
+            "durata_ore": 10,
+            "formato": "PDF",
+            "materiaOProgetto": "Sistemi Operativi",
+            "ora": "12:00",
+            "piattaforma": "Moodle",
+            "priorita": "Alta",
+            "tipo": "Consegna",
+            "titolo": "Tesina Unix"
+        },
+        {
+            "consegnata": true,
+            "data": "2026-07-08",
+            "descrizione": "Script Bash per l'automazione dei backup incrementali di una directory",
+            "destinatario": "Tutor di Laboratorio",
+            "durata_ore": 3,
+            "formato": "Altro",
+            "materiaOProgetto": "Sistemi Operativi Laboratorio",
+            "ora": "23:59",
+            "piattaforma": "GitHub",
+            "priorita": "Media",
+            "tipo": "Consegna",
+            "titolo": "Script Backup Bash"
+        },
+        {
+            "consegnata": false,
+            "data": "2026-07-20",
+            "descrizione": "Relazione finale di stage aziendale con firme del tutor accademico",
+            "destinatario": "Segreteria Didattica",
+            "durata_ore": 4,
+            "formato": "PDF",
+            "materiaOProgetto": "Tirocinio Esterno",
+            "ora": "13:00",
+            "piattaforma": "PoliSign",
+            "priorita": "Alta",
+            "tipo": "Consegna",
+            "titolo": "Relazione Fine Tirocinio"
+        },
+        {
+            "consegnata": false,
+            "data": "2026-07-25",
+            "descrizione": "Traduzione tecnica della documentazione ufficiale di un modulo software inglese",
+            "destinatario": "Docente di Lingua",
+            "durata_ore": 2,
+            "formato": "Altro",
+            "materiaOProgetto": "Inglese Tecnico",
+            "ora": "17:00",
+            "piattaforma": "Email",
+            "priorita": "Bassa",
+            "tipo": "Consegna",
+            "titolo": "Traduzione Documentazione"
+        },
+        {
+            "categoria": "Studio",
+            "completata": false,
+            "data": "2026-07-27",
+            "dataScadenza": "2026-07-31",
+            "descrizione": "Inizio lettura articoli scientifici propedeutici per il progetto della tesi magistrale",
+            "durata_ore": 12,
+            "ora": "09:00",
+            "priorita": "Media",
+            "tipo": "Attivita",
+            "titolo": "Ricerca Bibliografica"
+        },
+        {
+            "categoria": "Finanze",
+            "completata": true,
+            "data": "2026-07-28",
+            "dataScadenza": "2026-07-28",
+            "descrizione": "Pagamento della seconda rata dei contributi universitari anno accademico",
+            "durata_ore": 1,
+            "ora": "11:00",
+            "priorita": "Alta",
+            "tipo": "Attivita",
+            "titolo": "Pagamento Tasse Uni"
+        },
+        {
+            "categoria": "Studio",
+            "completata": false,
+            "data": "2026-07-29",
+            "dataScadenza": "2026-07-30",
+            "descrizione": "Riorganizzare e ripulire gli appunti presi in markdown sul tablet in cartelle locali",
+            "durata_ore": 3,
+            "ora": "15:00",
+            "priorita": "Bassa",
+            "tipo": "Attivita",
+            "titolo": "Riordino Appunti"
+        },
+        {
+            "categoria": "Svago",
+            "completata": false,
+            "data": "2026-07-31",
+            "dataScadenza": "2026-07-31",
+            "descrizione": "Preparazione bagaglio a mano ed inventario elettronico per viaggio estivo",
+            "durata_ore": 2,
+            "ora": "20:00",
+            "priorita": "Media",
+            "tipo": "Attivita",
+            "titolo": "Preparazione Valigie"
+        },
+        {
+            "consegnata": true,
+            "data": "2026-07-13",
+            "descrizione": "Repository Git contenente i file di configurazione Docker per architettura microservizi",
+            "destinatario": "Docente Cloud Computing",
+            "durata_ore": 6,
+            "formato": "Altro",
+            "materiaOProgetto": "Sistemi in Cloud",
+            "ora": "23:59",
+            "piattaforma": "GitLab",
+            "priorita": "Alta",
+            "tipo": "Consegna",
+            "titolo": "Docker Deployment Project"
+        },
+        {
+            "consegnata": false,
+            "data": "2026-07-30",
+            "descrizione": "Relazione tecnica finale di un circuito amplificatore simulato in LTSpice",
+            "destinatario": "Professore Elettronica",
+            "durata_ore": 4,
+            "formato": "PDF",
+            "materiaOProgetto": "Elettronica Analogica",
+            "ora": "18:00",
+            "piattaforma": "Moodle",
+            "priorita": "Media",
+            "tipo": "Consegna",
+            "titolo": "Relazione LTSpice"
+        },
+        {
+            "consegnata": false,
+            "data": "2026-06-15",
+            "descrizione": "Consegna del presente progetto di programmazione ad oggetti in c++ , tramite QT",
+            "destinatario": "Professori",
+            "durata_ore": 24,
+            "formato": "ZIP",
+            "materiaOProgetto": "Programmazione Ad oggetti",
+            "ora": "00:00",
+            "piattaforma": "Moodle",
+            "priorita": "Alta",
+            "tipo": "Consegna",
+            "titolo": "Progetto di Pao"
+        },
+        {
+            "consegnata": true,
+            "data": "2026-06-06",
+            "descrizione": "Script SQL completi per la creazione del database dello store universitario",
+            "destinatario": "Docente Basi di Dati",
+            "durata_ore": 1,
+            "formato": "Altro",
+            "materiaOProgetto": "Basi di Dati",
+            "ora": "23:59",
+            "piattaforma": "Moodle",
+            "priorita": "Alta",
+            "tipo": "Consegna",
+            "titolo": "Schema Database E-Commerce"
+        },
+        {
+            "consegnata": true,
+            "data": "2026-06-12",
+            "descrizione": "Esercizi di calcolo delle matrici e sistemi lineari per l'esonero",
+            "destinatario": "Esercitore Algebra",
+            "durata_ore": 2,
+            "formato": "PDF",
+            "materiaOProgetto": "Algebra Lineare",
+            "ora": "18:00",
+            "piattaforma": "Email",
+            "priorita": "Media",
+            "tipo": "Consegna",
+            "titolo": "Foglio Esercizi 4"
+        },
+        {
+            "consegnata": false,
+            "data": "2026-06-19",
+            "descrizione": "Relazione di laboratorio sull'analisi dei tempi di esecuzione dei filtri grafici",
+            "destinatario": "Tutor di Architetture",
+            "durata_ore": 12,
+            "formato": "PDF",
+            "materiaOProgetto": "Architettura degli Elaboratori",
+            "ora": "23:59",
+            "piattaforma": "GitHub",
+            "priorita": "Alta",
+            "tipo": "Consegna",
+            "titolo": "Relazione Lab Cache Speed"
+        },
+        {
+            "consegnata": true,
+            "data": "2026-06-23",
+            "descrizione": "Archivio contenente i file sorgente dell'analizzatore lessicale in C++",
+            "destinatario": "Docente Compilatori",
+            "durata_ore": 4,
+            "formato": "Altro",
+            "materiaOProgetto": "Linguaggi di Programmazione",
+            "ora": "12:00",
+            "piattaforma": "Moodle",
+            "priorita": "Alta",
+            "tipo": "Consegna",
+            "titolo": "Parser Lessicale Core"
+        },
+        {
+            "consegnata": false,
+            "data": "2026-06-26",
+            "descrizione": "Saggio breve sul bilanciamento del carico nei sistemi operativi distribuiti",
+            "destinatario": "Cattedra Sistemi",
+            "durata_ore": 6,
+            "formato": "PDF",
+            "materiaOProgetto": "Sistemi Operativi",
+            "ora": "14:00",
+            "piattaforma": "Moodle",
+            "priorita": "Media",
+            "tipo": "Consegna",
+            "titolo": "Saggio Load Balancing"
+        },
+        {
+            "consegnata": false,
+            "data": "2026-06-30",
+            "descrizione": "Documento finale di specifica formale UML dell'applicazione desktop",
+            "destinatario": "Assistente Corso",
+            "durata_ore": 3,
+            "formato": "PDF",
+            "materiaOProgetto": "Ingegneria del Software",
+            "ora": "18:00",
+            "piattaforma": "PoliSign Portal",
+            "priorita": "Alta",
+            "tipo": "Consegna",
+            "titolo": "Documento UML Architetturale"
+        },
+        {
+            "consegnata": true,
+            "data": "2026-07-03",
+            "descrizione": "File sorgenti dell'automa a stati finiti per il riconoscimento dei token stringa",
+            "destinatario": "Professore Automi",
+            "durata_ore": 2,
+            "formato": "Altro",
+            "materiaOProgetto": "Teoria della Computazione",
+            "ora": "23:59",
+            "piattaforma": "Moodle",
+            "priorita": "Media",
+            "tipo": "Consegna",
+            "titolo": "Esercizio Automa Finito"
+        },
+        {
+            "consegnata": false,
+            "data": "2026-07-07",
+            "descrizione": "Relazione finale descrittiva dello stage svolto in azienda durante il semestre",
+            "destinatario": "Segreteria Tirocini",
+            "durata_ore": 5,
+            "formato": "PDF",
+            "materiaOProgetto": "Tirocinio Curriculare",
+            "ora": "12:00",
+            "piattaforma": "PoliSign",
+            "priorita": "Alta",
+            "tipo": "Consegna",
+            "titolo": "Relazione Fine Stage"
+        },
+        {
+            "consegnata": true,
+            "data": "2026-07-11",
+            "descrizione": "Traduzione e glossario tecnico dei termini relativi ai microservizi web dall'inglese all'italiano",
+            "destinatario": "Lettore di Lingua",
+            "durata_ore": 2,
+            "formato": "Altro",
+            "materiaOProgetto": "Inglese Tecnico",
+            "ora": "17:00",
+            "piattaforma": "Email",
+            "priorita": "Bassa",
+            "tipo": "Consegna",
+            "titolo": "Glossario Cloud English"
+        },
+        {
+            "consegnata": false,
+            "data": "2026-07-15",
+            "descrizione": "File di configurazione YAML e Dockerfile per l'orchestrazione di un cluster a tre nodi",
+            "destinatario": "Docente Cloud",
+            "durata_ore": 8,
+            "formato": "ZIP",
+            "materiaOProgetto": "Sistemi Cloud Computing",
+            "ora": "23:59",
+            "piattaforma": "Moodle",
+            "priorita": "Alta",
+            "tipo": "Consegna",
+            "titolo": "Configurazione Docker Cluster"
+        },
+        {
+            "consegnata": true,
+            "data": "2026-07-20",
+            "descrizione": "Relazione di laboratorio sulla modellazione di un amplificatore di segnale operazionale",
+            "destinatario": "Docente Elettronica",
+            "durata_ore": 3,
+            "formato": "PDF",
+            "materiaOProgetto": "Elettronica Analogica",
+            "ora": "19:00",
+            "piattaforma": "Moodle",
+            "priorita": "Media",
+            "tipo": "Consegna",
+            "titolo": "Relazione Lab LTSpice"
+        },
+        {
+            "consegnata": false,
+            "data": "2026-07-23",
+            "descrizione": "Analisi delle performance degli algoritmi di ordinamento interni su collezioni di dati eterogenee",
+            "destinatario": "Professore Algoritmi",
+            "durata_ore": 5,
+            "formato": "PDF",
+            "materiaOProgetto": "Algoritmi e Strutture Dati",
+            "ora": "23:59",
+            "piattaforma": "GitHub Classroom",
+            "priorita": "Alta",
+            "tipo": "Consegna",
+            "titolo": "Studio Empirico Sorting"
+        },
+        {
+            "consegnata": false,
+            "data": "2026-07-27",
+            "descrizione": "Codice sorgente della web app per la prenotazione delle aule studio universitarie",
+            "destinatario": "Docente Web",
+            "durata_ore": 14,
+            "formato": "ZIP",
+            "materiaOProgetto": "Tecnologie Web",
+            "ora": "23:59",
+            "piattaforma": "Moodle",
+            "priorita": "Alta",
+            "tipo": "Consegna",
+            "titolo": "Progetto Web Rest API"
+        },
+        {
+            "consegnata": true,
+            "data": "2026-07-30",
+            "descrizione": "Esercitazione facoltativa sui modelli di concorrenza e mutua esclusione mediante semafori",
+            "destinatario": "Docente Sistemi",
+            "durata_ore": 2,
+            "formato": "Altro",
+            "materiaOProgetto": "Sistemi Operativi Concorrenza",
+            "ora": "18:00",
+            "piattaforma": "Email",
+            "priorita": "Bassa",
+            "tipo": "Consegna",
+            "titolo": "Esercizio Thread e Semafori"
+        },
+        {
+            "consegnata": false,
+            "data": "2026-07-19",
+            "descrizione": "Relazione sull'analisi statistica dei dati di campionamento del traffico di rete locale",
+            "destinatario": "Tutor Statistica",
+            "durata_ore": 4,
+            "formato": "PDF",
+            "materiaOProgetto": "Calcolo delle Probabilita",
+            "ora": "23:59",
+            "piattaforma": "Moodle",
+            "priorita": "Media",
+            "tipo": "Consegna",
+            "titolo": "Relazione Dati Campionamento"
+        }
+    ]
 }

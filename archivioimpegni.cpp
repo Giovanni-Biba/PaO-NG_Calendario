@@ -68,7 +68,6 @@ QVector<std::shared_ptr<Agenda>> ArchivioImpegni::cerca(const QString &titolo, c
                     corrisponde = false;
                 }
             } else {
-                // Se cerchiamo una priorità ma l'oggetto non è un'attività, lo escludiamo
                 corrisponde = false;
             }
         }

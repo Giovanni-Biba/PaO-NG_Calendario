@@ -36,4 +36,4 @@ private:
     std::shared_ptr<Agenda> elementoCorrente;
 };
 
-#endif // VISUALIZE_H
+#endif

@@ -16,7 +16,7 @@ SearchBar::SearchBar(QWidget *parent)
     layoutTitolo->addWidget(TitoloInput);
     mainLayout->addLayout(layoutTitolo);
 
-    // --- DATA (Checkbox + DateEdit)
+    // --- DATA
     QHBoxLayout *layoutData = new QHBoxLayout();
     DataCheck = new QCheckBox(this);
     layoutData->addWidget(DataCheck);
@@ -26,14 +26,12 @@ SearchBar::SearchBar(QWidget *parent)
 
     DataInput = new QDateEdit(QDate::currentDate(), this);
     DataInput->setCalendarPopup(true);
-    DataInput->setEnabled(false); // Parte disattivato
+    DataInput->setEnabled(false);
     layoutData->addWidget(DataInput);
     mainLayout->addLayout(layoutData);
 
-    // Abilita la data solo se il checkbox è spuntato
     connect(DataCheck, &QCheckBox::toggled, DataInput, &QDateEdit::setEnabled);
 
-    // --- TIPO
     QHBoxLayout *layoutTipo = new QHBoxLayout();
     layoutTipo->addWidget(new QLabel("Tipo:", this));
     TipoInput = new QComboBox(this);
@@ -41,7 +39,6 @@ SearchBar::SearchBar(QWidget *parent)
     layoutTipo->addWidget(TipoInput);
     mainLayout->addLayout(layoutTipo);
 
-    // --- PRIORITÀ
     QHBoxLayout *layoutPrio = new QHBoxLayout();
     layoutPrio->addWidget(new QLabel("Priorità:", this));
     PrioritaInput = new QComboBox(this);
@@ -49,7 +46,6 @@ SearchBar::SearchBar(QWidget *parent)
     layoutPrio->addWidget(PrioritaInput);
     mainLayout->addLayout(layoutPrio);
 
-    // --- BOTTONE
     CercaButton = new QPushButton("CERCA", this);
     CercaButton->setStyleSheet("QPushButton { font-weight: bold; padding: 5px 15px; background-color: #3498db; color: white; border-radius: 4px;} QPushButton:hover { background-color: #4DADEB; }");
     mainLayout->addWidget(CercaButton);

@@ -104,7 +104,7 @@ QWidget *Research::creaCardAttivita(const std::shared_ptr<Agenda> &elemento)
     rightLayout->setAlignment(Qt::AlignRight | Qt::AlignTop);
 
     // DETERMINAZIONE COLORE PRIORITÀ
-    QString colorePriorita = "#000000"; // Default Nero
+    QString colorePriorita = "#000000";
     QString testoPriorita = "N/D";
 
     if (!elemento->usaRigaFestivita()) {
@@ -112,11 +112,11 @@ QWidget *Research::creaCardAttivita(const std::shared_ptr<Agenda> &elemento)
         testoPriorita = elemento->prioritaToString().toUpper();
 
         if (p == Agenda::Alta) {
-            colorePriorita = "#e74c3c"; // Rosso
+            colorePriorita = "#e74c3c";
         } else if (p == Agenda::Media) {
-            colorePriorita = "#f1c40f"; // Giallo (scuro per leggibilità)
+            colorePriorita = "#f1c40f";
         } else if (p == Agenda::Bassa) {
-            colorePriorita = "#27ae60"; // Verde
+            colorePriorita = "#27ae60";
         }
     }
 

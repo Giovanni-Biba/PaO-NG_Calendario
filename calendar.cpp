@@ -24,10 +24,27 @@ calendar::calendar(QWidget *parent)
     QWidget *top = new QWidget(this);
     QVBoxLayout *topLayout = new QVBoxLayout(top);
 
-    Titolo = new QPushButton("NG_CALENDARIO", this);
-    topLayout->addWidget(Titolo);
+    QHBoxLayout *headerLayout = new QHBoxLayout();
+    headerLayout->setContentsMargins(10, 0, 10, 0);
+    headerLayout->addStretch(1);
+    Titolo = new QPushButton(this);
+    Titolo->setIcon(QIcon(":/IMG/logo.png/IMG/logo.png"));
+    Titolo->setIconSize(QSize(80, 60));
+    Titolo->setFlat(true);
+    Titolo->setStyleSheet("QPushButton { background-color: transparent; border: none; }");
+    headerLayout->addWidget(Titolo);
+
+    QLabel *scrittaHeader = new QLabel("Planner", this);
+    scrittaHeader->setStyleSheet("font-weight: bold; color: #274C69; font-size: 40px;");
+    scrittaHeader->setAlignment(Qt::AlignCenter);
+
+    headerLayout->addWidget(scrittaHeader);
+    headerLayout->addStretch(1);
+
+    topLayout->addLayout(headerLayout);
     mainLayout->addWidget(top);
 
+    // --- INIZIALIZZAZIONE DELLA BARRA DI RICERCA ---
     BarraRicerca = new SearchBar();
     mainLayout->addWidget(BarraRicerca);
 
@@ -116,6 +133,7 @@ calendar::calendar(QWidget *parent)
     Crea->setStyleSheet(" QPushButton { background-color: #27ae60; color: white; font-weight: bold; border-radius: 5px; padding: 12px;} QPushButton:hover { background-color: #2ecc71; }");
     mainLayout->addWidget(Crea);
 
+    // --- CONNESSIONI SEGNALI E SLOT ---
     connect(Titolo, &QPushButton::clicked, this, &calendar::refreshGenerale);
     connect(Crea, &QPushButton::clicked, this, &calendar::richiestaCrea);
     connect(BarraRicerca, &SearchBar::cercaClicked, this, &calendar::richiestaCerca);

@@ -92,4 +92,4 @@ private:
     std::shared_ptr<Agenda> creaModificato() const;
 };
 
-#endif // MODIFY_H
+#endif

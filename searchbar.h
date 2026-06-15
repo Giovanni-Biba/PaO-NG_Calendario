@@ -17,8 +17,6 @@ public:
     QPushButton *CercaButton;
 
     QString getTestoTitolo() const { return TitoloInput->text(); }
-
-    // Ritorna la data selezionata SOLO se il check è attivo, altrimenti ritorna QDate() nulla
     QDate getValoreData() const {
         return (DataCheck && DataCheck->isChecked()) ? DataInput->date() : QDate();
     }
@@ -37,4 +35,4 @@ signals:
     void cercaClicked();
 };
 
-#endif // SEARCHBAR_H
+#endif

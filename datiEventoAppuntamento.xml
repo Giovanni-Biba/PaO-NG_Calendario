@@ -1,773 +1,839 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dati>
     <item>
-        <data>2026-05-08</data>
-        <descrizione>Descrizione di prova per visita medica</descrizione>
-        <durata_ore>4</durata_ore>
-        <stato>Cina</stato>
-        <ora>18:45</ora>
-        <priorita>Bassa</priorita>
-        <tipo>Appuntamento</tipo>
-        <titolo>Visita Medica</titolo>
-    </item>
-    <item>
-        <data>2026-05-18</data>
-        <descrizione>Descrizione di prova per taglio capelli</descrizione>
-        <durata_ore>1</durata_ore>
-        <stato>USA</stato>
-        <ora>18:00</ora>
-        <priorita>Media</priorita>
-        <tipo>Appuntamento</tipo>
-        <titolo>Taglio Capelli</titolo>
-    </item>
-    <item>
-        <data>2026-05-06</data>
-        <descrizione>Descrizione di prova per cena aziendale</descrizione>
-        <durata_ore>4</durata_ore>
-        <luogo>Bologna</luogo>
-        <ora>16:00</ora>
-        <priorita>Media</priorita>
-        <tipo>Evento</tipo>
-        <titolo>Cena Aziendale</titolo>
-    </item>
-    <item>
-        <data>2026-05-07</data>
-        <descrizione>Descrizione di prova per commercialista</descrizione>
+        <capienzaMassima>0</capienzaMassima>
+        <confermato>false</confermato>
+        <costoBiglietto>0</costoBiglietto>
+        <data>2026-06-03</data>
+        <descrizione>Allineamento settimanale con il compagno di progetto per architettura GUI</descrizione>
         <durata_ore>2</durata_ore>
-        <stato>Italia</stato>
-        <ora>09:30</ora>
-        <priorita>Media</priorita>
-        <tipo>Appuntamento</tipo>
-        <titolo>Commercialista</titolo>
-    </item>
-    <item>
-        <data>2026-05-26</data>
-        <descrizione>Descrizione di prova per lezione yoga</descrizione>
-        <durata_ore>1</durata_ore>
-        <luogo>Torino</luogo>
+        <linkOnline></linkOnline>
+        <luogo></luogo>
+        <modalita>Presenza</modalita>
         <ora>14:00</ora>
-        <priorita>Bassa</priorita>
-        <tipo>Evento</tipo>
-        <titolo>Lezione Yoga</titolo>
+        <organizzatore></organizzatore>
+        <partecipanti></partecipanti>
+        <priorita>Media</priorita>
+        <pubblico>false</pubblico>
+        <tipo>Appuntamento</tipo>
+        <titolo>Meeting Gruppo PAO</titolo>
     </item>
     <item>
-        <data>2026-05-31</data>
-        <descrizione>Descrizione di prova per concerto rock</descrizione>
+        <capienzaMassima>0</capienzaMassima>
+        <confermato>false</confermato>
+        <costoBiglietto>0</costoBiglietto>
+        <data>2026-06-09</data>
+        <descrizione>Ricevimento studenti per chiarimenti sul pattern Visitor</descrizione>
         <durata_ore>1</durata_ore>
-        <luogo>Padova</luogo>
-        <ora>16:45</ora>
+        <linkOnline></linkOnline>
+        <luogo></luogo>
+        <modalita>Presenza</modalita>
+        <ora>11:30</ora>
+        <organizzatore></organizzatore>
+        <partecipanti></partecipanti>
         <priorita>Alta</priorita>
+        <pubblico>false</pubblico>
+        <tipo>Appuntamento</tipo>
+        <titolo>Ricevimento Professore</titolo>
+    </item>
+    <item>
+        <capienzaMassima>150</capienzaMassima>
+        <costoBiglietto>0</costoBiglietto>
+        <data>2026-06-10</data>
+        <descrizione>Seminario sulle nuove feature di C++23 e programmazione concorrente</descrizione>
+        <durata_ore>3</durata_ore>
+        <luogo>Aula Magna Ca' Foscari</luogo>
+        <ora>16:00</ora>
+        <organizzatore>Dipartimento di Informatica</organizzatore>
+        <priorita>Media</priorita>
+        <pubblico>false</pubblico>
+        <tipo>Evento</tipo>
+        <titolo>Seminario C++23</titolo>
+    </item>
+    <item>
+        <capienzaMassima>50000</capienzaMassima>
+        <costoBiglietto>75.5</costoBiglietto>
+        <data>2026-06-18</data>
+        <descrizione>Concerto live tour estivo rock band</descrizione>
+        <durata_ore>1</durata_ore>
+        <luogo>Stadio San Siro, Milano</luogo>
+        <ora>21:00</ora>
+        <organizzatore>LiveNation</organizzatore>
+        <priorita>Media</priorita>
+        <pubblico>false</pubblico>
         <tipo>Evento</tipo>
         <titolo>Concerto Rock</titolo>
     </item>
     <item>
-        <data>2026-05-15</data>
-        <descrizione>Descrizione di prova per workshop qt</descrizione>
-        <durata_ore>2</durata_ore>
-        <luogo>Milano</luogo>
-        <ora>19:00</ora>
-        <priorita>Alta</priorita>
-        <tipo>Evento</tipo>
-        <titolo>Workshop Qt</titolo>
-    </item>
-    <item>
-        <data>2026-05-22</data>
-        <descrizione>Descrizione di prova per palestra</descrizione>
-        <durata_ore>2</durata_ore>
-        <luogo>Centro Medico</luogo>
-        <ora>15:00</ora>
-        <priorita>Alta</priorita>
-        <tipo>Evento</tipo>
-        <titolo>Palestra</titolo>
-    </item>
-    <item>
-        <data>2026-05-18</data>
-        <descrizione>Descrizione di prova per chiamata clienti</descrizione>
+        <capienzaMassima>0</capienzaMassima>
+        <confermato>false</confermato>
+        <costoBiglietto>0</costoBiglietto>
+        <data>2026-06-17</data>
+        <descrizione>Chiamata vocale per sessione di programmazione accoppiata (Pair Programming) su JSON parser</descrizione>
         <durata_ore>4</durata_ore>
-        <stato>USA</stato>
-        <ora>19:45</ora>
+        <linkOnline></linkOnline>
+        <luogo></luogo>
+        <modalita>Presenza</modalita>
+        <ora>21:00</ora>
+        <organizzatore></organizzatore>
+        <partecipanti></partecipanti>
         <priorita>Media</priorita>
+        <pubblico>false</pubblico>
         <tipo>Appuntamento</tipo>
-        <titolo>Chiamata Clienti</titolo>
+        <titolo>Pair Programming Discord</titolo>
     </item>
     <item>
-        <data>2026-05-13</data>
-        <descrizione>Descrizione di prova per incontro fornitore</descrizione>
-        <durata_ore>2</durata_ore>
-        <stato>USA</stato>
-        <ora>11:45</ora>
-        <priorita>Bassa</priorita>
-        <tipo>Appuntamento</tipo>
-        <titolo>Incontro Fornitore</titolo>
-    </item>
-    <item>
-        <data>2026-05-23</data>
-        <descrizione>Descrizione di prova per chiamata clienti</descrizione>
+        <capienzaMassima>0</capienzaMassima>
+        <confermato>false</confermato>
+        <costoBiglietto>0</costoBiglietto>
+        <data>2026-06-23</data>
+        <descrizione>Colloquio conoscitivo per stage estivo di sviluppo software C++/Qt</descrizione>
         <durata_ore>1</durata_ore>
-        <stato>USA</stato>
-        <ora>19:00</ora>
-        <priorita>Media</priorita>
-        <tipo>Appuntamento</tipo>
-        <titolo>Chiamata Clienti</titolo>
-    </item>
-    <item>
-        <data>2026-05-25</data>
-        <descrizione>Descrizione di prova per partita calcio</descrizione>
-        <durata_ore>2</durata_ore>
-        <luogo>Torino</luogo>
+        <linkOnline></linkOnline>
+        <luogo></luogo>
+        <modalita>Presenza</modalita>
         <ora>10:30</ora>
-        <priorita>Bassa</priorita>
-        <tipo>Evento</tipo>
-        <titolo>Partita Calcio</titolo>
-    </item>
-    <item>
-        <data>2026-05-25</data>
-        <descrizione>Descrizione di prova per revisione auto</descrizione>
-        <durata_ore>1</durata_ore>
-        <stato>USA</stato>
-        <ora>19:45</ora>
-        <priorita>Bassa</priorita>
-        <tipo>Appuntamento</tipo>
-        <titolo>Revisione Auto</titolo>
-    </item>
-    <item>
-        <data>2026-05-28</data>
-        <descrizione>Descrizione di prova per incontro fornitore</descrizione>
-        <durata_ore>2</durata_ore>
-        <stato>Cina</stato>
-        <ora>18:30</ora>
-        <priorita>Bassa</priorita>
-        <tipo>Appuntamento</tipo>
-        <titolo>Incontro Fornitore</titolo>
-    </item>
-    <item>
-        <data>2026-05-18</data>
-        <descrizione>Descrizione di prova per intervista</descrizione>
-        <durata_ore>2</durata_ore>
-        <stato>Cina</stato>
-        <ora>16:45</ora>
+        <organizzatore></organizzatore>
+        <partecipanti></partecipanti>
         <priorita>Alta</priorita>
+        <pubblico>false</pubblico>
         <tipo>Appuntamento</tipo>
-        <titolo>Intervista</titolo>
+        <titolo>Colloquio HR Stage</titolo>
     </item>
     <item>
-        <data>2026-05-15</data>
-        <descrizione>Descrizione di prova per chiamata clienti</descrizione>
+        <capienzaMassima>0</capienzaMassima>
+        <confermato>false</confermato>
+        <costoBiglietto>0</costoBiglietto>
+        <data>2026-06-25</data>
+        <descrizione>Chiamata tecnica con il fornitore dell'hosting per problemi di configurazione del server</descrizione>
         <durata_ore>1</durata_ore>
-        <stato>Worldwide</stato>
-        <ora>16:45</ora>
+        <linkOnline></linkOnline>
+        <luogo></luogo>
+        <modalita>Presenza</modalita>
+        <ora>15:00</ora>
+        <organizzatore></organizzatore>
+        <partecipanti></partecipanti>
         <priorita>Media</priorita>
+        <pubblico>false</pubblico>
         <tipo>Appuntamento</tipo>
-        <titolo>Chiamata Clienti</titolo>
+        <titolo>Chiamata Assistenza Cloud</titolo>
     </item>
     <item>
-        <data>2026-05-13</data>
-        <descrizione>Descrizione di prova per dentista</descrizione>
-        <durata_ore>4</durata_ore>
-        <stato>USA</stato>
-        <ora>19:30</ora>
+        <capienzaMassima>30</capienzaMassima>
+        <costoBiglietto>15</costoBiglietto>
+        <data>2026-06-20</data>
+        <descrizione>Workshop interattivo a numero chiuso per configurazione CMake avanzata</descrizione>
+        <durata_ore>1</durata_ore>
+        <luogo>FabLab Milano</luogo>
+        <ora>09:30</ora>
+        <organizzatore>C++ Italian Community</organizzatore>
         <priorita>Media</priorita>
-        <tipo>Appuntamento</tipo>
-        <titolo>Dentista</titolo>
-    </item>
-    <item>
-        <data>2026-05-01</data>
-        <descrizione>Descrizione di prova per aperitivo</descrizione>
-        <durata_ore>4</durata_ore>
-        <luogo>Venezia</luogo>
-        <ora>09:45</ora>
-        <priorita>Bassa</priorita>
+        <pubblico>false</pubblico>
         <tipo>Evento</tipo>
+        <titolo>Workshop CMake</titolo>
+    </item>
+    <item>
+        <capienzaMassima>1000</capienzaMassima>
+        <costoBiglietto>0</costoBiglietto>
+        <data>2026-06-27</data>
+        <descrizione>Notte bianca dell'universita con stand tecnologici e presentazioni dei club di robotica</descrizione>
+        <durata_ore>1</durata_ore>
+        <luogo>Cortile Universitario</luogo>
+        <ora>19:00</ora>
+        <organizzatore>Rappresentanti degli Studenti</organizzatore>
+        <priorita>Media</priorita>
+        <pubblico>false</pubblico>
+        <tipo>Evento</tipo>
+        <titolo>Tech Night Student es</titolo>
+    </item>
+    <item>
+        <capienzaMassima>0</capienzaMassima>
+        <confermato>false</confermato>
+        <costoBiglietto>0</costoBiglietto>
+        <data>2026-07-07</data>
+        <descrizione>Esame orale di economia ed organizzazione aziendale</descrizione>
+        <durata_ore>1</durata_ore>
+        <linkOnline></linkOnline>
+        <luogo></luogo>
+        <modalita>Presenza</modalita>
+        <ora>09:00</ora>
+        <organizzatore></organizzatore>
+        <partecipanti></partecipanti>
+        <priorita>Alta</priorita>
+        <pubblico>false</pubblico>
+        <tipo>Appuntamento</tipo>
+        <titolo>Orale Economia</titolo>
+    </item>
+    <item>
+        <capienzaMassima>0</capienzaMassima>
+        <confermato>false</confermato>
+        <costoBiglietto>0</costoBiglietto>
+        <data>2026-07-14</data>
+        <descrizione>Revisione finale della tesina prima della sottomissione ufficiale</descrizione>
+        <durata_ore>1</durata_ore>
+        <linkOnline></linkOnline>
+        <luogo></luogo>
+        <modalita>Presenza</modalita>
+        <ora>16:00</ora>
+        <organizzatore></organizzatore>
+        <partecipanti></partecipanti>
+        <priorita>Alta</priorita>
+        <pubblico>false</pubblico>
+        <tipo>Appuntamento</tipo>
+        <titolo>Meeting con Relatore</titolo>
+    </item>
+    <item>
+        <capienzaMassima>0</capienzaMassima>
+        <confermato>false</confermato>
+        <costoBiglietto>0</costoBiglietto>
+        <data>2026-07-22</data>
+        <descrizione>Discussione tecnica sui bug riscontrati durante il beta testing della UI</descrizione>
+        <durata_ore>2</durata_ore>
+        <linkOnline></linkOnline>
+        <luogo></luogo>
+        <modalita>Presenza</modalita>
+        <ora>11:00</ora>
+        <organizzatore></organizzatore>
+        <partecipanti></partecipanti>
+        <priorita>Media</priorita>
+        <pubblico>false</pubblico>
+        <tipo>Appuntamento</tipo>
+        <titolo>Review Bug UI</titolo>
+    </item>
+    <item>
+        <capienzaMassima>80</capienzaMassima>
+        <costoBiglietto>5</costoBiglietto>
+        <data>2026-07-09</data>
+        <descrizione>Proiezione del documentario open-source sulla storia del software libero</descrizione>
+        <durata_ore>1</durata_ore>
+        <luogo>Aula Magna di Ingegneria</luogo>
+        <ora>20:30</ora>
+        <organizzatore>Linux Student Group</organizzatore>
+        <priorita>Media</priorita>
+        <pubblico>false</pubblico>
+        <tipo>Evento</tipo>
+        <titolo>Cineforum Open Source</titolo>
+    </item>
+    <item>
+        <capienzaMassima>200</capienzaMassima>
+        <costoBiglietto>0</costoBiglietto>
+        <data>2026-07-18</data>
+        <descrizione>Festa di fine sessione estiva con rinfresco offerto e DJ set nel polo scientifico</descrizione>
+        <durata_ore>1</durata_ore>
+        <luogo>Giardino del Campus</luogo>
+        <ora>18:00</ora>
+        <organizzatore>Associazione Studentesca Tech</organizzatore>
+        <priorita>Media</priorita>
+        <pubblico>false</pubblico>
+        <tipo>Evento</tipo>
+        <titolo>Festa Fine Sessione</titolo>
+    </item>
+    <item>
+        <capienzaMassima>0</capienzaMassima>
+        <confermato>false</confermato>
+        <costoBiglietto>0</costoBiglietto>
+        <data>2026-07-16</data>
+        <descrizione>Firma del registro di tirocinio con il manager aziendale</descrizione>
+        <durata_ore>1</durata_ore>
+        <linkOnline></linkOnline>
+        <luogo></luogo>
+        <modalita>Presenza</modalita>
+        <ora>14:00</ora>
+        <organizzatore></organizzatore>
+        <partecipanti></partecipanti>
+        <priorita>Media</priorita>
+        <pubblico>false</pubblico>
+        <tipo>Appuntamento</tipo>
+        <titolo>Firma Registro Stage</titolo>
+    </item>
+    <item>
+        <capienzaMassima>0</capienzaMassima>
+        <confermato>false</confermato>
+        <costoBiglietto>0</costoBiglietto>
+        <data>2026-07-24</data>
+        <descrizione>Briefing introduttivo per progetto di collaborazione studentesca ad un hackathon autunnale</descrizione>
+        <durata_ore>1</durata_ore>
+        <linkOnline></linkOnline>
+        <luogo></luogo>
+        <modalita>Presenza</modalita>
+        <ora>19:00</ora>
+        <organizzatore></organizzatore>
+        <partecipanti></partecipanti>
+        <priorita>Bassa</priorita>
+        <pubblico>false</pubblico>
+        <tipo>Appuntamento</tipo>
+        <titolo>Allineamento Hackathon</titolo>
+    </item>
+    <item>
+        <capienzaMassima>40</capienzaMassima>
+        <costoBiglietto>25</costoBiglietto>
+        <data>2026-07-19</data>
+        <descrizione>Masterclass intensiva con esperto di UX/UI incentrata sulle librerie QML e Qt Quick</descrizione>
+        <durata_ore>1</durata_ore>
+        <luogo>Coworking Talent Garden</luogo>
+        <ora>10:00</ora>
+        <organizzatore>Qt Users Group Regional</organizzatore>
+        <priorita>Media</priorita>
+        <pubblico>false</pubblico>
+        <tipo>Evento</tipo>
+        <titolo>Masterclass QML</titolo>
+    </item>
+    <item>
+        <capienzaMassima>100</capienzaMassima>
+        <costoBiglietto>0</costoBiglietto>
+        <data>2026-07-26</data>
+        <descrizione>Presentazione pubblica dei progetti software realizzati dagli studenti del terzo anno</descrizione>
+        <durata_ore>1</durata_ore>
+        <luogo>Aula Magna Nuova</luogo>
+        <ora>15:00</ora>
+        <organizzatore>Presidenza del Corso di Laurea</organizzatore>
+        <priorita>Media</priorita>
+        <pubblico>false</pubblico>
+        <tipo>Evento</tipo>
+        <titolo>Expo Progetti Software</titolo>
+    </item>
+    <item>
+        <capienzaMassima>3000</capienzaMassima>
+        <costoBiglietto>40</costoBiglietto>
+        <data>2026-06-16</data>
+        <descrizione>Concerto di Annalisa 2026</descrizione>
+        <durata_ore>3</durata_ore>
+        <luogo>San Siro</luogo>
+        <ora>21:00</ora>
+        <organizzatore>Radio 105</organizzatore>
+        <priorita>Alta</priorita>
+        <pubblico>true</pubblico>
+        <tipo>Evento</tipo>
+        <titolo>Concerto di Annalisa</titolo>
+    </item>
+    <item>
+        <capienzaMassima>0</capienzaMassima>
+        <confermato>true</confermato>
+        <costoBiglietto>0</costoBiglietto>
+        <data>2026-06-18</data>
+        <descrizione>Aperitivo con gli amici di sera</descrizione>
+        <durata_ore>2</durata_ore>
+        <linkOnline></linkOnline>
+        <luogo>Verona</luogo>
+        <modalita>Presenza</modalita>
+        <ora>17:00</ora>
+        <organizzatore>Io</organizzatore>
+        <partecipanti>Nicolo;Stella;Lorenzo;Niccolò;Matttia</partecipanti>
+        <priorita>Alta</priorita>
+        <pubblico>false</pubblico>
+        <tipo>Appuntamento</tipo>
         <titolo>Aperitivo</titolo>
     </item>
     <item>
-        <data>2026-05-20</data>
-        <descrizione>Descrizione di prova per visita medica</descrizione>
-        <durata_ore>1</durata_ore>
-        <stato>USA</stato>
-        <ora>15:45</ora>
+        <capienzaMassima>0</capienzaMassima>
+        <confermato>true</confermato>
+        <costoBiglietto>0</costoBiglietto>
+        <data>2026-06-02</data>
+        <descrizione>Allineamento tecnico iniziale per la ripartizione dei moduli dell'interfaccia</descrizione>
+        <durata_ore>2</durata_ore>
+        <linkOnline>https://teams.microsoft.com/l/pao-setup</linkOnline>
+        <luogo>Online</luogo>
+        <modalita>Online</modalita>
+        <ora>10:30</ora>
+        <organizzatore>Alessandro</organizzatore>
+        <partecipanti>Alessandro;Sottoscritto</partecipanti>
         <priorita>Alta</priorita>
+        <pubblico>false</pubblico>
         <tipo>Appuntamento</tipo>
-        <titolo>Visita Medica</titolo>
+        <titolo>Meeting Avvio Progetto</titolo>
     </item>
     <item>
-        <data>2026-05-24</data>
-        <descrizione>Descrizione di prova per presentazione libro</descrizione>
-        <durata_ore>1</durata_ore>
-        <luogo>Ufficio</luogo>
-        <ora>15:45</ora>
-        <priorita>Alta</priorita>
-        <tipo>Evento</tipo>
-        <titolo>Presentazione Libro</titolo>
-    </item>
-    <item>
-        <data>2026-05-28</data>
-        <descrizione>Incontro pratico con esercizi e confronto finale.</descrizione>
-        <durata_ore>2</durata_ore>
-        <luogo>Milano</luogo>
-        <ora>15:00</ora>
-        <priorita>Alta</priorita>
-        <tipo>Evento</tipo>
-        <titolo>Workshop tecnico - Settimana 01</titolo>
-    </item>
-    <item>
-        <data>2026-05-29</data>
-        <descrizione>Ritrovo informale per aggiornamenti e nuovi contatti.</descrizione>
-        <durata_ore>2</durata_ore>
-        <luogo>Bologna</luogo>
-        <ora>19:00</ora>
-        <priorita>Media</priorita>
-        <tipo>Evento</tipo>
-        <titolo>Aperitivo networking - Settimana 01</titolo>
-    </item>
-    <item>
-        <data>2026-05-30</data>
-        <descrizione>Verifica documenti e prossime scadenze.</descrizione>
-        <durata_ore>1</durata_ore>
-        <stato>Italia</stato>
-        <ora>12:00</ora>
-        <priorita>Media</priorita>
-        <tipo>Appuntamento</tipo>
-        <titolo>Controllo amministrativo - Settimana 01</titolo>
-    </item>
-    <item>
-        <data>2026-06-04</data>
-        <descrizione>Ritrovo informale per aggiornamenti e nuovi contatti.</descrizione>
-        <durata_ore>2</durata_ore>
-        <luogo>Bologna</luogo>
-        <ora>19:00</ora>
-        <priorita>Media</priorita>
-        <tipo>Evento</tipo>
-        <titolo>Aperitivo networking - Settimana 02</titolo>
-    </item>
-    <item>
+        <capienzaMassima>150</capienzaMassima>
+        <costoBiglietto>0</costoBiglietto>
         <data>2026-06-05</data>
-        <descrizione>Evento con interventi brevi e domande dal pubblico.</descrizione>
-        <durata_ore>2</durata_ore>
-        <luogo>Torino</luogo>
-        <ora>18:00</ora>
+        <descrizione>Seminario accademico sullo standard C++23 e le novità della libreria standard</descrizione>
+        <durata_ore>4</durata_ore>
+        <luogo>Aula Magna Nord</luogo>
+        <ora>14:00</ora>
+        <organizzatore>Dipartimento Informatica</organizzatore>
         <priorita>Media</priorita>
+        <pubblico>true</pubblico>
         <tipo>Evento</tipo>
-        <titolo>Presentazione pubblica - Settimana 02</titolo>
+        <titolo>Seminario C++23 Avanzato</titolo>
     </item>
     <item>
-        <data>2026-06-06</data>
-        <descrizione>Aggiornamento sullo stato delle attivita aperte.</descrizione>
+        <capienzaMassima>0</capienzaMassima>
+        <confermato>true</confermato>
+        <costoBiglietto>0</costoBiglietto>
+        <data>2026-06-08</data>
+        <descrizione>Ricevimento per chiarimenti sulla logica di binding dei file XML</descrizione>
         <durata_ore>1</durata_ore>
-        <stato>USA</stato>
-        <ora>16:30</ora>
+        <linkOnline></linkOnline>
+        <luogo>Ufficio 302, Blocco B</luogo>
+        <modalita>Presenza</modalita>
+        <ora>11:00</ora>
+        <organizzatore>Professore</organizzatore>
+        <partecipanti>Professore;Sottoscritto</partecipanti>
         <priorita>Alta</priorita>
+        <pubblico>false</pubblico>
         <tipo>Appuntamento</tipo>
-        <titolo>Chiamata cliente - Settimana 02</titolo>
+        <titolo>Ricevimento Docente PAO</titolo>
     </item>
     <item>
-        <data>2026-06-11</data>
-        <descrizione>Evento con interventi brevi e domande dal pubblico.</descrizione>
-        <durata_ore>2</durata_ore>
-        <luogo>Torino</luogo>
-        <ora>18:00</ora>
-        <priorita>Media</priorita>
-        <tipo>Evento</tipo>
-        <titolo>Presentazione pubblica - Settimana 03</titolo>
-    </item>
-    <item>
-        <data>2026-06-12</data>
-        <descrizione>Proiezione serale con discussione dopo il film.</descrizione>
-        <durata_ore>3</durata_ore>
-        <luogo>Padova</luogo>
-        <ora>21:00</ora>
+        <capienzaMassima>500</capienzaMassima>
+        <costoBiglietto>15</costoBiglietto>
+        <data>2026-06-10</data>
+        <descrizione>Mostra interattiva sui sistemi di calcolo storici dal dopoguerra a oggi</descrizione>
+        <durata_ore>6</durata_ore>
+        <luogo>Padiglione Fiere</luogo>
+        <ora>09:30</ora>
+        <organizzatore>Associazione Retrocomputing</organizzatore>
         <priorita>Bassa</priorita>
+        <pubblico>true</pubblico>
         <tipo>Evento</tipo>
-        <titolo>Serata cinema - Settimana 03</titolo>
+        <titolo>Mostra Retrocomputing</titolo>
     </item>
     <item>
+        <capienzaMassima>0</capienzaMassima>
+        <confermato>false</confermato>
+        <costoBiglietto>0</costoBiglietto>
         <data>2026-06-13</data>
-        <descrizione>Sessione remota per chiarimenti e pianificazione.</descrizione>
-        <durata_ore>1</durata_ore>
-        <stato>Worldwide</stato>
-        <ora>11:30</ora>
-        <priorita>Media</priorita>
-        <tipo>Appuntamento</tipo>
-        <titolo>Consulenza online - Settimana 03</titolo>
-    </item>
-    <item>
-        <data>2026-06-18</data>
-        <descrizione>Proiezione serale con discussione dopo il film.</descrizione>
-        <durata_ore>3</durata_ore>
-        <luogo>Padova</luogo>
-        <ora>21:00</ora>
-        <priorita>Bassa</priorita>
-        <tipo>Evento</tipo>
-        <titolo>Serata cinema - Settimana 04</titolo>
-    </item>
-    <item>
-        <data>2026-06-19</data>
-        <descrizione>Sessione guidata con attivita collaborative.</descrizione>
-        <durata_ore>3</durata_ore>
-        <luogo>Firenze</luogo>
-        <ora>16:00</ora>
+        <descrizione>Sessione intensiva di pair-programming per risolvere i bug del layout orario del calendario</descrizione>
+        <durata_ore>4</durata_ore>
+        <linkOnline>https://discord.gg/pao-debug-room</linkOnline>
+        <luogo>Discord</luogo>
+        <modalita>Online</modalita>
+        <ora>14:30</ora>
+        <organizzatore>Io</organizzatore>
+        <partecipanti>Alessandro;Sottoscritto</partecipanti>
         <priorita>Alta</priorita>
-        <tipo>Evento</tipo>
-        <titolo>Laboratorio pratico - Settimana 04</titolo>
+        <pubblico>false</pubblico>
+        <tipo>Appuntamento</tipo>
+        <titolo>Debug Layout Grafico</titolo>
     </item>
     <item>
+        <capienzaMassima>50</capienzaMassima>
+        <costoBiglietto>0</costoBiglietto>
+        <data>2026-06-17</data>
+        <descrizione>Inaugurazione del nuovo laboratorio di calcolo ad alte prestazioni</descrizione>
+        <durata_ore>2</durata_ore>
+        <luogo>Polo Scientifico Edificio G</luogo>
+        <ora>11:00</ora>
+        <organizzatore>Presidenza di Facolta</organizzatore>
+        <priorita>Media</priorita>
+        <pubblico>true</pubblico>
+        <tipo>Evento</tipo>
+        <titolo>Inaugurazione Lab HPC</titolo>
+    </item>
+    <item>
+        <capienzaMassima>0</capienzaMassima>
+        <confermato>true</confermato>
+        <costoBiglietto>0</costoBiglietto>
         <data>2026-06-20</data>
-        <descrizione>Controllo periodico prenotato in agenda.</descrizione>
-        <durata_ore>1</durata_ore>
-        <stato>Italia</stato>
-        <ora>08:30</ora>
-        <priorita>Alta</priorita>
+        <descrizione>Sessione pomeridiana di studio collettivo per preparare la teoria di algoritmi</descrizione>
+        <durata_ore>3</durata_ore>
+        <linkOnline></linkOnline>
+        <luogo>Biblioteca Centrale</luogo>
+        <modalita>Presenza</modalita>
+        <ora>15:00</ora>
+        <organizzatore>Marco</organizzatore>
+        <partecipanti>Marco;Filippo;Elena;Sottoscritto</partecipanti>
+        <priorita>Media</priorita>
+        <pubblico>false</pubblico>
         <tipo>Appuntamento</tipo>
-        <titolo>Appuntamento medico - Settimana 04</titolo>
+        <titolo>Studio Algoritmica</titolo>
     </item>
     <item>
+        <capienzaMassima>200</capienzaMassima>
+        <costoBiglietto>25</costoBiglietto>
+        <data>2026-06-22</data>
+        <descrizione>Cena di gala estiva con i docenti, laureandi e finanziatori esterni del dipartimento</descrizione>
+        <durata_ore>4</durata_ore>
+        <luogo>Villa Rinaldi</luogo>
+        <ora>20:00</ora>
+        <organizzatore>Comitato Universitario</organizzatore>
+        <priorita>Alta</priorita>
+        <pubblico>false</pubblico>
+        <tipo>Evento</tipo>
+        <titolo>Cena di Gala Dipartimento</titolo>
+    </item>
+    <item>
+        <capienzaMassima>0</capienzaMassima>
+        <confermato>true</confermato>
+        <costoBiglietto>0</costoBiglietto>
+        <data>2026-06-24</data>
+        <descrizione>Colloquio conoscitivo per stage estivo di sviluppo frontend con Qt Creator</descrizione>
+        <durata_ore>1</durata_ore>
+        <linkOnline>https://google.meet/stage-interview-tech</linkOnline>
+        <luogo>Google Meet</luogo>
+        <modalita>Online</modalita>
+        <ora>09:30</ora>
+        <organizzatore>HR Tech Solutions</organizzatore>
+        <partecipanti>HR Recruiter;Technical Lead;Sottoscritto</partecipanti>
+        <priorita>Alta</priorita>
+        <pubblico>false</pubblico>
+        <tipo>Appuntamento</tipo>
+        <titolo>Colloquio Tecnico Stage</titolo>
+    </item>
+    <item>
+        <capienzaMassima>80</capienzaMassima>
+        <costoBiglietto>5</costoBiglietto>
         <data>2026-06-25</data>
-        <descrizione>Sessione guidata con attivita collaborative.</descrizione>
-        <durata_ore>3</durata_ore>
-        <luogo>Firenze</luogo>
-        <ora>16:00</ora>
-        <priorita>Alta</priorita>
-        <tipo>Evento</tipo>
-        <titolo>Laboratorio pratico - Settimana 05</titolo>
-    </item>
-    <item>
-        <data>2026-06-26</data>
-        <descrizione>Riunione aperta con aggiornamenti e proposte.</descrizione>
+        <descrizione>Proiezione del documentario indipendente sulla storia di GNU/Linux e Richard Stallman</descrizione>
         <durata_ore>2</durata_ore>
-        <luogo>Roma</luogo>
-        <ora>17:00</ora>
-        <priorita>Media</priorita>
+        <luogo>Aula C03, Polo Didattico</luogo>
+        <ora>18:30</ora>
+        <organizzatore>Linux Student Club</organizzatore>
+        <priorita>Bassa</priorita>
+        <pubblico>true</pubblico>
         <tipo>Evento</tipo>
-        <titolo>Incontro community - Settimana 05</titolo>
+        <titolo>Cineforum Open Source</titolo>
     </item>
     <item>
+        <capienzaMassima>0</capienzaMassima>
+        <confermato>true</confermato>
+        <costoBiglietto>0</costoBiglietto>
         <data>2026-06-27</data>
-        <descrizione>Confronto su tempi, consegne e disponibilita.</descrizione>
+        <descrizione>Riunione con il coinquilino per il calcolo e la divisione delle bollette del trimestre</descrizione>
         <durata_ore>1</durata_ore>
-        <stato>Germania</stato>
-        <ora>14:30</ora>
-        <priorita>Media</priorita>
+        <linkOnline></linkOnline>
+        <luogo>Appartamento</luogo>
+        <modalita>Presenza</modalita>
+        <ora>20:00</ora>
+        <organizzatore>Io</organizzatore>
+        <partecipanti>Luca;Sottoscritto</partecipanti>
+        <priorita>Bassa</priorita>
+        <pubblico>false</pubblico>
         <tipo>Appuntamento</tipo>
-        <titolo>Colloquio fornitore - Settimana 05</titolo>
+        <titolo>Resoconto Spese Casa</titolo>
     </item>
     <item>
+        <capienzaMassima>10000</capienzaMassima>
+        <costoBiglietto>0</costoBiglietto>
+        <data>2026-06-29</data>
+        <descrizione>Notte bianca della ricerca con stand interattivi aperti alla cittadinanza nel polo tecnologico</descrizione>
+        <durata_ore>6</durata_ore>
+        <luogo>Campus Universitario</luogo>
+        <ora>17:00</ora>
+        <organizzatore>Rettorato</organizzatore>
+        <priorita>Media</priorita>
+        <pubblico>true</pubblico>
+        <tipo>Evento</tipo>
+        <titolo>Notte dei Ricercatori</titolo>
+    </item>
+    <item>
+        <capienzaMassima>0</capienzaMassima>
+        <confermato>false</confermato>
+        <costoBiglietto>0</costoBiglietto>
+        <data>2026-07-01</data>
+        <descrizione>Chiamata skype veloce per definire le diapositive della presentazione finale</descrizione>
+        <durata_ore>1</durata_ore>
+        <linkOnline>https://skype.com/pao-slides-sync</linkOnline>
+        <luogo>Skype</luogo>
+        <modalita>Online</modalita>
+        <ora>19:00</ora>
+        <organizzatore>Alessandro</organizzatore>
+        <partecipanti>Alessandro;Sottoscritto</partecipanti>
+        <priorita>Media</priorita>
+        <pubblico>false</pubblico>
+        <tipo>Appuntamento</tipo>
+        <titolo>Sincronizzazione Slide Esame</titolo>
+    </item>
+    <item>
+        <capienzaMassima>40</capienzaMassima>
+        <costoBiglietto>30</costoBiglietto>
         <data>2026-07-02</data>
-        <descrizione>Riunione aperta con aggiornamenti e proposte.</descrizione>
-        <durata_ore>2</durata_ore>
-        <luogo>Roma</luogo>
-        <ora>17:00</ora>
-        <priorita>Media</priorita>
-        <tipo>Evento</tipo>
-        <titolo>Incontro community - Settimana 06</titolo>
-    </item>
-    <item>
-        <data>2026-07-03</data>
-        <descrizione>Incontro pratico con esercizi e confronto finale.</descrizione>
-        <durata_ore>2</durata_ore>
-        <luogo>Milano</luogo>
-        <ora>15:00</ora>
+        <descrizione>Masterclass intensiva sull'utilizzo di CMake per progetti C++ di grandi dimensioni</descrizione>
+        <durata_ore>5</durata_ore>
+        <luogo>Coworking Lab 1</luogo>
+        <ora>09:00</ora>
+        <organizzatore>Developers Association</organizzatore>
         <priorita>Alta</priorita>
+        <pubblico>true</pubblico>
         <tipo>Evento</tipo>
-        <titolo>Workshop tecnico - Settimana 06</titolo>
+        <titolo>Masterclass Modern CMake</titolo>
     </item>
     <item>
+        <capienzaMassima>0</capienzaMassima>
+        <confermato>true</confermato>
+        <costoBiglietto>0</costoBiglietto>
         <data>2026-07-04</data>
-        <descrizione>Verifica documenti e prossime scadenze.</descrizione>
+        <descrizione>Esame orale formale dell'insegnamento di reti di calcolatori</descrizione>
         <durata_ore>1</durata_ore>
-        <stato>Italia</stato>
-        <ora>12:00</ora>
-        <priorita>Media</priorita>
-        <tipo>Appuntamento</tipo>
-        <titolo>Controllo amministrativo - Settimana 06</titolo>
-    </item>
-    <item>
-        <data>2026-07-09</data>
-        <descrizione>Incontro pratico con esercizi e confronto finale.</descrizione>
-        <durata_ore>2</durata_ore>
-        <luogo>Milano</luogo>
-        <ora>15:00</ora>
+        <linkOnline></linkOnline>
+        <luogo>Aula 4D, Edificio Informatica</luogo>
+        <modalita>Presenza</modalita>
+        <ora>09:00</ora>
+        <organizzatore>Commissione Reti</organizzatore>
+        <partecipanti>Titolare Corso;Membri Commissione;Sottoscritto</partecipanti>
         <priorita>Alta</priorita>
-        <tipo>Evento</tipo>
-        <titolo>Workshop tecnico - Settimana 07</titolo>
+        <pubblico>true</pubblico>
+        <tipo>Appuntamento</tipo>
+        <titolo>Orale Reti di Calcolatori</titolo>
     </item>
     <item>
+        <capienzaMassima>120</capienzaMassima>
+        <costoBiglietto>0</costoBiglietto>
+        <data>2026-07-06</data>
+        <descrizione>Presentazione interattiva dei progetti vincitori dell'hackathon universitario di primavera</descrizione>
+        <durata_ore>3</durata_ore>
+        <luogo>Auditorium Campus</luogo>
+        <ora>15:00</ora>
+        <organizzatore>Tech Student Association</organizzatore>
+        <priorita>Bassa</priorita>
+        <pubblico>true</pubblico>
+        <tipo>Evento</tipo>
+        <titolo>Expo Progetti Studenteschi</titolo>
+    </item>
+    <item>
+        <capienzaMassima>0</capienzaMassima>
+        <confermato>true</confermato>
+        <costoBiglietto>0</costoBiglietto>
+        <data>2026-07-08</data>
+        <descrizione>Meeting telematico con il relatore della tesi triennale per la validazione dell'indice dei capitoli</descrizione>
+        <durata_ore>1</durata_ore>
+        <linkOnline>https://meet.google.com/thesis-review-pao</linkOnline>
+        <luogo>Google Meet</luogo>
+        <modalita>Online</modalita>
+        <ora>16:00</ora>
+        <organizzatore>Relatore</organizzatore>
+        <partecipanti>Prof. Neri;Sottoscritto</partecipanti>
+        <priorita>Alta</priorita>
+        <pubblico>false</pubblico>
+        <tipo>Appuntamento</tipo>
+        <titolo>Revisione Indice Tesi</titolo>
+    </item>
+    <item>
+        <capienzaMassima>100</capienzaMassima>
+        <costoBiglietto>10</costoBiglietto>
         <data>2026-07-10</data>
-        <descrizione>Ritrovo informale per aggiornamenti e nuovi contatti.</descrizione>
-        <durata_ore>2</durata_ore>
-        <luogo>Bologna</luogo>
-        <ora>19:00</ora>
+        <descrizione>Gara amatoriale amichevole di programmazione algoritmica a squadre aperta a tutti gli iscritti del triennio</descrizione>
+        <durata_ore>4</durata_ore>
+        <luogo>Laboratorio di Informatica 2</luogo>
+        <ora>14:00</ora>
+        <organizzatore>Studenti Coding Club</organizzatore>
         <priorita>Media</priorita>
+        <pubblico>false</pubblico>
         <tipo>Evento</tipo>
-        <titolo>Aperitivo networking - Settimana 07</titolo>
+        <titolo>Contest Coding d'Ateneo</titolo>
     </item>
     <item>
-        <data>2026-07-11</data>
-        <descrizione>Aggiornamento sullo stato delle attivita aperte.</descrizione>
-        <durata_ore>1</durata_ore>
-        <stato>USA</stato>
-        <ora>16:30</ora>
-        <priorita>Alta</priorita>
+        <capienzaMassima>0</capienzaMassima>
+        <confermato>true</confermato>
+        <costoBiglietto>0</costoBiglietto>
+        <data>2026-07-13</data>
+        <descrizione>Riunione condominiale straordinaria per l'approvazione dei lavori di riparazione del tetto della palazzina</descrizione>
+        <durata_ore>2</durata_ore>
+        <linkOnline></linkOnline>
+        <luogo>Sala Comune Condominio</luogo>
+        <modalita>Presenza</modalita>
+        <ora>18:30</ora>
+        <organizzatore>Amministratore</organizzatore>
+        <partecipanti>Amministratore;Condomini Scala A;Sottoscritto</partecipanti>
+        <priorita>Media</priorita>
+        <pubblico>false</pubblico>
         <tipo>Appuntamento</tipo>
-        <titolo>Chiamata cliente - Settimana 07</titolo>
+        <titolo>Assemblea Condominio</titolo>
     </item>
     <item>
+        <capienzaMassima>2500</capienzaMassima>
+        <costoBiglietto>55</costoBiglietto>
+        <data>2026-07-14</data>
+        <descrizione>Festival estivo di musica elettronica all'aperto sulla spiaggia del litorale</descrizione>
+        <durata_ore>8</durata_ore>
+        <luogo>Spiaggia Beach Club</luogo>
+        <ora>18:00</ora>
+        <organizzatore>Summer Night Events</organizzatore>
+        <priorita>Bassa</priorita>
+        <pubblico>true</pubblico>
+        <tipo>Evento</tipo>
+        <titolo>Summer Music Festival</titolo>
+    </item>
+    <item>
+        <capienzaMassima>0</capienzaMassima>
+        <confermato>true</confermato>
+        <costoBiglietto>0</costoBiglietto>
         <data>2026-07-16</data>
-        <descrizione>Ritrovo informale per aggiornamenti e nuovi contatti.</descrizione>
-        <durata_ore>2</durata_ore>
-        <luogo>Bologna</luogo>
-        <ora>19:00</ora>
+        <descrizione>Chiamata con il supporto tecnico dell'hosting web per la risoluzione dei problemi del certificato SSL</descrizione>
+        <durata_ore>1</durata_ore>
+        <linkOnline></linkOnline>
+        <luogo>Telefono</luogo>
+        <modalita>Telefono</modalita>
+        <ora>15:00</ora>
+        <organizzatore>Assistenza</organizzatore>
+        <partecipanti>Operatore Tecnico;Sottoscritto</partecipanti>
         <priorita>Media</priorita>
-        <tipo>Evento</tipo>
-        <titolo>Aperitivo networking - Settimana 08</titolo>
+        <pubblico>false</pubblico>
+        <tipo>Appuntamento</tipo>
+        <titolo>Chiamata Assistenza Server</titolo>
     </item>
     <item>
+        <capienzaMassima>60</capienzaMassima>
+        <costoBiglietto>0</costoBiglietto>
         <data>2026-07-17</data>
-        <descrizione>Evento con interventi brevi e domande dal pubblico.</descrizione>
-        <durata_ore>2</durata_ore>
-        <luogo>Torino</luogo>
-        <ora>18:00</ora>
-        <priorita>Media</priorita>
+        <descrizione>Festa di compleanno a sorpresa per la laurea magistrale del compagno di studi</descrizione>
+        <durata_ore>4</durata_ore>
+        <luogo>Pizzeria da Mario</luogo>
+        <ora>20:30</ora>
+        <organizzatore>Gruppo Colleghi</organizzatore>
+        <priorita>Bassa</priorita>
+        <pubblico>false</pubblico>
         <tipo>Evento</tipo>
-        <titolo>Presentazione pubblica - Settimana 08</titolo>
+        <titolo>Festa Laurea Giovanni</titolo>
     </item>
     <item>
-        <data>2026-07-18</data>
-        <descrizione>Sessione remota per chiarimenti e pianificazione.</descrizione>
+        <capienzaMassima>0</capienzaMassima>
+        <confermato>false</confermato>
+        <costoBiglietto>0</costoBiglietto>
+        <data>2026-07-21</data>
+        <descrizione>Breve meeting online per concordare le modifiche strutturali al file README di GitHub</descrizione>
         <durata_ore>1</durata_ore>
-        <stato>Worldwide</stato>
-        <ora>11:30</ora>
-        <priorita>Media</priorita>
+        <linkOnline>https://teams.microsoft.com/l/readme-sync</linkOnline>
+        <luogo>Microsoft Teams</luogo>
+        <modalita>Online</modalita>
+        <ora>11:00</ora>
+        <organizzatore>Io</organizzatore>
+        <partecipanti>Alessandro;Sottoscritto</partecipanti>
+        <priorita>Bassa</priorita>
+        <pubblico>false</pubblico>
         <tipo>Appuntamento</tipo>
-        <titolo>Consulenza online - Settimana 08</titolo>
+        <titolo>Allineamento Documentazione Git</titolo>
     </item>
     <item>
-        <data>2026-07-23</data>
-        <descrizione>Evento con interventi brevi e domande dal pubblico.</descrizione>
-        <durata_ore>2</durata_ore>
-        <luogo>Torino</luogo>
+        <capienzaMassima>200</capienzaMassima>
+        <costoBiglietto>0</costoBiglietto>
+        <data>2026-07-22</data>
+        <descrizione>Rinfresco finale collettivo all'aperto organizzato dal polo scientifico prima della chiusura estiva</descrizione>
+        <durata_ore>3</durata_ore>
+        <luogo>Giardino del Campus</luogo>
         <ora>18:00</ora>
+        <organizzatore>Associazione Studenti</organizzatore>
         <priorita>Media</priorita>
+        <pubblico>true</pubblico>
         <tipo>Evento</tipo>
-        <titolo>Presentazione pubblica - Settimana 09</titolo>
+        <titolo>Festa Chiusura Sessione</titolo>
     </item>
     <item>
+        <capienzaMassima>0</capienzaMassima>
+        <confermato>true</confermato>
+        <costoBiglietto>0</costoBiglietto>
         <data>2026-07-24</data>
-        <descrizione>Proiezione serale con discussione dopo il film.</descrizione>
+        <descrizione>Cena estiva con i colleghi del team di sviluppo dello stage aziendale</descrizione>
         <durata_ore>3</durata_ore>
-        <luogo>Padova</luogo>
-        <ora>21:00</ora>
+        <linkOnline></linkOnline>
+        <luogo>Trattoria del Centro</luogo>
+        <modalita>Presenza</modalita>
+        <ora>20:30</ora>
+        <organizzatore>Tutor Aziendale</organizzatore>
+        <partecipanti>Team Sviluppo;Tutor;Sottoscritto</partecipanti>
         <priorita>Bassa</priorita>
-        <tipo>Evento</tipo>
-        <titolo>Serata cinema - Settimana 09</titolo>
+        <pubblico>false</pubblico>
+        <tipo>Appuntamento</tipo>
+        <titolo>Cena Team Azienda</titolo>
     </item>
     <item>
+        <capienzaMassima>15</capienzaMassima>
+        <costoBiglietto>120</costoBiglietto>
         <data>2026-07-25</data>
-        <descrizione>Controllo periodico prenotato in agenda.</descrizione>
-        <durata_ore>1</durata_ore>
-        <stato>Italia</stato>
-        <ora>08:30</ora>
+        <descrizione>Corso intensivo a numero chiuso per la preparazione professionale alla certificazione Qt Certified Developer</descrizione>
+        <durata_ore>8</durata_ore>
+        <luogo>Aula Training Center</luogo>
+        <ora>09:00</ora>
+        <organizzatore>Qt Certified Partner</organizzatore>
         <priorita>Alta</priorita>
-        <tipo>Appuntamento</tipo>
-        <titolo>Appuntamento medico - Settimana 09</titolo>
-    </item>
-    <item>
-        <data>2026-07-30</data>
-        <descrizione>Proiezione serale con discussione dopo il film.</descrizione>
-        <durata_ore>3</durata_ore>
-        <luogo>Padova</luogo>
-        <ora>21:00</ora>
-        <priorita>Bassa</priorita>
+        <pubblico>true</pubblico>
         <tipo>Evento</tipo>
-        <titolo>Serata cinema - Settimana 10</titolo>
+        <titolo>Corso Certificazione Qt</titolo>
     </item>
     <item>
+        <capienzaMassima>0</capienzaMassima>
+        <confermato>true</confermato>
+        <costoBiglietto>0</costoBiglietto>
+        <data>2026-07-28</data>
+        <descrizione>Revisione finale della documentazione e dei commenti del codice prima dell'esportazione dei file di log</descrizione>
+        <durata_ore>2</durata_ore>
+        <linkOnline>https://meet.google.com/final-pao-check</linkOnline>
+        <luogo>Google Meet</luogo>
+        <modalita>Online</modalita>
+        <ora>15:00</ora>
+        <organizzatore>Io</organizzatore>
+        <partecipanti>Alessandro;Sottoscritto</partecipanti>
+        <priorita>Alta</priorita>
+        <pubblico>false</pubblico>
+        <tipo>Appuntamento</tipo>
+        <titolo>Ultimo Controllo Codice</titolo>
+    </item>
+    <item>
+        <capienzaMassima>1500</capienzaMassima>
+        <costoBiglietto>0</costoBiglietto>
+        <data>2026-07-29</data>
+        <descrizione>Cerimonia solenne all'aperto per la proclamazione e consegna dei diplomi di laurea della sessione estiva</descrizione>
+        <durata_ore>4</durata_ore>
+        <luogo>Piazza San Marco</luogo>
+        <ora>16:00</ora>
+        <organizzatore>Ufficio Lauree</organizzatore>
+        <priorita>Alta</priorita>
+        <pubblico>true</pubblico>
+        <tipo>Evento</tipo>
+        <titolo>Graduation Day 2026</titolo>
+    </item>
+    <item>
+        <capienzaMassima>0</capienzaMassima>
+        <confermato>true</confermato>
+        <costoBiglietto>0</costoBiglietto>
         <data>2026-07-31</data>
-        <descrizione>Sessione guidata con attivita collaborative.</descrizione>
-        <durata_ore>3</durata_ore>
-        <luogo>Firenze</luogo>
-        <ora>16:00</ora>
-        <priorita>Alta</priorita>
-        <tipo>Evento</tipo>
-        <titolo>Laboratorio pratico - Settimana 10</titolo>
+        <descrizione>Incontro di controllo per la pianificazione e l'inizio dello studio delle materie della sessione autunnale</descrizione>
+        <durata_ore>2</durata_ore>
+        <linkOnline></linkOnline>
+        <luogo>Aula Studio Nord</luogo>
+        <modalita>Presenza</modalita>
+        <ora>10:00</ora>
+        <organizzatore>Elena</organizzatore>
+        <partecipanti>Elena;Filippo;Sottoscritto</partecipanti>
+        <priorita>Media</priorita>
+        <pubblico>false</pubblico>
+        <tipo>Appuntamento</tipo>
+        <titolo>Pianificazione Esami Settembre</titolo>
     </item>
     <item>
-        <data>2026-08-01</data>
-        <descrizione>Confronto su tempi, consegne e disponibilita.</descrizione>
-        <durata_ore>1</durata_ore>
-        <stato>Germania</stato>
+        <capienzaMassima>50</capienzaMassima>
+        <costoBiglietto>10</costoBiglietto>
+        <data>2026-07-12</data>
+        <descrizione>Torneo amatoriale interno di scacchi a eliminazione diretta riservato agli studenti della facolta</descrizione>
+        <durata_ore>5</durata_ore>
+        <luogo>Atrio Centrale Blocco A</luogo>
         <ora>14:30</ora>
-        <priorita>Media</priorita>
-        <tipo>Appuntamento</tipo>
-        <titolo>Colloquio fornitore - Settimana 10</titolo>
-    </item>
-    <item>
-        <data>2026-08-06</data>
-        <descrizione>Sessione guidata con attivita collaborative.</descrizione>
-        <durata_ore>3</durata_ore>
-        <luogo>Firenze</luogo>
-        <ora>16:00</ora>
-        <priorita>Alta</priorita>
-        <tipo>Evento</tipo>
-        <titolo>Laboratorio pratico - Settimana 11</titolo>
-    </item>
-    <item>
-        <data>2026-08-07</data>
-        <descrizione>Riunione aperta con aggiornamenti e proposte.</descrizione>
-        <durata_ore>2</durata_ore>
-        <luogo>Roma</luogo>
-        <ora>17:00</ora>
-        <priorita>Media</priorita>
-        <tipo>Evento</tipo>
-        <titolo>Incontro community - Settimana 11</titolo>
-    </item>
-    <item>
-        <data>2026-08-08</data>
-        <descrizione>Verifica documenti e prossime scadenze.</descrizione>
-        <durata_ore>1</durata_ore>
-        <stato>Italia</stato>
-        <ora>12:00</ora>
-        <priorita>Media</priorita>
-        <tipo>Appuntamento</tipo>
-        <titolo>Controllo amministrativo - Settimana 11</titolo>
-    </item>
-    <item>
-        <data>2026-08-13</data>
-        <descrizione>Riunione aperta con aggiornamenti e proposte.</descrizione>
-        <durata_ore>2</durata_ore>
-        <luogo>Roma</luogo>
-        <ora>17:00</ora>
-        <priorita>Media</priorita>
-        <tipo>Evento</tipo>
-        <titolo>Incontro community - Settimana 12</titolo>
-    </item>
-    <item>
-        <data>2026-08-14</data>
-        <descrizione>Incontro pratico con esercizi e confronto finale.</descrizione>
-        <durata_ore>2</durata_ore>
-        <luogo>Milano</luogo>
-        <ora>15:00</ora>
-        <priorita>Alta</priorita>
-        <tipo>Evento</tipo>
-        <titolo>Workshop tecnico - Settimana 12</titolo>
-    </item>
-    <item>
-        <data>2026-08-15</data>
-        <descrizione>Aggiornamento sullo stato delle attivita aperte.</descrizione>
-        <durata_ore>1</durata_ore>
-        <stato>USA</stato>
-        <ora>16:30</ora>
-        <priorita>Alta</priorita>
-        <tipo>Appuntamento</tipo>
-        <titolo>Chiamata cliente - Settimana 12</titolo>
-    </item>
-    <item>
-        <data>2026-08-20</data>
-        <descrizione>Incontro pratico con esercizi e confronto finale.</descrizione>
-        <durata_ore>2</durata_ore>
-        <luogo>Milano</luogo>
-        <ora>15:00</ora>
-        <priorita>Alta</priorita>
-        <tipo>Evento</tipo>
-        <titolo>Workshop tecnico - Settimana 13</titolo>
-    </item>
-    <item>
-        <data>2026-08-21</data>
-        <descrizione>Ritrovo informale per aggiornamenti e nuovi contatti.</descrizione>
-        <durata_ore>2</durata_ore>
-        <luogo>Bologna</luogo>
-        <ora>19:00</ora>
-        <priorita>Media</priorita>
-        <tipo>Evento</tipo>
-        <titolo>Aperitivo networking - Settimana 13</titolo>
-    </item>
-    <item>
-        <data>2026-08-22</data>
-        <descrizione>Sessione remota per chiarimenti e pianificazione.</descrizione>
-        <durata_ore>1</durata_ore>
-        <stato>Worldwide</stato>
-        <ora>11:30</ora>
-        <priorita>Media</priorita>
-        <tipo>Appuntamento</tipo>
-        <titolo>Consulenza online - Settimana 13</titolo>
-    </item>
-    <item>
-        <data>2026-08-27</data>
-        <descrizione>Ritrovo informale per aggiornamenti e nuovi contatti.</descrizione>
-        <durata_ore>2</durata_ore>
-        <luogo>Bologna</luogo>
-        <ora>19:00</ora>
-        <priorita>Media</priorita>
-        <tipo>Evento</tipo>
-        <titolo>Aperitivo networking - Settimana 14</titolo>
-    </item>
-    <item>
-        <data>2026-08-28</data>
-        <descrizione>Evento con interventi brevi e domande dal pubblico.</descrizione>
-        <durata_ore>2</durata_ore>
-        <luogo>Torino</luogo>
-        <ora>18:00</ora>
-        <priorita>Media</priorita>
-        <tipo>Evento</tipo>
-        <titolo>Presentazione pubblica - Settimana 14</titolo>
-    </item>
-    <item>
-        <data>2026-08-29</data>
-        <descrizione>Controllo periodico prenotato in agenda.</descrizione>
-        <durata_ore>1</durata_ore>
-        <stato>Italia</stato>
-        <ora>08:30</ora>
-        <priorita>Alta</priorita>
-        <tipo>Appuntamento</tipo>
-        <titolo>Appuntamento medico - Settimana 14</titolo>
-    </item>
-    <item>
-        <data>2026-09-03</data>
-        <descrizione>Evento con interventi brevi e domande dal pubblico.</descrizione>
-        <durata_ore>2</durata_ore>
-        <luogo>Torino</luogo>
-        <ora>18:00</ora>
-        <priorita>Media</priorita>
-        <tipo>Evento</tipo>
-        <titolo>Presentazione pubblica - Settimana 15</titolo>
-    </item>
-    <item>
-        <data>2026-09-04</data>
-        <descrizione>Proiezione serale con discussione dopo il film.</descrizione>
-        <durata_ore>3</durata_ore>
-        <luogo>Padova</luogo>
-        <ora>21:00</ora>
+        <organizzatore>Chess Club Uni</organizzatore>
         <priorita>Bassa</priorita>
+        <pubblico>false</pubblico>
         <tipo>Evento</tipo>
-        <titolo>Serata cinema - Settimana 15</titolo>
+        <titolo>Torneo Scacchi Universitario</titolo>
     </item>
     <item>
-        <data>2026-09-05</data>
-        <descrizione>Confronto su tempi, consegne e disponibilita.</descrizione>
+        <capienzaMassima>0</capienzaMassima>
+        <confermato>true</confermato>
+        <costoBiglietto>0</costoBiglietto>
+        <data>2026-07-23</data>
+        <descrizione>Sessione conclusiva di debriefing con l'azienda per la verbalizzazione dei crediti del tirocinio svolto</descrizione>
         <durata_ore>1</durata_ore>
-        <stato>Germania</stato>
-        <ora>14:30</ora>
-        <priorita>Media</priorita>
-        <tipo>Appuntamento</tipo>
-        <titolo>Colloquio fornitore - Settimana 15</titolo>
-    </item>
-    <item>
-        <data>2026-09-10</data>
-        <descrizione>Proiezione serale con discussione dopo il film.</descrizione>
-        <durata_ore>3</durata_ore>
-        <luogo>Padova</luogo>
-        <ora>21:00</ora>
-        <priorita>Bassa</priorita>
-        <tipo>Evento</tipo>
-        <titolo>Serata cinema - Settimana 16</titolo>
-    </item>
-    <item>
-        <data>2026-09-11</data>
-        <descrizione>Sessione guidata con attivita collaborative.</descrizione>
-        <durata_ore>3</durata_ore>
-        <luogo>Firenze</luogo>
-        <ora>16:00</ora>
-        <priorita>Alta</priorita>
-        <tipo>Evento</tipo>
-        <titolo>Laboratorio pratico - Settimana 16</titolo>
-    </item>
-    <item>
-        <data>2026-09-12</data>
-        <descrizione>Verifica documenti e prossime scadenze.</descrizione>
-        <durata_ore>1</durata_ore>
-        <stato>Italia</stato>
-        <ora>12:00</ora>
-        <priorita>Media</priorita>
-        <tipo>Appuntamento</tipo>
-        <titolo>Controllo amministrativo - Settimana 16</titolo>
-    </item>
-    <item>
-        <data>2026-09-17</data>
-        <descrizione>Sessione guidata con attivita collaborative.</descrizione>
-        <durata_ore>3</durata_ore>
-        <luogo>Firenze</luogo>
-        <ora>16:00</ora>
-        <priorita>Alta</priorita>
-        <tipo>Evento</tipo>
-        <titolo>Laboratorio pratico - Settimana 17</titolo>
-    </item>
-    <item>
-        <data>2026-09-18</data>
-        <descrizione>Riunione aperta con aggiornamenti e proposte.</descrizione>
-        <durata_ore>2</durata_ore>
-        <luogo>Roma</luogo>
-        <ora>17:00</ora>
-        <priorita>Media</priorita>
-        <tipo>Evento</tipo>
-        <titolo>Incontro community - Settimana 17</titolo>
-    </item>
-    <item>
-        <data>2026-09-19</data>
-        <descrizione>Aggiornamento sullo stato delle attivita aperte.</descrizione>
-        <durata_ore>1</durata_ore>
-        <stato>USA</stato>
-        <ora>16:30</ora>
-        <priorita>Alta</priorita>
-        <tipo>Appuntamento</tipo>
-        <titolo>Chiamata cliente - Settimana 17</titolo>
-    </item>
-    <item>
-        <data>2026-09-24</data>
-        <descrizione>Riunione aperta con aggiornamenti e proposte.</descrizione>
-        <durata_ore>2</durata_ore>
-        <luogo>Roma</luogo>
-        <ora>17:00</ora>
-        <priorita>Media</priorita>
-        <tipo>Evento</tipo>
-        <titolo>Incontro community - Settimana 18</titolo>
-    </item>
-    <item>
-        <data>2026-09-25</data>
-        <descrizione>Incontro pratico con esercizi e confronto finale.</descrizione>
-        <durata_ore>2</durata_ore>
-        <luogo>Milano</luogo>
-        <ora>15:00</ora>
-        <priorita>Alta</priorita>
-        <tipo>Evento</tipo>
-        <titolo>Workshop tecnico - Settimana 18</titolo>
-    </item>
-    <item>
-        <data>2026-09-26</data>
-        <descrizione>Sessione remota per chiarimenti e pianificazione.</descrizione>
-        <durata_ore>1</durata_ore>
-        <stato>Worldwide</stato>
+        <linkOnline>https://teams.microsoft.com/l/stage-verbalizzazione</linkOnline>
+        <luogo>Microsoft Teams</luogo>
+        <modalita>Online</modalita>
         <ora>11:30</ora>
-        <priorita>Media</priorita>
-        <tipo>Appuntamento</tipo>
-        <titolo>Consulenza online - Settimana 18</titolo>
-    </item>
-    <item>
-        <data>2026-09-29</data>
-        <descrizione>Incontro pratico con esercizi e confronto finale.</descrizione>
-        <durata_ore>2</durata_ore>
-        <luogo>Milano</luogo>
-        <ora>15:00</ora>
+        <organizzatore>Tutor Aziendale</organizzatore>
+        <partecipanti>Tutor Risorse Umane;Sottoscritto</partecipanti>
         <priorita>Alta</priorita>
-        <tipo>Evento</tipo>
-        <titolo>Workshop tecnico - Settimana 19</titolo>
-    </item>
-    <item>
-        <data>2026-09-30</data>
-        <descrizione>Ritrovo informale per aggiornamenti e nuovi contatti.</descrizione>
-        <durata_ore>2</durata_ore>
-        <luogo>Bologna</luogo>
-        <ora>19:00</ora>
-        <priorita>Media</priorita>
-        <tipo>Evento</tipo>
-        <titolo>Aperitivo networking - Settimana 19</titolo>
-    </item>
-    <item>
-        <data>2026-09-30</data>
-        <descrizione>Controllo periodico prenotato in agenda.</descrizione>
-        <durata_ore>1</durata_ore>
-        <stato>Italia</stato>
-        <ora>08:30</ora>
-        <priorita>Alta</priorita>
+        <pubblico>false</pubblico>
         <tipo>Appuntamento</tipo>
-        <titolo>Appuntamento medico - Settimana 19</titolo>
+        <titolo>Chiusura Formale Tirocinio</titolo>
+    </item>
+    <item>
+        <capienzaMassima>300</capienzaMassima>
+        <costoBiglietto>0</costoBiglietto>
+        <data>2026-07-26</data>
+        <descrizione>Conferenza aperta al pubblico sulle implicazioni etiche dello sviluppo di intelligenze artificiali nei software desktop</descrizione>
+        <durata_ore>3</durata_ore>
+        <luogo>Teatro Universitario</luogo>
+        <ora>16:30</ora>
+        <organizzatore>Facolta di Filosofia e Informatica</organizzatore>
+        <priorita>Media</priorita>
+        <pubblico>true</pubblico>
+        <tipo>Evento</tipo>
+        <titolo>Convegno Etica e AI Software</titolo>
     </item>
 </dati>
