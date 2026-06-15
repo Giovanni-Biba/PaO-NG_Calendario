@@ -9,6 +9,8 @@
 #include <QFile>
 #include <QJsonArray>
 #include <QJsonDocument>
+#include <QJsonParseError>
+#include <QSaveFile>
 #include <QXmlStreamReader>
 #include <QXmlStreamWriter>
 #include <QDebug>
@@ -119,6 +121,8 @@ bool ArchivioImpegni::aggiungi(const std::shared_ptr<Agenda> &impegno)
 {
     if (!impegno)
         return false;
+    if (impegni.isEmpty())
+        caricaDefault();
     impegni.append(impegno);
     return salvaTutto();
 }
@@ -187,11 +191,25 @@ bool ArchivioImpegni::caricaJson()
     if (!file.open(QIODevice::ReadOnly))
         return false;
 
-    const QJsonDocument doc = QJsonDocument::fromJson(file.readAll());
+    QJsonParseError parseError;
+    const QJsonDocument doc = QJsonDocument::fromJson(file.readAll(), &parseError);
     file.close();
 
-    const QJsonArray array = doc.isArray() ? doc.array() : doc.object().value("agenda").toArray();
+    if (parseError.error != QJsonParseError::NoError)
+        return false;
+
+    QJsonArray array;
+    if (doc.isArray()) {
+        array = doc.array();
+    } else if (doc.isObject() && doc.object().value("agenda").isArray()) {
+        array = doc.object().value("agenda").toArray();
+    } else {
+        return false;
+    }
+
     for (const QJsonValue &value : array) {
+        if (!value.isObject())
+            continue;
         const auto impegno = creaDaJson(value.toObject());
         if (impegno)
             impegni.append(impegno);
@@ -226,8 +244,8 @@ bool ArchivioImpegni::caricaXml()
 
 bool ArchivioImpegni::salvaJson() const
 {
-    QFile file(percorsoJson);
-    if (!file.open(QIODevice::WriteOnly | QIODevice::Truncate))
+    QSaveFile file(percorsoJson);
+    if (!file.open(QIODevice::WriteOnly))
         return false;
 
     QJsonArray array;
@@ -246,39 +264,40 @@ bool ArchivioImpegni::salvaJson() const
     QJsonObject root;
     root["agenda"] = array;
     file.write(QJsonDocument(root).toJson(QJsonDocument::Indented));
-    file.close();
-    return true;
+    return file.commit();
 }
 
 bool ArchivioImpegni::salvaXml() const
 {
-    QFile file(percorsoXml);
-    if (!file.open(QIODevice::WriteOnly | QIODevice::Truncate | QIODevice::Text))
+    QSaveFile file(percorsoXml);
+    if (!file.open(QIODevice::WriteOnly | QIODevice::Text))
         return false;
 
-    QXmlStreamWriter writer(&file);
-    writer.setAutoFormatting(true);
-    writer.writeStartDocument();
-    writer.writeStartElement("dati");
+    {
+        QXmlStreamWriter writer(&file);
+        writer.setAutoFormatting(true);
+        writer.writeStartDocument();
+        writer.writeStartElement("dati");
 
-    for (const auto &impegno : impegni) {
-        if (!impegno)
-            continue;
+        for (const auto &impegno : impegni) {
+            if (!impegno)
+                continue;
 
-        const QString tipo = impegno->getTipo();
-        if (tipo != "Evento" && tipo != "Appuntamento")
-            continue;
+            const QString tipo = impegno->getTipo();
+            if (tipo != "Evento" && tipo != "Appuntamento")
+                continue;
 
-        QJsonObject obj;
-        impegno->toJson(obj);
-        writer.writeStartElement("item");
-        for (auto it = obj.begin(); it != obj.end(); ++it)
-            writer.writeTextElement(it.key(), it.value().toVariant().toString());
+            QJsonObject obj;
+            impegno->toJson(obj);
+            writer.writeStartElement("item");
+            for (auto it = obj.begin(); it != obj.end(); ++it)
+                writer.writeTextElement(it.key(), it.value().toVariant().toString());
+            writer.writeEndElement();
+        }
+
         writer.writeEndElement();
+        writer.writeEndDocument();
     }
 
-    writer.writeEndElement();
-    writer.writeEndDocument();
-    file.close();
-    return true;
+    return file.commit();
 }
