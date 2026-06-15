@@ -69,12 +69,12 @@ Create::Create(QWidget *parent)
 
     // Titolo
     titoloEdit = new QLineEdit(this);
-    formLayout->addRow("Titolo (*):", titoloEdit);
+    formLayout->addRow("Titolo:", titoloEdit);
 
     // Descrizione con ALTEZZA MASSIMA FISSA
     descrizioneEdit = new QTextEdit(this);
     descrizioneEdit->setMaximumHeight(80);
-    formLayout->addRow("Descrizione (*):", descrizioneEdit);
+    formLayout->addRow("Descrizione:", descrizioneEdit);
 
     // Data e Ora Inizio
     QHBoxLayout *dateTimeLayout = new QHBoxLayout;
@@ -83,20 +83,7 @@ Create::Create(QWidget *parent)
     oraEdit = new QTimeEdit(QTime::currentTime(), this);
     dateTimeLayout->addWidget(dataEdit);
     dateTimeLayout->addWidget(oraEdit);
-    formLayout->addRow("Data e ora:", dateTimeLayout);
-
-    // Campi Attività (Scadenza)
-    dataFineLabel = new QLabel("Data scadenza:", this);
-    dataFineEdit = new QDateEdit(QDate::currentDate(), this);
-    dataFineEdit->setCalendarPopup(true);
-    oraFineLabel = new QLabel("Ora scadenza:", this);
-    oraFineEdit = new QTimeEdit(QTime::currentTime().addSecs(3600), this);
-    QHBoxLayout *dateTimeLayout2 = new QHBoxLayout;
-    dateTimeLayout2->addWidget(dataFineLabel);
-    dateTimeLayout2->addWidget(dataFineEdit);
-    dateTimeLayout2->addWidget(oraFineLabel);
-    dateTimeLayout2->addWidget(oraFineEdit);
-    formLayout->addRow(dateTimeLayout2);
+    formLayout->addRow("Data:", dateTimeLayout);
 
     // Priorità
     prioritaLabel = new QLabel("Priorità:", this);
@@ -104,7 +91,14 @@ Create::Create(QWidget *parent)
     prioritaBox->addItems({"Alta", "Media", "Bassa"});
     formLayout->addRow(prioritaLabel, prioritaBox);
 
-
+    // Campi Attività (Scadenza)
+    dataFineLabel = new QLabel("Data scadenza:", this);
+    dataFineEdit = new QDateEdit(QDate::currentDate(), this);
+    dataFineEdit->setCalendarPopup(true);
+    oraFineLabel = new QLabel("Ora scadenza:", this);
+    oraFineEdit = new QTimeEdit(QTime::currentTime().addSecs(3600), this);
+    formLayout->addRow(dataFineLabel, dataFineEdit);
+    formLayout->addRow(oraFineLabel, oraFineEdit);
 
     // Durata
     durataLabel = new QLabel("Durata (ore):", this);
@@ -120,7 +114,7 @@ Create::Create(QWidget *parent)
     formLayout->addRow("", completataCheck);
 
     // Campi Evento / Appuntamento
-    luogoLabel = new QLabel("Luogo (*):", this);
+    luogoLabel = new QLabel("Luogo:", this);
     luogoEdit = new QLineEdit(this);
     organizzatoreLabel = new QLabel("Organizzatore:", this);
     organizzatoreEdit = new QLineEdit(this);
@@ -168,7 +162,7 @@ Create::Create(QWidget *parent)
     formLayout->addRow("", nonLavorativoCheck);
 
     // Solo Consegna
-    materiaLabel = new QLabel("Materia/Progetto (*):", this);
+    materiaLabel = new QLabel("Materia/Progetto:", this);
     materiaEdit = new QLineEdit(this);
     destinatarioLabel = new QLabel("Destinatario:", this);
     destinatarioEdit = new QLineEdit(this);
