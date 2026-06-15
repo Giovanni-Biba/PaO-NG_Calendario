@@ -617,6 +617,239 @@
             "priorita": "Media",
             "tipo": "Consegna",
             "titolo": "Relazione Dati Campionamento"
-        }
-    ]
+        },
+{
+  "agenda": [
+    {
+      "categoria": "Sopravvivenza",
+      "completata": false,
+      "data": "2026-06-14",
+      "dataScadenza": "2026-06-14",
+      "descrizione": "Spesa settimanale",
+      "durata_ore": 2,
+      "ora": "10:00",
+      "priorita": "Alta",
+      "tipo": "Attivita",
+      "titolo": "Spesa "
+    },
+    {
+      "data": "2026-06-02",
+      "descrizione": "festeggiamento della creazione della repubblica italiana",
+      "durata_ore": 1,
+      "giornoNonLavorativo": true,
+      "nomeUfficiale": "Festa della repubblica",
+      "ora": "00:00",
+      "ricorrenzaAnnuale": true,
+      "stato": "Italia",
+      "tipo": "Festivita",
+      "titolo": "Festa della repubblica Italiana"
+    },
+    {
+      "categoria": "Studio",
+      "completata": true,
+      "data": "2026-06-01",
+      "dataScadenza": "2026-06-03",
+      "descrizione": "Ripasso capitoli da 1 a 4 del manuale di C++",
+      "durata_ore": 4,
+      "ora": "09:00",
+      "priorita": "Alta",
+      "tipo": "Attivita",
+      "titolo": "Ripasso C++ Teorico"
+    },
+
+    {
+      "categoria": "Studio",
+      "completata": false,
+      "data": "2026-09-02",
+      "dataScadenza": "2026-09-02",
+      "descrizione": "Pianificazione studio semestre autunnale e revisione appunti",
+      "durata_ore": 2,
+      "ora": "09:30",
+      "priorita": "Media",
+      "tipo": "Attivita",
+      "titolo": "Organizzazione Studio Settembre"
+    },
+    {
+      "data": "2026-09-03",
+      "descrizione": "Giornata di orientamento e avvio attività accademiche",
+      "durata_ore": 24,
+      "giornoNonLavorativo": false,
+      "nomeUfficiale": "Inizio Attività Accademiche",
+      "ora": "00:00",
+      "ricorrenzaAnnuale": false,
+      "stato": "Italia",
+      "tipo": "Festivita",
+      "titolo": "Start Semestre Autunnale"
+    },
+    {
+      "consegnata": false,
+      "data": "2026-09-04",
+      "descrizione": "Consegna esercitazione introduttiva su revisione concetti base",
+      "destinatario": "Docente",
+      "durata_ore": 3,
+      "formato": "PDF",
+      "materiaOProgetto": "Ripasso Generale",
+      "ora": "23:59",
+      "piattaforma": "Moodle",
+      "priorita": "Bassa",
+      "tipo": "Consegna",
+      "titolo": "Esercizio Ripasso Iniziale"
+    },
+
+    {
+      "categoria": "Studio",
+      "completata": false,
+      "data": "2026-09-08",
+      "dataScadenza": "2026-09-08",
+      "descrizione": "Studio algoritmi e strutture dati avanzate",
+      "durata_ore": 3,
+      "ora": "10:00",
+      "priorita": "Alta",
+      "tipo": "Attivita",
+      "titolo": "Studio Algoritmi Settembre"
+    },
+    {
+      "data": "2026-09-10",
+      "descrizione": "Giornata accademica di apertura workshop tecnici",
+      "durata_ore": 24,
+      "giornoNonLavorativo": false,
+      "nomeUfficiale": "Tech Workshop Day",
+      "ora": "00:00",
+      "ricorrenzaAnnuale": false,
+      "stato": "Italia",
+      "tipo": "Festivita",
+      "titolo": "Workshop Universitario"
+    },
+    {
+      "consegnata": false,
+      "data": "2026-09-11",
+      "descrizione": "Relazione intermedia su progetto software autunnale",
+      "destinatario": "Tutor",
+      "durata_ore": 4,
+      "formato": "PDF",
+      "materiaOProgetto": "Ingegneria Software",
+      "ora": "23:59",
+      "piattaforma": "Email",
+      "priorita": "Media",
+      "tipo": "Consegna",
+      "titolo": "Report Intermedio"
+    },
+
+    {
+      "categoria": "Casa",
+      "completata": false,
+      "data": "2026-09-15",
+      "dataScadenza": "2026-09-15",
+      "descrizione": "Pulizia e riorganizzazione post estate",
+      "durata_ore": 2,
+      "ora": "09:00",
+      "priorita": "Bassa",
+      "tipo": "Attivita",
+      "titolo": "Pulizia Casa Autunnale"
+    },
+    {
+      "data": "2026-09-17",
+      "descrizione": "Evento commemorativo universitario di metà semestre",
+      "durata_ore": 24,
+      "giornoNonLavorativo": false,
+      "nomeUfficiale": "Mid Semester Event",
+      "ora": "00:00",
+      "ricorrenzaAnnuale": false,
+      "stato": "Italia",
+      "tipo": "Festivita",
+      "titolo": "Evento Accademico"
+    },
+    {
+      "consegnata": false,
+      "data": "2026-09-18",
+      "descrizione": "Consegna progetto su analisi dati e statistiche",
+      "destinatario": "Docente Statistica",
+      "durata_ore": 5,
+      "formato": "PDF",
+      "materiaOProgetto": "Statistica",
+      "ora": "23:59",
+      "piattaforma": "Moodle",
+      "priorita": "Alta",
+      "tipo": "Consegna",
+      "titolo": "Progetto Statistica"
+    },
+
+    {
+      "categoria": "Studio",
+      "completata": false,
+      "data": "2026-09-22",
+      "dataScadenza": "2026-09-22",
+      "descrizione": "Preparazione esami sessione autunnale",
+      "durata_ore": 4,
+      "ora": "10:00",
+      "priorita": "Alta",
+      "tipo": "Attivita",
+      "titolo": "Studio Intensivo"
+    },
+    {
+      "data": "2026-09-24",
+      "descrizione": "Celebrazione accademica di fine modulo",
+      "durata_ore": 24,
+      "giornoNonLavorativo": false,
+      "nomeUfficiale": "Closing Module Event",
+      "ora": "00:00",
+      "ricorrenzaAnnuale": false,
+      "stato": "Italia",
+      "tipo": "Festivita",
+      "titolo": "Chiusura Moduli"
+    },
+    {
+      "consegnata": true,
+      "data": "2026-09-25",
+      "descrizione": "Consegna progetto finale di laboratorio",
+      "destinatario": "Docente",
+      "durata_ore": 6,
+      "formato": "ZIP",
+      "materiaOProgetto": "Laboratorio",
+      "ora": "23:59",
+      "piattaforma": "GitHub",
+      "priorita": "Alta",
+      "tipo": "Consegna",
+      "titolo": "Progetto Finale Lab"
+    },
+
+    {
+      "categoria": "Studio",
+      "completata": false,
+      "data": "2026-09-29",
+      "dataScadenza": "2026-09-29",
+      "descrizione": "Revisione finale mese e organizzazione ottobre",
+      "durata_ore": 2,
+      "ora": "09:00",
+      "priorita": "Media",
+      "tipo": "Attivita",
+      "titolo": "Planning Ottobre"
+    },
+    {
+      "data": "2026-09-30",
+      "descrizione": "Evento conclusivo del mese accademico",
+      "durata_ore": 24,
+      "giornoNonLavorativo": false,
+      "nomeUfficiale": "Month Closing Event",
+      "ora": "00:00",
+      "ricorrenzaAnnuale": false,
+      "stato": "Italia",
+      "tipo": "Festivita",
+      "titolo": "Chiusura Settembre"
+    },
+    {
+      "consegnata": false,
+      "data": "2026-09-30",
+      "descrizione": "Relazione finale attività mese settembre",
+      "destinatario": "Docente",
+      "durata_ore": 3,
+      "formato": "PDF",
+      "materiaOProgetto": "Reportistica",
+      "ora": "23:59",
+      "piattaforma": "Email",
+      "priorita": "Media",
+      "tipo": "Consegna",
+      "titolo": "Report Mensile"
+    }
+  ]
 }

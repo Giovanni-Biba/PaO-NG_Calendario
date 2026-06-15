@@ -837,3 +837,248 @@
         <titolo>Convegno Etica e AI Software</titolo>
     </item>
 </dati>
+<item>
+    <capienzaMassima>0</capienzaMassima>
+    <costoBiglietto>0</costoBiglietto>
+    <data>2026-06-04</data>
+    <descrizione>Attività di coordinamento settimanale per pianificazione sprint</descrizione>
+    <durata_ore>1</durata_ore>
+    <luogo>Online</luogo>
+    <modalita>Online</modalita>
+    <ora>10:00</ora>
+    <organizzatore>Sistema</organizzatore>
+    <priorita>Media</priorita>
+    <pubblico>false</pubblico>
+    <tipo>Appuntamento</tipo>
+    <titolo>Sync Settimanale Q1</titolo>
+</item>
+
+<item>
+    <capienzaMassima>100</capienzaMassima>
+    <costoBiglietto>0</costoBiglietto>
+    <data>2026-06-06</data>
+    <descrizione>Evento informativo introduttivo su progetti dipartimentali</descrizione>
+    <durata_ore>2</durata_ore>
+    <luogo>Aula Centrale</luogo>
+    <ora>15:00</ora>
+    <organizzatore>Università</organizzatore>
+    <priorita>Media</priorita>
+    <pubblico>true</pubblico>
+    <tipo>Evento</tipo>
+    <titolo>Open Day Tecnico</titolo>
+</item>
+<item>
+    <capienzaMassima>0</capienzaMassima>
+    <costoBiglietto>0</costoBiglietto>
+    <data>2026-06-11</data>
+    <descrizione>Riunione tecnica di allineamento requisiti sistema</descrizione>
+    <durata_ore>1</durata_ore>
+    <luogo>Ufficio Virtuale</luogo>
+    <modalita>Online</modalita>
+    <ora>11:00</ora>
+    <organizzatore>Team</organizzatore>
+    <priorita>Alta</priorita>
+    <pubblico>false</pubblico>
+    <tipo>Appuntamento</tipo>
+    <titolo>Allineamento Tecnico</titolo>
+</item>
+
+<item>
+    <capienzaMassima>200</capienzaMassima>
+    <costoBiglietto>0</costoBiglietto>
+    <data>2026-06-12</data>
+    <descrizione>Seminario divulgativo su architetture software moderne</descrizione>
+    <durata_ore>2</durata_ore>
+    <luogo>Aula Magna</luogo>
+    <ora>16:00</ora>
+    <organizzatore>Dipartimento</organizzatore>
+    <priorita>Media</priorita>
+    <pubblico>true</pubblico>
+    <tipo>Evento</tipo>
+    <titolo>Seminario Architetture</titolo>
+</item>
+
+<item>
+    <capienzaMassima>0</capienzaMassima>
+    <costoBiglietto>0</costoBiglietto>
+    <data>2026-07-15</data>
+    <descrizione>Check avanzamento attività progetto estivo</descrizione>
+    <durata_ore>1</durata_ore>
+    <luogo>Online</luogo>
+    <modalita>Online</modalita>
+    <ora>09:30</ora>
+    <organizzatore>Team</organizzatore>
+    <priorita>Media</priorita>
+    <pubblico>false</pubblico>
+    <tipo>Appuntamento</tipo>
+    <titolo>Weekly Checkpoint</titolo>
+</item>
+
+<item>
+    <capienzaMassima>150</capienzaMassima>
+    <costoBiglietto>0</costoBiglietto>
+    <data>2026-07-16</data>
+    <descrizione>Evento dimostrativo progetti studenti</descrizione>
+    <durata_ore>3</durata_ore>
+    <luogo>Campus</luogo>
+    <ora>17:00</ora>
+    <organizzatore>Università</organizzatore>
+    <priorita>Media</priorita>
+    <pubblico>true</pubblico>
+    <tipo>Evento</tipo>
+    <titolo>Demo Day Studenti</titolo>
+</item>
+<item>
+    <capienzaMassima>0</capienzaMassima>
+    <costoBiglietto>0</costoBiglietto>
+    <data>2026-09-03</data>
+    <descrizione>Pianificazione iniziale attività semestre autunnale</descrizione>
+    <durata_ore>1</durata_ore>
+    <luogo>Online</luogo>
+    <modalita>Online</modalita>
+    <ora>10:00</ora>
+    <organizzatore>Team</organizzatore>
+    <priorita>Alta</priorita>
+    <pubblico>false</pubblico>
+    <tipo>Appuntamento</tipo>
+    <titolo>Kickoff Settembre</titolo>
+</item>
+
+<item>
+    <capienzaMassima>120</capienzaMassima>
+    <costoBiglietto>0</costoBiglietto>
+    <data>2026-09-05</data>
+    <descrizione>Evento di apertura anno accademico tecnico</descrizione>
+    <durata_ore>2</durata_ore>
+    <luogo>Aula Magna</luogo>
+    <ora>15:00</ora>
+    <organizzatore>Università</organizzatore>
+    <priorita>Media</priorita>
+    <pubblico>true</pubblico>
+    <tipo>Evento</tipo>
+    <titolo>Welcome Tech Semester</titolo>
+</item>
+
+<item>
+    <capienzaMassima>0</capienzaMassima>
+    <costoBiglietto>0</costoBiglietto>
+    <data>2026-09-09</data>
+    <descrizione>Revisione backlog attività progetto</descrizione>
+    <durata_ore>1</durata_ore>
+    <luogo>Online</luogo>
+    <modalita>Online</modalita>
+    <ora>11:00</ora>
+    <organizzatore>Team</organizzatore>
+    <priorita>Media</priorita>
+    <pubblico>false</pubblico>
+    <tipo>Appuntamento</tipo>
+    <titolo>Backlog Review</titolo>
+</item>
+
+<item>
+    <capienzaMassima>80</capienzaMassima>
+    <costoBiglietto>0</costoBiglietto>
+    <data>2026-09-10</data>
+    <descrizione>Workshop introduttivo tecnologie emergenti software</descrizione>
+    <durata_ore>3</durata_ore>
+    <luogo>Lab Informatica</luogo>
+    <ora>16:00</ora>
+    <organizzatore>Dipartimento</organizzatore>
+    <priorita>Media</priorita>
+    <pubblico>true</pubblico>
+    <tipo>Evento</tipo>
+    <titolo>Tech Workshop</titolo>
+</item>
+
+<item>
+    <capienzaMassima>0</capienzaMassima>
+    <costoBiglietto>0</costoBiglietto>
+    <data>2026-09-16</data>
+    <descrizione>Riunione di avanzamento progetto software</descrizione>
+    <durata_ore>1</durata_ore>
+    <luogo>Online</luogo>
+    <modalita>Online</modalita>
+    <ora>09:30</ora>
+    <organizzatore>Team</organizzatore>
+    <priorita>Alta</priorita>
+    <pubblico>false</pubblico>
+    <tipo>Appuntamento</tipo>
+    <titolo>Project Sync</titolo>
+</item>
+
+<item>
+    <capienzaMassima>200</capienzaMassima>
+    <costoBiglietto>0</costoBiglietto>
+    <data>2026-09-18</data>
+    <descrizione>Conferenza su innovazione software e AI</descrizione>
+    <durata_ore>2</durata_ore>
+    <luogo>Auditorium</luogo>
+    <ora>17:00</ora>
+    <organizzatore>Facoltà</organizzatore>
+    <priorita>Media</priorita>
+    <pubblico>true</pubblico>
+    <tipo>Evento</tipo>
+    <titolo>AI & Software Conference</titolo>
+</item>
+
+<item>
+    <capienzaMassima>0</capienzaMassima>
+    <costoBiglietto>0</costoBiglietto>
+    <data>2026-09-23</data>
+    <descrizione>Controllo avanzamento finale sprint</descrizione>
+    <durata_ore>1</durata_ore>
+    <luogo>Online</luogo>
+    <modalita>Online</modalita>
+    <ora>10:30</ora>
+    <organizzatore>Team</organizzatore>
+    <priorita>Media</priorita>
+    <pubblico>false</pubblico>
+    <tipo>Appuntamento</tipo>
+    <titolo>Sprint Review</titolo>
+</item>
+
+<item>
+    <capienzaMassima>150</capienzaMassima>
+    <costoBiglietto>0</costoBiglietto>
+    <data>2026-09-25</data>
+    <descrizione>Evento finale presentazione progetti autunnali</descrizione>
+    <durata_ore>2</durata_ore>
+    <luogo>Campus</luogo>
+    <ora>15:00</ora>
+    <organizzatore>Università</organizzatore>
+    <priorita>Media</priorita>
+    <pubblico>true</pubblico>
+    <tipo>Evento</tipo>
+    <titolo>Project Showcase</titolo>
+</item>
+
+<item>
+    <capienzaMassima>0</capienzaMassima>
+    <costoBiglietto>0</costoBiglietto>
+    <data>2026-09-29</data>
+    <descrizione>Chiusura mensile attività e report finale</descrizione>
+    <durata_ore>1</durata_ore>
+    <luogo>Online</luogo>
+    <modalita>Online</modalita>
+    <ora>11:00</ora>
+    <organizzatore>Team</organizzatore>
+    <priorita>Alta</priorita>
+    <pubblico>false</pubblico>
+    <tipo>Appuntamento</tipo>
+    <titolo>Monthly Closing</titolo>
+</item>
+
+<item>
+    <capienzaMassima>100</capienzaMassima>
+    <costoBiglietto>0</costoBiglietto>
+    <data>2026-09-30</data>
+    <descrizione>Evento conclusivo del ciclo autunnale</descrizione>
+    <durata_ore>2</durata_ore>
+    <luogo>Aula Magna</luogo>
+    <ora>16:00</ora>
+    <organizzatore>Università</organizzatore>
+    <priorita>Media</priorita>
+    <pubblico>true</pubblico>
+    <tipo>Evento</tipo>
+    <titolo>Closing Event Settembre</titolo>
+</item>
