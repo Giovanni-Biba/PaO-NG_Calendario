@@ -3,67 +3,52 @@
 #include <QCoreApplication>
 #include <QDir>
 #include <QFileInfo>
-#include <QStringList>
 
 namespace
 {
-void aggiungiSeValida(QStringList &cartelle, const QString &path)
+QString cartellaProgettoDaMacro()
 {
-    QDir dir(path);
-    QString assoluto = dir.absolutePath();
-
-    if (!cartelle.contains(assoluto))
-        cartelle.append(assoluto);
+#ifdef PROJECT_SOURCE_DIR
+    QDir dir(QStringLiteral(PROJECT_SOURCE_DIR));
+    if (QFileInfo::exists(dir.filePath("NG_Calendario.pro")))
+        return dir.absolutePath();
+#endif
+    return QString();
 }
 
-QString cartellaEsternaAppMac()
+QString cercaCartellaProgettoSalendoDa(const QString &path)
 {
-    QDir dir(QCoreApplication::applicationDirPath());
+    QDir dir(path);
 
-    if (dir.dirName() == "MacOS" && dir.cdUp() && dir.dirName() == "Contents" && dir.cdUp()) {
-        QString nomeBundle = dir.dirName();
-        if (nomeBundle.endsWith(".app") && dir.cdUp())
+    for (int i = 0; i < 8; ++i) {
+        if (QFileInfo::exists(dir.filePath("NG_Calendario.pro")))
             return dir.absolutePath();
+        if (!dir.cdUp())
+            break;
     }
 
     return QString();
 }
 
-QStringList cartelleCandidate()
+QString cartellaProgetto()
 {
-    QStringList cartelle;
+    const QString daMacro = cartellaProgettoDaMacro();
+    if (!daMacro.isEmpty())
+        return daMacro;
 
-    QString esternaApp = cartellaEsternaAppMac();
-    if (!esternaApp.isEmpty())
-        aggiungiSeValida(cartelle, esternaApp);
+    const QString daCurrentPath = cercaCartellaProgettoSalendoDa(QDir::currentPath());
+    if (!daCurrentPath.isEmpty())
+        return daCurrentPath;
 
-    aggiungiSeValida(cartelle, QDir::currentPath());
-    aggiungiSeValida(cartelle, QCoreApplication::applicationDirPath());
-
-    QStringList basi = cartelle;
-    for (const QString &base : std::as_const(basi)) {
-        QDir dir(base);
-
-        for (int i = 0; i < 8 && dir.cdUp(); ++i)
-            aggiungiSeValida(cartelle, dir.absolutePath());
-    }
-
-    return cartelle;
+    return cercaCartellaProgettoSalendoDa(QCoreApplication::applicationDirPath());
 }
 }
 
 QString DataFiles::path(const QString &fileName)
 {
-    const QStringList cartelle = cartelleCandidate();
+    const QString progetto = cartellaProgetto();
+    if (!progetto.isEmpty())
+        return QDir(progetto).filePath(fileName);
 
-    for (const QString &cartella : cartelle) {
-        const QString candidato = QDir(cartella).filePath(fileName);
-        if (QFileInfo::exists(candidato))
-            return candidato;
-    }
-
-    if (!cartelle.isEmpty())
-        return QDir(cartelle.first()).filePath(fileName);
-
-    return fileName;
+    return QDir(QDir::currentPath()).filePath(fileName);
 }
