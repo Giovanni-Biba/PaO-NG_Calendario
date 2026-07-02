@@ -1,4 +1,5 @@
 #include "archivioimpegni.h"
+#include "agendavisitor.h"
 #include "appuntamento.h"
 #include "attivita.h"
 #include "consegna.h"
@@ -14,6 +15,46 @@
 #include <QXmlStreamReader>
 #include <QXmlStreamWriter>
 #include <QDebug>
+
+// modifiche seconda consegna: visitor per filtrare per tipo senza usare getTipo come controllo di flusso.
+class FiltroTipoVisitor : public AgendaVisitor
+{
+public:
+    explicit FiltroTipoVisitor(const QString &tipoRichiesto)
+        : tipo(tipoRichiesto), corrisponde(tipoRichiesto == "Tutte")
+    {
+    }
+
+    void visit(const Attivita &) override { corrisponde = corrisponde || tipo.compare("Attivita", Qt::CaseInsensitive) == 0; }
+    void visit(const Evento &) override { corrisponde = corrisponde || tipo.compare("Evento", Qt::CaseInsensitive) == 0; }
+    void visit(const Appuntamento &) override { corrisponde = corrisponde || tipo.compare("Appuntamento", Qt::CaseInsensitive) == 0; }
+    void visit(const Consegna &) override { corrisponde = corrisponde || tipo.compare("Consegna", Qt::CaseInsensitive) == 0; }
+    void visit(const Festivita &) override { corrisponde = corrisponde || tipo.compare("Festivita", Qt::CaseInsensitive) == 0 || tipo.compare("Festività", Qt::CaseInsensitive) == 0; }
+
+    bool esito() const { return corrisponde; }
+
+private:
+    QString tipo;
+    bool corrisponde;
+};
+
+// modifiche seconda consegna: visitor per scegliere il formato di salvataggio senza confrontare stringhe di tipo.
+class FormatoArchivioVisitor : public AgendaVisitor
+{
+public:
+    void visit(const Attivita &) override { json = true; }
+    void visit(const Evento &) override { xml = true; }
+    void visit(const Appuntamento &) override { xml = true; }
+    void visit(const Consegna &) override { json = true; }
+    void visit(const Festivita &) override { json = true; }
+
+    bool vaInJson() const { return json; }
+    bool vaInXml() const { return xml; }
+
+private:
+    bool json = false;
+    bool xml = false;
+};
 
 ArchivioImpegni::ArchivioImpegni()
     : percorsoJson(DataFiles::path("datiAttivitaFestivita.json")),
@@ -39,40 +80,14 @@ QVector<std::shared_ptr<Agenda>> ArchivioImpegni::cerca(const QString &titolo, c
     for (const auto &impegno : impegni) {
         if (!impegno) continue;
 
-        bool corrisponde = true;
+        FiltroTipoVisitor filtroTipo(tipo);
+        impegno->accept(filtroTipo);
+
+        bool corrisponde = filtroTipo.esito();
 
         // 1. Filtro Titolo: se l'utente ha scritto qualcosa, cerchiamo corrispondenza parziale
-        if (!titolo.isEmpty()) {
-            if (!impegno->getTitolo().contains(titolo, Qt::CaseInsensitive)) {
-                corrisponde = false;
-            }
-        }
-
-        // 2. Filtro Data: se la data è valida (pulsante check attivo), deve corrispondere esattamente
-        if (corrisponde && data.isValid()) {
-            if (impegno->getData() != data) {
-                corrisponde = false;
-            }
-        }
-
-        // 3. Filtro Tipo
-        if (corrisponde && tipo != "Tutte") {
-            if (impegno->getTipo().toLower() != tipo.toLower()) {
-                corrisponde = false;
-            }
-        }
-
-        // 4. Filtro Priorità (solo se l'impegno ha il metodo per la priorità)
-        if (corrisponde && priorita != "Tutte") {
-            auto att = impegno->usaRigaFestivita() ? std::shared_ptr<Agenda>() : impegno;
-            if (att) {
-                if (att->prioritaToString().toLower() != priorita.toLower()) {
-                    corrisponde = false;
-                }
-            } else {
-                corrisponde = false;
-            }
-        }
+        if (corrisponde)
+            corrisponde = impegno->matchesFiltro(titolo, data, tipo, priorita);
 
         if (corrisponde)
             risultati.append(impegno);
@@ -253,8 +268,9 @@ bool ArchivioImpegni::salvaJson() const
         if (!impegno)
             continue;
 
-        const QString tipo = impegno->getTipo();
-        if (tipo == "Attivita" || tipo == "Festivita" || tipo == "Consegna") {
+        FormatoArchivioVisitor formato;
+        impegno->accept(formato);
+        if (formato.vaInJson()) {
             QJsonObject obj;
             impegno->toJson(obj);
             array.append(obj);
@@ -283,8 +299,9 @@ bool ArchivioImpegni::salvaXml() const
             if (!impegno)
                 continue;
 
-            const QString tipo = impegno->getTipo();
-            if (tipo != "Evento" && tipo != "Appuntamento")
+            FormatoArchivioVisitor formato;
+            impegno->accept(formato);
+            if (!formato.vaInXml())
                 continue;
 
             QJsonObject obj;

@@ -4,12 +4,13 @@
 #include <QColor>
 #include <QDate>
 #include <QJsonObject>
-#include <QMap>
 #include <QMetaType>
 #include <QString>
 #include <QTime>
 
 #include <memory>
+
+class AgendaVisitor;
 
 class Agenda
 {
@@ -43,8 +44,9 @@ public:
 
     virtual QString getTipo() const = 0;
     virtual QString riepilogo() const = 0;
-    virtual QMap<QString, QString> campiSpecifici() const = 0;
     virtual QColor coloreCalendario() const = 0;
+    // modifiche seconda consegna: accept abilita un visitor con logiche specifiche per ogni sottotipo.
+    virtual void accept(AgendaVisitor &visitor) const = 0;
     virtual bool usaRigaFestivita() const;
     virtual bool matchesFiltro(const QString &testo, const QDate &dataFiltro, const QString &tipo, const QString &priorita) const;
 

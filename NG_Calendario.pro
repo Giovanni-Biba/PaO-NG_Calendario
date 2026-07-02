@@ -34,6 +34,7 @@ SOURCES += \
     visualize.cpp
 
 HEADERS += \
+    agendavisitor.h \
     appuntamento.h \
     archivioimpegni.h \
     attivita.h \

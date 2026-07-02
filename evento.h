@@ -19,8 +19,9 @@ public:
 
     QString getTipo() const override;
     QString riepilogo() const override;
-    QMap<QString, QString> campiSpecifici() const override;
     QColor coloreCalendario() const override;
+    // modifiche seconda consegna
+    void accept(AgendaVisitor &visitor) const override;
 
     QString getLuogo() const;
     QString getOrganizzatore() const;

@@ -1,4 +1,5 @@
 #include "consegna.h"
+#include "agendavisitor.h"
 
 Consegna::Consegna()
     : Agenda(), formato(Altro), consegnata(false)
@@ -24,18 +25,6 @@ QString Consegna::riepilogo() const
     return QString("%1 per %2 su %3").arg(formatoToString(), materiaOProgetto, piattaforma);
 }
 
-QMap<QString, QString> Consegna::campiSpecifici() const
-{
-    return {
-        {"Materia o progetto", materiaOProgetto},
-        {"Destinatario", destinatario},
-        {"Formato", formatoToString()},
-        {"Piattaforma", piattaforma},
-        {"Consegnata", consegnata ? "Si" : "No"},
-        {"Giorni rimanenti", QString::number(giorniRimanenti())}
-    };
-}
-
 QColor Consegna::coloreCalendario() const
 {
     if (consegnata)
@@ -44,6 +33,13 @@ QColor Consegna::coloreCalendario() const
         return QColor::fromRgb(236, 112, 99);
     return QColor::fromRgb(248, 196, 113);
 }
+
+// modifiche seconda consegna: punto di ingresso del visitor per Consegna.
+void Consegna::accept(AgendaVisitor &visitor) const
+{
+    visitor.visit(*this);
+}
+
 QString Consegna::getMateriaOProgetto() const { return materiaOProgetto; }
 QString Consegna::getDestinatario() const { return destinatario; }
 Consegna::Formato Consegna::getFormato() const { return formato; }

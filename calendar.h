@@ -20,6 +20,10 @@ public:
 
     SearchBar* getSearchBar() const { return BarraRicerca; }
     void aggiornaCalendario();
+    // modifiche seconda consegna: metodi pubblici richiamabili dalle scorciatoie della finestra principale.
+    void mostraSettimanaPrecedente();
+    void mostraSettimanaSuccessiva();
+    void aggiornaHome();
 
 private:
     QPushButton *Titolo;

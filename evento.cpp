@@ -1,4 +1,5 @@
 #include "evento.h"
+#include "agendavisitor.h"
 
 Evento::Evento()
     : Agenda(), capienzaMassima(0), costoBiglietto(0.0), pubblico(false)
@@ -23,20 +24,15 @@ QString Evento::riepilogo() const
     return QString("%1 presso %2").arg(QString(pubblico ? "Evento pubblico" : "Evento privato"), luogo);
 }
 
-QMap<QString, QString> Evento::campiSpecifici() const
-{
-    return {
-        {"Luogo", luogo},
-        {"Organizzatore", organizzatore},
-        {"Capienza", QString::number(capienzaMassima)},
-        {"Costo", QString::number(costoBiglietto, 'f', 2)},
-        {"Pubblico", pubblico ? "Si" : "No"}
-    };
-}
-
 QColor Evento::coloreCalendario() const
 {
     return pubblico ? QColor::fromRgb(174, 214, 241) : QColor::fromRgb(214, 234, 248);
+}
+
+// modifiche seconda consegna: punto di ingresso del visitor per Evento.
+void Evento::accept(AgendaVisitor &visitor) const
+{
+    visitor.visit(*this);
 }
 
 QString Evento::getLuogo() const { return luogo; }

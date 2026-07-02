@@ -177,6 +177,22 @@ void calendar::vaiSettimanaSuccessiva()
     aggiornaCalendario();
 }
 
+// modifiche seconda consegna: wrapper pubblici usati dalle scorciatoie globali.
+void calendar::mostraSettimanaPrecedente()
+{
+    vaiSettimanaPrecedente();
+}
+
+void calendar::mostraSettimanaSuccessiva()
+{
+    vaiSettimanaSuccessiva();
+}
+
+void calendar::aggiornaHome()
+{
+    refreshGenerale();
+}
+
 void calendar::refreshGenerale()
 {
     oggi = QDate::currentDate();

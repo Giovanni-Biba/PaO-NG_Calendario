@@ -1,4 +1,5 @@
 #include "appuntamento.h"
+#include "agendavisitor.h"
 
 Appuntamento::Appuntamento()
     : Evento(), modalita(Presenza), confermato(false)
@@ -23,19 +24,15 @@ QString Appuntamento::riepilogo() const
     return QString("%1 con %2 partecipanti%3").arg(modalitaToString()).arg(partecipanti.size()).arg(confermato ? " - confermato" : "");
 }
 
-QMap<QString, QString> Appuntamento::campiSpecifici() const
-{
-    QMap<QString, QString> campi = Evento::campiSpecifici();
-    campi["Partecipanti"] = partecipanti.join(", ");
-    campi["Modalita"] = modalitaToString();
-    campi["Link"] = linkOnline;
-    campi["Confermato"] = confermato ? "Si" : "No";
-    return campi;
-}
-
 QColor Appuntamento::coloreCalendario() const
 {
     return confermato ? QColor::fromRgb(215, 189, 226) : QColor::fromRgb(232, 218, 239);
+}
+
+// modifiche seconda consegna: punto di ingresso del visitor per Appuntamento.
+void Appuntamento::accept(AgendaVisitor &visitor) const
+{
+    visitor.visit(*this);
 }
 
 QStringList Appuntamento::getPartecipanti() const { return partecipanti; }

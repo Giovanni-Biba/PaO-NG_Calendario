@@ -1,5 +1,10 @@
 <RCC>
     <qresource prefix="/IMG/logo.png">
         <file>IMG/logo.png</file>
+        <file>IMG/Appuntamento.png</file>
+        <file>IMG/Consegna.png</file>
+        <file>IMG/evento.png</file>
+        <file>IMG/Attivita.png</file>
+        <file>IMG/festivita.png</file>
     </qresource>
 </RCC>

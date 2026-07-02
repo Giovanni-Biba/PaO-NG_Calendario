@@ -1,4 +1,5 @@
 #include "attivita.h"
+#include "agendavisitor.h"
 
 Attivita::Attivita()
     : Agenda(), completata(false)
@@ -21,15 +22,6 @@ QString Attivita::riepilogo() const
     return QString("%1 - priorita %2%3").arg(categoria, prioritaToString(), QString(completata ? " - completata" : ""));
 }
 
-QMap<QString, QString> Attivita::campiSpecifici() const
-{
-    return {
-        {"Completata", completata ? "Si" : "No"},
-        {"Scadenza", dataScadenza.toString("dd/MM/yyyy")},
-        {"Categoria", categoria}
-    };
-}
-
 QColor Attivita::coloreCalendario() const
 {
     if (completata)
@@ -42,6 +34,12 @@ QColor Attivita::coloreCalendario() const
         return QColor::fromRgb(249, 231, 159);
 
     return QColor::fromRgb(171, 235, 198);
+}
+
+// modifiche seconda consegna: punto di ingresso del visitor per Attivita.
+void Attivita::accept(AgendaVisitor &visitor) const
+{
+    visitor.visit(*this);
 }
 
 bool Attivita::matchesFiltro(const QString &testo, const QDate &dataFiltro, const QString &tipo, const QString &prioritaFiltro) const

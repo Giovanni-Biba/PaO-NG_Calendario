@@ -19,8 +19,14 @@
 #include <QString>
 #include <QAction>
 #include <QFileDialog>
+#include <QIcon>
+#include <QKeySequence>
 #include <QMenuBar>
 #include <QMessageBox>
+
+namespace {
+const QString logoIconPath = ":/IMG/logo.png/IMG/logo.png";
+}
 
 Home::Home(QWidget *parent)
     : QMainWindow{parent}
@@ -49,13 +55,53 @@ Home::Home(QWidget *parent)
 
     // --- CONFIGURAZIONE MENU BAR ---
     QMenu *fileMenu = menuBar()->addMenu("File");
+    // modifiche seconda consegna: azione menu con scorciatoia per creare un nuovo impegno.
+    QAction *nuovoImpegno = fileMenu->addAction("Nuovo impegno");
+    nuovoImpegno->setIcon(QIcon(logoIconPath));
+    nuovoImpegno->setShortcut(QKeySequence("Ctrl+N"));
+    fileMenu->addSeparator();
     QAction *caricaJson = fileMenu->addAction("Carica JSON...");
     QAction *caricaXml = fileMenu->addAction("Carica XML...");
     fileMenu->addSeparator();
     QAction *salvaJson = fileMenu->addAction("Salva JSON...");
     QAction *salvaXml = fileMenu->addAction("Salva XML...");
 
+    // modifiche seconda consegna: scorciatoie tastiera per calendario e home.
+    QAction *settimanaPrima = new QAction("Settimana precedente", this);
+    settimanaPrima->setIcon(QIcon(logoIconPath));
+    settimanaPrima->setShortcut(QKeySequence("Ctrl+Left"));
+    addAction(settimanaPrima);
+
+    QAction *settimanaDopo = new QAction("Settimana successiva", this);
+    settimanaDopo->setIcon(QIcon(logoIconPath));
+    settimanaDopo->setShortcut(QKeySequence("Ctrl+Right"));
+    addAction(settimanaDopo);
+
+    QAction *refreshHome = new QAction("Aggiorna home", this);
+    refreshHome->setIcon(QIcon(logoIconPath));
+    refreshHome->setShortcut(QKeySequence("Ctrl+R"));
+    addAction(refreshHome);
+
     // --- LOGICA DI CARICAMENTO E SALVATAGGIO FILE ---
+    connect(nuovoImpegno, &QAction::triggered, this, [this]() {
+        stackHome->setCurrentWidget(createPage);
+    });
+
+    connect(settimanaPrima, &QAction::triggered, this, [this]() {
+        calendarPage->mostraSettimanaPrecedente();
+        stackHome->setCurrentWidget(calendarPage);
+    });
+
+    connect(settimanaDopo, &QAction::triggered, this, [this]() {
+        calendarPage->mostraSettimanaSuccessiva();
+        stackHome->setCurrentWidget(calendarPage);
+    });
+
+    connect(refreshHome, &QAction::triggered, this, [this]() {
+        calendarPage->aggiornaHome();
+        stackHome->setCurrentWidget(calendarPage);
+    });
+
     connect(caricaJson, &QAction::triggered, this, [this]() {
         const QString path = QFileDialog::getOpenFileName(this, "Carica file JSON", QString(), "JSON (*.json)");
         if (path.isEmpty()) return;
@@ -92,7 +138,8 @@ Home::Home(QWidget *parent)
     });
 
     // LOGICA DI RICERCA
-    connect(calendarPage, &calendar::richiestaCerca, this, [this]() {
+    // modifiche seconda consegna: stessa azione riusata da ricerca manuale e ricerca in tempo reale.
+    auto eseguiRicerca = [this]() {
         SearchBar* bar = calendarPage->getSearchBar();
         if (bar) {
             QString tit = bar->getTestoTitolo();
@@ -100,10 +147,13 @@ Home::Home(QWidget *parent)
             QDate dat = bar->getValoreData();
             QString pri = bar->getTestoPriorita();
 
+            researchPage->impostaFiltri(tit, dat, tip, pri);
             researchPage->eseguiRicercaFiltrata(tit, dat, tip, pri);
             stackHome->setCurrentWidget(researchPage);
         }
-    });
+    };
+
+    connect(calendarPage, &calendar::richiestaCerca, this, eseguiRicerca);
 
     connect(calendarPage, &calendar::richiestaVisualize, this, [this](std::shared_ptr<Agenda> elemento) {
         paginaPrimaDiVisualize = calendarPage;

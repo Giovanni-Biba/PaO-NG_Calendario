@@ -1,12 +1,40 @@
 #include "research.h"
+#include "agendavisitor.h"
 #include "archivioimpegni.h"
+#include "appuntamento.h"
+#include "attivita.h"
+#include "consegna.h"
+#include "evento.h"
+#include "festivita.h"
+#include "searchbar.h"
 
 #include <QFrame>
 #include <QHBoxLayout>
+#include <QPixmap>
 #include <QLabel>
 #include <QVBoxLayout>
 #include <QGridLayout>
 #include <QScrollArea>
+
+namespace {
+const QString logoIconPath = ":/IMG/logo.png/IMG/logo.png";
+
+// modifiche seconda consegna: visitor per scegliere l'immagine della card senza usare getTipo per il flusso.
+class IconaRicercaVisitor : public AgendaVisitor
+{
+public:
+    void visit(const Attivita &) override { path = ":/IMG/logo.png/IMG/Attivita.png"; }
+    void visit(const Evento &) override { path = ":/IMG/logo.png/IMG/evento.png"; }
+    void visit(const Appuntamento &) override { path = ":/IMG/logo.png/IMG/Appuntamento.png"; }
+    void visit(const Consegna &) override { path = ":/IMG/logo.png/IMG/Consegna.png"; }
+    void visit(const Festivita &) override { path = ":/IMG/logo.png/IMG/festivita.png"; }
+
+    QString immagine() const { return path.isEmpty() ? logoIconPath : path; }
+
+private:
+    QString path;
+};
+}
 
 Research::Research(QWidget *parent) : QWidget(parent)
 {
@@ -27,6 +55,10 @@ Research::Research(QWidget *parent) : QWidget(parent)
     titleLabel->setStyleSheet("font-size: 24px; font-weight: bold; color: #274C69; margin: 10px 0;");
     mainLayout->addWidget(titleLabel);
 
+    // modifiche seconda consegna: barra filtri nella pagina risultati per ricerca in tempo reale.
+    barraRicerca = new SearchBar(this);
+    mainLayout->addWidget(barraRicerca);
+
     QScrollArea *scrollArea = new QScrollArea(this);
     scrollArea->setWidgetResizable(true);
     scrollArea->setStyleSheet("border: none; background: transparent;");
@@ -42,6 +74,21 @@ Research::Research(QWidget *parent) : QWidget(parent)
     mainLayout->addWidget(scrollArea);
 
     connect(buttonIndietro, &QPushButton::clicked, this, &Research::ritornaHomeSlot);
+    auto aggiornaRisultati = [this]() {
+        eseguiRicercaFiltrata(
+            barraRicerca->getTestoTitolo(),
+            barraRicerca->getValoreData(),
+            barraRicerca->getTestoTipo(),
+            barraRicerca->getTestoPriorita()
+        );
+    };
+    connect(barraRicerca, &SearchBar::filtriCambiati, this, aggiornaRisultati);
+    connect(barraRicerca, &SearchBar::cercaClicked, this, aggiornaRisultati);
+}
+
+void Research::impostaFiltri(const QString &titolo, const QDate &data, const QString &tipo, const QString &priorita)
+{
+    barraRicerca->impostaFiltri(titolo, data, tipo, priorita);
 }
 
 void Research::eseguiRicercaFiltrata(const QString &titolo, const QDate &data, const QString &tipo, const QString &priorita)
@@ -88,6 +135,15 @@ QWidget *Research::creaCardAttivita(const std::shared_ptr<Agenda> &elemento)
     card->setStyleSheet("QFrame { border: 2px solid #7D7D7D; border-radius: 15px; background-color: #F2F2F2; padding: 12px; }");
 
     QHBoxLayout *cardHLayout = new QHBoxLayout(card);
+    // modifiche seconda consegna: immagine specifica per tipo scelta tramite visitor.
+    IconaRicercaVisitor visitorIcona;
+    elemento->accept(visitorIcona);
+
+    QLabel *iconaTipo = new QLabel(card);
+    iconaTipo->setPixmap(QPixmap(visitorIcona.immagine()).scaled(34, 34, Qt::KeepAspectRatio, Qt::SmoothTransformation));
+    iconaTipo->setStyleSheet("border: none; padding: 0;");
+    cardHLayout->addWidget(iconaTipo);
+
     QVBoxLayout *leftLayout = new QVBoxLayout();
 
     QLabel *lblTipo = new QLabel(elemento->getTipo().toUpper());

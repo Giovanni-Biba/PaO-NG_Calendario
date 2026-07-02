@@ -17,8 +17,9 @@ public:
 
     QString getTipo() const override;
     QString riepilogo() const override;
-    QMap<QString, QString> campiSpecifici() const override;
     QColor coloreCalendario() const override;
+    // modifiche seconda consegna
+    void accept(AgendaVisitor &visitor) const override;
     bool matchesFiltro(const QString &testo, const QDate &dataFiltro, const QString &tipo, const QString &priorita) const override;
 
     bool isCompletata() const;

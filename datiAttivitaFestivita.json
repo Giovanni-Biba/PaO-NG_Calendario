@@ -467,6 +467,18 @@
             "priorita": "Alta",
             "tipo": "Attivita",
             "titolo": "prova"
+        },
+        {
+            "data": "2026-06-21",
+            "descrizione": "è il mio compleanno",
+            "durata_ore": 1,
+            "giornoNonLavorativo": true,
+            "nomeUfficiale": "boh",
+            "ora": "00:00",
+            "ricorrenzaAnnuale": true,
+            "stato": "Italia",
+            "tipo": "Festivita",
+            "titolo": "compleanno giovanni"
         }
     ]
 }

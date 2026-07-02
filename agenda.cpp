@@ -1,5 +1,7 @@
 #include "agenda.h"
 
+#include <typeinfo>
+
 Agenda::Agenda()
     : durataOre(1), priorita(Media)
 {
@@ -33,12 +35,13 @@ bool Agenda::usaRigaFestivita() const
 
 bool Agenda::matchesFiltro(const QString &testo, const QDate &dataFiltro, const QString &tipo, const QString &priorita) const
 {
+    Q_UNUSED(tipo);
     const QString testoPulito = testo.trimmed().toLower();
-    const bool matchTestoOData = !testoPulito.isEmpty() ? titolo.toLower().contains(testoPulito) : data == dataFiltro;
-    const bool matchTipo = tipo == "Tutte" || getTipo().compare(tipo, Qt::CaseInsensitive) == 0;
+    const bool matchTesto = testoPulito.isEmpty() || titolo.toLower().contains(testoPulito);
+    const bool matchData = !dataFiltro.isValid() || data == dataFiltro;
     const bool matchPriorita = priorita == "Tutte" || (!usaRigaFestivita() && prioritaToString().compare(priorita, Qt::CaseInsensitive) == 0);
 
-    return matchTestoOData && matchTipo && matchPriorita;
+    return matchTesto && matchData && matchPriorita;
 }
 
 void Agenda::toJson(QJsonObject &json) const
@@ -69,7 +72,8 @@ void Agenda::fromJson(const QJsonObject &json)
 
 bool Agenda::stessaChiave(const Agenda &altro) const
 {
-    return getTipo().compare(altro.getTipo(), Qt::CaseInsensitive) == 0 &&
+    // modifiche seconda consegna: confronto del tipo reale senza usare getTipo per il controllo di flusso.
+    return typeid(*this) == typeid(altro) &&
            titolo == altro.titolo &&
            data == altro.data &&
            ora == altro.ora;

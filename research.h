@@ -9,12 +9,16 @@
 
 #include "agenda.h"
 
+class SearchBar;
+
 class Research : public QWidget
 {
     Q_OBJECT
 public:
     explicit Research(QWidget *parent = nullptr);
     void eseguiRicercaFiltrata(const QString &titolo, const QDate &data, const QString &tipo, const QString &priorita);
+    // modifiche seconda consegna: inizializza i filtri della pagina risultati.
+    void impostaFiltri(const QString &titolo, const QDate &data, const QString &tipo, const QString &priorita);
 
 signals:
     void ritornaHome();
@@ -24,6 +28,7 @@ private:
     QWidget* creaCardAttivita(const std::shared_ptr<Agenda> &elemento);
     QWidget *containerRisultati;
     QGridLayout *gridRisultati;
+    SearchBar *barraRicerca;
 
     QPushButton *buttonIndietro;
 

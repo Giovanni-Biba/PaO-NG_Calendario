@@ -1,4 +1,5 @@
 #include "festivita.h"
+#include "agendavisitor.h"
 
 Festivita::Festivita()
     : Agenda(), stato(Worldwide), ricorrenzaAnnuale(true), giornoNonLavorativo(false)
@@ -22,19 +23,15 @@ QString Festivita::riepilogo() const
     return QString("%1 - %2").arg(statoToString(), QString(giornoNonLavorativo ? "giorno non lavorativo" : "ricorrenza"));
 }
 
-QMap<QString, QString> Festivita::campiSpecifici() const
-{
-    return {
-        {"Stato", statoToString()},
-        {"Ricorrenza annuale", ricorrenzaAnnuale ? "Si" : "No"},
-        {"Giorno non lavorativo", giornoNonLavorativo ? "Si" : "No"},
-        {"Nome ufficiale", nomeUfficiale}
-    };
-}
-
 QColor Festivita::coloreCalendario() const
 {
     return giornoNonLavorativo ? QColor::fromRgb(250, 219, 216) : QColor::fromRgb(252, 243, 207);
+}
+
+// modifiche seconda consegna: punto di ingresso del visitor per Festivita.
+void Festivita::accept(AgendaVisitor &visitor) const
+{
+    visitor.visit(*this);
 }
 
 bool Festivita::usaRigaFestivita() const
