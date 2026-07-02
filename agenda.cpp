@@ -72,7 +72,6 @@ void Agenda::fromJson(const QJsonObject &json)
 
 bool Agenda::stessaChiave(const Agenda &altro) const
 {
-    // modifiche seconda consegna: confronto del tipo reale senza usare getTipo per il controllo di flusso.
     return typeid(*this) == typeid(altro) &&
            titolo == altro.titolo &&
            data == altro.data &&

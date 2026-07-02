@@ -982,4 +982,18 @@
         <tipo>Appuntamento</tipo>
         <titolo>Consegna Finale Progetto</titolo>
     </item>
+    <item>
+        <capienzaMassima>250</capienzaMassima>
+        <costoBiglietto>60</costoBiglietto>
+        <data>2026-07-02</data>
+        <descrizione>super concerto wow</descrizione>
+        <durata_ore>3</durata_ore>
+        <luogo>Padova, via luzzati</luogo>
+        <ora>18:17</ora>
+        <organizzatore>Tiziano Ferro</organizzatore>
+        <priorita>Media</priorita>
+        <pubblico>false</pubblico>
+        <tipo>Evento</tipo>
+        <titolo>concerto tiziano ferro</titolo>
+    </item>
 </dati>

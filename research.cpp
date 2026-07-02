@@ -19,7 +19,7 @@
 namespace {
 const QString logoIconPath = ":/IMG/logo.png/IMG/logo.png";
 
-// modifiche seconda consegna: visitor per scegliere l'immagine della card senza usare getTipo per il flusso.
+// modifiche seconda consegna: visitor per scegliere l'immagine della card
 class IconaRicercaVisitor : public AgendaVisitor
 {
 public:
@@ -55,7 +55,7 @@ Research::Research(QWidget *parent) : QWidget(parent)
     titleLabel->setStyleSheet("font-size: 24px; font-weight: bold; color: #274C69; margin: 10px 0;");
     mainLayout->addWidget(titleLabel);
 
-    // modifiche seconda consegna: barra filtri nella pagina risultati per ricerca in tempo reale.
+    // modifiche seconda consegna: barra di ricerca nella pagina risultati per ricerca in tempo reale.
     barraRicerca = new SearchBar(this);
     mainLayout->addWidget(barraRicerca);
 

@@ -479,6 +479,18 @@
             "stato": "Italia",
             "tipo": "Festivita",
             "titolo": "compleanno giovanni"
+        },
+        {
+            "categoria": "fun activity",
+            "completata": false,
+            "data": "2026-07-02",
+            "dataScadenza": "2026-07-02",
+            "descrizione": "partita tra amici",
+            "durata_ore": 1,
+            "ora": "21:16",
+            "priorita": "Alta",
+            "tipo": "Attivita",
+            "titolo": "calcetto"
         }
     ]
 }

@@ -53,7 +53,7 @@ SearchBar::SearchBar(QWidget *parent)
     CercaButton->setStyleSheet("QPushButton { font-weight: bold; padding: 5px 15px; background-color: #3498db; color: white; border-radius: 4px;} QPushButton:hover { background-color: #4DADEB; }");
     mainLayout->addWidget(CercaButton);
 
-    // modifiche seconda consegna: debounce per evitare una ricerca completa a ogni singolo carattere.
+    // modifiche seconda consegna: utilizzo timer per evitare una ricerca completa a ogni singolo carattere (per una questione di performance).
     timerRicerca = new QTimer(this);
     timerRicerca->setSingleShot(true);
     timerRicerca->setInterval(250);
