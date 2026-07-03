@@ -34,7 +34,7 @@ QColor Consegna::coloreCalendario() const
     return QColor::fromRgb(248, 196, 113);
 }
 
-// modifiche seconda consegna: punto di ingresso del visitor per Consegna.
+// modifiche seconda consegna: visitor per Consegna.
 void Consegna::accept(AgendaVisitor &visitor) const
 {
     visitor.visit(*this);

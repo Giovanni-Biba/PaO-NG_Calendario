@@ -16,7 +16,7 @@
 #include <QXmlStreamWriter>
 #include <QDebug>
 
-// modifiche seconda consegna: visitor per filtrare per tipo senza usare getTipo come controllo di flusso.
+// modifiche seconda consegna: visitor per filtrare in base al tipo
 class FiltroTipoVisitor : public AgendaVisitor
 {
 public:
@@ -38,7 +38,7 @@ private:
     bool corrisponde;
 };
 
-// modifiche seconda consegna: visitor per scegliere il formato di salvataggio senza confrontare stringhe di tipo.
+// modifiche seconda consegna: visitor per scegliere il formato di salvataggio
 class FormatoArchivioVisitor : public AgendaVisitor
 {
 public:

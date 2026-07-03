@@ -16,7 +16,7 @@
 #include <QScrollArea>
 #include <QVBoxLayout>
 
-// modifiche seconda consegna: visitor che costruisce widget diversi in base al tipo concreto.
+// modifiche seconda consegna: visitor che costruisce widget diversi in base al tipo
 class DettaglioAgendaVisitor : public AgendaVisitor
 {
 public:
@@ -300,7 +300,7 @@ void visualize::aggiornaVista()
     aggiungiRiga("Descrizione:", elementoCorrente->getDescrizione());
     aggiungiRiga("Data:", elementoCorrente->getData().toString("dd MMMM yyyy"));
 
-    // modifiche seconda consegna: evita confronti testuali sul tipo e usa il comportamento polimorfico.
+    // modifiche seconda consegna: evita confronti testuali
     if (!elementoCorrente->usaRigaFestivita()) {
         aggiungiRiga("Ora:", elementoCorrente->getOra().toString("HH:mm"));
         aggiungiRiga("Durata:", QString::number(elementoCorrente->getDurataOre()) + " ore");

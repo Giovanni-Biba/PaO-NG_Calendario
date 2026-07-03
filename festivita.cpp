@@ -28,7 +28,7 @@ QColor Festivita::coloreCalendario() const
     return giornoNonLavorativo ? QColor::fromRgb(250, 219, 216) : QColor::fromRgb(252, 243, 207);
 }
 
-// modifiche seconda consegna: punto di ingresso del visitor per Festivita.
+// modifiche seconda consegna: visitor per Festivita.
 void Festivita::accept(AgendaVisitor &visitor) const
 {
     visitor.visit(*this);

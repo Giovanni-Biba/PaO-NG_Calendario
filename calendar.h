@@ -20,7 +20,7 @@ public:
 
     SearchBar* getSearchBar() const { return BarraRicerca; }
     void aggiornaCalendario();
-    // modifiche seconda consegna: metodi pubblici richiamabili dalle scorciatoie della finestra principale.
+    // modifiche seconda consegna: metodi pubblici richiamabili dalle scorciatoie
     void mostraSettimanaPrecedente();
     void mostraSettimanaSuccessiva();
     void aggiornaHome();

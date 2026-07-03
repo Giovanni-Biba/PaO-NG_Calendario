@@ -29,7 +29,7 @@ QColor Appuntamento::coloreCalendario() const
     return confermato ? QColor::fromRgb(215, 189, 226) : QColor::fromRgb(232, 218, 239);
 }
 
-// modifiche seconda consegna: punto di ingresso del visitor per Appuntamento.
+// modifiche seconda consegna
 void Appuntamento::accept(AgendaVisitor &visitor) const
 {
     visitor.visit(*this);

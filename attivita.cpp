@@ -36,7 +36,7 @@ QColor Attivita::coloreCalendario() const
     return QColor::fromRgb(171, 235, 198);
 }
 
-// modifiche seconda consegna: punto di ingresso del visitor per Attivita.
+// modifiche seconda consegna: visitor per Attivita.
 void Attivita::accept(AgendaVisitor &visitor) const
 {
     visitor.visit(*this);

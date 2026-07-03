@@ -177,7 +177,7 @@ void calendar::vaiSettimanaSuccessiva()
     aggiornaCalendario();
 }
 
-// modifiche seconda consegna: wrapper pubblici usati dalle scorciatoie globali.
+// modifiche seconda consegna: wrapper pubblici usati dalle scorciatoie
 void calendar::mostraSettimanaPrecedente()
 {
     vaiSettimanaPrecedente();

@@ -38,7 +38,7 @@ private:
 
 signals:
     void cercaClicked();
-    // modifiche seconda consegna: segnale emesso quando cambia un filtro della ricerca.
+    // modifiche seconda consegna
     void filtriCambiati();
 };
 

@@ -7,7 +7,7 @@ class Consegna;
 class Evento;
 class Festivita;
 
-// modifiche seconda consegna: visitor per gestire comportamenti specifici dei tipi Agenda.
+// modifiche seconda consegna: visitor per gestire comportamenti dei tipi Agenda.
 class AgendaVisitor
 {
 public:

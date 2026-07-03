@@ -29,7 +29,7 @@ QColor Evento::coloreCalendario() const
     return pubblico ? QColor::fromRgb(174, 214, 241) : QColor::fromRgb(214, 234, 248);
 }
 
-// modifiche seconda consegna: punto di ingresso del visitor per Evento.
+// modifiche seconda consegna: visitor per Evento.
 void Evento::accept(AgendaVisitor &visitor) const
 {
     visitor.visit(*this);

@@ -53,7 +53,7 @@ SearchBar::SearchBar(QWidget *parent)
     CercaButton->setStyleSheet("QPushButton { font-weight: bold; padding: 5px 15px; background-color: #3498db; color: white; border-radius: 4px;} QPushButton:hover { background-color: #4DADEB; }");
     mainLayout->addWidget(CercaButton);
 
-    // modifiche seconda consegna: utilizzo timer per evitare una ricerca completa a ogni singolo carattere (per una questione di performance).
+    // modifiche seconda consegna: utilizzo timer
     timerRicerca = new QTimer(this);
     timerRicerca->setSingleShot(true);
     timerRicerca->setInterval(250);
@@ -77,7 +77,7 @@ SearchBar::SearchBar(QWidget *parent)
 
 void SearchBar::impostaFiltri(const QString &titolo, const QDate &data, const QString &tipo, const QString &priorita)
 {
-    // modifiche seconda consegna: aggiorna i controlli senza emettere ricerche intermedie.
+    // modifiche seconda consegna: aggiorna i controlli
     const bool bloccoTitolo = TitoloInput->blockSignals(true);
     const bool bloccoDataCheck = DataCheck->blockSignals(true);
     const bool bloccoData = DataInput->blockSignals(true);

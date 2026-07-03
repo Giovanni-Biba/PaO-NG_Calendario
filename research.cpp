@@ -19,7 +19,7 @@
 namespace {
 const QString logoIconPath = ":/IMG/logo.png/IMG/logo.png";
 
-// modifiche seconda consegna: visitor per scegliere l'immagine della card
+// modifiche seconda consegna: visitor per scegliere l'immagine
 class IconaRicercaVisitor : public AgendaVisitor
 {
 public:
